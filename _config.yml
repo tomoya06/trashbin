@@ -78,4 +78,6 @@ theme: hexo
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:tomoya06/tomoya06.github.io
+  branch: master
