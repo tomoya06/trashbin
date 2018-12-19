@@ -1,6 +1,9 @@
 ---
 title: 常用美化指令收藏
 date: 2018-12-11 17:23:59
+categories:
+- 技巧
+- Linux
 tags:
 - 美化
 - 搞机
