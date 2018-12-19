@@ -1,12 +1,13 @@
 ---
-title: solidity
+title: Solidity 语法学习笔记
 date: 2018-12-13 00:54:52
 tags:
 - ethereum
 - solidity
 - smart contract
 ---
-# Solidity 语法学习笔记
+
+##　基本语法
 
 1. `[type] [prop] [var name]` : 声明变量
  * 常用变量类型：

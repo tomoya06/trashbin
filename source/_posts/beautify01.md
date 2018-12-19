@@ -1,12 +1,10 @@
 ---
-title: beautify01
+title: 常用美化指令收藏
 date: 2018-12-11 17:23:59
 tags:
 - 美化
 - 搞机
 ---
-
-# 常用美化指令收藏 
 
 ## bash agnoster主题
 
