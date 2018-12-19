@@ -18,4 +18,3 @@ tags:
 4. `function [constract name]() public {}`：构造函数
 5. `event [event name]([type] [args])`：事件注册。轻客户端可以通过事件针对变化作出高效的反应。`emit [event name]([args]);`触发事件。
 6. `require([condition], [error msg string]);`：条件检查。condition为false时函数终止执行并返回error msg。
-7. 
