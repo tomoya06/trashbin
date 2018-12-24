@@ -115,8 +115,49 @@ tags:
 
 ## 网络层
 
-### 协议
+* 主要功能：
+  * 转发（单一路由器的出入选择），
+  * 路由选择（多个路由器间的路径选择），
+  * 建立连接
 
-#### IP协议
+### 路由器工作原理
+
+* 数据单位：数据报(datagram)
+* 转发表：前缀-链路接口，最长前缀匹配规则
+* 结构：输入端口（使用转发表），交换结构，输出端口，路由选择处理器
+* 分组队列，排队
+  * 线路前部阻塞(Head-Of-the-Line, HOL)
+* 数据报格式
+* 因特网网络层的主要组件：IP协议，因特网路由选择协议，因特网控制报文协议(ICMP)
+
+### IP协议
 
 * 关键词：尽力而为交付服务，不可靠服务
+* IPv4
+  * 编址：32比特/4字节
+  * 子网，子网掩码，
+    * 无类别域间路由选择(Classless Interdomain Routing, CIDR)：a.b.c.d/x
+  * 动态主机配置协议(Dynamic Host Configuration, DHCP)：自动分配新IP地址的过程
+  * 网络地址转换(Network Address Translation. NAT)：管理IP地址的典型方法 
+* IPv6
+  * 编址：128比特
+  * v4迁移到v6：双站，建隧道
+
+### ICMP
+
+* ping：ICMP类型0
+
+### 路由选择算法
+
+* 解决问题：从源路由器到目的路由器的路由选择问题
+* 分类：
+  * 全局式路由选择算法/链路状态算法(Link State, LS)：
+    * 网络拓扑和链路费用均已知
+    * eg：Dijkstra算法
+  * 分散式路由选择算法/距离向量算法(Distance Vector, DV)：
+    * 迭代、异步、分布式算法
+    * 原理：Bellman-Ford方程：$d_{x}(y)=min_{v}{c(x, v)+d_{v}(y)}$，其中v是y的邻居之一
+    * 链路费用发生变化、链路故障引起的距离向量变化过程：”好消息传得快，坏消息传得慢“
+  * 层次路由选择：自治系统(Autonomous System, AS) + 自治系统内部路由选择协议(intra-autonomous system routing protocol) + 自治系统间路由选择协议(inter-autonomous system routing protocol)
+    * 因特网中的自治系统内部的路由选择：路由选择信息协议(Routing Information Protocol, RIP)，开放最短路优先(Open Shortest Path First, OSPF)
+    * 自治间的路由选择：边界网关协议(Border Gateway Protocol, BGP) <-- "绝对至关重要的协议！"“将所有的东西粘合在一起了”
