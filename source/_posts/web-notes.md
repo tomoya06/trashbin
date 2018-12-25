@@ -156,7 +156,7 @@ tags:
     * eg：Dijkstra算法
   * 分散式路由选择算法/距离向量算法(Distance Vector, DV)：
     * 迭代、异步、分布式算法
-    * 原理：Bellman-Ford方程：$d_{x}(y)=min_{v}{c(x, v)+d_{v}(y)}$，其中v是y的邻居之一
+    * 原理：Bellman-Ford方程：$d_{x}(y)=min_{v}{c(x, v)+d_{v}(y)}$_，其中v是y的邻居之一
     * 链路费用发生变化、链路故障引起的距离向量变化过程：”好消息传得快，坏消息传得慢“
   * 层次路由选择：自治系统(Autonomous System, AS) + 自治系统内部路由选择协议(intra-autonomous system routing protocol) + 自治系统间路由选择协议(inter-autonomous system routing protocol)
     * 因特网中的自治系统内部的路由选择：路由选择信息协议(Routing Information Protocol, RIP)，开放最短路优先(Open Shortest Path First, OSPF)
