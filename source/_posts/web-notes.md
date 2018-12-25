@@ -71,19 +71,22 @@ tags:
   * 关键字：UDP，53端口，CS结构
 * 分布式设计
   * 层次：根/顶级域(TLD)/权威/本地DNS服务器
-  * 递归查询 vs 迭代查询
+  * 递归查询 vs 迭代查询：前者发起查询主体逐步推移，后者同一主题发起查询
   * DNS缓存
 
 #### P2P
 
 * 文件分发
-  * 分发时间计算，下界
-* 分布式散列表(P2P数据库)(DHT)
+  * 分发时间及下界计算
+    * C/S结构文件分发时间：$D_{cs}\geq max{\frac{NF}{u_{s}}, \frac{F}{d_{min}}}$
+    * P2P结构文件分发时间：$D_{p2p}\geq max{\frac{F}{u_{s}}, \frac{F}{d_{min}}, \frac{NF}{u_{s}+\sum_{i=1}^{N}u_{i}}}$
+    * 分布式散列表(P2P数据库)(DHT)
   * 关键字：散列函数，
   * 实现：环形DHT，具有捷径的环形DHT，
 
-
 #### socket编程
+
+教材用的python，自行用NodeJS。注意tcp socket在net库，udp socket在dgram库。
 
 ## 传输层
 
@@ -122,9 +125,14 @@ tags:
   * 关闭连接
 * TCP拥塞算法：加性增、乘性减(Additive-Increase Multiplicative-Decrease, AIMD)
   * 参数：cwnd/ssthresh
-  * 慢启动：cwnd×2 ~ ssthreash=cwnd_t/2, cwnd=1,cwnd×2
-  * 拥塞避免：cwnd++ ~ ssthresh=cwnd_t/2, cwnd=1
-  * 快速恢复(非必须)
+  * 慢启动：`cwnd**2`，直到出现了：
+    1. 超时：$ssthresh=cwnd_{t}\div 2, cwnd=1$，然后重新开始慢启动
+    2. $cwnd=ssthreash$：进入拥塞避免模式
+    3. 检测到3个ACK：执行快速重传并进入快速恢复模式$$
+  * 拥塞避免：`cwnd++`，直到出现了：
+    1. 超时：同上
+    2. 3个ACK：$cwnd=cwnd_{t}\div 2(+3MSS), ssthresh=cwnd_{t}\div 2$
+  * 快速恢复(非必须)：`cwnd++`
 
 #### UDP
 
