@@ -9,6 +9,8 @@ categories:
 
 > 廖雪峰python教程学习笔记
 
+<!-- more -->
+
 ## 基础
 
 ### 数据类型
