@@ -604,10 +604,10 @@ algolia_search:
 # Local search
 # Dependencies: https://github.com/flashlab/hexo-generator-search
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
-  trigger: auto
+  trigger: manual
   # show top n results per article, show all results by setting to -1
   top_n_per_article: 1
 
@@ -814,7 +814,7 @@ version: 5.1.4
 
 # live2d
 live2d:
-  enable: true
+  enable: false
   pluginModelPath: assets/
   model:
     use: live2d-widget-model-hijiki
