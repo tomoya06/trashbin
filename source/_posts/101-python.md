@@ -37,6 +37,8 @@ categories:
 
 ### 容器结构
 
+#### list / tuple
+
 * list：`classmates = ['Mike', 'John']`
   * length: `len(classmates)`
   * index: `classmates[0] = 'Mike` `classmates[-1] = John`
@@ -44,9 +46,22 @@ categories:
   * pop: `classmates.pop()` `classmates.pop(-1)`
   * insert: `list.insert(i, x)`
 * tuple: unchangable list `classmates = ('mike', 'john')`
+
+#### dict set
+
 * dict: `d = {'Mike': 10, 'bob': 20, ...}`
+  * 获得值：`d['Mike']`
   * 检查key：`key in d`
+  * api：`d.keys() d.values() d.items()`
 * set: non-repeat list `s = set([1, 1, 2, 3, 4])`
+
+#### 操作
+
+* 【list / tuple】切片：`list[0:2] list[0:-1] list[0::2]`
+* 【list / tuple / dict】迭代：`for x in list` `for value in d.values()` `for k, v in d.items()`
+  * 判断一个对象是可迭代对象：通过collections模块的Iterable类型判断
+  * 对list实现下标循环：`for i, value in enumerate(['A', 'B', 'C']):`
+* 【list】列表生成器：`['%d x %d' % (x, x) for x in range(1, 11)]`
 
 ### 条件 循环
 
@@ -74,7 +89,8 @@ while_stmt ::=  "while" expression ":" suite
 
 ### 类型检查
 
-
+* type: `type(param)`
+* isinstance: `isinstance(target, type)`
 
 ## 函数
 
@@ -127,3 +143,31 @@ funcname                ::=  identifier
 
 * 递归
 * 尾递归优化
+
+### 高级特性
+
+#### 生成器 (generator)
+  
+* 生成方式：
+  * `(x*x for x in range(10))`
+  * 包含`yield`的函数
+
+````
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+````
+
+* 特性：生成器也是一个可迭代类，可通过调用`next(g)`或在`for n in g`使用来不断得到下一步结果。
+* JS中也有generator的实现，即`function* yield`。详见[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+
+#### 迭代器 (Iterator)
+
+* 凡是可作用于for循环的对象都是Iterable类型；
+* 集合数据类型如list、dict、str等是Iterable但不是Iterator
+* 可以通过`iter()`获得一个Iterator对象。
+* 可以通过`list()`将Iterator 转换成 Iterable
