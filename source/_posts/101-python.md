@@ -89,8 +89,8 @@ while_stmt ::=  "while" expression ":" suite
 
 ### 类型检查
 
-* type: `type(param)`
-* isinstance: `isinstance(target, type)`
+* type: `type(param)` 得到该对象的类型
+* isinstance: `isinstance(target, type)` 判断该对象是否是某种类的实例
 
 ## 函数
 

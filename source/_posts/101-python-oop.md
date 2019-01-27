@@ -44,7 +44,7 @@ class Student(object):
         self.score = score
 ````
 
-> 注意到__init__方法的第一个参数永远是`self`，但创建实例时不需要为self赋值
+注意到__init__方法的第一个参数永远是`self`，但创建实例时不需要为self赋值
 
 * 声明其他方法
 
@@ -54,7 +54,9 @@ class Student(object):
         print('%s: %s' % (self.name, self.score))
 ````
 
-> 注意到第一个参数还是`self`
+注意到第一个参数还是`self`
+
+> 为什么在每个类方法定义中都要带第一个`self`参数的讨论：在实际运行时，解释器会把`obj.func(arg1, arg2)`转换为`Cla.func(obj, arg1, arg2)`。当然python也可以像其他语言的`this`那样把`self`当作内置属性，但这与python的设计理念不符，即*"Explicit is better than implicit."* (笑
 
 ## 访问限制
 
@@ -87,3 +89,133 @@ class Animal(Object):
 一个实例同时属于多个类。类继承可以引起多态出现。
 
 > Python是动态语言，类型检测采用**鸭子类型**检测。JS也是。
+
+## 获取对象信息
+
+* 类型检查：`type()`和`isinstance()`。后者检查继承类型时比较方便
+* 获得对象的所有属性和方法：`dir(obj)` 
+* `hasattr(obj, namestr)`
+* `setattr(obj, namestr, val)`
+* `getattr(obj, namestr)`
+
+## 类属性
+
+````
+class Student:
+    number = 0
+    # ...
+    def a_func():
+        Student.number += 1 # 读写类属性
+# ...
+
+print(Student.number) # 读写类属性
+````
+
+注意同名属性时，实例属性会屏蔽类属性。
+
+## 特殊属性/双下划线开头属性
+
+### __slots__
+
+用于限制该类属性数量。
+
+````
+class Student:
+    __slots__ = ('prop1', 'prop2')
+````
+
+### __str__ __repr__
+
+`__str__()`返回用户看到的字符串，而__repr__()返回程序开发者看到的字符串，也就是说，`__repr__()`是为调试服务的。可以在定义完`__str__`之后简单定义：`__repr__ = __str__`
+
+### __iter__ __next__
+
+如果一个类想被用于`for ... in`循环，类似list或tuple那样，就必须实现一个`__iter__()`方法，该方法**返回一个迭代对象**，然后，Python的`for`循环就会不断**调用该迭代对象**的`__next__()`方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。
+
+````
+class Fib(object):
+    def __init__(self):
+        self.a, self.b = 0, 1 # 初始化两个计数器a，b
+
+    def __iter__(self):
+        return self # 实例本身就是迭代对象，故返回自己
+
+    def __next__(self):
+        self.a, self.b = self.b, self.a + self.b # 计算下一个值
+        if self.a > 100000: # 退出循环的条件
+            raise StopIteration()
+        return self.a # 返回下一个值
+
+for n in Fib():
+    print(n)
+        
+````
+
+`for … in… `这个语句其实做了两件事。第一件事是获得一个可迭代器，即调用了`__iter__()`函数。 第二件事是循环的过程，循环调用`__next__()`函数。
+
+### __getitem__
+
+### __getattr__
+
+e.g. 一个动态调用API的方法
+
+````
+class Chain(object):
+
+    def __init__(self, path=''):
+        self._path = path
+
+    def __getattr__(self, path):
+        return Chain('%s/%s' % (self._path, path))
+
+    def __str__(self):
+        return self._path
+
+    __repr__ = __str__
+
+# >>> Chain().status.user.timeline.list
+# '/status/user/timeline/list'
+# >>> Chain().users('michael').repos
+# '/users/michael/repos'
+````
+
+### __call__
+
+直接把实例当作方法来调用
+
+## getter / setter 优化：使用装饰器@property
+
+````
+class Student(object):
+
+    # read-write property with @score.setter
+    @property
+    def score(self):
+        return self._score
+
+    @score.setter
+    def score(self, value):
+        if not isinstance(value, int):
+            raise ValueError('score must be an integer!')
+        if value < 0 or value > 100:
+            raise ValueError('score must between 0 ~ 100!')
+        self._score = value
+
+    # read-only property
+    @property
+    def age(self):
+        return 2015 - self._birth
+````
+
+之后可以直接通过`student1.score` `student1.score = 1` 的方式来读写属性
+
+## 多重继承
+
+Python支持多重继承。通过继承多个Mixin类来给某个类添加功能，方便有效。
+
+````
+class Dog(Mammal, RunnableMixIn, CarnivorousMixIn):
+    pass
+````
+
+> 多重继承在遇到多个父类有同名属性/方法时，选择优先级按照拓扑排序顺序选择。可参考[这篇博客](https://kevinguo.me/2018/01/19/python-topological-sorting/)
