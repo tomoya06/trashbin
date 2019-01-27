@@ -10,6 +10,8 @@ tags:
 - smart contract
 ---
 
+<!-- more -->
+
 ## 基本语法
 
 1. `[type] [prop] [var name]` : 声明变量

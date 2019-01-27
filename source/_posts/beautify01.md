@@ -9,6 +9,8 @@ tags:
 - 搞机
 ---
 
+<!-- more -->
+
 ## bash agnoster主题
 
 ````

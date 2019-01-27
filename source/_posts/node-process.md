@@ -6,6 +6,8 @@ categories:
 - Node
 ---
 
+<!-- more -->
+
 ## 提示
 
 child_process.exec() 和 child_process.execFile() 之间的区别会因平台而不同。 在类 Unix 操作系统（Unix、 Linux、 macOS）上，child_process.execFile() 效率更高，因为它不需要衍生 shell。 但在 Windows 上，.bat 和 .cmd 文件在没有终端的情况下是不可执行的，因此不能使用 child_process.execFile() 启动。 可以使用设置了 shell 选项的 child_process.spawn()、或使用 child_process.exec()、或衍生 cmd.exe 并将 .bat 或 .cmd 文件作为参数传入（也就是 shell 选项和 child_process.exec() 所做的工作）。 如果脚本文件名包含空格，则需要加上引号。
