@@ -220,8 +220,15 @@
         }
     </style>
     <style>
-        .reveal.reveal img {
-            max-height: 66vh;
+        @media screen and (min-width: 768px) {
+            .reveal.reveal img {
+                max-height: calc(66vh);
+            }
+        }
+        @media screen and (max-width: 767px) {
+            .reveal.reveal img {
+                max-height: calc(120vh);
+            }
         }
 
         a.hover-image {
@@ -273,11 +280,11 @@
                     <br>
                     <p><a href="#" class="navigate-down"><i class="fa fa-angle-down fa-2x"></i></a></p>
                 </section>
-                <section><img data-src="./src/db/01.png"></section>
-                <section><img data-src="./src/db/02.png"></section>
-                <section><img data-src="./src/db/03.png"></section>
-                <section><img data-src="./src/db/04.png"></section>
-                <section><img data-src="./src/db/05.png"></section>
+                <section data-background-image='./src/db/01.png' data-background-size='80%'></section>
+                <section data-background-image='./src/db/02.png' data-background-size='80%'></section>
+                <section data-background-image='./src/db/03.png' data-background-size='80%'></section>
+                <section data-background-image='./src/db/04.png' data-background-size='80%'></section>
+                <section data-background-image='./src/db/05.png' data-background-size='80%'></section>
             </section>
             <section>
                 <section>
@@ -290,11 +297,11 @@
                     <br>
                     <p><a href="#" class="navigate-down"><i class="fa fa-angle-down fa-2x"></i></a></p>
                 </section>
-                <section><img data-src="./src/cpchain/01.png"></section>
-                <section><img data-src="./src/cpchain/02.png"></section>
-                <section><img data-src="./src/cpchain/03.png"></section>
-                <section><img data-src="./src/cpchain/04.png"></section>
-                <section><img data-src="./src/cpchain/05.png"></section>
+                <section data-background-image='./src/cpchain/01.png' data-background-size='80%'></section>
+                <section data-background-image='./src/cpchain/02.png' data-background-size='80%'></section>
+                <section data-background-image='./src/cpchain/03.png' data-background-size='80%'></section>
+                <section data-background-image='./src/cpchain/04.png' data-background-size='80%'></section>
+                <section data-background-image='./src/cpchain/05.png' data-background-size='80%'></section>
             </section>
             <section>
                 <section>
@@ -307,12 +314,12 @@
                     <br>
                     <p><a href="#" class="navigate-down"><i class="fa fa-angle-down fa-2x"></i></a></p>
                 </section>
-                <section><img data-src="./src/ppmusic/01.png"></section>
-                <section><img data-src="./src/ppmusic/02.png"></section>
-                <section><img data-src="./src/ppmusic/03.png"></section>
-                <section><img data-src="./src/ppmusic/04.png"></section>
-                <section><img data-src="./src/ppmusic/05.png"></section>
-                <section><img data-src="./src/ppmusic/06.png"></section>
+                <section data-background-image='./src/ppmusic/01.png' data-background-size='80%'></section>
+                <section data-background-image='./src/ppmusic/02.png' data-background-size='80%'></section>
+                <section data-background-image='./src/ppmusic/03.png' data-background-size='80%'></section>
+                <section data-background-image='./src/ppmusic/04.png' data-background-size='80%'></section>
+                <section data-background-image='./src/ppmusic/05.png' data-background-size='80%'></section>
+                <section data-background-image='./src/ppmusic/06.png' data-background-size='80%'></section>
             </section>
             <section id="final">
                 <section>
