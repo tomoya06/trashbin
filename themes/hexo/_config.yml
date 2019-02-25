@@ -815,12 +815,3 @@ version: 5.1.4
 # live2d
 live2d:
   enable: false
-  pluginModelPath: assets/
-  model:
-    use: live2d-widget-model-hijiki
-  display:
-    position: left
-    width: 150
-    height: 300
-  mobile:
-    show: false
