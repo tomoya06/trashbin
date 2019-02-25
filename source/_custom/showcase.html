@@ -1,0 +1,143 @@
+<!-- ---
+layout: false
+--- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Showcase - tomoya06's Homepage</title>
+    <link rel="stylesheet" href="./_navbar.css">
+    <link rel="stylesheet" href="./_style.css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/reveal.js/3.7.0/css/reveal.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/reveal.js/3.7.0/css/theme/beige.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="reveal">
+        <div class="slides">
+            <section>
+                <h2>SHOWCASE</h2>
+                <h4>of</h4>
+                <h2>tomoya's WORK</h2>
+                <p><i><small>
+                            Use Arrow Keys for Better Experience
+                            <br>Scroll Down for Screenshots
+                        </small></i></p>
+            </section>
+            <section>
+                <section>
+                    <h2>DOUBAN EVENT APP</h2>
+                    <h5>Android / iOS</h5>
+                    <p>Powered by <a href="#"><i>React Native</i></a>. Stay tune with the latest events held in your
+                        city.</p>
+                    <p>Event data are provided by <a href="https://shanghai.douban.com/">douban.com</a></p>
+                    <p><a href="https://github.com/tomoya06/react-native-douban-event"><i
+                                class="fa fa-github fa-2x fa-spin"></i></a></p>
+                    <br>
+                    <p><a href="#" class="navigate-down"><i class="fa fa-angle-down fa-2x"></i></a></p>
+                </section>
+                <section><img data-src="./src/db/01.png"></section>
+                <section><img data-src="./src/db/02.png"></section>
+                <section><img data-src="./src/db/03.png"></section>
+                <section><img data-src="./src/db/04.png"></section>
+                <section><img data-src="./src/db/05.png"></section>
+            </section>
+            <section>
+                <section>
+                    <h2>CPCHAIN EXPLORER</h2>
+                    <h5>Web</h5>
+                    <p>Powered by <a href="#"><i>VUE.JS</i></a>. Keep track with block & transaction infomation on <a
+                            href="https://cpchain.io/"><i>CPChain</i></a>, a new distributed infrastructure for next
+                        generation IoT.</p>
+                    <p><a href="https://cpchain.io/explorer/"><i class="fa fa-globe fa-2x fa-spin"></i></a></p>
+                    <br>
+                    <p><a href="#" class="navigate-down"><i class="fa fa-angle-down fa-2x"></i></a></p>
+                </section>
+                <section><img data-src="./src/cpchain/01.png"></section>
+                <section><img data-src="./src/cpchain/02.png"></section>
+                <section><img data-src="./src/cpchain/03.png"></section>
+                <section><img data-src="./src/cpchain/04.png"></section>
+                <section><img data-src="./src/cpchain/05.png"></section>
+            </section>
+            <section>
+                <section>
+                    <h2>PP Music Browser</h2>
+                    <h5>Web / NodeJS</h5>
+                    <p>Powered by <a href="#"><i>React.JS</i></a> and <a href="#"><i>Node.JS</i></a>. An awesome &
+                        modern music browser. Data are provided by <a href="#">Netease Music</a>.</p>
+                    <p><a href="https://github.com/tomoya06/pp-music-player"><i
+                                class="fa fa-github fa-2x fa-spin"></i></a></p>
+                    <br>
+                    <p><a href="#" class="navigate-down"><i class="fa fa-angle-down fa-2x"></i></a></p>
+                </section>
+                <section><img data-src="./src/ppmusic/01.png"></section>
+                <section><img data-src="./src/ppmusic/02.png"></section>
+                <section><img data-src="./src/ppmusic/03.png"></section>
+                <section><img data-src="./src/ppmusic/04.png"></section>
+                <section><img data-src="./src/ppmusic/05.png"></section>
+                <section><img data-src="./src/ppmusic/06.png"></section>
+            </section>
+            <section id="final">
+                <section>
+                    <h2>TO BE CONTINUED</h2>
+                    <br>
+                    <h4>CONTACTS</h4>
+                    <p>
+                        <a href="https://github.com/tomoya06"><i class="fa fa-github-alt"></i></a>&nbsp;&nbsp;
+                        <a href="https://www.instagram.com/pjh_tomoya06/"><i
+                                class="fa fa-instagram"></i></a>&nbsp;&nbsp;
+                        <a href="mailto:peng4766@gmail.com"><i class="fa fa-envelope"></i></a>&nbsp;&nbsp;
+                        <a href="javascript:void()" class="hover-image">
+                            <i class="fa fa-wechat"></i>
+                            <img src="./src/wechat.jpg" alt="WeChat">
+                        </a>
+                    </p>
+                    <p class="footer-para">© 2019 tomoya06</p>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <nav class="outer-menu">
+        <input class="checkbox-toggle" type="checkbox" />
+        <div class="hamburger">
+            <div></div>
+        </div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul onclick="closeNav()">
+                        <li><a href="#">Start Over</a></li>
+                        <li><a href="https://tomoya06.github.io/">Blog</a></li>
+                        <li><a href="javascript:void(0)" onclick="gotoFinal()">Contacts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://cdn.bootcss.com/reveal.js/3.7.0/js/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            height: '100%',
+            history: true
+        })
+
+        function gotoFinal() {
+            var indices = Reveal.getIndices(document.getElementById('final'));
+            Reveal.slide(indices.h, indices.v);
+        }
+
+        function closeNav() {
+            var checkbox = document.getElementsByClassName('outer-menu')[0].getElementsByClassName('checkbox-toggle')[0]
+            checkbox.checked = !checkbox.checked
+        }
+    </script>
+</body>
+
+</html>
