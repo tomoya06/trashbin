@@ -9,6 +9,8 @@ tags:
 
 > 原文出自Yehuda的[这篇博客](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)，是在Typescript的中文教程里看到的。
 
+<!-- more -->
+
 JS的函数调用一直以来给不少人带来疑惑，其中`this`的语义是人们抱怨的最多的。
 
 在我看来，首先理解了函数调用的原始核心语法，然后弄清楚其他调用函数的语法糖，这些疑惑就能解决了。实际上这正式ECMA规范所设计的思路。在某种程度上，这篇文章是ECMA规范的简化版，不过基本理念都是一样的。
