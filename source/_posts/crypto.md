@@ -7,6 +7,10 @@ categories:
 - 密码学
 ---
 
+> 加密学笔记
+
+<!-- more -->
+
 ## 非对称加密
 
 * [定义](https://zh.wikipedia.org/wiki/%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86)：也称为公开密钥加密。
