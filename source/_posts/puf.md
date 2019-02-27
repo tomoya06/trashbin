@@ -38,7 +38,7 @@ categories:
 
 ## 系统架构
 
-![](/images/PUF/PUF01.png)
+![](/images/PUF/PUF01.jpg)
 
 ## 流程
 
@@ -65,10 +65,13 @@ categories:
 6. 节点A收到之后，
    1. PUF计算：$R_{actural}=PUF_a(C_a)$
    2. BCH解码器计算：$BCH_{Decoder}(HLP_a)=R_{corrected}$，应满足$R_{corrected}=R_{actural}$
-   3. 进行计算：<br>$P^`_a=H1(R_{corrected})$<br> $P^`_s=Q_a-P^`_a-H1(ID_a||ID_b)$ <br>$V^`_a=e(P^`_a, P^`_s)$
-   4. 节点A随机选择$t \in _RZ^*_q, Y_a \in _RG^*_1$，计算密钥对：$KA_{PUB}=t \cdot Q_a, KA_{PRV}=t \cdot Y_a$, 组成元组<$V^`_a, KA_{PUB}, Y_a, H3(P^`_s+KA_{PUB})||H3(Y_a)$>发给验证机
-7. 验证机收到之后，如果$V_a=V^`_a$，$H3(P_s+KA_{PUB})||H3(Y_a)=H3(P^`_s+KA_{PUB})||H3(Y_a)$，验证机就认为节点A是已授权设备，并接受他的公钥$KA_{PUB}$
+   3. 进行计算：
+   $$P^\prime_a=H1(R_{corrected})$$
+   $$P^\prime_s=Q_a-P^\prime_a-H1(ID_a||ID_b)$$
+   $$V^\prime_a=e(P^\prime_a, P^\prime_s)$$
+   4. 节点A随机选择$t \in _RZ^*_q, Y_a \in _RG^*_1$，计算密钥对：$KA_{PUB}=t \cdot Q_a, KA_{PRV}=t \cdot Y_a$, 组成元组<$V^\prime_a, KA_{PUB}, Y_a, H3(P^\prime_s+KA_{PUB})||H3(Y_a)$>发给验证机
+7. 验证机收到之后，如果$V_a=V^\prime_a$，$H3(P_s+KA_{PUB})||H3(Y_a)=H3(P^\prime_s+KA_{PUB})||H3(Y_a)$，验证机就认为节点A是已授权设备，并接受他的公钥$KA_{PUB}$
 8. 类似地，验证机验证节点B，最后给节点A发送元组<$KB_{PUB}, Q_b, Y_b, H3(H1(P_a)||H1(KB_{PUB})||H1(Q_b)||H1(Y_b))$>
-9. 节点A收到之后，若$H3(H1(P_a)||H1(KB_{PUB})||H1(Q_b)||H1(Y_b))=H3(H1(P^`_a)||H1(KB_{PUB})||H1(Q_b)||H1(Y_b))$，说明验证机是已授权的，因为只有验证机能使用$P_s$来解析出$P_a$，并接受节点B的公钥
+9.  节点A收到之后，若$H3(H1(P_a)||H1(KB_{PUB})||H1(Q_b)||H1(Y_b))=H3(H1(P^\prime_a)||H1(KB_{PUB})||H1(Q_b)||H1(Y_b))$，说明验证机是已授权的，因为只有验证机能使用$P_s$来解析出$P_a$，并接受节点B的公钥
 
 ## 分析
