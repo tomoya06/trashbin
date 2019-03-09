@@ -24,10 +24,10 @@ gpasswd -a <username> sudo
 ## 禁止root登录
 
 ````
-nano /etc/ssh/sshd_conf
+nano /etc/ssh/sshd_config
 // 找到PermitRootLogin ，设为no
 // 保存文件退出，重启服务：
 service ssh restart
 // OR：
 systemctl restart sshd
-````
+````                   
