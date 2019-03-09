@@ -4,7 +4,6 @@ date: 2019-01-28 00:22:35
 tags:
 - JS
 - 前端
-tags:
 ---
 
 > 原文出自Yehuda的[这篇博客](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)，是在Typescript的中文教程里看到的。
