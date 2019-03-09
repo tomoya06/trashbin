@@ -1,7 +1,7 @@
 ---
 title: Solidity 语法学习笔记
 date: 2018-12-13 00:54:52
-categories:
+tags:
 - 课外
 - 区块链
 tags:

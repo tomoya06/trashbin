@@ -1,7 +1,7 @@
 ---
 title: 常见POST提交数据方式
 date: 2019-03-06 14:02:10
-categories:
+tags:
 - 前端
 - HTML
 - JavaScript

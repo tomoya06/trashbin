@@ -2,7 +2,7 @@
 title: 基于PUF的IoT设备身份管理模型
 date: 2019-02-26 20:13:16
 tags:
-categories:
+tags:
 - 毕业设计
 - 密码学
 ---

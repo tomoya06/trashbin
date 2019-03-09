@@ -2,7 +2,7 @@
 title: python learning notes - oop
 date: 2019-01-24 09:42:18
 tags:
-categories:
+tags:
 - Python
 - 前端
 ---

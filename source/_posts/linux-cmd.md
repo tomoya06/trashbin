@@ -1,7 +1,7 @@
 ---
 title: Linux Commands 
 date: 2019-03-09 16:57:05
-categories:
+tags:
 - 技巧
 - Linux
 ---

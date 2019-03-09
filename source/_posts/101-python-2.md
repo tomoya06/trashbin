@@ -2,7 +2,7 @@
 title: python learning notes 2
 date: 2019-01-24 11:05:55
 tags:
-categories:
+tags:
 - Python
 - 前端
 ---

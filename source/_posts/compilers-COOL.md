@@ -1,7 +1,7 @@
 ---
 title: 斯坦福 编译原理 - COOL语法要点
 date: 2018-12-27 14:46:33
-categories:
+tags:
 - 编译原理
 - 上课
 tags:

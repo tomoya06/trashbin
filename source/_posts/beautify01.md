@@ -1,7 +1,7 @@
 ---
 title: 常用美化指令收藏
 date: 2018-12-11 17:23:59
-categories:
+tags:
 - 技巧
 - Linux
 tags:

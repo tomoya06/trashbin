@@ -1,7 +1,7 @@
 ---
 title: Linux Server Security
 date: 2019-03-09 00:57:05
-categories:
+tags:
 - 技巧
 - Linux
 ---

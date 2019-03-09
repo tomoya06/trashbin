@@ -1,7 +1,7 @@
 ---
 title: 【翻译】理解JS的函数调用和‘this’的指向 / Understanding JavaScript Function Invocation and "this"
 date: 2019-01-28 00:22:35
-categories:
+tags:
 - JS
 - 前端
 tags:
