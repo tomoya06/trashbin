@@ -80,33 +80,13 @@ setTimeout(function a() {
 
 > promise也是microtask的原因，参考[这篇博文](https://abc.danch.me/microtasks-macrotasks-more-on-the-event-loop-881557d7af6f)，考虑到promise.then.then.then....多个promise链式执行，如果promise是macrotask，那么这条链在执行过程中很可能因为被当前的microtask队列隔断，而分处于不同的macrotask周期中执行了。
 
-### 渲染队列
-
-渲染队列就是浏览器用来渲染DOM的任务队列，优先级高于普通的任务队列。
-
 ## 事件循环(Event Loop)
 
-事件循环可以理解为一个调度器，会一直检查当前主线程执行栈是否为空，若为空，则把三个队列中的任务按照以下规则推进执行栈中执行：
+事件循环可以理解为一个调度器，会一直检查当前主线程执行栈是否为空，若为空，则把三个队列中的任务按照以下顺序推进执行栈中执行：
 
-* 总是优先选择渲染队列中的任务
-* 其次优先选择macrotask队列中的任务， 每执行完一个macrotask任务，则必须执行完microtask队列中的所有任务方可执行下一个macrotask任务
-* microtask队列可以在执行过程中又有新任务进队，这时，对于上一条规则，新任务也要被执行完
+![](https://pic3.zhimg.com/v2-ad1a251cb91d37625185a4fb874494fc_1200x500.jpg)
 
-> 这里，第三条规则有可能存在microtask递归插入新的microtask任务的情况，即导致microtask无限延长，不同的JS引擎会对这种情况做出限制，例如Chrome会设置执行栈最大深度，越栈即报错
-
-macrotask任务和microtask任务的执行顺序可以参考这段示例代码：
-
-````
-for (macroTask of macroTaskQueue) {
-    // 1. Handle current MACRO-TASK
-    handleMacroTask();
-      
-    // 2. Handle all MICRO-TASK
-    for (microTask of microTaskQueue) {
-        handleMicroTask(microTask);
-    }
-}
-````
+* 浏览器通常每秒尝试渲染页面60次，以达到每秒60帧（60 fps），这个帧速率通常被认为是平滑运动的理想选择。这意味着浏览器尝试每16ms渲染一帧。上图中“update rendering”操作在事件循环中进行，这是因为在呈现页面时，页面内容不应该被另一个任务修改。这意味着如果我们应用实现平滑的效果，单个事件循环中不能占据太多时间。单个任务和由该任务生成的所有microtasks应该在16毫秒内完成。
 
 ## 参考
 
