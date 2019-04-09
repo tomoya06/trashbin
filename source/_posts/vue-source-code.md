@@ -1,5 +1,5 @@
 ---
-title: Vue源码学习记录
+title: Vue源码学习记录 - 初始化和渲染
 date: 2019-04-02 11:09:53
 tags:
 - Vue
@@ -23,6 +23,7 @@ tags:
 
 * new Vue 初始化
   * 文件：src/core/instance/index.js
+  * 原型注入：之后的多个Mixin：`initMixin(Vue) stateMixin(Vue) eventsMixin(Vue) lifecycleMixin(Vue) renderMixin(Vue)`
   * 关键：this._init(options)，this._init在后面initMixin(Vue)中注入：`Vue.prototype._init = function ...`
   * 在_init中的工作有：
     * 声明`vm = this`，之后对vm的操作实际也是对Vue实例本身的操作
@@ -36,11 +37,11 @@ tags:
     * 原先原型上的`$mount`定义文件：src/platform/web/runtime/index.js
     * 关键：`return mountComponent(this, el, hydrating)`
       * mountComponent定义文件：src/core/instance/lifecycle.js
-      * 关键：`new Watcher(vm, updateComponent, noop, ...` / `updateComponent`，后者中的关键`vm._render() vm._update()`
+      * 关键：`new Watcher(vm, updateComponent, noop, ...`，回调函数调用 `updateComponent()`，其中又调用`vm._render() vm._update()`
 
 * vm._render 创建VNode
   * 文件：src/core/instance/render.js，renderMixin(Vue)方法中
-  * 关键：`render.call(vm._renderProxy, vm.$createElement)`，通过执行 createElement 方法并返回的是 vnode，它是一个虚拟 Node
+  * 关键：`render.call(vm._renderProxy, vm.$createElement)`，通过执行 createElement 方法并返回 vnode，它是一个虚拟 Node
 
 * createElement
   * 文件：src/core/vdom/create-elemenet.js
@@ -52,7 +53,29 @@ tags:
 
 * vm._update 把VNode渲染成真实的DOM
   * 文件：src/core/instance/lifecycle.js
-  * 
+  * 关键：`vm.__patch__`
+    * 定义文件：src/platforms/web/runtime/index.js `Vue.prototype.__patch__ = inBrowser ? patch : noop;`
+    * patch()定义文件：src/platforms/web/runtime/patch.js `export const patch: Function = createPatchFunction({ nodeOps, modules })`
+    * createPatchFunction()定义文件：src/core/vdom/patch.js，关键：`return function patch (oldVnode, vnode, hydrating, removeOnly)`
+    * 执行过程(函数具体定义见[原文](https://ustbhuangyi.github.io/vue-analysis/data-driven/update.html#%E6%80%BB%E7%BB%93)):
+
+    ````
+    patch() {
+      createElm() { 
+        nodeOps.createElement()
+        createChildren()
+        invokeCreateHooks()
+        insert() {
+          nodeOps.insertBefore() {
+            Node.insertBefore() // 调用原生DOM操作API
+          }
+          nodeOps.appendChildren() {
+            Node.appendChildren() // 调用原生DOM操作API
+          }
+        }
+      }
+    }
+    ````
 
 ### Virtual ~~Youtuber~~ DOM
 
