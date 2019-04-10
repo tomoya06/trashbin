@@ -64,7 +64,26 @@ if (newVal === value || (newVal !== newVal && value !== value)) {
 ````
 
 * dep.notify -> sub.update() -> queueWatcher() -> nextTick(flushScheduerQueue) 
-* 概述：赋值时、执行setter流程，将会触发之前所有订阅的观察者watcher调用watcher.update()，这个调用过程会使用队列保证更新优先级顺序（父组件先于子组件、用户自定义watcher优先）、保证不遗漏watcher。n
+* 概述：赋值时、执行setter流程，将会触发之前所有订阅的观察者watcher调用watcher.update()，这个调用过程会使用队列保证更新优先级顺序（父组件先于子组件、用户自定义watcher优先）、保证不遗漏watcher。
 
 ### nextTick()
 
+先要了解JS的运行机制，可参考另一篇博文，JS事件执行流程。
+
+数据的变化到 DOM 的重新渲染是一个异步过程，发生在下一个 tick。
+
+## 特殊的对象变化
+
+### 对象添加属性
+
+给一个响应式对象添加一个新的属性的时候，是不能够触发它的 setter 的。可使用全局方法`Vue.set(target, key, val)`，
+
+* 原理：`Vue.set = set`
+* 关键：set的实现里调用defineReactive()来添加响应式属性
+
+### 数组
+
+不能触发响应的做法：
+
+1. 按索引修改某个位置：`vm.items[indexOfItem] = newValue` 可使用`Vue.set(example1.items, indexOfItem, newValue)`
+2. 修改数组长度：`vm.items.length = newLength` 可使用`vm.items.splice(newLength)`
