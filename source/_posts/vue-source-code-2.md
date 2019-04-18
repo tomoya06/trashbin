@@ -87,3 +87,7 @@ if (newVal === value || (newVal !== newVal && value !== value)) {
 
 1. 按索引修改某个位置：`vm.items[indexOfItem] = newValue` 可使用`Vue.set(example1.items, indexOfItem, newValue)`
 2. 修改数组长度：`vm.items.length = newLength` 可使用`vm.items.splice(newLength)`
+
+## 组件更新 VNode DIFF
+
+diff算法演示，详见[原文的图片演示](https://ustbhuangyi.github.io/vue-analysis/reactive/component-update.html#updatechildren)
