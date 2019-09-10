@@ -7,6 +7,10 @@ categories:
 - 前端
 ---
 
+收集git的常用指令
+
+<!-- more -->
+
 ## Git小知识
 
 ### fetch vs pull 

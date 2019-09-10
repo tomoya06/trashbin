@@ -8,6 +8,8 @@ tags:
 > 参考博客：[Java基础 | 程序入口main()方法
 ](https://blog.csdn.net/u013045987/article/details/51264083)
 
+<!-- more -->
+
 ## 程序入口
 
 * 入口：public static void main(String args[]）{}

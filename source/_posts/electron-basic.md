@@ -1,11 +1,15 @@
 ---
-title: 101-electron
+title: Electron基础
 date: 2019-09-05 15:54:28
 categories:
 - 前端
 - Node.js
 - Electron
 ---
+
+收集Electron的常见问题
+
+<!-- more -->
 
 ## Main Process, Renderer Process and Pages
 

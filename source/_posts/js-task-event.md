@@ -8,6 +8,8 @@ tags:
 
 首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。
 
+<!-- more -->
+
 > single thread = single call stack = do only one thing at a time
 
 下面这张图可以帮助理解下JS执行过程中的完整体系：主要包括

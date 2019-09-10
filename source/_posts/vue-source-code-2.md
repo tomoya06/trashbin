@@ -9,6 +9,8 @@ tags:
 > 学习文章[参考](https://ustbhuangyi.github.io/vue-analysis/)。源码版本为当下GitHub最新版2.6.10
 > 本文对应文章第三章，“深入响应式原理”
 
+<!-- more -->
+
 ## 响应式对象 
 
 * 核心：`Object.defineProperty` 将Vue实例的data选项全部转为getter/setter

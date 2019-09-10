@@ -9,6 +9,8 @@ tags:
 
 > 原文来自于[本篇博客](https://imququ.com/post/four-ways-to-post-data-in-http.html)
 
+<!-- more -->
+
 比较几种常见POST提交数据的方式
 
 ## application/x-www-form-urlencoded

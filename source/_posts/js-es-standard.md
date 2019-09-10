@@ -8,6 +8,8 @@ categories:
 
 总结ECMAScript标准的命名、特点。
 
+<!-- more -->
+
 ## 分代/颁布年份
 
 * ES1 ES2 ES3 ES4: 1997 1998 1999 (NOT PASSED)

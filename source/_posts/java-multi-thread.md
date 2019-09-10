@@ -5,6 +5,8 @@ tags:
 - Java
 ---
 
+<!-- more -->
+
 ## 线程简介
 
 ![线程生命周期图](http://www.runoob.com/wp-content/uploads/2014/01/java-thread.jpg)
