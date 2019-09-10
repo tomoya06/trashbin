@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,Python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="廖雪峰python教程学习笔记">
+<meta name="keywords" content="前端,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python learning notes">
+<meta property="og:url" content="http://yoursite.com/2019/01/24/python-basic/index.html">
+<meta property="og:site_name" content="tomoya06的部落格">
+<meta property="og:description" content="廖雪峰python教程学习笔记">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-09-10T06:13:39.898Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python learning notes">
+<meta name="twitter:description" content="廖雪峰python教程学习笔记">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/24/python-basic/">
+
+
+
+
+
+  <title>python learning notes | tomoya06的部落格</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tomoya06的部落格</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+            
+            展臺
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/24/python-basic/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tomoya06">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tomoya06的部落格">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python learning notes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-01-24T09:42:18+08:00">
+                2019-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>廖雪峰python教程学习笔记</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="基础">基础</h2>
+<h3 id="数据类型">数据类型</h3>
+<ul>
+<li>整数</li>
+<li>浮点数</li>
+<li>字符串</li>
+<li>布尔值 <code>True False</code> <code>and or not</code></li>
+<li>空值 <code>None</code></li>
+</ul>
+<h3 id="计算操作">计算操作</h3>
+<ul>
+<li>变量/常量：都是直接<code>a=??</code>来声明，常量习惯大写，但其实还是变量。</li>
+<li>除法：
+<ul>
+<li><code>10 / 3 = 3.3333333333333335</code></li>
+<li><code>10 // 3 = 3</code></li>
+<li><code>10 % 3 = 1</code></li>
+</ul></li>
+</ul>
+<h3 id="字符串">字符串</h3>
+<ul>
+<li>字符&lt;-&gt;编码：<code>ord('a')</code> <code>chr(97)</code></li>
+<li>字符串格式化：<code>'Hello, {0}, 成绩提升了 {1:.1f}%'.format('小明', 17.125)</code> 或 <code>'Hi, %s, you have $%d.' % ('Michael', 1000000)</code>
+<ul>
+<li>占位符：%d %f %s %x</li>
+</ul></li>
+</ul>
+<h3 id="容器结构">容器结构</h3>
+<h4 id="list-tuple">list / tuple</h4>
+<ul>
+<li>list：<code>classmates = ['Mike', 'John']</code>
+<ul>
+<li>length: <code>len(classmates)</code></li>
+<li>index: <code>classmates[0] = 'Mike</code> <code>classmates[-1] = John</code></li>
+<li>append: <code>classmates.append('adam')</code></li>
+<li>pop: <code>classmates.pop()</code> <code>classmates.pop(-1)</code></li>
+<li>insert: <code>list.insert(i, x)</code></li>
+</ul></li>
+<li>tuple: unchangable list <code>classmates = ('mike', 'john')</code></li>
+</ul>
+<h4 id="dict-set">dict set</h4>
+<ul>
+<li>dict: <code>d = {'Mike': 10, 'bob': 20, ...}</code>
+<ul>
+<li>获得值：<code>d['Mike']</code></li>
+<li>检查key：<code>key in d</code></li>
+<li>api：<code>d.keys() d.values() d.items()</code></li>
+</ul></li>
+<li>set: non-repeat list <code>s = set([1, 1, 2, 3, 4])</code></li>
+</ul>
+<h4 id="操作">操作</h4>
+<ul>
+<li>【list / tuple】切片：<code>list[0:2] list[0:-1] list[0::2]</code></li>
+<li>【list / tuple / dict】迭代：<code>for x in list</code> <code>for value in d.values()</code> <code>for k, v in d.items()</code>
+<ul>
+<li>判断一个对象是可迭代对象：通过collections模块的Iterable类型判断</li>
+<li>对list实现下标循环：<code>for i, value in enumerate(['A', 'B', 'C']):</code></li>
+</ul></li>
+<li>【list】列表生成器：<code>['%d x %d' % (x, x) for x in range(1, 11)]</code></li>
+</ul>
+<h3 id="条件-循环">条件 循环</h3>
+<ul>
+<li>if</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if_stmt ::=  &quot;if&quot; expression &quot;:&quot; suite</span><br><span class="line">             (&quot;elif&quot; expression &quot;:&quot; suite)*</span><br><span class="line">             [&quot;else&quot; &quot;:&quot; suite]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>for loop</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for_stmt ::=  &quot;for&quot; target_list &quot;in&quot; expression_list &quot;:&quot; suite</span><br><span class="line">              [&quot;else&quot; &quot;:&quot; suite]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>while loop</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while_stmt ::=  &quot;while&quot; expression &quot;:&quot; suite</span><br><span class="line">                [&quot;else&quot; &quot;:&quot; suite]</span><br></pre></td></tr></table></figure>
+<h3 id="类型检查">类型检查</h3>
+<ul>
+<li>type: <code>type(param)</code> 得到该对象的类型</li>
+<li>isinstance: <code>isinstance(target, type)</code> 判断该对象是否是某种类的实例</li>
+</ul>
+<h2 id="函数">函数</h2>
+<h3 id="定义函数">定义函数</h3>
+<ul>
+<li>定义</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def my_abs(x):</span><br><span class="line">    if x &gt;= 0:</span><br><span class="line">        return x</span><br><span class="line">    else:</span><br><span class="line">        return -x</span><br></pre></td></tr></table></figure>
+<ul>
+<li>语法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">funcdef                 ::=  [decorators] &quot;def&quot; funcname &quot;(&quot; [parameter_list] &quot;)&quot;</span><br><span class="line">                             [&quot;-&gt;&quot; expression] &quot;:&quot; suite</span><br><span class="line">decorators              ::=  decorator+</span><br><span class="line">decorator               ::=  &quot;@&quot; dotted_name [&quot;(&quot; [argument_list [&quot;,&quot;]] &quot;)&quot;] NEWLINE</span><br><span class="line">dotted_name             ::=  identifier (&quot;.&quot; identifier)*</span><br><span class="line">parameter_list          ::=  defparameter (&quot;,&quot; defparameter)* [&quot;,&quot; [parameter_list_starargs]]</span><br><span class="line">                             | parameter_list_starargs</span><br><span class="line">parameter_list_starargs ::=  &quot;*&quot; [parameter] (&quot;,&quot; defparameter)* [&quot;,&quot; [&quot;**&quot; parameter [&quot;,&quot;]]]</span><br><span class="line">                             | &quot;**&quot; parameter [&quot;,&quot;]</span><br><span class="line">parameter               ::=  identifier [&quot;:&quot; expression]</span><br><span class="line">defparameter            ::=  parameter [&quot;=&quot; expression]</span><br><span class="line">funcname                ::=  identifier</span><br></pre></td></tr></table></figure>
+<ul>
+<li>空函数：<code>pass</code></li>
+</ul>
+<h3 id="函数参数">函数参数</h3>
+<ul>
+<li>位置参数：<code>def power(a, n)</code></li>
+<li>默认参数：<code>def power(a, n=2)</code></li>
+<li>可变参数：<code>def calc(*numbers)</code> 调用 <code>calc(1, 2, 3)</code>
+<ul>
+<li>在函数内部，参数numbers接收到的是一个tuple</li>
+<li>如果已经有一个list或者tuple，要调用一个可变参数，允许你在list或tuple前面加一个*号，把list或tuple的元素变成可变参数传进去</li>
+</ul></li>
+<li>关键字参数：<code>def person(**kw)</code> <code>person('Adam', 45, gender='M', job='Engineer')</code>
+<ul>
+<li>允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。</li>
+</ul></li>
+<li>命名关键字参数：<code>def person(name, age, *, city, job)</code> <code>person('Jack', 24, city='Beijing', job='Engineer')</code>
+<ul>
+<li>特殊分隔符<code>*</code>后面的参数被视为命名关键字参数。</li>
+<li>命名关键字参数必须传入参数名，这和位置参数不同。</li>
+</ul></li>
+<li>参数组合：参数定义的顺序必须是：位置参数、默认参数、可变参数、命名关键字参数和关键字参数。</li>
+</ul>
+<h3 id="递归函数">递归函数</h3>
+<ul>
+<li>递归</li>
+<li>尾递归优化</li>
+</ul>
+<h3 id="高级特性">高级特性</h3>
+<h4 id="生成器-generator">生成器 (generator)</h4>
+<ul>
+<li>生成方式：
+<ul>
+<li><code>(x*x for x in range(10))</code></li>
+<li>包含<code>yield</code>的函数</li>
+</ul></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def fib(max):</span><br><span class="line">    n, a, b = 0, 0, 1</span><br><span class="line">    while n &lt; max:</span><br><span class="line">        yield b</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        n = n + 1</span><br><span class="line">    return &apos;done&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>特性：生成器也是一个可迭代类，可通过调用<code>next(g)</code>或在<code>for n in g</code>使用来不断得到下一步结果。</li>
+<li>JS中也有generator的实现，即<code>function* yield</code>。详见<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*" target="_blank" rel="noopener">MDN</a></li>
+</ul>
+<h4 id="迭代器-iterator">迭代器 (Iterator)</h4>
+<ul>
+<li>凡是可作用于for循环的对象都是Iterable类型；</li>
+<li>集合数据类型如list、dict、str等是Iterable但不是Iterator</li>
+<li>可以通过<code>iter()</code>获得一个Iterator对象。</li>
+<li>可以通过<code>list()</code>将Iterator 转换成 Iterable</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/08/nodejs-process/" rel="next" title="Node child_process">
+                <i class="fa fa-chevron-left"></i> Node child_process
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/24/python-oop/" rel="prev" title="python learning notes - oop">
+                python learning notes - oop <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tomoya06</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分類</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算操作"><span class="nav-number">1.2.</span> <span class="nav-text">计算操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">1.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器结构"><span class="nav-number">1.4.</span> <span class="nav-text">容器结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#list-tuple"><span class="nav-number">1.4.1.</span> <span class="nav-text">list / tuple</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dict-set"><span class="nav-number">1.4.2.</span> <span class="nav-text">dict set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作"><span class="nav-number">1.4.3.</span> <span class="nav-text">操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件-循环"><span class="nav-number">1.5.</span> <span class="nav-text">条件 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型检查"><span class="nav-number">1.6.</span> <span class="nav-text">类型检查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义函数"><span class="nav-number">2.1.</span> <span class="nav-text">定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数"><span class="nav-number">2.2.</span> <span class="nav-text">函数参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归函数"><span class="nav-number">2.3.</span> <span class="nav-text">递归函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级特性"><span class="nav-number">2.4.</span> <span class="nav-text">高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#生成器-generator"><span class="nav-number">2.4.1.</span> <span class="nav-text">生成器 (generator)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代器-iterator"><span class="nav-number">2.4.2.</span> <span class="nav-text">迭代器 (Iterator)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tomoya06</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,JavaScript,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。  single thread = single call stack = do only one thing at a time  下面这张图可以帮助理解下JS执行过程中的完整体系：主要包括  执行栈，也就是主线程要执行的任务栈 JS引擎，用来执行异步任务 渲染队列 MACROTAS">
+<meta name="keywords" content="前端,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js事件执行流程">
+<meta property="og:url" content="http://yoursite.com/2019/04/09/js-task-event/index.html">
+<meta property="og:site_name" content="tomoya06的部落格">
+<meta property="og:description" content="首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。  single thread = single call stack = do only one thing at a time  下面这张图可以帮助理解下JS执行过程中的完整体系：主要包括  执行栈，也就是主线程要执行的任务栈 JS引擎，用来执行异步任务 渲染队列 MACROTAS">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35499042/55784635-8d86ab80-5ae3-11e9-8231-5bf99b6e9bb0.jpeg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-ad1a251cb91d37625185a4fb874494fc_1200x500.jpg">
+<meta property="og:updated_time" content="2019-09-03T06:28:57.440Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js事件执行流程">
+<meta name="twitter:description" content="首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。  single thread = single call stack = do only one thing at a time  下面这张图可以帮助理解下JS执行过程中的完整体系：主要包括  执行栈，也就是主线程要执行的任务栈 JS引擎，用来执行异步任务 渲染队列 MACROTAS">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/35499042/55784635-8d86ab80-5ae3-11e9-8231-5bf99b6e9bb0.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/09/js-task-event/">
+
+
+
+
+
+  <title>js事件执行流程 | tomoya06的部落格</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tomoya06的部落格</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+            
+            展臺
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/js-task-event/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tomoya06">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tomoya06的部落格">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js事件执行流程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-04-09T14:17:58+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。</p>
+<blockquote>
+<p>single thread = single call stack = do only one thing at a time</p>
+</blockquote>
+<p>下面这张图可以帮助理解下JS执行过程中的完整体系：主要包括</p>
+<ul>
+<li>执行栈，也就是主线程要执行的任务栈</li>
+<li>JS引擎，用来执行异步任务</li>
+<li>渲染队列</li>
+<li>MACROTASK队列</li>
+<li>MICROTASK队列</li>
+<li>事件循环，作为队列任务与栈任务之间的调度器</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/35499042/55784635-8d86ab80-5ae3-11e9-8231-5bf99b6e9bb0.jpeg"></p>
+<h2 id="任务">任务</h2>
+<p>JS中的所有任务可分为两种：</p>
+<ul>
+<li>同步任务：在主线程上排队执行的任务</li>
+<li>异步任务：不占用主线程、在任务队列执行的任务</li>
+</ul>
+<h2 id="主线程">主线程</h2>
+<p>主线程会按栈的顺序依次执行栈中的任务，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function a() &#123;</span><br><span class="line">    console.log(&apos;a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function b() &#123;</span><br><span class="line">    a()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b()</span><br></pre></td></tr></table></figure>
+<p>忽略最外层的匿名main函数，在这个执行过程中，出入栈顺序为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">b() in</span><br><span class="line">a() in </span><br><span class="line">console.log(&apos;a&apos;) in </span><br><span class="line">console.log(&apos;a&apos;) exec</span><br><span class="line">console.log(&apos;a&apos;) out</span><br><span class="line">a() out</span><br><span class="line">b() out</span><br><span class="line">-- end</span><br></pre></td></tr></table></figure>
+<p>如果在主线程执行了一个耗时很长的任务，例如死循环，那么主线程就会卡在这个任务，也就是阻塞了。之后的其他任务都会受影响。最简单地，在一个浏览器窗口的终端输入一句<code>while(true) {}</code>，这个窗口就卡死了。</p>
+<p>主线程上的任务都是同步任务。</p>
+<h2 id="异步任务">异步任务</h2>
+<p>执行到异步任务的时候，主线程会将该任务从栈弹出，交给JS引擎，引擎执行完任务之后，将这个任务的回调函数推进任务队列（macrotask或microtask，后文会具体区分）。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function a() &#123;</span><br><span class="line">    console.log(&apos;a&apos;)</span><br><span class="line">&#125;, 1000)</span><br></pre></td></tr></table></figure>
+<p>这里，延时1000ms是一个异步任务，<code>a()</code>是这个任务的回调函数。</p>
+<p>至于哪些异步任务的回调函数是macrotask哪些是microtask，分类如下：</p>
+<ul>
+<li>macrotasks: setTimeout / setInterval / setImmediate / I/O</li>
+<li>microtasks: process.nextTick / promise / MutationObsever / Object.observe</li>
+</ul>
+<blockquote>
+<p>promise也是microtask的原因，参考<a href="https://abc.danch.me/microtasks-macrotasks-more-on-the-event-loop-881557d7af6f" target="_blank" rel="noopener">这篇博文</a>，考虑到promise.then.then.then....多个promise链式执行，如果promise是macrotask，那么这条链在执行过程中很可能因为被当前的microtask队列隔断，而分处于不同的macrotask周期中执行了。</p>
+</blockquote>
+<h2 id="事件循环event-loop">事件循环(Event Loop)</h2>
+<p>事件循环可以理解为一个调度器，会一直检查当前主线程执行栈是否为空，若为空，则把三个队列中的任务按照以下顺序推进执行栈中执行：</p>
+<p><img src="https://pic3.zhimg.com/v2-ad1a251cb91d37625185a4fb874494fc_1200x500.jpg"></p>
+<ul>
+<li>浏览器通常每秒尝试渲染页面60次，以达到每秒60帧（60 fps），这个帧速率通常被认为是平滑运动的理想选择。这意味着浏览器尝试每16ms渲染一帧。上图中“update rendering”操作在事件循环中进行，这是因为在呈现页面时，页面内容不应该被另一个任务修改。这意味着如果我们应用实现平滑的效果，单个事件循环中不能占据太多时间。单个任务和由该任务生成的所有microtasks应该在16毫秒内完成。</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li>一个经典的StackOverflow回答：https://stackoverflow.com/a/25933985/8356786</li>
+<li>Medium文章：https://abc.danch.me/microtasks-macrotasks-more-on-the-event-loop-881557d7af6f</li>
+<li>一部现场演讲视频：https://www.youtube.com/watch?v=8aGhZQkoFbQ</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/06/java-collections/" rel="next" title="Java集合全集">
+                <i class="fa fa-chevron-left"></i> Java集合全集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/03/git-common/" rel="prev" title="Git常用指令记录">
+                Git常用指令记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tomoya06</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分類</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#任务"><span class="nav-number">1.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主线程"><span class="nav-number">2.</span> <span class="nav-text">主线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步任务"><span class="nav-number">3.</span> <span class="nav-text">异步任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件循环event-loop"><span class="nav-number">4.</span> <span class="nav-text">事件循环(Event Loop)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tomoya06</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

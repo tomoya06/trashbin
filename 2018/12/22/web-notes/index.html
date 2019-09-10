@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="上课,前端,计算机网络,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="就是笔记了。主要参考《计算机网络：自顶向下方法》第六版中文版教材，结合计网课程考点总结。">
+<meta name="keywords" content="上课,前端,计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="因特网五层协议笔记">
+<meta property="og:url" content="http://yoursite.com/2018/12/22/web-notes/index.html">
+<meta property="og:site_name" content="tomoya06的部落格">
+<meta property="og:description" content="就是笔记了。主要参考《计算机网络：自顶向下方法》第六版中文版教材，结合计网课程考点总结。">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-09-03T06:28:57.444Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="因特网五层协议笔记">
+<meta name="twitter:description" content="就是笔记了。主要参考《计算机网络：自顶向下方法》第六版中文版教材，结合计网课程考点总结。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/22/web-notes/">
+
+
+
+
+
+  <title>因特网五层协议笔记 | tomoya06的部落格</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tomoya06的部落格</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+            
+            展臺
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/22/web-notes/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tomoya06">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tomoya06的部落格">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">因特网五层协议笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-12-22T12:32:21+08:00">
+                2018-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>就是笔记了。主要参考《计算机网络：自顶向下方法》第六版中文版教材，结合计网课程考点总结。</p>
+<a id="more"></a>
+<h2 id="概述">概述</h2>
+<ul>
+<li>因特网(Internet)：又称互联网，指利用TCP/IP通讯协定所创建的世界范围的计算机网络，网络与网络之间所串联成的庞大网络。
+<ul>
+<li>vs 万维网(WWW)：后者是基于超文本相互连接而成的全球性网络，是互联网所能提供的服务之一。此外互联网还能提供的服务包括P2P网络、文件共享、IP电话服务等。</li>
+</ul></li>
+<li>协议(protocol)：一个协议定义了在两个或多个通信实体之间交换的报文格式和次序，以及报文发送/接收一条报文或其他事件所采取的动作。</li>
+<li>分组(packet)：将报文(message)划分成的小的数据块</li>
+<li>分组交换网中的性能描述：
+<ul>
+<li>丢包(loss)：分组等待队列已满，新分组无法保存</li>
+<li>时延(delay)：节点总时延(total nodal delay) = 结点处理时延(nodal processing delay) + 排队时延(queuing delay) + 传输时延(transmission delay) + 传播时延(propagation delay)
+<ul>
+<li>传输时延 vs 传播时延：前者是路由器将分组推出所需要的时间(可理解为处理完之后到送上高速公路前这段)，后者是一个比特从一台路由器向另一台路由器传播所需要的时间(就是在高速上飞驰到出口这段了)</li>
+</ul></li>
+<li>吞吐量(throughput)：接收数据的速度</li>
+</ul></li>
+<li>分层协议：
+<ul>
+<li>因特网的分层协议：物理层-链路层-网络层-传输层-应用层</li>
+<li>七层ISO OSI模型：物理层-链路层-网络层-传输层-会话层-表示层-应用层</li>
+<li>各层功能：
+<ul>
+<li>应用层：网络应用程序及其应用层协议存留的地方</li>
+<li>传输层：在应用程序端点之间传送应用层报文</li>
+<li>网络层：将数据报从一台主机移动到另一台主机</li>
+<li>链路层：将链路帧从一个结点(主机或路由器)移动到路径上的下一个结点</li>
+<li>物理层：将帧中的每个比特从一个结点移动到下一个结点</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="应用层">应用层</h2>
+<ul>
+<li>数据单位：报文(message)</li>
+</ul>
+<h3 id="要点">要点</h3>
+<ul>
+<li>应用程序体系结构：CS结构/P2P结构</li>
+<li>进程通信：socket</li>
+<li>服务分类：可靠数据传输，吞吐量，定时，安全性
+<ul>
+<li>持续链接和非持续连接</li>
+<li>使用的运输层协议：TCP vs UDP</li>
+<li>SSL</li>
+</ul></li>
+</ul>
+<h3 id="协议和应用">协议和应用</h3>
+<h4 id="web-和-http">web 和 HTTP</h4>
+<ul>
+<li>带流水线的持续连接
+<ul>
+<li>关键词：TCP，RTT，80端口，CS结构</li>
+</ul></li>
+<li>报文格式
+<ul>
+<li>关键词：请求行，首部行，实体体</li>
+<li>常用状态码：200 301 304 400 404 500</li>
+</ul></li>
+<li>无状态协议
+<ul>
+<li>cookie</li>
+</ul></li>
+<li>web缓存
+<ul>
+<li>代理服务器(web缓存器)</li>
+<li>条件GET方法："If-Modified-Since""Last-Modified"首部行</li>
+</ul></li>
+</ul>
+<h4 id="dns因特网的目录服务">DNS：因特网的目录服务</h4>
+<ul>
+<li>解决的问题：主机名到IP地址的转换
+<ul>
+<li>关键字：UDP，53端口，CS结构</li>
+</ul></li>
+<li>分布式设计
+<ul>
+<li>层次：根/顶级域(TLD)/权威/本地DNS服务器</li>
+<li>递归查询 vs 迭代查询：前者发起查询主体逐步推移，后者同一主题发起查询</li>
+<li>DNS缓存</li>
+</ul></li>
+</ul>
+<h4 id="p2p">P2P</h4>
+<ul>
+<li>文件分发
+<ul>
+<li>分发时间及下界计算
+<ul>
+<li>C/S结构文件分发时间：<span class="math inline">\(D_{cs}\geq max{\frac{NF}{u_{s}}, \frac{F}{d_{min}}}\)</span></li>
+<li>P2P结构文件分发时间：<span class="math inline">\(D_{p2p}\geq max{\frac{F}{u_{s}}, \frac{F}{d_{min}}, \frac{NF}{u_{s}+\sum_{i=1}^{N}u_{i}}}\)</span></li>
+<li>分布式散列表(P2P数据库)(DHT)</li>
+</ul></li>
+<li>关键字：散列函数，</li>
+<li>实现：环形DHT，具有捷径的环形DHT，</li>
+</ul></li>
+</ul>
+<h4 id="socket编程">socket编程</h4>
+<p>教材用的python，自行用NodeJS。注意tcp socket在net库，udp socket在dgram库。</p>
+<h2 id="传输层">传输层</h2>
+<ul>
+<li>数据单位：报文段(segment)</li>
+<li>为运行在不同主机的应用进程之间提供了逻辑通信</li>
+<li>在端系统中实现而非在路由器</li>
+<li>报文段格式：源端口号字段、目的端口号字段</li>
+</ul>
+<h3 id="协议">协议</h3>
+<h4 id="tcp">TCP</h4>
+<ul>
+<li>关键词：可靠数据传输协议，拥塞控制，面向连接</li>
+<li>多路复用和多路分解
+<ul>
+<li>多路分解：将运输层报文段中的数据交付到正确的socket</li>
+<li>多路复用：将不同socket的数据块封装好生成报文段，传播到网络层</li>
+</ul></li>
+<li>socket标识：四元组(源IP+源端口号+目的IP+目的端口号)</li>
+<li>socket分配：每个连接都建立一个新socket</li>
+<li>报文段结构</li>
+</ul>
+<h5 id="可靠数据传输原理">可靠数据传输原理</h5>
+<ul>
+<li>有限状态机(Finite-State Machine, FSM)</li>
+<li>自动重传请求(ARQ)协议：差错检测+接收方反馈+重传</li>
+<li>额外的问题与解决
+<ul>
+<li>ACK/NAK本身受损：添加分组序号</li>
+<li>丢包：倒计数计时器</li>
+<li>链路利用率低：流水线技术</li>
+<li>流水线技术差错恢复：回退N步(GO-Back-N, GBN)、选择重传(Selective Repeat, SR)</li>
+</ul></li>
+<li>拥塞控制</li>
+</ul>
+<h5 id="tcp实现">TCP实现</h5>
+<ul>
+<li>连接管理
+<ul>
+<li>建立连接：三次握手</li>
+<li>关闭连接</li>
+</ul></li>
+<li>TCP拥塞算法：加性增、乘性减(Additive-Increase Multiplicative-Decrease, AIMD)
+<ul>
+<li>参数：cwnd/ssthresh</li>
+<li>慢启动：<code>cwnd**2</code>，直到出现了：
+<ol type="1">
+<li>超时：<span class="math inline">\(ssthresh=cwnd_{t}\div 2, cwnd=1\)</span>，然后重新开始慢启动</li>
+<li><span class="math inline">\(cwnd=ssthreash\)</span>：进入拥塞避免模式</li>
+<li>检测到3个ACK：执行快速重传并进入快速恢复模式$$</li>
+</ol></li>
+<li>拥塞避免：<code>cwnd++</code>，直到出现了：
+<ol type="1">
+<li>超时：同上</li>
+<li>3个ACK：<span class="math inline">\(cwnd=cwnd_{t}\div 2(+3MSS), ssthresh=cwnd_{t}\div 2\)</span></li>
+</ol></li>
+<li>快速恢复(非必须)：<code>cwnd++</code></li>
+</ul></li>
+</ul>
+<h4 id="udp">UDP</h4>
+<ul>
+<li>关键词：不可靠，无连接</li>
+<li>socket标识：二元组(目的IP地址+目的端口号)</li>
+<li>socket分配：到达同IP和端口的报文段共用同一个socket</li>
+<li>传输准备：无需准备即可进行数据传输</li>
+<li>检验和：差错检测功能</li>
+</ul>
+<h2 id="网络层">网络层</h2>
+<ul>
+<li>主要功能：
+<ul>
+<li>转发(单一路由器的出入选择)，</li>
+<li>路由选择(多个路由器间的路径选择)，</li>
+<li>建立连接</li>
+</ul></li>
+<li>数据单位：数据报(datagram)</li>
+</ul>
+<h3 id="路由器工作原理">路由器工作原理</h3>
+<ul>
+<li>转发表：前缀-链路接口，最长前缀匹配规则</li>
+<li>结构：输入端口(使用转发表)，交换结构，输出端口，路由选择处理器</li>
+<li>分组队列，排队
+<ul>
+<li>线路前部阻塞(Head-Of-the-Line, HOL)</li>
+</ul></li>
+<li>数据报格式</li>
+<li>因特网网络层的主要组件：IP协议，因特网路由选择协议，因特网控制报文协议(ICMP)</li>
+</ul>
+<h3 id="ip协议">IP协议</h3>
+<ul>
+<li>关键词：尽力而为交付服务，不可靠服务</li>
+<li>IPv4
+<ul>
+<li>编址：32比特/4字节</li>
+<li>子网，子网掩码，
+<ul>
+<li>无类别域间路由选择(Classless Interdomain Routing, CIDR)：a.b.c.d/x</li>
+</ul></li>
+<li>动态主机配置协议(Dynamic Host Configuration, DHCP)：自动分配新IP地址的过程</li>
+<li>网络地址转换(Network Address Translation. NAT)：管理IP地址的典型方法</li>
+</ul></li>
+<li>IPv6
+<ul>
+<li>编址：128比特</li>
+<li>v4迁移到v6：双站，建隧道</li>
+</ul></li>
+</ul>
+<h3 id="icmp">ICMP</h3>
+<ul>
+<li>ping：ICMP类型0</li>
+</ul>
+<h3 id="路由选择算法">路由选择算法</h3>
+<ul>
+<li>解决问题：从源路由器到目的路由器的路由选择问题</li>
+<li>分类：
+<ul>
+<li>全局式路由选择算法/链路状态算法(Link State, LS)：
+<ul>
+<li>网络拓扑和链路费用均已知</li>
+<li>eg：Dijkstra算法</li>
+</ul></li>
+<li>分散式路由选择算法/距离向量算法(Distance Vector, DV)：
+<ul>
+<li>迭代、异步、分布式算法</li>
+<li>原理：Bellman-Ford方程：<span class="math inline">\(d_{x}(y)=min_{v}{c(x, v)+d_{v}(y)}\)</span>_，其中v是y的邻居之一</li>
+<li>链路费用发生变化、链路故障引起的距离向量变化过程：”好消息传得快，坏消息传得慢“</li>
+</ul></li>
+<li>层次路由选择：自治系统(Autonomous System, AS) + 自治系统内部路由选择协议(intra-autonomous system routing protocol) + 自治系统间路由选择协议(inter-autonomous system routing protocol)
+<ul>
+<li>因特网中的自治系统内部的路由选择：路由选择信息协议(Routing Information Protocol, RIP)，开放最短路优先(Open Shortest Path First, OSPF)</li>
+<li>自治间的路由选择：边界网关协议(Border Gateway Protocol, BGP) &lt;-- "绝对至关重要的协议！"“将所有的东西粘合在一起了”</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="链路层">链路层</h2>
+<ul>
+<li>数据单位：帧(frame)</li>
+<li>基本服务：将数据报通过单一通信链路从一个结点移动到相邻结点
+<ul>
+<li>成帧</li>
+<li>链路接入</li>
+<li>可靠交付</li>
+<li>(比特级)差错检测和纠正
+<ul>
+<li>奇偶校检/二维奇偶校检(two-dimensional parity)，</li>
+<li>检验和方法(checksum)</li>
+<li>循环冗余检测(Cyclic Redundancy Check, CRC)</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="协议-1">协议</h3>
+<ul>
+<li>点对点链路(point-to-point link)和协议
+<ul>
+<li>点对点协议(point-to-point protocol, PPP)</li>
+<li>高级数据链路控制(high-level data link control, HDLC)</li>
+</ul></li>
+<li>广播链路(broadcast link)/多路访问链路和协议(multiple access protocol)
+<ul>
+<li>信道划分协议(channel partitioning protocol)
+<ul>
+<li>时分多路复用(TDM)</li>
+<li>频分多路复用(FDM)</li>
+<li>码分多址(Code Division Multiple Access, CDMA)：每个结点编码，用编码给数据报编码发送</li>
+</ul></li>
+<li>随机接入协议(random access protocol)
+<ul>
+<li>时隙ALOHA：所有节点同步，在每个时隙开始时开始传输</li>
+<li>纯ALOHA</li>
+<li>载波侦听多路访问(Carrier Sense Multiple Access, CSMA)和具有碰撞检测的CSMA(CSMA with Collision Detection, CSMA/CD)</li>
+</ul></li>
+<li>轮流协议(taking-turns protocol)</li>
+</ul></li>
+<li>局域网
+<ul>
+<li>MAC地址：链路层地址，设备的网络适配器所有
+<ul>
+<li>6字节，<span class="math inline">\(2^{6 \times 8}=2^{48}\)</span>种可能，16进制表示</li>
+</ul></li>
+<li>地址解析协议(Address Resolution Protocol, ARP)：IP地址和MAC地址间的转换
+<ul>
+<li>vs DNS：前者只为一个子网下的主机和路由器接口解析IP地址，后者为因特网中任何主机解析主机名</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="交换机工作原理">交换机工作原理</h3>
+<ul>
+<li>过滤，转发：交换机表</li>
+<li>自学习特性</li>
+<li>即插即用</li>
+<li>vs 路由器：
+<ul>
+<li>前者用MAC地址转发分组，后者用IP地址</li>
+<li>前者在链路层，后者在网络层</li>
+</ul></li>
+</ul>
+<h2 id="无线移动网络">无线移动网络</h2>
+<h3 id="wifi802.11无线lan">Wifi：802.11无线LAN</h3>
+<ul>
+<li>基本构建模块：极本服务集(Basic Service Set, BSS) = 中央基站(Base Station，作为接入点(Access Point, AP)) + 多个无线站点</li>
+<li>MAC协议：带碰撞避免的CSMA(CSMA with collision avoidance, CSMA/CA)</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/上课/" rel="tag"><i class="fa fa-tag"></i> 上课</a>
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/19/web-steps/" rel="next" title="一台电脑从联网到看到网页全过程的技术细节">
+                <i class="fa fa-chevron-left"></i> 一台电脑从联网到看到网页全过程的技术细节
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/27/ts-basic/" rel="prev" title="TypeScript学习笔记">
+                TypeScript学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tomoya06</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分類</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用层"><span class="nav-number">2.</span> <span class="nav-text">应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#要点"><span class="nav-number">2.1.</span> <span class="nav-text">要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议和应用"><span class="nav-number">2.2.</span> <span class="nav-text">协议和应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#web-和-http"><span class="nav-number">2.2.1.</span> <span class="nav-text">web 和 HTTP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dns因特网的目录服务"><span class="nav-number">2.2.2.</span> <span class="nav-text">DNS：因特网的目录服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p2p"><span class="nav-number">2.2.3.</span> <span class="nav-text">P2P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#socket编程"><span class="nav-number">2.2.4.</span> <span class="nav-text">socket编程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输层"><span class="nav-number">3.</span> <span class="nav-text">传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#协议"><span class="nav-number">3.1.</span> <span class="nav-text">协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tcp"><span class="nav-number">3.1.1.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可靠数据传输原理"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">可靠数据传输原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tcp实现"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">TCP实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#udp"><span class="nav-number">3.1.2.</span> <span class="nav-text">UDP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络层"><span class="nav-number">4.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器工作原理"><span class="nav-number">4.1.</span> <span class="nav-text">路由器工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip协议"><span class="nav-number">4.2.</span> <span class="nav-text">IP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#icmp"><span class="nav-number">4.3.</span> <span class="nav-text">ICMP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由选择算法"><span class="nav-number">4.4.</span> <span class="nav-text">路由选择算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链路层"><span class="nav-number">5.</span> <span class="nav-text">链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#协议-1"><span class="nav-number">5.1.</span> <span class="nav-text">协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换机工作原理"><span class="nav-number">5.2.</span> <span class="nav-text">交换机工作原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无线移动网络"><span class="nav-number">6.</span> <span class="nav-text">无线移动网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#wifi802.11无线lan"><span class="nav-number">6.1.</span> <span class="nav-text">Wifi：802.11无线LAN</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tomoya06</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

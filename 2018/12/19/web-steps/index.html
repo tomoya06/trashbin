@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="上课,前端,计算机网络,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="场景设定：我，买了台新电脑，准备连学校网络，然后上Google首页（假设没有墙）。电脑第一次连学校网络，没有任何缓存。  整个场景涉及到的节点包括（按连接顺序）： * 我的电脑， * 学校的以太网交换机， * 学校网络的网关路由器， * ISP + DNS服务器（由ISP提供）， * 谷歌的权威DNS服务器，谷歌的web服务器。 下面开始。">
+<meta name="keywords" content="上课,前端,计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一台电脑从联网到看到网页全过程的技术细节">
+<meta property="og:url" content="http://yoursite.com/2018/12/19/web-steps/index.html">
+<meta property="og:site_name" content="tomoya06的部落格">
+<meta property="og:description" content="场景设定：我，买了台新电脑，准备连学校网络，然后上Google首页（假设没有墙）。电脑第一次连学校网络，没有任何缓存。  整个场景涉及到的节点包括（按连接顺序）： * 我的电脑， * 学校的以太网交换机， * 学校网络的网关路由器， * ISP + DNS服务器（由ISP提供）， * 谷歌的权威DNS服务器，谷歌的web服务器。 下面开始。">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-09-03T06:28:57.445Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一台电脑从联网到看到网页全过程的技术细节">
+<meta name="twitter:description" content="场景设定：我，买了台新电脑，准备连学校网络，然后上Google首页（假设没有墙）。电脑第一次连学校网络，没有任何缓存。  整个场景涉及到的节点包括（按连接顺序）： * 我的电脑， * 学校的以太网交换机， * 学校网络的网关路由器， * ISP + DNS服务器（由ISP提供）， * 谷歌的权威DNS服务器，谷歌的web服务器。 下面开始。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/19/web-steps/">
+
+
+
+
+
+  <title>一台电脑从联网到看到网页全过程的技术细节 | tomoya06的部落格</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tomoya06的部落格</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+            
+            展臺
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/19/web-steps/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tomoya06">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tomoya06的部落格">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一台电脑从联网到看到网页全过程的技术细节</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-12-19T20:53:47+08:00">
+                2018-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>场景设定：我，买了台新电脑，准备连学校网络，然后上Google首页（假设没有墙）。电脑第一次连学校网络，没有任何缓存。</p>
+</blockquote>
+<p>整个场景涉及到的节点包括（按连接顺序）： * 我的电脑， * 学校的以太网交换机， * 学校网络的网关路由器， * ISP + DNS服务器（由ISP提供）， * 谷歌的权威DNS服务器，谷歌的web服务器。</p>
+<p>下面开始。</p>
+<a id="more"></a>
+<h2 id="本机ip地址分配dhcp协议">本机IP地址分配：DHCP协议</h2>
+<p>我的电脑还没有分配IP地址，所以需要先运行<strong>DHCP协议</strong>，从本地的DHCP服务器获得一个IP地址和其他信息。准备广播DHCP报文，报文封装过程：</p>
+<ul>
+<li><strong>DHCP请求报文</strong> +=&gt;</li>
+<li><strong>UDP报文</strong> with 目的地端口67（DHCP服务器）+源端口68（DHCP客户）+=&gt;</li>
+<li><strong>IP数据报文</strong> with 广播IP目的地地址（255.255.255.255）+源IP地址（0.0.0.0） +=&gt;</li>
+<li><strong>以太网帧</strong> with 目的MAC地址（FF:FF:FF:FF:FF:FF）+源MAC地址（我的电脑的MAC地址）</li>
+</ul>
+<p>然后在以太网中广播该帧。</p>
+<p>路由器接收到该以太网帧后，逐层分解数据包，分配IP地址，准备打包DHCP ACK报文：</p>
+<ul>
+<li><strong>DHCP ACK报文</strong> with 分配的IP地址+DNS服务器的IP地址+默认网关路由器的IP地址+子网块（网络掩码） +=&gt;</li>
+<li><strong>UDP报文</strong> +=&gt;</li>
+<li><strong>IP数据报文</strong> +=&gt;</li>
+<li><strong>以太网帧</strong> with 源MAC地址（之前接受到以太网帧接口的MAC地址）+目的MAC地址（我的电脑的MAC地址）</li>
+</ul>
+<p>准备发回。因为交换机的<strong>自学习</strong>特性，所以知道寻址到我的电脑的MAC的帧就是从我的电脑的网口发出的。</p>
+<p>我的电脑接收到DHCP ACK报文之后，分解当中的信息，初始化电脑的网络组件，比如记录自己的IP地址、<strong>DNS服务器的IP地址</strong>等。</p>
+<h2 id="目标网站ip地址转换dns协议">目标网站IP地址转换：DNS协议</h2>
+<p>我的电脑准备<strong>生成TCP socket</strong>，向google.com发送HTTP请求。但在这之前，我的电脑要先知道google.com的IP地址。为此需要使用<strong>DNS协议</strong>。</p>
+<p>我的电脑准备生成DNS查询报文，封装过程如下：</p>
+<ul>
+<li><strong>DNS报文</strong> with 问题段（google.com） +=&gt;</li>
+<li><strong>UDP报文段</strong> with 目的端口53（DNS服务默认端口） +=&gt;</li>
+<li><strong>IP数据包</strong> with IP目的地址（<strong>DNS服务器的IP地址</strong>） +=&gt;</li>
+<li><strong>以太网帧</strong> with 目的地址（之后要得到的网关路由器的MAC地址）</li>
+</ul>
+<p>准备发送，在链路层寻址后发送到学校网络的网关路由器。但此时我的电脑还不知道学校网关路由器的MAC地址，虽然经过之前的DHCP协议已经知道了网关路由器的IP地址（真的是坑人啊）。所以在发DNS报文之前，要先进行下面的ARP协议。</p>
+<h2 id="mac地址查询arp协议">MAC地址查询：ARP协议</h2>
+<p>照例准备报文:</p>
+<ul>
+<li><strong>ARP查询报文</strong> with 目的IP地址（网关路由器的IP地址） +=&gt;</li>
+<li><strong>以太网帧</strong> with 广播目的地址（FF:FF:FF:FF:FF:FF）</li>
+</ul>
+<p>然后向<strong>交换机</strong>发送该以太网帧，交换机把该帧交付给所有连接的设备，包括网关路由器。<strong>网关路由器</strong>接收到该帧时，发现目的IP地址与自身的IP地址匹配，于是开始准备<strong>ARP应答</strong>，提供自己的MAC地址，封装到一个<strong>以太网帧</strong>，其中目的IP地址为我的电脑的IP地址，再次发给交换机转发。</p>
+<p>我的电脑收到ARP应答之后，分解得到学校网关路由器的MAC地址。现在，前面那个包含DNS查询的以太网帧可以寻址到网关路由器了。我的电脑向交换机发送该帧，交换机将其转发给网关路由器。</p>
+<h2 id="dns服务器选择">DNS服务器选择</h2>
+<p>网关路由器在接收到DNS查询的报文之后，根据转发表，把报文转发到ISP的网关路由器。后者再将报文转发到DNS服务器，开始逐层地查找DNS记录。当找到包含对应google.com的IP地址的DNS源记录之后，服务器准备一个包含主机名到IP地址映射的DNS回答报文，发回我的电脑。</p>
+<p>至此我的电脑得到了google.com的IP地址。</p>
+<h2 id="tcphttp交互">TCP/HTTP交互</h2>
+<p>现在可以生成TCP socket了。之后首先进行“<strong>三次握手</strong>”：</p>
+<ul>
+<li>生成<strong>TCP SYN</strong>报文段，放置到目的IP地址为google.com的IP地址的IP数据报中，再放置到MAC地址为学校网关路由器MAC地址的帧中，向交换机发帧；</li>
+<li>TCP SYN经由交换机、学校网关路由器、ISP路由器、谷歌网络路由器，根据各自的转发表，最终转发到google.com所在的web服务器。后者分解出TCP SYN报文，生成一个与我的电脑连接的socket，生成<strong>TCP SYNACK</strong>报文，类似地发回到我的电脑，把TCP SYNACK分解到我的socket。</li>
+<li>我的电脑再向服务器发送一个<strong>确认报文</strong>，至此完成建立TCP连接。</li>
+</ul>
+<p>现在可以发送HTTP GET请求来获取网页内容了。我的电脑的浏览器生成一个<strong>HTTP GET报文</strong>，写入socket，GET报文将成为一个TCP报文段的负载，TCP报文段再放进一个IP数据报文，发给web服务器。</p>
+<p>web服务器收到报文，生成一个<strong>HTTP响应报文</strong>，其中HTTP响应体是网页内容，然后将报文发回。</p>
+<p>我的电脑的浏览器收到响应报文之后，分解出其中的网页内容，开始渲染。</p>
+<p>至此，网络部分的传送细节已经结束。</p>
+<p>而之后浏览器渲染网页的过程属于前端开发的范畴，而非计网课程的内容，有机会再开一篇推文来写。</p>
+<p>(后续1：分层网络每层对应的协议)</p>
+<p>(后续2：浏览器渲染网页过程)</p>
+<p>(未完待续)</p>
+<blockquote>
+<p>本文大部分内容来自《计算机网络：自顶向下方法》（第六版），当然还有龙博的上课讲解。</p>
+</blockquote>
+<blockquote>
+<p>之前自学前端的时候关注这个问题很久了，但由于还没上过计网课，所以知识点很零散。现在终于快上完计网课了，刚好老师也很着重强调这个问题，在课程尾声总结了一轮，还布置了课后作业。借此机会再自己总结一下。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/上课/" rel="tag"><i class="fa fa-tag"></i> 上课</a>
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/13/solidity/" rel="next" title="Solidity 语法学习笔记">
+                <i class="fa fa-chevron-left"></i> Solidity 语法学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/22/web-notes/" rel="prev" title="因特网五层协议笔记">
+                因特网五层协议笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tomoya06</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分類</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本机ip地址分配dhcp协议"><span class="nav-number">1.</span> <span class="nav-text">本机IP地址分配：DHCP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标网站ip地址转换dns协议"><span class="nav-number">2.</span> <span class="nav-text">目标网站IP地址转换：DNS协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mac地址查询arp协议"><span class="nav-number">3.</span> <span class="nav-text">MAC地址查询：ARP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dns服务器选择"><span class="nav-number">4.</span> <span class="nav-text">DNS服务器选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tcphttp交互"><span class="nav-number">5.</span> <span class="nav-text">TCP/HTTP交互</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tomoya06</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

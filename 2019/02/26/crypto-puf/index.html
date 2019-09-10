@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="密码学,毕业设计,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="来自论文 Chatterjee U, Govindan V, Sadhukhan R, et al. Building PUF based Authentication and Key Exchange Protocol for IoT without Explicit CRPs in Verifier Database[J]. IEEE Transactions on Dependable">
+<meta name="keywords" content="密码学,毕业设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于PUF的IoT设备身份管理模型">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/crypto-puf/index.html">
+<meta property="og:site_name" content="tomoya06的部落格">
+<meta property="og:description" content="来自论文 Chatterjee U, Govindan V, Sadhukhan R, et al. Building PUF based Authentication and Key Exchange Protocol for IoT without Explicit CRPs in Verifier Database[J]. IEEE Transactions on Dependable">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="http://yoursite.com/images/PUF/PUF01.jpg">
+<meta property="og:updated_time" content="2019-09-10T06:14:24.947Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于PUF的IoT设备身份管理模型">
+<meta name="twitter:description" content="来自论文 Chatterjee U, Govindan V, Sadhukhan R, et al. Building PUF based Authentication and Key Exchange Protocol for IoT without Explicit CRPs in Verifier Database[J]. IEEE Transactions on Dependable">
+<meta name="twitter:image" content="http://yoursite.com/images/PUF/PUF01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/26/crypto-puf/">
+
+
+
+
+
+  <title>基于PUF的IoT设备身份管理模型 | tomoya06的部落格</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tomoya06的部落格</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+            
+            展臺
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/crypto-puf/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tomoya06">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tomoya06的部落格">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基于PUF的IoT设备身份管理模型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-26T20:13:16+08:00">
+                2019-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>来自论文 <a href="https://ieeexplore.ieee.org/abstract/document/8353301" target="_blank" rel="noopener">Chatterjee U, Govindan V, Sadhukhan R, et al. Building PUF based Authentication and Key Exchange Protocol for IoT without Explicit CRPs in Verifier Database[J]. IEEE Transactions on Dependable and Secure Computing, 2018.</a></p>
+</blockquote>
+<blockquote>
+<p>终端设备与区块链节点（拓展到任意节点好了）进行安全身份交互认证的方案参考：基于PUF的身份管理模型。</p>
+<p>流程和计算公式比较复杂。设备要求支持PUF，意味着原生树莓派不一定能用，有<a href="https://github.com/Tribler/tribler/issues/3064" target="_blank" rel="noopener">方案</a>说可以外接一个PUF芯片。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="puf">PUF</h2>
+<ul>
+<li>实质是一个映射函数：<span class="math inline">\(\{0, 1\}^n \rightarrow \{0, 1\}^m\)</span>，</li>
+<li>n位的输入(challenge)和系统的不可克隆性共同决定一个m位输出(response)</li>
+</ul>
+<h2 id="声明">声明</h2>
+<ol type="1">
+<li>定义一个椭圆曲线，并从曲线上的点生成三组值<span class="math inline">\(G_1,G_2,G_3\)</span>，用于定义加密函数</li>
+<li>定义一个双线性映射<span class="math inline">\(e: G1 \times G2 \rightarrow G_3\)</span>满足
+<ol type="1">
+<li>双线性：<span class="math inline">\(\forall a, b \in F^*_q, \forall P \in G_1, Q \in G_1\)</span>: <span class="math inline">\(e(aP, bQ)=e(P, Q)^{ab}\)</span></li>
+<li>非退化性：<span class="math inline">\(e(P, Q) \neq 1\)</span></li>
+<li>可计算性：有高效算法来计算e</li>
+</ol></li>
+<li>定义三个哈希函数：
+<ol type="1">
+<li>H1: <span class="math inline">\(\{ 0, 1\}^n \rightarrow G^*_1\)</span>,</li>
+<li>H2: <span class="math inline">\(\{0, 1\}^n \times \{0, 1\}^m \rightarrow G^*_2\)</span>,</li>
+<li>H3: <span class="math inline">\(G_2 \rightarrow \{0, 1\}^n\)</span></li>
+</ol></li>
+<li>为了避免环境对BUF的干扰，需要另外设计BCH编码器和解码器
+<ol type="1">
+<li>BCH编码器电路可从BUF的输出结果另外生成一个辅助值</li>
+<li>BCH解码器可以将辅助值还原成BUF的输出结果</li>
+<li>在论文的设计方案中，BCH编码解码器电路是使用Artix-7 FPGA实现的</li>
+</ol></li>
+</ol>
+<h2 id="系统架构">系统架构</h2>
+<p><img src="/images/PUF/PUF01.jpg"></p>
+<h2 id="流程">流程</h2>
+<h3 id="enrolment-phase-注册阶段">Enrolment phase 注册阶段</h3>
+<ol type="1">
+<li>Provisioning process：
+<ol type="1">
+<li>SCG随机生成一个m比特的密钥<span class="math inline">\(K_s\)</span>，存到验证机的内存和KEYDB</li>
+<li>SCG给节点A发送一个随机生成的challenge <span class="math inline">\(C_a\)</span>，节点A计算response <span class="math inline">\(R_a = PUF(C_a)\)</span>，返回给SCG</li>
+<li>SCG生成辅助值<span class="math inline">\(HLP_a=BCH_{Encoder}(R_a)\)</span>，组成元组&lt;<span class="math inline">\(C_a\)</span>, <span class="math inline">\(R_a\)</span>, <span class="math inline">\(HLP_a\)</span>&gt;存到CRPDB，</li>
+</ol></li>
+<li>Security Association Generation Process
+<ol type="1">
+<li>SCG随机生成一个n比特的challenge <span class="math inline">\(C_s\)</span>，计算 <span class="math inline">\(P_s=H2_{Ks}(C_s)\)</span>, <span class="math inline">\(P_a=H1(R_a)\)</span></li>
+<li>SCG随机从<span class="math inline">\(Z^*_q\)</span>选择一个元素<span class="math inline">\(a\)</span>并计算：<br><span class="math inline">\(B=P_a-a \cdot P_s\)</span>, <br><span class="math inline">\(d_1=H3(H1(C_a||C_s||HLP_a||a||H3(P_s))+B)\)</span>，<br>组成元组&lt;<span class="math inline">\(C_a\)</span>, <span class="math inline">\(C_s\)</span>, <span class="math inline">\(HLP_a\)</span>, <span class="math inline">\(a\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(d_1\)</span>&gt;存到SAP的MAPDB，这样对节点A的注册就完成了</li>
+</ol></li>
+<li>经过上述步骤，验证机只存有密钥<span class="math inline">\(K_s\)</span>，其他数据都存到数据库，数据库是离线的</li>
+</ol>
+<h3 id="authentication-key-exchange-phase-认证和交换密钥阶段">Authentication &amp; key exchange phase 认证和交换密钥阶段</h3>
+<p>假设节点A和节点B想要交互：</p>
+<ol type="1">
+<li>节点A初始化一个请求&lt;<span class="math inline">\(ID_a\)</span>, <span class="math inline">\(ID_b\)</span>&gt;，发给验证机，后者转发请求给SAP</li>
+<li>SAP从MAPDB查询得到&lt;<span class="math inline">\(C_a\)</span>, <span class="math inline">\(C_s\)</span>, <span class="math inline">\(HLP_a\)</span>, <span class="math inline">\(a\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(d_1\)</span>&gt;发给验证机</li>
+<li>验证机进行计算：<span class="math inline">\(P_s = H2_{Ka}(C_s)\)</span></li>
+<li>如果<span class="math inline">\(d1==H3(H1(C_a||C_s||HLP_a||a||H3(P_s))+B)\)</span>，计算：<span class="math inline">\(P_a=a \cdot P_s + B\)</span></li>
+<li>验证机随机选择一个值<span class="math inline">\(x \in _RZ^*_q\)</span>，并计算<br><span class="math inline">\(Q_a=P_a+x \cdot P_s +H1(ID_a||ID_b)\)</span>，<br><span class="math inline">\(V_a=e(P_a, x \cdot P_s)\)</span>，<br>组成元组&lt;<span class="math inline">\(C_a\)</span>, <span class="math inline">\(HLP_a\)</span>, <span class="math inline">\(Q_a\)</span>&gt;发给节点A。</li>
+<li>节点A收到之后，
+<ol type="1">
+<li>PUF计算：<span class="math inline">\(R_{actural}=PUF_a(C_a)\)</span></li>
+<li>BCH解码器计算：<span class="math inline">\(BCH_{Decoder}(HLP_a)=R_{corrected}\)</span>，应满足<span class="math inline">\(R_{corrected}=R_{actural}\)</span></li>
+<li>进行计算：<br><span class="math inline">\(P^\prime_a=H1(R_{corrected})\)</span> <br><span class="math inline">\(P^\prime_s=Q_a-P^\prime_a-H1(ID_a||ID_b)\)</span> <br><span class="math inline">\(V^\prime_a=e(P^\prime_a, P^\prime_s)\)</span></li>
+<li>节点A随机选择: <span class="math inline">\(t \in _RZ^*_q\)</span>, <span class="math inline">\(Y_a \in _RG^*_1\)</span>, 计算密钥对：<span class="math inline">\(KA_{PUB}=t \cdot Q_a, KA_{PRV}=t \cdot Y_a\)</span>, 组成元组&lt;<span class="math inline">\(V^\prime_a\)</span>, <span class="math inline">\(KA_{PUB}\)</span>, <span class="math inline">\(Y_a\)</span>, <span class="math inline">\(H3(P^\prime_s+KA_{PUB})||H3(Y_a)\)</span>&gt;发给验证机</li>
+</ol></li>
+<li>验证机收到之后，如果<span class="math inline">\(V_a=V^\prime_a\)</span>，<span class="math inline">\(H3(P_s+KA_{PUB})||H3(Y_a)=H3(P^\prime_s+KA_{PUB})||H3(Y_a)\)</span>，验证机就认为节点A是已授权设备，并接受他的公钥<span class="math inline">\(KA_{PUB}\)</span></li>
+<li>类似地，验证机验证节点B，最后给节点A发送元组&lt;<span class="math inline">\(KB_{PUB}, Q_b, Y_b, H3(H1(P_a)||H1(KB_{PUB})||H1(Q_b)||H1(Y_b))\)</span>&gt;</li>
+<li>节点A收到之后，若<span class="math inline">\(H3(H1(P_a)||H1(KB_{PUB})||H1(Q_b)||H1(Y_b))=H3(H1(P^\prime_a)||H1(KB_{PUB})||H1(Q_b)||H1(Y_b))\)</span>，说明验证机是已授权的，因为只有验证机能使用<span class="math inline">\(P_s\)</span>来解析出<span class="math inline">\(P_a\)</span>，并接受节点B的公钥</li>
+</ol>
+<h2 id="分析">分析</h2>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/密码学/" rel="tag"><i class="fa fa-tag"></i> 密码学</a>
+          
+            <a href="/tags/毕业设计/" rel="tag"><i class="fa fa-tag"></i> 毕业设计</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/19/java-oop/" rel="next" title="面向对象">
+                <i class="fa fa-chevron-left"></i> 面向对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/27/crypto-basic/" rel="prev" title="加密算法笔记">
+                加密算法笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tomoya06</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分類</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#puf"><span class="nav-number">1.</span> <span class="nav-text">PUF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-number">2.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统架构"><span class="nav-number">3.</span> <span class="nav-text">系统架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">4.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#enrolment-phase-注册阶段"><span class="nav-number">4.1.</span> <span class="nav-text">Enrolment phase 注册阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#authentication-key-exchange-phase-认证和交换密钥阶段"><span class="nav-number">4.2.</span> <span class="nav-text">Authentication &amp; key exchange phase 认证和交换密钥阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">5.</span> <span class="nav-text">分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tomoya06</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

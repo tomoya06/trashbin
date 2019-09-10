@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="上课,前端,计算机网络,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content=".imgdiv {     text-align: center; } .imgdiv img {     display: inline-block;     width: 60%; }  .imgdiv span {     display: block;     font-size: 12px;     opacity: 80%; }  计算机网络作业2">
+<meta name="keywords" content="上课,前端,计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络作业2">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/web-hw02/index.html">
+<meta property="og:site_name" content="tomoya06的部落格">
+<meta property="og:description" content=".imgdiv {     text-align: center; } .imgdiv img {     display: inline-block;     width: 60%; }  .imgdiv span {     display: block;     font-size: 12px;     opacity: 80%; }  计算机网络作业2">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://i.loli.net/2018/12/09/5c0cd41029caf.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/09/5c0cd410cc753.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/12/09/5c0cd4eb757d0.jpg">
+<meta property="og:updated_time" content="2019-09-03T06:28:57.444Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络作业2">
+<meta name="twitter:description" content=".imgdiv {     text-align: center; } .imgdiv img {     display: inline-block;     width: 60%; }  .imgdiv span {     display: block;     font-size: 12px;     opacity: 80%; }  计算机网络作业2">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/09/5c0cd41029caf.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/09/web-hw02/">
+
+
+
+
+
+  <title>计算机网络作业2 | tomoya06的部落格</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tomoya06的部落格</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+            
+            展臺
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/web-hw02/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tomoya06">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tomoya06的部落格">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络作业2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-12-09T19:43:13+08:00">
+                2018-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <style>
+.imgdiv {
+    text-align: center;
+}
+.imgdiv img {
+    display: inline-block;
+    width: 60%;
+}
+
+.imgdiv span {
+    display: block;
+    font-size: 12px;
+    opacity: 80%;
+}
+</style>
+<h1 id="计算机网络作业2">计算机网络作业2</h1>
+<a id="more"></a>
+<h2 id="一双包发送协议设计">一、双包发送协议设计</h2>
+<p>同样是停等协议，但一个包带有两个分组。此处暂不考虑包裹出错的问题。在本协议中，发送方将维护一个可容纳两个分组的待机数据包，在数据包满的时候发送；接收方收到数据包后从包中解析出有序的两个分组，依次递交给下层协议。</p>
+<h3 id="协议流程">1. 协议流程</h3>
+<h4 id="前言">前言</h4>
+<p>成对发送分组可能存在存在的问题是，当分组数为奇数，最后一个包裹会一直处于等待的状态。此处作补充说明：发送方在本次传输开始，即收到第一个分组的时候，开始维护一个计时器，在超过一定时间仍未收到上层传来新的分组时，认定为分组发送完毕。在将缓存区的分组也都发送完毕时，若待发送包裹未满未空，则额外添加一个null的分组，并把包裹发送出去。</p>
+<p>当然，若上一层是一次性把需要发送的分组全都交给本层的话，只需在最后一个包裹中直接添加一个null分组即可，不用维护计时器。</p>
+<h4 id="发送方">发送方：</h4>
+<ul>
+<li>初始化：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">windowSize = 2</span><br><span class="line">windowUsed = 0</span><br><span class="line">dataArr[]</span><br><span class="line">watingACK = 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>事件处理</li>
+</ul>
+<ol type="1">
+<li><p>上层调用rdt_send(data)，或等待上层调用rdt_send()超时：比较windowUsed和windowSize：</p>
+<ol type="1">
+<li><p>等于：缓存data。超时的话data为null，下同。</p></li>
+<li><p>不等于：将data存入<code>dataArr[windowUsed]</code>，windowUsed自加，再次比较windowUsed</p>
+<ol type="1">
+<li>等于：打包发送dataArr[] + waitingACK + chksum</li>
+<li>不等于：等待下次调用<code>rdt_send()</code>。</li>
+</ol></li>
+</ol></li>
+<li><p>收到ACK：清空dataArr，windowUsed归零，执行 <code>waitingACK = (waitingACK+1) mod 2</code></p></li>
+<li><p>等待ACK超时：重新发送pkgToSend</p></li>
+</ol>
+<h4 id="接收方">接收方</h4>
+<ul>
+<li>初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expectedACK = 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>事件处理</li>
+</ul>
+<ol type="1">
+<li><p>收到包裹：检查包裹完整性和ACK匹配：</p>
+<ol type="1">
+<li>不完整或不匹配：发送NAK</li>
+<li>完整：解包，得到<code>data[0] data[1] waitingACK</code>，依次调用<code>deliver_data(data[i])</code>，发送<code>ACK = waitingACK</code>，<code>expectedACK = (expectedACK+1) mod 2</code></li>
+</ol></li>
+</ol>
+<h3 id="fsm">2. FSM</h3>
+<h4 id="发送方-1">发送方</h4>
+<div class="imgdiv">
+<p><img src="https://i.loli.net/2018/12/09/5c0cd41029caf.jpg"> <span>发送方FMS</span></p>
+</div>
+<h4 id="接收方-1">接收方</h4>
+<div class="imgdiv">
+<p><img src="https://i.loli.net/2018/12/09/5c0cd410cc753.jpg"> <span>接收方FMS</span></p>
+</div>
+<h3 id="时序图">3. 时序图</h3>
+<p>等待成对数据满足并组装打包的流程将不在时序图中体现。</p>
+<div class="imgdiv">
+<p><img src="https://i.loli.net/2018/12/09/5c0cd4eb757d0.jpg"> <span>时间流</span></p>
+</div>
+<h2 id="二新tcp协议窗口分析">二、新TCP协议窗口分析</h2>
+<h3 id="分析">分析</h3>
+<ol type="1">
+<li>慢启动周期为RTT：指数增长阶段</li>
+<li>拥塞避免周期为10RTT</li>
+<li>16轮后是出现了冗余ACK，</li>
+<li>22轮后是出现了超时，cwnd设置为1</li>
+<li>第一轮传递的ssthresh为32MSS</li>
+<li>18轮的ssthresh为16轮的cwnd的一半，为 <code>42/2=21 MSS</code></li>
+<li>24轮的ssthresh为22轮的cwnd的一半，为 <code>29/2=14.5 MSS</code></li>
+<li>第70个报文段发送于：<code>1+2+4+8+16+32+7 ==&gt;  第8轮</code></li>
+<li>26轮时的cwnd为8，此时出现ACK冗余，ssthresh将设为 <code>cwnd/2 = 4 MSS</code>，下一个cwnd设为1MSS</li>
+</ol>
+<h2 id="三数学题">三、数学题</h2>
+<h3 id="解答">解答</h3>
+<h4 id="证明">1. 证明</h4>
+<p>由于在一个周期内，吞吐量成线性增长逐次+1，</p>
+<p>周期内发包总数</p>
+<p><span class="math display">\[P = \frac{1}{2}(\frac{W}{2}+ W)(\frac{W}{2} + 1)=\frac{3}{8} W^2 + \frac{3}{4}W \tag{1}\]</span></p>
+<p>丢包率</p>
+<p><span class="math display">\[L = \frac{1}{P} = \frac{1}{\frac{3}{8} W^2 + \frac{3}{4}W} \tag{2}\]</span></p>
+<h4 id="证明-1">2. 证明</h4>
+<p>由1，平均吞吐量为</p>
+<p><span class="math display">\[R = \frac{1}{2} \times (\frac{W}{2} + W) \div RTT = \frac{3W}{4RTT} \tag{3}\]</span></p>
+<p>由(2)，得到</p>
+<p><span class="math display">\[W \approx \sqrt{\frac{8}{3L}} \tag{4}\]</span></p>
+<p>将(4)代入(3)，则有</p>
+<p><span class="math display">\[L \approx \frac{1.22 \cdot MSS}{RTT \sqrt{L}} \tag{5}\]</span></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/上课/" rel="tag"><i class="fa fa-tag"></i> 上课</a>
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/01/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/11/linux-beautify/" rel="prev" title="常用美化指令收藏">
+                常用美化指令收藏 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tomoya06</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分類</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络作业2"><span class="nav-number">1.</span> <span class="nav-text">计算机网络作业2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一双包发送协议设计"><span class="nav-number">1.1.</span> <span class="nav-text">一、双包发送协议设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#协议流程"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 协议流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送方"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">发送方：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接收方"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">接收方</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fsm"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. FSM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发送方-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">发送方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接收方-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">接收方</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时序图"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 时序图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二新tcp协议窗口分析"><span class="nav-number">1.2.</span> <span class="nav-text">二、新TCP协议窗口分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">1.2.1.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三数学题"><span class="nav-number">1.3.</span> <span class="nav-text">三、数学题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解答"><span class="nav-number">1.3.1.</span> <span class="nav-text">解答</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#证明"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">1. 证明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#证明-1"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">2. 证明</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tomoya06</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

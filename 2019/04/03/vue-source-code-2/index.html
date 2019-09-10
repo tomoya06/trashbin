@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,Vue,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="学习文章参考。源码版本为当下GitHub最新版2.6.10 本文对应文章第三章，“深入响应式原理”  响应式对象  核心：Object.defineProperty 将Vue实例的data选项全部转为getter/setter  响应式对象转换过程  初始化过程  123456789initMixin() &amp;#123;    initState() &amp;#123;">
+<meta name="keywords" content="前端,Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue源码学习记录 - 响应式原理">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/vue-source-code-2/index.html">
+<meta property="og:site_name" content="tomoya06的部落格">
+<meta property="og:description" content="学习文章参考。源码版本为当下GitHub最新版2.6.10 本文对应文章第三章，“深入响应式原理”  响应式对象  核心：Object.defineProperty 将Vue实例的data选项全部转为getter/setter  响应式对象转换过程  初始化过程  123456789initMixin() &amp;#123;    initState() &amp;#123;">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-09-03T06:28:57.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue源码学习记录 - 响应式原理">
+<meta name="twitter:description" content="学习文章参考。源码版本为当下GitHub最新版2.6.10 本文对应文章第三章，“深入响应式原理”  响应式对象  核心：Object.defineProperty 将Vue实例的data选项全部转为getter/setter  响应式对象转换过程  初始化过程  123456789initMixin() &amp;#123;    initState() &amp;#123;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/03/vue-source-code-2/">
+
+
+
+
+
+  <title>Vue源码学习记录 - 响应式原理 | tomoya06的部落格</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tomoya06的部落格</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+            
+            展臺
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/vue-source-code-2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tomoya06">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tomoya06的部落格">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue源码学习记录 - 响应式原理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-04-03T11:16:44+08:00">
+                2019-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>学习文章<a href="https://ustbhuangyi.github.io/vue-analysis/" target="_blank" rel="noopener">参考</a>。源码版本为当下GitHub最新版2.6.10 本文对应文章第三章，“深入响应式原理”</p>
+</blockquote>
+<h2 id="响应式对象">响应式对象</h2>
+<ul>
+<li>核心：<code>Object.defineProperty</code> 将Vue实例的data选项全部转为getter/setter</li>
+</ul>
+<h3 id="响应式对象转换过程">响应式对象转换过程</h3>
+<ul>
+<li>初始化过程</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">initMixin() &#123;</span><br><span class="line">    initState() &#123;</span><br><span class="line">        initProps() // * </span><br><span class="line">        initMethods()</span><br><span class="line">        initData()</span><br><span class="line">        initComputed()</span><br><span class="line">        initWatch()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>initProps()
+<ul>
+<li>关键：遍历props的属性，调用defineReactive()转换成响应式，调用proxy()将vm._props.xxx的读写访问代理到vm.xxx</li>
+</ul></li>
+<li>initData()
+<ul>
+<li>关键：遍历data的属性，调用proxy()将vm._data.xxx的读写访问代理到vm.xxx，调用observe()转换成响应式</li>
+</ul></li>
+<li>proxy()
+<ul>
+<li>属性代理转换</li>
+</ul></li>
+<li>observe()
+<ul>
+<li>给非 VNode 的对象类型数据添加一个 Observer</li>
+</ul></li>
+<li>class Observer
+<ul>
+<li>给对象的属性添加getter/setter</li>
+<li>关键：<code>walk (obj: Object) observeArray (items: Array&lt;any&gt;)</code></li>
+</ul></li>
+<li>defineReactive()
+<ul>
+<li>定义响应式对象，给对象添加getter/setter</li>
+</ul></li>
+</ul>
+<h3 id="依赖收集-getter">依赖收集 / getter</h3>
+<ul>
+<li>核心：defineReactive() { new Dep() }</li>
+<li>class Dep
+<ul>
+<li>文件：src/core/observer/dep.js</li>
+<li>关键：target: Watcher / subs: Array<watcher> 实际上是对Watcher的管理</watcher></li>
+</ul></li>
+<li>概述：getter除了返回属性值以外，还会把属性加入观察者队列，在之后有数据更新的时候会通知所有观察者</li>
+</ul>
+<blockquote>
+<p>watcher / dep 是观察者模式的实现，参见<a href="http://www.runoob.com/design-pattern/observer-pattern.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+</blockquote>
+<h3 id="派发更新-setter">派发更新 / setter</h3>
+<ul>
+<li>注意：在赋值之前有这么一个判断。这个判断会导致value为对象且newVal也为对象时、或赋值相同值时直接跳过setter后续步骤</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (newVal === value || (newVal !== newVal &amp;&amp; value !== value)) &#123;</span><br><span class="line">  return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>dep.notify -&gt; sub.update() -&gt; queueWatcher() -&gt; nextTick(flushScheduerQueue)</li>
+<li>概述：赋值时、执行setter流程，将会触发之前所有订阅的观察者watcher调用watcher.update()，这个调用过程会使用队列保证更新优先级顺序（父组件先于子组件、用户自定义watcher优先）、保证不遗漏watcher。</li>
+</ul>
+<h3 id="nexttick">nextTick()</h3>
+<p>先要了解JS的运行机制，可参考另一篇博文，JS事件执行流程。</p>
+<p>数据的变化到 DOM 的重新渲染是一个异步过程，发生在下一个 tick。</p>
+<h2 id="特殊的对象变化">特殊的对象变化</h2>
+<h3 id="对象添加属性">对象添加属性</h3>
+<p>给一个响应式对象添加一个新的属性的时候，是不能够触发它的 setter 的。可使用全局方法<code>Vue.set(target, key, val)</code>，</p>
+<ul>
+<li>原理：<code>Vue.set = set</code></li>
+<li>关键：set的实现里调用defineReactive()来添加响应式属性</li>
+</ul>
+<h3 id="数组">数组</h3>
+<p>不能触发响应的做法：</p>
+<ol type="1">
+<li>按索引修改某个位置：<code>vm.items[indexOfItem] = newValue</code> 可使用<code>Vue.set(example1.items, indexOfItem, newValue)</code></li>
+<li>修改数组长度：<code>vm.items.length = newLength</code> 可使用<code>vm.items.splice(newLength)</code></li>
+</ol>
+<h2 id="组件更新-vnode-diff">组件更新 VNode DIFF</h2>
+<p>diff算法演示，详见<a href="https://ustbhuangyi.github.io/vue-analysis/reactive/component-update.html#updatechildren" target="_blank" rel="noopener">原文的图片演示</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+            <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i> Vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/02/vue-source-code/" rel="next" title="Vue源码学习记录 - 初始化和渲染">
+                <i class="fa fa-chevron-left"></i> Vue源码学习记录 - 初始化和渲染
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/06/java-collections/" rel="prev" title="Java集合全集">
+                Java集合全集 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">tomoya06</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分類</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式对象"><span class="nav-number">1.</span> <span class="nav-text">响应式对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式对象转换过程"><span class="nav-number">1.1.</span> <span class="nav-text">响应式对象转换过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖收集-getter"><span class="nav-number">1.2.</span> <span class="nav-text">依赖收集 / getter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#派发更新-setter"><span class="nav-number">1.3.</span> <span class="nav-text">派发更新 / setter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nexttick"><span class="nav-number">1.4.</span> <span class="nav-text">nextTick()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊的对象变化"><span class="nav-number">2.</span> <span class="nav-text">特殊的对象变化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象添加属性"><span class="nav-number">2.1.</span> <span class="nav-text">对象添加属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.2.</span> <span class="nav-text">数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件更新-vnode-diff"><span class="nav-number">3.</span> <span class="nav-text">组件更新 VNode DIFF</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tomoya06</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
