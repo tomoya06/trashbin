@@ -6,6 +6,8 @@ tags:
 - Linux
 ---
 
+Linux美化教程收藏
+
 <!-- more -->
 
 ## bash agnoster主题
