@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。  single thread = single call stack = do only one thing at a time  下面这张图可以帮助理解下JS执行过程中的完整体系：主要包括  执行栈，也就是主线程要执行的任务栈 JS引擎，用来执行异步任务 渲染队列 MACROTAS">
+<meta name="description" content="首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。">
 <meta name="keywords" content="前端,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js事件执行流程">
 <meta property="og:url" content="http://yoursite.com/2019/04/09/js-task-event/index.html">
 <meta property="og:site_name" content="tomoya06的部落格">
-<meta property="og:description" content="首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。  single thread = single call stack = do only one thing at a time  下面这张图可以帮助理解下JS执行过程中的完整体系：主要包括  执行栈，也就是主线程要执行的任务栈 JS引擎，用来执行异步任务 渲染队列 MACROTAS">
+<meta property="og:description" content="首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://user-images.githubusercontent.com/35499042/55784635-8d86ab80-5ae3-11e9-8231-5bf99b6e9bb0.jpeg">
 <meta property="og:image" content="https://pic3.zhimg.com/v2-ad1a251cb91d37625185a4fb874494fc_1200x500.jpg">
-<meta property="og:updated_time" content="2019-09-03T06:28:57.440Z">
+<meta property="og:updated_time" content="2019-09-10T07:41:35.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js事件执行流程">
-<meta name="twitter:description" content="首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。  single thread = single call stack = do only one thing at a time  下面这张图可以帮助理解下JS执行过程中的完整体系：主要包括  执行栈，也就是主线程要执行的任务栈 JS引擎，用来执行异步任务 渲染队列 MACROTAS">
+<meta name="twitter:description" content="首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/35499042/55784635-8d86ab80-5ae3-11e9-8231-5bf99b6e9bb0.jpeg">
 
 
@@ -324,6 +324,7 @@
 
       
         <p>首先记住js是单线程语言，这就意味着在任何时候都只有一个主线程，某个时间主线程只能执行一个任务。</p>
+<a id="more"></a>
 <blockquote>
 <p>single thread = single call stack = do only one thing at a time</p>
 </blockquote>
