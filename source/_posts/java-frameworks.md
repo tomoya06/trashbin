@@ -16,6 +16,10 @@ SpringBoot可以让你快速构建基于Spring的Web应用程序，内置多种W
 
 对JDBC(Java Database Connectivity)的封装。方便进行CRUD操作。类似的库有Hibernate。
 
+### MyBatis Generator
+
+在使用MyBatis的时候需要新建DAO、建立所需的查询语句mapper，接口很多的时候，可以使用MBG来自动生成。
+
 ## Swagger-UI
 
 可以动态生成在线API文档，需要手动添加注解。

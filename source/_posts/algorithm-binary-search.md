@@ -43,21 +43,21 @@ int binarySearch(int[] nums, int target) {
 ### 寻找一个数
 
 ````
-int binarySearch(int[] nums, int target) {
-    int left = 0; 
-    int right = nums.length - 1; // 注意
-
-    while(left <= right) {  // 注意
-        int mid = (right + left) / 2;
-        if(nums[mid] == target)
-            return mid; 
-        else if (nums[mid] < target)
-            left = mid + 1; // 注意
-        else if (nums[mid] > target)
-            right = mid - 1; // 注意
-        }
-    return -1;
+var searchTarget = function (nums, target) {
+  let left = 0, right = nums.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1;
 }
+
 ````
 
 * 搜索区间：`[left, right]`闭区间
@@ -67,51 +67,48 @@ int binarySearch(int[] nums, int target) {
 ### 寻找左侧边界/第一个target值的位置
 
 ````
-int left_bound(int[] nums, int target) {
-    if (nums.length == 0) return -1;
-    int left = 0;
-    int right = nums.length; // 注意
-    
-    while (left < right) { // 注意
-        int mid = (left + right) / 2;
-        if (nums[mid] == target) {
-            right = mid;
-        } else if (nums[mid] < target) {
-            left = mid + 1;
-        } else if (nums[mid] > target) {
-            right = mid; // 注意
-        }
+
+var searchLeftBorder = function (nums, target) {
+  let left = 0, right = nums.length;
+  while (left < right) {
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] === target) {
+      right = mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid;
     }
-    return left;
+  }
+  return left;
 }
 ````
 
 * 搜索区间：`[left, right)`半开区间
 * 初始区间：`[0, len)`
 * 终止：`left === right`，区间为空；
-  * 若nums中没有target值，返回0；返回值也可以理解为nums中小于target的数字数量
+  * 返回值也可以理解为nums中小于target的数字数量
 
 ### 寻找右侧边界/最后一个target值的位置
 
 ````
-int right_bound(int[] nums, int target) {
-    if (nums.length == 0) return -1;
-    int left = 0, right = nums.length;
-    
-    while (left < right) {
-        int mid = (left + right) / 2;
-        if (nums[mid] == target) {
-            left = mid + 1; // 注意
-        } else if (nums[mid] < target) {
-            left = mid + 1;
-        } else if (nums[mid] > target) {
-            right = mid;
-        }
+var searchRightBorder = function (nums, target) {
+  let left = 0, right = nums.length;
+  while (left < right) {
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] === target) {
+      left = mid + 1;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid;
     }
-    return left - 1; // 注意
+  }
+  return left - 1;
 }
 ````
 
 * 搜索区间：`[left, right)`半开区间
 * 初始区间：`[0, len)`
 * 终止：返回`left - 1`，因为在循环中`nums[mid] == target`时`left = mid + 1 ==> mid = left - 1`，即`nums[left - 1] == target`
+  * 返回值可以理解为nums中小于等于target的数字数量-1（若不存在该target则不-1）
