@@ -59,3 +59,17 @@ HDEL
 ### 注意
 
 * 指令不分大小写，参数名/HASH KEY分
+
+### 规范
+
+> 以下来自[StackOverflow](https://stackoverflow.com/a/6971415/8356786)
+
+> What are the normal naming convention for keys in redis? I've seen values separated by : but I'm not sure what the normal convention is, or why.
+
+Yes, colon sign : is a convention when naming keys. In this tutorial on redis website is stated: Try to stick with a schema. For instance "object-type:id:field" can be a nice idea, like in "user:1000:password". I like to use dots for multi-words fields, like in "comment:1234:reply.to".
+
+> Are you able to query for just the beginning of the key to return all users?
+
+If you mean someting like directly querying for all keys which starts with user: there is a keys command for that. This command should be however used only for debugging purpose since it's O(N) because it's searching through all keys strored in database.
+
+More appropriate solution for this problem is to create dedicated key, let's name is users, which will store all the users keys, for example, in list or set data structure.
