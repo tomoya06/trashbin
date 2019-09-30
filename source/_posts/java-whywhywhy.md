@@ -13,7 +13,7 @@ categories:
 
 ## 【MyBatis】[FIXME:]DAO：怎么实现interface到查询语句的绑定的？
 
-### 参考源码
+### 问题源码
 
 ````
 @Mapper
@@ -23,4 +23,11 @@ public interface AdminDao {
 }
 ````
 
+## 【Springboot】[FIXME:] 这些注解都什么意思？
 
+````
+@ResponseBody
+@RequestBody
+@Autowired
+@Bean
+````

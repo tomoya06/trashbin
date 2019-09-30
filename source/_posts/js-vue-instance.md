@@ -4,6 +4,7 @@ date: 2019-09-23 10:11:23
 categories:
 - JavaScript
 - 前端
+- Vue
 ---
 
 > 记录一下Vue的生命周期，解释一下
