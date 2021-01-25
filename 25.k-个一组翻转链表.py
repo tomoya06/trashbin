@@ -12,37 +12,36 @@
 #         self.next = next
 class Solution:
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
-        # return group new tail & head
-        def reverseGroup(head: ListNode, tail: ListNode):
-            prev = tail.next
-            p = head
-            nxt = None
-            while p != tail:
-                nxt = p.next
-                p.next = prev
-                prev = p 
-                p = nxt
-            return tail, head
+        def reverseGroup(head):
+            prev, curr = None, head
+            next = None
+            while curr:
+                next = curr.next
+                curr.next = prev
+                prev = curr
+                curr = next
+            return prev
         
-        groupHead, groupTail = head, None
-        lastTail = ListNode()
-        newHead = lastTail
-        cur = head
-        while cur:
-            groupHead = cur
+        nullHead = ListNode()
+        nullHead.next = head
+        cur = nullHead
+
+        while cur.next:
+            pp = cur.next
             for _ in range(k-1):
-                if not cur.next:
-                    break
-                cur = cur.next
-            groupTail = cur
-            groupHead, groupTail = reverseGroup(groupHead, groupTail)
-            lastTail.next = groupHead
-            lastTail = groupTail
-            cur = cur.next
-
-        return newHead.next
-
-
+                if pp and pp.next:
+                    pp = pp.next
+                else:
+                    return nullHead.next
+            next = pp.next
+            pp.next = None
+            prev = reverseGroup(cur.next)
+            cur.next.next = next
+            nHead = cur.next
+            cur.next = prev
+            cur = nHead
+        
+        return nullHead.next
 
 # @lc code=end
 
