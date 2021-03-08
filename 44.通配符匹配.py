@@ -22,6 +22,8 @@ class Solution:
                 else:
                     dp[pidx+1][sidx+1] = dp[pidx][sidx] and p[pidx] == s[sidx]
         
+        # TODO: dp改成一维数组节省空间
+        
         return dp[-1][-1]
 # @lc code=end
 
