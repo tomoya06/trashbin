@@ -5,21 +5,11 @@
 ## 题目列表
 
 
-### 数学
-
-| 平台 | 题号 | 名称 | 题解 |
-|--|--|--|--|
-|leetcode|1|两数之和|[1.py](code/leetcode.1.两数之和/1.py) |
-
-
-### 动态规划
-
-| 平台 | 题号 | 名称 | 题解 |
-|--|--|--|--|
-|leetcode|55|跳跃游戏|[1.py](code/leetcode.55.跳跃游戏/1.py) |
-
-
 ## 后记
+
+## 友情链接
+
+[大学同班大腿的刷题记录](https://github.com/OneForward/LeetCode)
 
 ### vscode插件设置
 
