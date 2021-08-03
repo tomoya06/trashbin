@@ -16,14 +16,14 @@
 | 平台 | 题号 | 名称 | 题解 |
 |--|--|--|--|
 |leetcode|offer03|数组中重复的数|[1.py](code/leetcode.offer03.数组中重复的数/1.py) <br>|
-|leetcode|240|搜索二维矩阵-ii|[1.py](code/leetcode.240.搜索二维矩阵-ii/1.py) <br>|
+|leetcode|240|搜索二维矩阵-ii|[double-binary-but-not-capable.py](code/leetcode.240.搜索二维矩阵-ii/double-binary-but-not-capable.py) <br>[1.py](code/leetcode.240.搜索二维矩阵-ii/1.py) <br>|
 
 
 ### 二分查找
 
 | 平台 | 题号 | 名称 | 题解 |
 |--|--|--|--|
-|leetcode|240|搜索二维矩阵-ii|[1.py](code/leetcode.240.搜索二维矩阵-ii/1.py) <br>|
+|leetcode|240|搜索二维矩阵-ii|[double-binary-but-not-capable.py](code/leetcode.240.搜索二维矩阵-ii/double-binary-but-not-capable.py) <br>[1.py](code/leetcode.240.搜索二维矩阵-ii/1.py) <br>|
 
 
 ### 贪心算法
