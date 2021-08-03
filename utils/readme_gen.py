@@ -46,7 +46,7 @@ def gen_table(ques_map):
     for ques in cat_ques_list:
       gened_md += '\n|{0}|{1}|{2}|'.format(ques[0], ques[1], ques[2])
       for ques_file in ques[3]:
-        gened_md += '[{0}]({1}) '.format(ques_file[0], ques_file[1])
+        gened_md += '[{0}]({1}) <br>'.format(ques_file[0], ques_file[1])
       gened_md += '|'
     gened_md += '\n\n'
   return gened_md

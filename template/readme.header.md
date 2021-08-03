@@ -1,3 +1,8 @@
 # leetcode v3
 
 本分支存储的是按题目类别划分的刷题记录
+
+## 参考题库分类
+
+- [x] [开发中] [分享一下当初刷的一百多篇算法题解](https://zhuanlan.zhihu.com/p/388681117)
+- [ ] [Leetcode面试高频题分类刷题总结](https://zhuanlan.zhihu.com/p/349940945)
