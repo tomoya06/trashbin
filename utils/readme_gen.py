@@ -1,6 +1,9 @@
 # 把code下面的所有作答按##tag##分类，输出给readme
+# ##tag#标签1#标签2##tagend##
+
 import glob
 import re
+import os
 
 def scan_all_files():
   ques_map = {}
@@ -8,17 +11,27 @@ def scan_all_files():
   for ques in glob.glob(r'code/*/1.py'):
     [_, ques_name, file_name] = ques.split('/')
     [platform, ques_no, ques_name] = ques_name.split('.')
+
+    ques_dir = os.path.dirname(ques)
+    all_solutions = []
+
+    for ques_solution in glob.glob(os.path.join(ques_dir, '*')):
+      [_, _,solution_name] = ques_solution.split('/')
+      all_solutions.append([solution_name, ques_solution, ])
+
+    tags = []
     with open(ques, 'r') as ques_file:
       ques_line1 = ques_file.readline()
       tags = re.search('##tag(.+)##tagend##', ques_line1).group(1)
       tags = tags.split('#')[1:]
-      print(file_name, tags)
-      cur_res = [platform, ques_no, ques_name, [[file_name, ques], ]]
-      for tag in tags:
-        if tag in ques_map:
-          ques_map[tag].append(cur_res)
-        else:
-          ques_map[tag] = [cur_res,]
+
+    print(file_name, tags)
+    cur_res = [platform, ques_no, ques_name, all_solutions]
+    for tag in tags:
+      if tag in ques_map:
+        ques_map[tag].append(cur_res)
+      else:
+        ques_map[tag] = [cur_res,]
   
   return ques_map
 
