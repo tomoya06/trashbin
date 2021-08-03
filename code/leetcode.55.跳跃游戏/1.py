@@ -1,4 +1,4 @@
-# ##tag#贪心算法#动态规划##tagend##
+# ##tag#贪心算法##tagend##
 # @lc app=leetcode.cn id=55 lang=python3
 #
 # [55] 跳跃游戏
