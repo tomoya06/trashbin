@@ -11,12 +11,19 @@
 ## 题目列表
 
 
+### 贪心算法
+
+| 平台 | 题号 | 名称 | 难度 | 题解 |
+|--|--|--|--|--|
+|leetcode|55|跳跃游戏|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.55.跳跃游戏\1.py) <br>[1_倒序.py](code\leetcode.55.跳跃游戏\1_倒序.py) <br>[1_超时了.py](code\leetcode.55.跳跃游戏\1_超时了.py) <br>|
+
+
 ### 剑指offer
 
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
-|leetcode|240_offer04|搜索二维矩阵-ii|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.240_offer04.搜索二维矩阵-ii\1.py) <br>[double-binary-but-not-capable.py](code\leetcode.240_offer04.搜索二维矩阵-ii\double-binary-but-not-capable.py) <br>|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>|
+|leetcode|offer04_240|搜索二维矩阵-ii|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer04_240.搜索二维矩阵-ii\1.py) <br>[double-binary-but-not-capable.py](code\leetcode.offer04_240.搜索二维矩阵-ii\double-binary-but-not-capable.py) <br>|
 |leetcode|offer05|替换空格|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer05.替换空格\1.py) <br>|
 
 
@@ -24,14 +31,7 @@
 
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
-|leetcode|240_offer04|搜索二维矩阵-ii|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.240_offer04.搜索二维矩阵-ii\1.py) <br>[double-binary-but-not-capable.py](code\leetcode.240_offer04.搜索二维矩阵-ii\double-binary-but-not-capable.py) <br>|
-
-
-### 贪心算法
-
-| 平台 | 题号 | 名称 | 难度 | 题解 |
-|--|--|--|--|--|
-|leetcode|55|跳跃游戏|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.55.跳跃游戏\1.py) <br>[1_倒序.py](code\leetcode.55.跳跃游戏\1_倒序.py) <br>[1_超时了.py](code\leetcode.55.跳跃游戏\1_超时了.py) <br>|
+|leetcode|offer04_240|搜索二维矩阵-ii|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer04_240.搜索二维矩阵-ii\1.py) <br>[double-binary-but-not-capable.py](code\leetcode.offer04_240.搜索二维矩阵-ii\double-binary-but-not-capable.py) <br>|
 
 
 ## 后记
