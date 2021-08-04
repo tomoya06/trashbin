@@ -1,5 +1,5 @@
 #!/bin/bash
-python3 utils/readme_gen.py
+python utils/readme_gen.py
 
 git add * 
 git commit -m "update $1"
