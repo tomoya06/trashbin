@@ -31,6 +31,9 @@
 |leetcode|offer05|替换空格|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer05.替换空格\1.py) <br>|
 |leetcode|offer06|倒序输出链表|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer06.倒序输出链表\1.py) <br>|
 |leetcode|offer07_105|前序中序还原二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer07_105.前序中序还原二叉树\1.py) <br>|
+|leetcode|offer08|双栈实现队列|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer08.双栈实现队列\1.py) <br>[2_更省事.py](code\leetcode.offer08.双栈实现队列\2_更省事.py) <br>|
+|leetcode|offer09|斐波拉契数列|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer09.斐波拉契数列\1.py) <br>|
+|leetcode|offer10_70|青蛙跳台阶问题|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer10_70.青蛙跳台阶问题\1.py) <br>|
 
 
 ### 二分查找
@@ -45,6 +48,20 @@
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
 |leetcode|offer07_105|前序中序还原二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer07_105.前序中序还原二叉树\1.py) <br>|
+
+
+### 动态规划
+
+| 平台 | 题号 | 名称 | 难度 | 题解 |
+|--|--|--|--|--|
+|leetcode|offer09|斐波拉契数列|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer09.斐波拉契数列\1.py) <br>|
+
+
+### 记忆化搜索
+
+| 平台 | 题号 | 名称 | 难度 | 题解 |
+|--|--|--|--|--|
+|leetcode|offer09|斐波拉契数列|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer09.斐波拉契数列\1.py) <br>|
 
 
 ## 后记
