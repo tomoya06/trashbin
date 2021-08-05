@@ -13,7 +13,9 @@ level_tag_mapper = {
 }
 
 def scan_all_files():
-  ques_map = {}
+  ques_map = {
+    '剑指offer': [],
+  }
   # 默认从1.py读标签
   for ques in glob.glob(r'code/*/1.py'):
     [_, ques_name, file_name] = ques.split(os.sep)

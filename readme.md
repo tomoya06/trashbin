@@ -15,13 +15,6 @@
 ## 题目列表
 
 
-### 贪心算法
-
-| 平台 | 题号 | 名称 | 难度 | 题解 |
-|--|--|--|--|--|
-|leetcode|55|跳跃游戏|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.55.跳跃游戏\1.py) <br>[1_倒序.py](code\leetcode.55.跳跃游戏\1_倒序.py) <br>[1_超时了.py](code\leetcode.55.跳跃游戏\1_超时了.py) <br>|
-
-
 ### 剑指offer
 
 | 平台 | 题号 | 名称 | 难度 | 题解 |
@@ -36,18 +29,18 @@
 |leetcode|offer10_70|青蛙跳台阶问题|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer10_70.青蛙跳台阶问题\1.py) <br>|
 
 
+### 贪心算法
+
+| 平台 | 题号 | 名称 | 难度 | 题解 |
+|--|--|--|--|--|
+|leetcode|55|跳跃游戏|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.55.跳跃游戏\1.py) <br>[1_倒序.py](code\leetcode.55.跳跃游戏\1_倒序.py) <br>[1_超时了.py](code\leetcode.55.跳跃游戏\1_超时了.py) <br>|
+
+
 ### 二分查找
 
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
 |leetcode|offer04_240|搜索二维矩阵-ii|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer04_240.搜索二维矩阵-ii\1.py) <br>[double-binary-but-not-capable.py](code\leetcode.offer04_240.搜索二维矩阵-ii\double-binary-but-not-capable.py) <br>|
-
-
-### 
-
-| 平台 | 题号 | 名称 | 难度 | 题解 |
-|--|--|--|--|--|
-|leetcode|offer07_105|前序中序还原二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer07_105.前序中序还原二叉树\1.py) <br>|
 
 
 ### 动态规划
