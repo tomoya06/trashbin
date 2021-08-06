@@ -20,7 +20,7 @@
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>|
-|leetcode|offer04_240|搜索二维矩阵-ii|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer04_240.搜索二维矩阵-ii\1.py) <br>[double-binary-but-not-capable.py](code\leetcode.offer04_240.搜索二维矩阵-ii\double-binary-but-not-capable.py) <br>|
+|leetcode|offer04_240|搜索二维矩阵-ii|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer04_240.搜索二维矩阵-ii\1.py) <br>[双重二分查找但不适用.py](code\leetcode.offer04_240.搜索二维矩阵-ii\双重二分查找但不适用.py) <br>|
 |leetcode|offer05|替换空格|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer05.替换空格\1.py) <br>|
 |leetcode|offer06|倒序输出链表|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer06.倒序输出链表\1.py) <br>|
 |leetcode|offer07_105|前序中序还原二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer07_105.前序中序还原二叉树\1.py) <br>|
@@ -41,7 +41,7 @@
 
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
-|leetcode|offer04_240|搜索二维矩阵-ii|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer04_240.搜索二维矩阵-ii\1.py) <br>[double-binary-but-not-capable.py](code\leetcode.offer04_240.搜索二维矩阵-ii\double-binary-but-not-capable.py) <br>|
+|leetcode|offer04_240|搜索二维矩阵-ii|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer04_240.搜索二维矩阵-ii\1.py) <br>[双重二分查找但不适用.py](code\leetcode.offer04_240.搜索二维矩阵-ii\双重二分查找但不适用.py) <br>|
 |leetcode|offer11_154|旋转数组的最小数字|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.抄的.py](code\leetcode.offer11_154.旋转数组的最小数字\1.抄的.py) <br>|
 
 
