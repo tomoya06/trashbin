@@ -17,7 +17,7 @@ def scan_all_files():
     '剑指offer': [],
   }
   # 默认从1.py读标签
-  for ques in glob.glob(r'code/*/1\..*'):
+  for ques in glob.glob(r'code/*/1..*'):
     [_, ques_name, file_name] = ques.split(os.sep)
     [platform, ques_no, ques_name] = ques_name.split('.')
 
