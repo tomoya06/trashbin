@@ -1,13 +1,17 @@
 #!/bin/bash
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=`tput sgr0`
+
 python utils/readme_gen.py
 if [ $? -eq 0 ]; then
   echo
-  echo -e "${GREEN}==================${NC}"
-  echo -e "${GREEN}new readme updated${NC}"
+  echo -e "${green}==================${reset}"
+  echo -e "${green}new readme updated${reset}"
 else
   echo
-  echo -e "${RED}=======================${NC}"
-  echo -e "${RED}failed to update readme${NC}"
+  echo -e "${red}=======================${reset}"
+  echo -e "${red}failed to update readme${reset}"
   exit
 fi
 
