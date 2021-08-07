@@ -4,9 +4,8 @@ if [ $? -eq 0 ]; then
   echo "new readme updated"
 else
   echo
-  echo "======================="
-  echo "failed to update readme"
-  echo "======================="
+  echo -e "${RED}=======================${NC}"
+  echo -e "${RED}failed to update readme${NC}"
   exit
 fi
 
