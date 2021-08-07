@@ -28,6 +28,9 @@
 |leetcode|offer09|斐波拉契数列|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer09.斐波拉契数列\1.py) <br>|
 |leetcode|offer10_70|青蛙跳台阶问题|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer10_70.青蛙跳台阶问题\1.py) <br>|
 |leetcode|offer11_154|旋转数组的最小数字|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.抄的.py](code\leetcode.offer11_154.旋转数组的最小数字\1.抄的.py) <br>|
+|leetcode|offer12_79|矩阵中的路径|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer12_79.矩阵中的路径\1.py) <br>|
+|leetcode|offer13|机器人的运动范围|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer13.机器人的运动范围\1.py) <br>[2_只要向右向下.py](code\leetcode.offer13.机器人的运动范围\2_只要向右向下.py) <br>|
+|leetcode|offer14_343|剪绳子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer14_343.剪绳子\1.py) <br>[2_粗暴数学问题.py](code\leetcode.offer14_343.剪绳子\2_粗暴数学问题.py) <br>|
 
 
 ### 贪心算法
@@ -50,6 +53,7 @@
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
 |leetcode|offer09|斐波拉契数列|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer09.斐波拉契数列\1.py) <br>|
+|leetcode|offer14_343|剪绳子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer14_343.剪绳子\1.py) <br>[2_粗暴数学问题.py](code\leetcode.offer14_343.剪绳子\2_粗暴数学问题.py) <br>|
 
 
 ### 记忆化搜索
@@ -57,6 +61,34 @@
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
 |leetcode|offer09|斐波拉契数列|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer09.斐波拉契数列\1.py) <br>|
+
+
+### 回溯
+
+| 平台 | 题号 | 名称 | 难度 | 题解 |
+|--|--|--|--|--|
+|leetcode|offer12_79|矩阵中的路径|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer12_79.矩阵中的路径\1.py) <br>|
+
+
+### 深度优先搜索
+
+| 平台 | 题号 | 名称 | 难度 | 题解 |
+|--|--|--|--|--|
+|leetcode|offer13|机器人的运动范围|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer13.机器人的运动范围\1.py) <br>[2_只要向右向下.py](code\leetcode.offer13.机器人的运动范围\2_只要向右向下.py) <br>|
+
+
+### 广度优先搜索
+
+| 平台 | 题号 | 名称 | 难度 | 题解 |
+|--|--|--|--|--|
+|leetcode|offer13|机器人的运动范围|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer13.机器人的运动范围\1.py) <br>[2_只要向右向下.py](code\leetcode.offer13.机器人的运动范围\2_只要向右向下.py) <br>|
+
+
+### 数学问题
+
+| 平台 | 题号 | 名称 | 难度 | 题解 |
+|--|--|--|--|--|
+|leetcode|offer14_343|剪绳子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer14_343.剪绳子\1.py) <br>[2_粗暴数学问题.py](code\leetcode.offer14_343.剪绳子\2_粗暴数学问题.py) <br>|
 
 
 ## 后记
