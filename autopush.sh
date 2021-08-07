@@ -7,11 +7,13 @@ __step_analysis() {
   if [ $? -eq 0 ]; then
     echo
     echo -e "${green}=====  $1: OK  =====${reset}"
+    echo
   else
     echo
     echo -e "${red}xxxxx  $1: FAILED  xxxxx${reset}"
+    echo
+    exit
   fi
-  echo
 }
 
 python utils/readme_gen.py
