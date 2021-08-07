@@ -5,6 +5,7 @@
 ## 参考题库分类
 
 - [x] [开发中] [剑指offer](https://github.com/yanring/jianzhi-Offer-Leetcode) / leetcode合集地址：[剑指offer第二版](https://leetcode-cn.com/problem-list/xb9nqhhg/)
+- [ ] [剑指offer-专项版](https://leetcode-cn.com/problem-list/e8X3pBZi/)
 - [ ] [分享一下当初刷的一百多篇算法题解](https://zhuanlan.zhihu.com/p/388681117)
 - [ ] [Leetcode面试高频题分类刷题总结](https://zhuanlan.zhihu.com/p/349940945)
 
