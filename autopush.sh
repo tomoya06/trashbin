@@ -3,20 +3,20 @@ red=`tput setaf 1`
 green=`tput setaf 2`
 reset=`tput sgr0`
 
+__step_analysis() {
+  if [ $? -eq 0 ]; then
+    echo
+    echo -e "${green}=====  $1: OK  =====${reset}"
+  else
+    echo
+    echo -e "${red}xxxxx  $1: FAILED  xxxxx${reset}"
+  fi
+}
+
 python utils/readme_gen.py
-if [ $? -eq 0 ]; then
-  echo
-  echo -e "${green}==================${reset}"
-  echo -e "${green}new readme updated${reset}"
-  echo -e "${green}==================${reset}"
-else
-  echo
-  echo -e "${red}=======================${reset}"
-  echo -e "${red}failed to update readme${reset}"
-  echo -e "${red}=======================${reset}"
-  exit
-fi
+__step_analysis "update readme"
 
 git add * 
 git commit -m "update $1"
 git push
+__step_analysis "update git"
