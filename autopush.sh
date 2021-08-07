@@ -8,10 +8,12 @@ if [ $? -eq 0 ]; then
   echo
   echo -e "${green}==================${reset}"
   echo -e "${green}new readme updated${reset}"
+  echo -e "${green}==================${reset}"
 else
   echo
   echo -e "${red}=======================${reset}"
   echo -e "${red}failed to update readme${reset}"
+  echo -e "${red}=======================${reset}"
   exit
 fi
 
