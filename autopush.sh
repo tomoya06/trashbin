@@ -1,7 +1,9 @@
 #!/bin/bash
 python utils/readme_gen.py
 if [ $? -eq 0 ]; then
-  echo "new readme updated"
+  echo
+  echo -e "${GREEN}==================${NC}"
+  echo -e "${GREEN}new readme updated${NC}"
 else
   echo
   echo -e "${RED}=======================${NC}"
