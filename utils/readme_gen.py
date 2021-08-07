@@ -82,5 +82,15 @@ if __name__ == '__main__':
 
   with open(r'readme.md', 'w') as readme_output:
     readme_output.write(md_output)
+  
+  print(
+'''
+====================
+|                  |
+| readme generated |
+|                  |
+====================
+'''
+    )
 
   
