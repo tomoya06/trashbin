@@ -29,6 +29,7 @@ def scan_all_files():
       all_solutions.append([solution_name, ques_solution, ])
 
     tags = []
+    print('\n ==> parsing main file: ', ques )
     with open(ques, 'r') as ques_file:
       ques_line1 = ques_file.readline()
       search_tag = re.search('##(.+)##level(\w)', ques_line1)
@@ -36,7 +37,7 @@ def scan_all_files():
       level_name = level_tag_mapper[search_tag.group(2)]
       level_name = '![level]({})'.format(level_name)
 
-    print(ques, ques_no, tags)
+    print(ques_no, tags)
     cur_res = [platform, ques_no, ques_name, level_name, all_solutions]
     for tag in tags:
       if tag in ques_map:
