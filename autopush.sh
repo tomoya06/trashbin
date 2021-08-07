@@ -11,6 +11,7 @@ __step_analysis() {
     echo
     echo -e "${red}xxxxx  $1: FAILED  xxxxx${reset}"
   fi
+  echo
 }
 
 python utils/readme_gen.py
