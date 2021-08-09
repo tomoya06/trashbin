@@ -25,6 +25,8 @@ ques_type_tag_mapper = {
   '递归': '',
 }
 
+main_ques_tag_idx = 2
+
 def scan_all_files():
   ques_map = {
     '剑指offer': [[], { 'total': 75, }],
@@ -90,12 +92,12 @@ def part_gen_table(ques_map_items):
 def gen_table(ques_map):
   gened_md = '## 题目列表\n\n'
   ques_items = list(ques_map.items())
-  gened_md += part_gen_table(ques_items[:2])
+  gened_md += part_gen_table(ques_items[:main_ques_tag_idx])
   gened_md += '''
   <details>
   <summary>查看不同分类的题目</summary>
   '''
-  gened_md += part_gen_table(ques_items[2:])
+  gened_md += part_gen_table(ques_items[main_ques_tag_idx:])
   gened_md += '''
   </details>
   '''
