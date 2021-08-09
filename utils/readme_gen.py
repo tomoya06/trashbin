@@ -15,6 +15,7 @@ level_tag_mapper = {
 def scan_all_files():
   ques_map = {
     '剑指offer': [[], { 'total': 75, }],
+    '剑指offer专项版': [[], { 'total': 119, }],
   }
   # 默认从1.py读标签
   for ques in glob.glob(r'code/*/1*'):

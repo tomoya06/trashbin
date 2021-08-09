@@ -40,6 +40,14 @@ https://progress-bar.dev/16/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer18|删除链表的节点|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer18.删除链表的节点\1.py) <br>|
 
 
+### 剑指offer专项版
+
+![progress](
+https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
+| 平台 | 题号 | 名称 | 难度 | 题解 |
+|--|--|--|--|--|
+
+
 ### 贪心算法
 
 | 平台 | 题号 | 名称 | 难度 | 题解 |
