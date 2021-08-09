@@ -14,7 +14,7 @@ level_tag_mapper = {
 
 def scan_all_files():
   ques_map = {
-    '剑指offer': [],
+    '剑指offer': [[], { 'total': 75, }],
   }
   # 默认从1.py读标签
   for ques in glob.glob(r'code/*/1*'):
@@ -41,18 +41,25 @@ def scan_all_files():
     cur_res = [platform, ques_no, ques_name, level_name, all_solutions]
     for tag in tags:
       if tag in ques_map:
-        ques_map[tag].append(cur_res)
+        ques_map[tag][0].append(cur_res)
       else:
-        ques_map[tag] = [cur_res,]
+        ques_map[tag] = [[cur_res,], {}]
   
   return ques_map
 
 def gen_table(ques_map):
   gened_md = '## 题目列表\n\n'
 
-  for cat_name, cat_ques_list in ques_map.items():
+  for cat_name, ques_output in ques_map.items():
+    [cat_ques_list, config] = ques_output
     gened_md += '\n### {cat_name}'.format(cat_name=cat_name)
     gened_md += '\n'
+
+    if 'total' in config:
+      gened_md += '\nhttps://progress-bar.dev/{0}/?scale={1}&title={2}&width=200&color=babaca&suffix={3}'.format(
+        len(cat_ques_list), config['total'], '已完成', '/'+str(config['total'])
+      )
+
     gened_md += '\n| 平台 | 题号 | 名称 | 难度 | 题解 |'
     gened_md += '\n|--|--|--|--|--|'
     for ques in cat_ques_list:

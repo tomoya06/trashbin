@@ -18,6 +18,7 @@
 
 ### 剑指offer
 
+https://progress-bar.dev/16/?scale=75&title=已完成&width=200&color=babaca&suffix=/75
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>|
@@ -35,6 +36,7 @@
 |leetcode|offer15_191|二进制中1的个数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer15_191.二进制中1的个数\1.py) <br>[2_与运算.py](code\leetcode.offer15_191.二进制中1的个数\2_与运算.py) <br>|
 |leetcode|offer16_50|数值的整数次方|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer16_50.数值的整数次方\1.py) <br>[2_不需要记忆.py](code\leetcode.offer16_50.数值的整数次方\2_不需要记忆.py) <br>[2_快速幂.py](code\leetcode.offer16_50.数值的整数次方\2_快速幂.py) <br>|
 |leetcode|offer17|打印从1到最大的n位数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer17.打印从1到最大的n位数\1.py) <br>[2_偷懒解法.py](code\leetcode.offer17.打印从1到最大的n位数\2_偷懒解法.py) <br>|
+|leetcode|offer18|删除链表的节点|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer18.删除链表的节点\1.py) <br>|
 
 
 ### 贪心算法
