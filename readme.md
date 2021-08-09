@@ -18,7 +18,8 @@
 
 ### 剑指offer
 
-https://progress-bar.dev/16/?scale=75&title=已完成&width=200&color=babaca&suffix=/75
+![progress](
+https://progress-bar.dev/16/?scale=75&title=已完成&width=200&color=babaca&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 |
 |--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>|

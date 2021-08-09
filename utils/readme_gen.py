@@ -56,9 +56,10 @@ def gen_table(ques_map):
     gened_md += '\n'
 
     if 'total' in config:
-      gened_md += '\nhttps://progress-bar.dev/{0}/?scale={1}&title={2}&width=200&color=babaca&suffix={3}'.format(
+      pro_img = '\nhttps://progress-bar.dev/{0}/?scale={1}&title={2}&width=200&color=babaca&suffix={3}'.format(
         len(cat_ques_list), config['total'], '已完成', '/'+str(config['total'])
       )
+      gened_md += '\n![progress]({})'.format(pro_img)
 
     gened_md += '\n| 平台 | 题号 | 名称 | 难度 | 题解 |'
     gened_md += '\n|--|--|--|--|--|'
