@@ -25,7 +25,10 @@ ques_type_tag_mapper = {
   '递归': '',
 }
 
-main_ques_tag_idx = 2
+main_ques_tags = [
+  '剑指offer', '剑指offer专项版'
+]
+main_ques_tag_idx = len(main_ques_tags)
 
 def scan_all_files():
   ques_map = {
@@ -54,7 +57,9 @@ def scan_all_files():
       level_name = '![level]({})'.format(level_name)
 
     print(ques_no, tags)
-    cur_res = [platform, ques_no, ques_name, level_name, all_solutions, tags,]
+    no_main_tags = [tag for tag in tags if tag not in main_ques_tags]
+    cur_res = [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags,]
+    
     for tag in tags:
       if tag in ques_map:
         ques_map[tag][0].append(cur_res)
