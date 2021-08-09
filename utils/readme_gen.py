@@ -70,7 +70,7 @@ def scan_all_files():
 
 def part_gen_table(ques_map_items):
   gened_md = ''
-  for cat_name, ques_output in ques_map.items():
+  for cat_name, ques_output in ques_map_items:
     [cat_ques_list, config] = ques_output
     gened_md += '\n### {cat_name}'.format(cat_name=cat_name)
     gened_md += '\n'
@@ -100,7 +100,18 @@ def gen_table(ques_map):
   gened_md += part_gen_table(ques_items[:main_ques_tag_idx])
   gened_md += '\n\n'
   gened_md += '## 分类列表\n\n'
+  gened_md += '''
+  <details>
+  <summary>查看所有分类题目</summary>
+
+
+  '''
   gened_md += part_gen_table(ques_items[main_ques_tag_idx:])
+  gened_md += '''
+
+
+  </details>
+  '''
   return gened_md
 
 if __name__ == '__main__':
