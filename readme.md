@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/16/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/19/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -38,6 +38,9 @@ https://progress-bar.dev/16/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer16_50|数值的整数次方|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer16_50.数值的整数次方\1.py) <br>[2_不需要记忆.py](code\leetcode.offer16_50.数值的整数次方\2_不需要记忆.py) <br>[2_快速幂.py](code\leetcode.offer16_50.数值的整数次方\2_快速幂.py) <br>|#递归 <br>#数学问题 <br>|
 |leetcode|offer17|打印从1到最大的n位数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer17.打印从1到最大的n位数\1.py) <br>[2_偷懒解法.py](code\leetcode.offer17.打印从1到最大的n位数\2_偷懒解法.py) <br>|#数学问题 <br>|
 |leetcode|offer18|删除链表的节点|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer18.删除链表的节点\1.py) <br>||
+|leetcode|offer19_10|正则表达式匹配|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.py](code\leetcode.offer19_10.正则表达式匹配\1.py) <br>|#动态规划 <br>|
+|leetcode|offer21|调整数组顺序使奇数位于偶数前面|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer21.调整数组顺序使奇数位于偶数前面\1.py) <br>||
+|leetcode|offer22|链表中倒数第k个节点|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer22.链表中倒数第k个节点\1.py) <br>||
 
 
 ### 剑指offer专项版
@@ -78,6 +81,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |--|--|--|--|--|--|
 |leetcode|offer09|斐波拉契数列|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer09.斐波拉契数列\1.py) <br>|#动态规划 <br>#记忆化搜索 <br>|
 |leetcode|offer14_343|剪绳子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer14_343.剪绳子\1.py) <br>[2_粗暴数学问题.py](code\leetcode.offer14_343.剪绳子\2_粗暴数学问题.py) <br>|#数学问题 <br>#动态规划 <br>|
+|leetcode|offer19_10|正则表达式匹配|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.py](code\leetcode.offer19_10.正则表达式匹配\1.py) <br>|#动态规划 <br>|
 
 
 ### 记忆化搜索
