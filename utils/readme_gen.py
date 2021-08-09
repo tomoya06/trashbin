@@ -89,7 +89,7 @@ def part_gen_table(ques_map_items):
         gened_md += '[{0}]({1}) <br>'.format(ques_file[0], ques_file[1])
       gened_md += '|'
       for tag in ques[5]:
-        gened_md += '#{} '.format(tag)
+        gened_md += '#{} <br>'.format(tag)
       gened_md += '|'
     gened_md += '\n\n'
   return gened_md
@@ -98,14 +98,9 @@ def gen_table(ques_map):
   gened_md = '## 题目列表\n\n'
   ques_items = list(ques_map.items())
   gened_md += part_gen_table(ques_items[:main_ques_tag_idx])
-  gened_md += '''
-  <details>
-  <summary>查看不同分类的题目</summary>
-  '''
+  gened_md += '\n\n'
+  gened_md += '## 分类列表\n\n'
   gened_md += part_gen_table(ques_items[main_ques_tag_idx:])
-  gened_md += '''
-  </details>
-  '''
   return gened_md
 
 if __name__ == '__main__':
