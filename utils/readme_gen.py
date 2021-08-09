@@ -56,8 +56,8 @@ def gen_table(ques_map):
     gened_md += '\n'
 
     if 'total' in config:
-      pro_img = '\nhttps://progress-bar.dev/{0}/?scale={1}&title={2}&width=200&color=babaca&suffix={3}'.format(
-        len(cat_ques_list), config['total'], '已完成', '/'+str(config['total'])
+      pro_img = '\nhttps://progress-bar.dev/{0}/?scale={1}&title=completed&width=300&suffix={2}'.format(
+        len(cat_ques_list), config['total'], '/'+str(config['total'])
       )
       gened_md += '\n![progress]({})'.format(pro_img)
 
