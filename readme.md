@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/22/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/24/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -39,8 +39,10 @@ https://progress-bar.dev/22/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer17|打印从1到最大的n位数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer17.打印从1到最大的n位数\1.py) <br>[2_偷懒解法.py](code\leetcode.offer17.打印从1到最大的n位数\2_偷懒解法.py) <br>|#数学问题 <br>|
 |leetcode|offer18|删除链表的节点|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer18.删除链表的节点\1.py) <br>||
 |leetcode|offer19_10|正则表达式匹配|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.py](code\leetcode.offer19_10.正则表达式匹配\1.py) <br>|#动态规划 <br>|
+|leetcode|offer20|表示数值的字符串|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer20.表示数值的字符串\1.py) <br>|#状态机 <br>|
 |leetcode|offer21|调整数组顺序使奇数位于偶数前面|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer21.调整数组顺序使奇数位于偶数前面\1.py) <br>||
 |leetcode|offer22|链表中倒数第k个节点|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer22.链表中倒数第k个节点\1.py) <br>||
+|leetcode|offer24_206|反转链表|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1_偷瞄了.py](code\leetcode.offer24_206.反转链表\1_偷瞄了.py) <br>||
 |leetcode|offer25|合并两个排序的链表|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer25.合并两个排序的链表\1.py) <br>||
 |leetcode|offer26|树的子结构|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer26.树的子结构\1.py) <br>|#深度优先搜索 <br>#二叉树 <br>|
 |leetcode|offer27_226|二叉树的镜像|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer27_226.二叉树的镜像\1.py) <br>|#二叉树 <br>|
@@ -137,6 +139,13 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer16_50|数值的整数次方|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer16_50.数值的整数次方\1.py) <br>[2_不需要记忆.py](code\leetcode.offer16_50.数值的整数次方\2_不需要记忆.py) <br>[2_快速幂.py](code\leetcode.offer16_50.数值的整数次方\2_快速幂.py) <br>|#递归 <br>#数学问题 <br>|
+
+
+### 状态机
+
+| 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
+|--|--|--|--|--|--|
+|leetcode|offer20|表示数值的字符串|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer20.表示数值的字符串\1.py) <br>|#状态机 <br>|
 
 
 ### 二叉树
