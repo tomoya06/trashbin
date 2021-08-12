@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/24/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/28/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -46,6 +46,10 @@ https://progress-bar.dev/24/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer25|合并两个排序的链表|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer25.合并两个排序的链表\1.py) <br>||
 |leetcode|offer26|树的子结构|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer26.树的子结构\1.py) <br>|#深度优先搜索 <br>#二叉树 <br>|
 |leetcode|offer27_226|二叉树的镜像|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer27_226.二叉树的镜像\1.py) <br>|#二叉树 <br>|
+|leetcode|offer28_101|对称的二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer28_101.对称的二叉树\1.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
+|leetcode|offer30_155|包含min函数的栈|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer30_155.包含min函数的栈\1.py) <br>||
+|leetcode|offer32|I_从上到下打印二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer32.I_从上到下打印二叉树\1.py) <br>[2_更快.py](code\leetcode.offer32.I_从上到下打印二叉树\2_更快.py) <br>|#广度优先搜索 <br>|
+|leetcode|offer32_102|II_从上到下打印二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer32_102.II_从上到下打印二叉树\1.py) <br>|#广度优先搜索 <br>|
 
 
 ### 剑指offer专项版
@@ -109,6 +113,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |--|--|--|--|--|--|
 |leetcode|offer13|机器人的运动范围|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer13.机器人的运动范围\1.py) <br>[2_只要向右向下.py](code\leetcode.offer13.机器人的运动范围\2_只要向右向下.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
 |leetcode|offer26|树的子结构|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer26.树的子结构\1.py) <br>|#深度优先搜索 <br>#二叉树 <br>|
+|leetcode|offer28_101|对称的二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer28_101.对称的二叉树\1.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
 
 
 ### 广度优先搜索
@@ -116,6 +121,9 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer13|机器人的运动范围|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer13.机器人的运动范围\1.py) <br>[2_只要向右向下.py](code\leetcode.offer13.机器人的运动范围\2_只要向右向下.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
+|leetcode|offer28_101|对称的二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer28_101.对称的二叉树\1.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
+|leetcode|offer32|I_从上到下打印二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer32.I_从上到下打印二叉树\1.py) <br>[2_更快.py](code\leetcode.offer32.I_从上到下打印二叉树\2_更快.py) <br>|#广度优先搜索 <br>|
+|leetcode|offer32_102|II_从上到下打印二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer32_102.II_从上到下打印二叉树\1.py) <br>|#广度优先搜索 <br>|
 
 
 ### 数学问题
