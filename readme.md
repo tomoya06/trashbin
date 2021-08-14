@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/29/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/32/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -48,9 +48,12 @@ https://progress-bar.dev/29/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer27_226|二叉树的镜像|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer27_226.二叉树的镜像\1.py) <br>|#二叉树 <br>|
 |leetcode|offer28_101|对称的二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer28_101.对称的二叉树\1.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
 |leetcode|offer30_155|包含min函数的栈|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer30_155.包含min函数的栈\1.py) <br>||
+|leetcode|offer31_946|栈的压入弹出序列|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer31_946.栈的压入弹出序列\1.py) <br>||
 |leetcode|offer32|III_从上到下打印二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer32.III_从上到下打印二叉树\1.py) <br>|#广度优先搜索 <br>|
 |leetcode|offer32|I_从上到下打印二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer32.I_从上到下打印二叉树\1.py) <br>[2_更快.py](code\leetcode.offer32.I_从上到下打印二叉树\2_更快.py) <br>|#广度优先搜索 <br>|
 |leetcode|offer32_102|II_从上到下打印二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer32_102.II_从上到下打印二叉树\1.py) <br>|#广度优先搜索 <br>|
+|leetcode|offer34_113|二叉树中和为某一值的路径|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer34_113.二叉树中和为某一值的路径\1.py) <br>[2_节省空间.py](code\leetcode.offer34_113.二叉树中和为某一值的路径\2_节省空间.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
+|leetcode|offer35_138|复杂链表的复制|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_借助哈希表.py](code\leetcode.offer35_138.复杂链表的复制\1_借助哈希表.py) <br>[2_原地复制.py](code\leetcode.offer35_138.复杂链表的复制\2_原地复制.py) <br>||
 
 
 ### 剑指offer专项版
@@ -115,6 +118,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer13|机器人的运动范围|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer13.机器人的运动范围\1.py) <br>[2_只要向右向下.py](code\leetcode.offer13.机器人的运动范围\2_只要向右向下.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
 |leetcode|offer26|树的子结构|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer26.树的子结构\1.py) <br>|#深度优先搜索 <br>#二叉树 <br>|
 |leetcode|offer28_101|对称的二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer28_101.对称的二叉树\1.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
+|leetcode|offer34_113|二叉树中和为某一值的路径|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer34_113.二叉树中和为某一值的路径\1.py) <br>[2_节省空间.py](code\leetcode.offer34_113.二叉树中和为某一值的路径\2_节省空间.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
 
 
 ### 广度优先搜索
@@ -126,6 +130,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer32|III_从上到下打印二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer32.III_从上到下打印二叉树\1.py) <br>|#广度优先搜索 <br>|
 |leetcode|offer32|I_从上到下打印二叉树|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer32.I_从上到下打印二叉树\1.py) <br>[2_更快.py](code\leetcode.offer32.I_从上到下打印二叉树\2_更快.py) <br>|#广度优先搜索 <br>|
 |leetcode|offer32_102|II_从上到下打印二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer32_102.II_从上到下打印二叉树\1.py) <br>|#广度优先搜索 <br>|
+|leetcode|offer34_113|二叉树中和为某一值的路径|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer34_113.二叉树中和为某一值的路径\1.py) <br>[2_节省空间.py](code\leetcode.offer34_113.二叉树中和为某一值的路径\2_节省空间.py) <br>|#深度优先搜索 <br>#广度优先搜索 <br>|
 
 
 ### 数学问题
