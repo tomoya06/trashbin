@@ -1,4 +1,4 @@
-# ##剑指offer#数学问题#二分查找##levele
+# ##剑指offer#数学问题#分治法##levele
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         half = len(nums)/2

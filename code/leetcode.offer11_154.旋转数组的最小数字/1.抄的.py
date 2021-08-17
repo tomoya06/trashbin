@@ -1,4 +1,4 @@
-# ##剑指offer#二分查找##levelh
+# ##剑指offer#分治法##levelh
 
 class Solution:
     def minArray(self, numbers: List[int]) -> int:

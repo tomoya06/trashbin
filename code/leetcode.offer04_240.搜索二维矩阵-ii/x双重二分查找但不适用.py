@@ -1,4 +1,4 @@
-# ##tag#剑指offer#二分查找##tagend##
+# ##tag#剑指offer#分治法##tagend##
 # @lc app=leetcode.cn id=240 lang=python3
 #
 # [240] 搜索二维矩阵 II
