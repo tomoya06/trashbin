@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/38/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/40/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -60,6 +60,8 @@ https://progress-bar.dev/38/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer38|字符串的排列|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer38.字符串的排列\1.py) <br>[2_下一个排列.py](code\leetcode.offer38.字符串的排列\2_下一个排列.py) <br>||
 |leetcode|offer39|数组中出现次数超过一半的数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer39.数组中出现次数超过一半的数字\1.py) <br>[2_中位数.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_中位数.py) <br>[2_二分查找.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_二分查找.py) <br>[2_神之摩尔投票法.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_神之摩尔投票法.py) <br>|#数学问题 <br>#分治法 <br>|
 |leetcode|offer42_53|连续子数组的最大和|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer42_53.连续子数组的最大和\1.py) <br>[2_线段树.py](code\leetcode.offer42_53.连续子数组的最大和\2_线段树.py) <br>|#数学问题 <br>#动态规划 <br>#分治法 <br>|
+|leetcode|offer44|把数字翻译成字符串|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer44.把数字翻译成字符串\1.py) <br>|#动态规划 <br>|
+|leetcode|offer47|礼物的最大价值|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer47.礼物的最大价值\1.py) <br>|#动态规划 <br>|
 
 
 ### 剑指offer专项版
@@ -104,6 +106,8 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer14_343|剪绳子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer14_343.剪绳子\1.py) <br>[2_粗暴数学问题.py](code\leetcode.offer14_343.剪绳子\2_粗暴数学问题.py) <br>|#数学问题 <br>#动态规划 <br>|
 |leetcode|offer19_10|正则表达式匹配|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.py](code\leetcode.offer19_10.正则表达式匹配\1.py) <br>|#动态规划 <br>|
 |leetcode|offer42_53|连续子数组的最大和|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer42_53.连续子数组的最大和\1.py) <br>[2_线段树.py](code\leetcode.offer42_53.连续子数组的最大和\2_线段树.py) <br>|#数学问题 <br>#动态规划 <br>#分治法 <br>|
+|leetcode|offer44|把数字翻译成字符串|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer44.把数字翻译成字符串\1.py) <br>|#动态规划 <br>|
+|leetcode|offer47|礼物的最大价值|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer47.礼物的最大价值\1.py) <br>|#动态规划 <br>|
 
 
 ### 记忆化搜索
