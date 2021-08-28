@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/47/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/50/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -60,8 +60,11 @@ https://progress-bar.dev/47/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer38|字符串的排列|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer38.字符串的排列\1.py) <br>[2_下一个排列.py](code\leetcode.offer38.字符串的排列\2_下一个排列.py) <br>||
 |leetcode|offer39|数组中出现次数超过一半的数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer39.数组中出现次数超过一半的数字\1.py) <br>[2_中位数.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_中位数.py) <br>[2_二分查找.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_二分查找.py) <br>[2_神之摩尔投票法.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_神之摩尔投票法.py) <br>|#数学问题 <br>#分治法 <br>|
 |leetcode|offer39_54|顺时针打印矩阵|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer39_54.顺时针打印矩阵\1.py) <br>||
+|leetcode|offer41_295|数据流中的中位数|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1_抄的.py](code\leetcode.offer41_295.数据流中的中位数\1_抄的.py) <br>|#二叉树 <br>|
 |leetcode|offer42_53|连续子数组的最大和|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer42_53.连续子数组的最大和\1.py) <br>[2_线段树.py](code\leetcode.offer42_53.连续子数组的最大和\2_线段树.py) <br>|#数学问题 <br>#动态规划 <br>#分治法 <br>|
 |leetcode|offer44|把数字翻译成字符串|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer44.把数字翻译成字符串\1.py) <br>|#动态规划 <br>|
+|leetcode|offer44_400|数字序列中某一位的数字|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer44_400.数字序列中某一位的数字\1.py) <br>|#数学问题 <br>|
+|leetcode|offer45|把数组排成最小的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.js](code\leetcode.offer45.把数组排成最小的数\1.js) <br>[2_手写快排.py](code\leetcode.offer45.把数组排成最小的数\2_手写快排.py) <br>||
 |leetcode|offer47|礼物的最大价值|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer47.礼物的最大价值\1.py) <br>|#动态规划 <br>|
 |leetcode|offer50|第一个只出现一次的字符|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer50.第一个只出现一次的字符\1.py) <br>|#哈希表 <br>|
 |leetcode|offer52|两个链表的第一个公共节点|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer52.两个链表的第一个公共节点\1.py) <br>[2_更干净的写法.py](code\leetcode.offer52.两个链表的第一个公共节点\2_更干净的写法.py) <br>|#双指针 <br>|
@@ -165,6 +168,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer17|打印从1到最大的n位数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer17.打印从1到最大的n位数\1.py) <br>[2_偷懒解法.py](code\leetcode.offer17.打印从1到最大的n位数\2_偷懒解法.py) <br>|#数学问题 <br>|
 |leetcode|offer39|数组中出现次数超过一半的数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer39.数组中出现次数超过一半的数字\1.py) <br>[2_中位数.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_中位数.py) <br>[2_二分查找.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_二分查找.py) <br>[2_神之摩尔投票法.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_神之摩尔投票法.py) <br>|#数学问题 <br>#分治法 <br>|
 |leetcode|offer42_53|连续子数组的最大和|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer42_53.连续子数组的最大和\1.py) <br>[2_线段树.py](code\leetcode.offer42_53.连续子数组的最大和\2_线段树.py) <br>|#数学问题 <br>#动态规划 <br>#分治法 <br>|
+|leetcode|offer44_400|数字序列中某一位的数字|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer44_400.数字序列中某一位的数字\1.py) <br>|#数学问题 <br>|
 |leetcode|offer66|构建乘积数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_愚昧的解法.py](code\leetcode.offer66.构建乘积数组\1_愚昧的解法.py) <br>[2_干练的解法.py](code\leetcode.offer66.构建乘积数组\2_干练的解法.py) <br>|#数学问题 <br>|
 
 
@@ -198,6 +202,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer33|二叉搜索树的后序遍历序列|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_偷瞄了.py](code\leetcode.offer33.二叉搜索树的后序遍历序列\1_偷瞄了.py) <br>[2_遍历倒序_抄的.py](code\leetcode.offer33.二叉搜索树的后序遍历序列\2_遍历倒序_抄的.py) <br>|#二叉树 <br>|
 |leetcode|offer36_426|二叉搜索树与双向链表|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_偷瞄了.py](code\leetcode.offer36_426.二叉搜索树与双向链表\1_偷瞄了.py) <br>|#二叉树 <br>|
 |leetcode|offer37|序列化二叉树|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1_资源消耗大.py](code\leetcode.offer37.序列化二叉树\1_资源消耗大.py) <br>[2_快一点点.py](code\leetcode.offer37.序列化二叉树\2_快一点点.py) <br>[2_我觉得是对的但是不给过.py](code\leetcode.offer37.序列化二叉树\2_我觉得是对的但是不给过.py) <br>|#二叉树 <br>|
+|leetcode|offer41_295|数据流中的中位数|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1_抄的.py](code\leetcode.offer41_295.数据流中的中位数\1_抄的.py) <br>|#二叉树 <br>|
 |leetcode|offer68_235|I_二叉搜索树的最近公共祖先|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer68_235.I_二叉搜索树的最近公共祖先\1.py) <br>[2_一次遍历.py](code\leetcode.offer68_235.I_二叉搜索树的最近公共祖先\2_一次遍历.py) <br>|#深度优先搜索 <br>#二叉树 <br>|
 
 
