@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/59/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/60/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -69,6 +69,7 @@ https://progress-bar.dev/59/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer47|礼物的最大价值|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer47.礼物的最大价值\1.py) <br>|#动态规划 <br>|
 |leetcode|offer49_264|第n个丑数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的妙方法.py](code\leetcode.offer49_264.第n个丑数\1_抄的妙方法.py) <br>[2_抄的土方法.py](code\leetcode.offer49_264.第n个丑数\2_抄的土方法.py) <br>|#二叉树 <br>#动态规划 <br>|
 |leetcode|offer50|第一个只出现一次的字符|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer50.第一个只出现一次的字符\1.py) <br>|#哈希表 <br>|
+|leetcode|offer51|数组中的逆序对|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.py](code\leetcode.offer51.数组中的逆序对\1.py) <br>|#分治法 <br>#归并排序 <br>|
 |leetcode|offer52|两个链表的第一个公共节点|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer52.两个链表的第一个公共节点\1.py) <br>[2_更干净的写法.py](code\leetcode.offer52.两个链表的第一个公共节点\2_更干净的写法.py) <br>|#双指针 <br>|
 |leetcode|offer53|0~n-1中缺失的数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer53.0~n-1中缺失的数字\1.py) <br>|#二分法 <br>|
 |leetcode|offer54|二叉搜索树的第k大节点|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer54.二叉搜索树的第k大节点\1.py) <br>|#二叉树 <br>|
@@ -115,6 +116,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer11_154|旋转数组的最小数字|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.抄的.py](code\leetcode.offer11_154.旋转数组的最小数字\1.抄的.py) <br>|#分治法 <br>|
 |leetcode|offer39|数组中出现次数超过一半的数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer39.数组中出现次数超过一半的数字\1.py) <br>[2_中位数.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_中位数.py) <br>[2_二分查找.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_二分查找.py) <br>[2_神之摩尔投票法.py](code\leetcode.offer39.数组中出现次数超过一半的数字\2_神之摩尔投票法.py) <br>|#数学问题 <br>#分治法 <br>|
 |leetcode|offer42_53|连续子数组的最大和|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer42_53.连续子数组的最大和\1.py) <br>[2_线段树.py](code\leetcode.offer42_53.连续子数组的最大和\2_线段树.py) <br>|#数学问题 <br>#动态规划 <br>#分治法 <br>|
+|leetcode|offer51|数组中的逆序对|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.py](code\leetcode.offer51.数组中的逆序对\1.py) <br>|#分治法 <br>#归并排序 <br>|
 
 
 ### 动态规划
@@ -228,6 +230,13 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer50|第一个只出现一次的字符|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer50.第一个只出现一次的字符\1.py) <br>|#哈希表 <br>|
+
+
+### 归并排序
+
+| 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
+|--|--|--|--|--|--|
+|leetcode|offer51|数组中的逆序对|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.py](code\leetcode.offer51.数组中的逆序对\1.py) <br>|#分治法 <br>#归并排序 <br>|
 
 
 ### 双指针
