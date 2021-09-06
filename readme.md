@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/58/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/59/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -74,6 +74,7 @@ https://progress-bar.dev/58/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer54|二叉搜索树的第k大节点|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer54.二叉搜索树的第k大节点\1.py) <br>|#二叉树 <br>|
 |leetcode|offer55|二叉树的深度|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer55.二叉树的深度\1.py) <br>|#二叉树 <br>|
 |leetcode|offer55_110|平衡二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer55_110.平衡二叉树\1.py) <br>|#二叉树 <br>|
+|leetcode|offer56|I_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的.py](code\leetcode.offer56.I_数组中数字出现的次数\1_抄的.py) <br>|#位运算 <br>#数学问题 <br>|
 |leetcode|offer57|和为s的两个数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer57.和为s的两个数字\1.py) <br>||
 |leetcode|offer63_121|股票的最大利润|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1_不用动态规划.py](code\leetcode.offer63_121.股票的最大利润\1_不用动态规划.py) <br>|#动态规划 <br>|
 |leetcode|offer66|构建乘积数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_愚昧的解法.py](code\leetcode.offer66.构建乘积数组\1_愚昧的解法.py) <br>[2_干练的解法.py](code\leetcode.offer66.构建乘积数组\2_干练的解法.py) <br>|#数学问题 <br>|
@@ -179,6 +180,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer42_53|连续子数组的最大和|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer42_53.连续子数组的最大和\1.py) <br>[2_线段树.py](code\leetcode.offer42_53.连续子数组的最大和\2_线段树.py) <br>|#数学问题 <br>#动态规划 <br>#分治法 <br>|
 |leetcode|offer43_233|1～n整数中1出现的次数|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1.抄的.py](code\leetcode.offer43_233.1～n整数中1出现的次数\1.抄的.py) <br>|#数学问题 <br>|
 |leetcode|offer44_400|数字序列中某一位的数字|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer44_400.数字序列中某一位的数字\1.py) <br>|#数学问题 <br>|
+|leetcode|offer56|I_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的.py](code\leetcode.offer56.I_数组中数字出现的次数\1_抄的.py) <br>|#位运算 <br>#数学问题 <br>|
 |leetcode|offer66|构建乘积数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_愚昧的解法.py](code\leetcode.offer66.构建乘积数组\1_愚昧的解法.py) <br>[2_干练的解法.py](code\leetcode.offer66.构建乘积数组\2_干练的解法.py) <br>|#数学问题 <br>|
 
 
@@ -187,6 +189,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer15_191|二进制中1的个数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer15_191.二进制中1的个数\1.py) <br>[2_与运算.py](code\leetcode.offer15_191.二进制中1的个数\2_与运算.py) <br>|#位运算 <br>|
+|leetcode|offer56|I_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的.py](code\leetcode.offer56.I_数组中数字出现的次数\1_抄的.py) <br>|#位运算 <br>#数学问题 <br>|
 
 
 ### 递归
