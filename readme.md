@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/61/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/64/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -77,6 +77,9 @@ https://progress-bar.dev/61/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer55_110|平衡二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer55_110.平衡二叉树\1.py) <br>|#二叉树 <br>|
 |leetcode|offer56|I_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的.py](code\leetcode.offer56.I_数组中数字出现的次数\1_抄的.py) <br>|#位运算 <br>#数学问题 <br>|
 |leetcode|offer57|和为s的两个数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer57.和为s的两个数字\1.py) <br>||
+|leetcode|offer58|左旋转字符串|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer58.左旋转字符串\1.py) <br>|#字符串 <br>|
+|leetcode|offer58_151|翻转单词顺序|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer58_151.翻转单词顺序\1.py) <br>|#字符串 <br>|
+|leetcode|offer59_239|滑动窗口的最大值|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1_抄了新东西.py](code\leetcode.offer59_239.滑动窗口的最大值\1_抄了新东西.py) <br>|#单调队列 <br>|
 |leetcode|offer61|扑克牌中的顺子|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer61.扑克牌中的顺子\1.py) <br>[2.不用那么复杂.py](code\leetcode.offer61.扑克牌中的顺子\2.不用那么复杂.py) <br>||
 |leetcode|offer63_121|股票的最大利润|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1_不用动态规划.py](code\leetcode.offer63_121.股票的最大利润\1_不用动态规划.py) <br>|#动态规划 <br>|
 |leetcode|offer66|构建乘积数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_愚昧的解法.py](code\leetcode.offer66.构建乘积数组\1_愚昧的解法.py) <br>[2_干练的解法.py](code\leetcode.offer66.构建乘积数组\2_干练的解法.py) <br>|#数学问题 <br>|
@@ -252,6 +255,21 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer53|0~n-1中缺失的数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer53.0~n-1中缺失的数字\1.py) <br>|#二分法 <br>|
+
+
+### 字符串
+
+| 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
+|--|--|--|--|--|--|
+|leetcode|offer58|左旋转字符串|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer58.左旋转字符串\1.py) <br>|#字符串 <br>|
+|leetcode|offer58_151|翻转单词顺序|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer58_151.翻转单词顺序\1.py) <br>|#字符串 <br>|
+
+
+### 单调队列
+
+| 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
+|--|--|--|--|--|--|
+|leetcode|offer59_239|滑动窗口的最大值|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1_抄了新东西.py](code\leetcode.offer59_239.滑动窗口的最大值\1_抄了新东西.py) <br>|#单调队列 <br>|
 
 
 
