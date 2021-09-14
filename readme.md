@@ -19,7 +19,7 @@
 ### 剑指offer
 
 ![progress](
-https://progress-bar.dev/71/?scale=75&title=completed&width=300&suffix=/75)
+https://progress-bar.dev/75/?scale=75&title=completed&width=300&suffix=/75)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer03.数组中重复的数\1.py) <br>||
@@ -85,10 +85,14 @@ https://progress-bar.dev/71/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer57|和为s的两个数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer57.和为s的两个数字\1.py) <br>||
 |leetcode|offer58|左旋转字符串|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer58.左旋转字符串\1.py) <br>|#字符串 <br>|
 |leetcode|offer58_151|翻转单词顺序|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer58_151.翻转单词顺序\1.py) <br>|#字符串 <br>|
+|leetcode|offer59|II队列的最大值|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer59.II队列的最大值\1.py) <br>|#单调队列 <br>|
 |leetcode|offer59_239|滑动窗口的最大值|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1_抄了新东西.py](code\leetcode.offer59_239.滑动窗口的最大值\1_抄了新东西.py) <br>|#单调队列 <br>|
 |leetcode|offer60|n个骰子的点数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_偷瞄了.py](code\leetcode.offer60.n个骰子的点数\1_偷瞄了.py) <br>|#动态规划 <br>#数学问题 <br>|
 |leetcode|offer61|扑克牌中的顺子|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer61.扑克牌中的顺子\1.py) <br>[2.不用那么复杂.py](code\leetcode.offer61.扑克牌中的顺子\2.不用那么复杂.py) <br>||
+|leetcode|offer62|圆圈中最后剩下的数字_约瑟夫环问题|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_难在数学推理.py](code\leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题\1_难在数学推理.py) <br>[2_迭代.py](code\leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题\2_迭代.py) <br>|#递归 <br>#数学问题 <br>|
 |leetcode|offer63_121|股票的最大利润|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1_不用动态规划.py](code\leetcode.offer63_121.股票的最大利润\1_不用动态规划.py) <br>|#动态规划 <br>|
+|leetcode|offer64|求1+到+n|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer64.求1+到+n\1.py) <br>|#数学问题 <br>|
+|leetcode|offer65|不用加减乘除做加法|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer65.不用加减乘除做加法\1.py) <br>[2.js](code\leetcode.offer65.不用加减乘除做加法\2.js) <br>|#位运算 <br>|
 |leetcode|offer66|构建乘积数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_愚昧的解法.py](code\leetcode.offer66.构建乘积数组\1_愚昧的解法.py) <br>[2_干练的解法.py](code\leetcode.offer66.构建乘积数组\2_干练的解法.py) <br>|#数学问题 <br>|
 |leetcode|offer67|把字符串转换成整数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer67.把字符串转换成整数\1.py) <br>||
 |leetcode|offer68_235|I_二叉搜索树的最近公共祖先|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer68_235.I_二叉搜索树的最近公共祖先\1.py) <br>[2_一次遍历.py](code\leetcode.offer68_235.I_二叉搜索树的最近公共祖先\2_一次遍历.py) <br>|#深度优先搜索 <br>#二叉树 <br>|
@@ -197,6 +201,8 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer44_400|数字序列中某一位的数字|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer44_400.数字序列中某一位的数字\1.py) <br>|#数学问题 <br>|
 |leetcode|offer56|I_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的.py](code\leetcode.offer56.I_数组中数字出现的次数\1_抄的.py) <br>|#位运算 <br>#数学问题 <br>|
 |leetcode|offer60|n个骰子的点数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_偷瞄了.py](code\leetcode.offer60.n个骰子的点数\1_偷瞄了.py) <br>|#动态规划 <br>#数学问题 <br>|
+|leetcode|offer62|圆圈中最后剩下的数字_约瑟夫环问题|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_难在数学推理.py](code\leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题\1_难在数学推理.py) <br>[2_迭代.py](code\leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题\2_迭代.py) <br>|#递归 <br>#数学问题 <br>|
+|leetcode|offer64|求1+到+n|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer64.求1+到+n\1.py) <br>|#数学问题 <br>|
 |leetcode|offer66|构建乘积数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_愚昧的解法.py](code\leetcode.offer66.构建乘积数组\1_愚昧的解法.py) <br>[2_干练的解法.py](code\leetcode.offer66.构建乘积数组\2_干练的解法.py) <br>|#数学问题 <br>|
 
 
@@ -207,6 +213,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer15_191|二进制中1的个数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code\leetcode.offer15_191.二进制中1的个数\1.py) <br>[2_与运算.py](code\leetcode.offer15_191.二进制中1的个数\2_与运算.py) <br>|#位运算 <br>|
 |leetcode|offer56|II_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_普通人的解法.py](code\leetcode.offer56.II_数组中数字出现的次数\1_普通人的解法.py) <br>[2_数电玩家的解法.py](code\leetcode.offer56.II_数组中数字出现的次数\2_数电玩家的解法.py) <br>|#位运算 <br>|
 |leetcode|offer56|I_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的.py](code\leetcode.offer56.I_数组中数字出现的次数\1_抄的.py) <br>|#位运算 <br>#数学问题 <br>|
+|leetcode|offer65|不用加减乘除做加法|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer65.不用加减乘除做加法\1.py) <br>[2.js](code\leetcode.offer65.不用加减乘除做加法\2.js) <br>|#位运算 <br>|
 
 
 ### 递归
@@ -214,6 +221,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer16_50|数值的整数次方|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer16_50.数值的整数次方\1.py) <br>[2_不需要记忆.py](code\leetcode.offer16_50.数值的整数次方\2_不需要记忆.py) <br>[2_快速幂.py](code\leetcode.offer16_50.数值的整数次方\2_快速幂.py) <br>|#递归 <br>#数学问题 <br>|
+|leetcode|offer62|圆圈中最后剩下的数字_约瑟夫环问题|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_难在数学推理.py](code\leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题\1_难在数学推理.py) <br>[2_迭代.py](code\leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题\2_迭代.py) <br>|#递归 <br>#数学问题 <br>|
 
 
 ### 状态机
@@ -289,6 +297,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
+|leetcode|offer59|II队列的最大值|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code\leetcode.offer59.II队列的最大值\1.py) <br>|#单调队列 <br>|
 |leetcode|offer59_239|滑动窗口的最大值|![level](https://shields.io/badge/-困难-red?style=flat-square)|[1_抄了新东西.py](code\leetcode.offer59_239.滑动窗口的最大值\1_抄了新东西.py) <br>|#单调队列 <br>|
 
 
