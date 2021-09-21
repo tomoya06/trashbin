@@ -21,6 +21,8 @@
 
 ![progress](
 https://progress-bar.dev/75/?scale=75&title=completed&width=300&suffix=/75)
+
+
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer03|数组中重复的数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer03.数组中重复的数/1.py) <br>||
@@ -80,7 +82,7 @@ https://progress-bar.dev/75/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer54|二叉搜索树的第k大节点|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer54.二叉搜索树的第k大节点/1.py) <br>|#二叉树 <br>|
 |leetcode|offer55|二叉树的深度|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer55.二叉树的深度/1.py) <br>|#二叉树 <br>|
 |leetcode|offer55_110|平衡二叉树|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer55_110.平衡二叉树/1.py) <br>|#二叉树 <br>|
-|leetcode|offer56|II_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_普通人的解法.py](code/leetcode.offer56.II_数组中数字出现的次数/1_普通人的解法.py) <br>[2_数电玩家的解法.py](code/leetcode.offer56.II_数组中数字出现的次数/2_数电玩家的解法.py) <br>|#位运算 <br>|
+|leetcode|offer56|II_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_普通人的解法.py](code/leetcode.offer56.II_数组中数字出现的次数/1_普通人的解法.py) <br>[2.md](code/leetcode.offer56.II_数组中数字出现的次数/2.md) <br>[2_数电玩家的解法.py](code/leetcode.offer56.II_数组中数字出现的次数/2_数电玩家的解法.py) <br>|#位运算 <br>|
 |leetcode|offer56|I_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的.py](code/leetcode.offer56.I_数组中数字出现的次数/1_抄的.py) <br>|#位运算 <br>#数学问题 <br>|
 |leetcode|offer57|II_和为s的连续正数序列|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1_偷瞄了.py](code/leetcode.offer57.II_和为s的连续正数序列/1_偷瞄了.py) <br>|#双指针 <br>|
 |leetcode|offer57|和为s的两个数字|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer57.和为s的两个数字/1.py) <br>||
@@ -92,8 +94,8 @@ https://progress-bar.dev/75/?scale=75&title=completed&width=300&suffix=/75)
 |leetcode|offer61|扑克牌中的顺子|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer61.扑克牌中的顺子/1.py) <br>[2.不用那么复杂.py](code/leetcode.offer61.扑克牌中的顺子/2.不用那么复杂.py) <br>||
 |leetcode|offer62|圆圈中最后剩下的数字_约瑟夫环问题|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_难在数学推理.py](code/leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题/1_难在数学推理.py) <br>[2_迭代.py](code/leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题/2_迭代.py) <br>|#递归 <br>#数学问题 <br>|
 |leetcode|offer63_121|股票的最大利润|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1_不用动态规划.py](code/leetcode.offer63_121.股票的最大利润/1_不用动态规划.py) <br>|#动态规划 <br>|
-|leetcode|offer64|求1+到+n|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer64.求1+到+n/1.py) <br>|#数学问题 <br>|
-|leetcode|offer65|不用加减乘除做加法|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.offer65.不用加减乘除做加法/1.py) <br>[2.js](code/leetcode.offer65.不用加减乘除做加法/2.js) <br>|#位运算 <br>|
+|leetcode|offer64|求1+到+n|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.md](code/leetcode.offer64.求1+到+n/1.md) <br>[1.py](code/leetcode.offer64.求1+到+n/1.py) <br>|#数学问题 <br>|
+|leetcode|offer65|不用加减乘除做加法|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.md](code/leetcode.offer65.不用加减乘除做加法/1.md) <br>[1.py](code/leetcode.offer65.不用加减乘除做加法/1.py) <br>[2.js](code/leetcode.offer65.不用加减乘除做加法/2.js) <br>|#位运算 <br>|
 |leetcode|offer66|构建乘积数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_愚昧的解法.py](code/leetcode.offer66.构建乘积数组/1_愚昧的解法.py) <br>[2_干练的解法.py](code/leetcode.offer66.构建乘积数组/2_干练的解法.py) <br>|#数学问题 <br>|
 |leetcode|offer67|把字符串转换成整数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer67.把字符串转换成整数/1.py) <br>||
 |leetcode|offer68_235|I_二叉搜索树的最近公共祖先|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer68_235.I_二叉搜索树的最近公共祖先/1.py) <br>[2_一次遍历.py](code/leetcode.offer68_235.I_二叉搜索树的最近公共祖先/2_一次遍历.py) <br>|#深度优先搜索 <br>#二叉树 <br>|
@@ -104,6 +106,8 @@ https://progress-bar.dev/75/?scale=75&title=completed&width=300&suffix=/75)
 
 ![progress](
 https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
+
+
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 
@@ -201,7 +205,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer56|I_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的.py](code/leetcode.offer56.I_数组中数字出现的次数/1_抄的.py) <br>|#位运算 <br>#数学问题 <br>|
 |leetcode|offer60|n个骰子的点数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_偷瞄了.py](code/leetcode.offer60.n个骰子的点数/1_偷瞄了.py) <br>|#动态规划 <br>#数学问题 <br>|
 |leetcode|offer62|圆圈中最后剩下的数字_约瑟夫环问题|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_难在数学推理.py](code/leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题/1_难在数学推理.py) <br>[2_迭代.py](code/leetcode.offer62.圆圈中最后剩下的数字_约瑟夫环问题/2_迭代.py) <br>|#递归 <br>#数学问题 <br>|
-|leetcode|offer64|求1+到+n|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer64.求1+到+n/1.py) <br>|#数学问题 <br>|
+|leetcode|offer64|求1+到+n|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.md](code/leetcode.offer64.求1+到+n/1.md) <br>[1.py](code/leetcode.offer64.求1+到+n/1.py) <br>|#数学问题 <br>|
 |leetcode|offer66|构建乘积数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_愚昧的解法.py](code/leetcode.offer66.构建乘积数组/1_愚昧的解法.py) <br>[2_干练的解法.py](code/leetcode.offer66.构建乘积数组/2_干练的解法.py) <br>|#数学问题 <br>|
 
 
@@ -210,9 +214,9 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer15_191|二进制中1的个数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer15_191.二进制中1的个数/1.py) <br>[2_与运算.py](code/leetcode.offer15_191.二进制中1的个数/2_与运算.py) <br>|#位运算 <br>|
-|leetcode|offer56|II_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_普通人的解法.py](code/leetcode.offer56.II_数组中数字出现的次数/1_普通人的解法.py) <br>[2_数电玩家的解法.py](code/leetcode.offer56.II_数组中数字出现的次数/2_数电玩家的解法.py) <br>|#位运算 <br>|
+|leetcode|offer56|II_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_普通人的解法.py](code/leetcode.offer56.II_数组中数字出现的次数/1_普通人的解法.py) <br>[2.md](code/leetcode.offer56.II_数组中数字出现的次数/2.md) <br>[2_数电玩家的解法.py](code/leetcode.offer56.II_数组中数字出现的次数/2_数电玩家的解法.py) <br>|#位运算 <br>|
 |leetcode|offer56|I_数组中数字出现的次数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_抄的.py](code/leetcode.offer56.I_数组中数字出现的次数/1_抄的.py) <br>|#位运算 <br>#数学问题 <br>|
-|leetcode|offer65|不用加减乘除做加法|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.offer65.不用加减乘除做加法/1.py) <br>[2.js](code/leetcode.offer65.不用加减乘除做加法/2.js) <br>|#位运算 <br>|
+|leetcode|offer65|不用加减乘除做加法|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.md](code/leetcode.offer65.不用加减乘除做加法/1.md) <br>[1.py](code/leetcode.offer65.不用加减乘除做加法/1.py) <br>[2.js](code/leetcode.offer65.不用加减乘除做加法/2.js) <br>|#位运算 <br>|
 
 
 ### 递归

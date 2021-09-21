@@ -6,69 +6,9 @@ import glob
 import re
 import os
 
-level_tag_mapper = {
-  'm': 'https://shields.io/badge/-中等-yellow?style=flat-square',
-  'e': 'https://shields.io/badge/-简单-green?style=flat-square',
-  'h': 'https://shields.io/badge/-困难-red?style=flat-square',
-}
+from common import *
 
-ques_type_tag_mapper = {
-  '贪心算法': '',
-  '二分查找': '',
-  '动态规划': '',
-  '记忆化搜索': '',
-  '回溯': '',
-  '深度优先搜索': '',
-  '广度优先搜索': '',
-  '数学问题': '',
-  '位运算': '',
-  '递归': '',
-}
-
-main_ques_tags = [
-  '剑指offer', '剑指offer专项版'
-]
-main_ques_tag_idx = len(main_ques_tags)
-
-def scan_all_files():
-  ques_map = {
-    '剑指offer': [[], { 'total': 75, }],
-    '剑指offer专项版': [[], { 'total': 119, }],
-  }
-  # 默认从1.py读标签
-  for ques in glob.glob(r'code/*/1*'):
-    [_, ques_name, file_name] = ques.split(os.sep)
-    [platform, ques_no, ques_name] = ques_name.split('.')
-
-    ques_dir = os.path.dirname(ques)
-    all_solutions = []
-
-    for ques_solution in glob.glob(os.path.join(ques_dir, '*')):
-      [_, _, solution_name] = ques_solution.split(os.sep)
-      ques_fileloc = '/'.join(ques_solution.split(os.sep))
-      all_solutions.append([solution_name, ques_fileloc, ])
-
-    tags = []
-    print('\n ==> parsing main file: ', ques )
-    with open(ques, 'r') as ques_file:
-      ques_line1 = ques_file.readline()
-      search_tag = re.search('##(.+)##level(\w)', ques_line1)
-      tags = search_tag.group(1).split('#')[:]
-      level_name = level_tag_mapper[search_tag.group(2)]
-      level_name = '![level]({})'.format(level_name)
-
-    print(ques_no, tags)
-    no_main_tags = [tag for tag in tags if tag not in main_ques_tags]
-    cur_res = [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags,]
-    
-    for tag in tags:
-      if tag in ques_map:
-        ques_map[tag][0].append(cur_res)
-      else:
-        ques_map[tag] = [[cur_res,], {}]
-  
-  return ques_map
-
+# 生成某分类的题目表
 def part_gen_table(ques_map_items):
   gened_md = ''
   for cat_name, ques_output in ques_map_items:
@@ -80,7 +20,7 @@ def part_gen_table(ques_map_items):
       pro_img = '\nhttps://progress-bar.dev/{0}/?scale={1}&title=completed&width=300&suffix={2}'.format(
         len(cat_ques_list), config['total'], '/'+str(config['total'])
       )
-      gened_md += '\n![progress]({})'.format(pro_img)
+      gened_md += '\n![progress]({})\n\n'.format(pro_img)
 
     gened_md += '\n| 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |'
     gened_md += '\n|--|--|--|--|--|--|'
@@ -95,19 +35,43 @@ def part_gen_table(ques_map_items):
     gened_md += '\n\n'
   return gened_md
 
-def gen_table(ques_map):
+
+# 按分类生成题目表
+def gen_gh_table(ques_map):
   ques_items = list(ques_map.items())
-  return part_gen_table(ques_items[:main_ques_tag_idx]), part_gen_table(ques_items[main_ques_tag_idx:])
-
-if __name__ == '__main__':
-  ques_map = scan_all_files()
-  question_list, sorted_questions = gen_table(ques_map)
-
+  main_questions, sorted_questions = part_gen_table(ques_items[:main_ques_tag_idx]), part_gen_table(ques_items[main_ques_tag_idx:])
 
   with open(r'template/readme.template.md', 'r') as md_header:
     tmpl = md_header.read()
-    tmpl = tmpl.replace("{_list_questions_}", question_list)
+    tmpl = tmpl.replace("{_list_questions_}", main_questions)
     tmpl = tmpl.replace("{_sorted_questions_}", sorted_questions)
 
   with open(r'readme.md', 'w') as readme_output:
     readme_output.write(tmpl)
+
+# 生成doc的题目表
+def gen_doc_table(ques_map):
+  pass
+
+
+# 生成doc
+def gen_doc_index(ques_map):
+  for main_ques_tag in main_ques_tags:
+    if main_ques_tag not in ques_map:
+      continue
+    with open(r'template/doc.{0}.md'.format(main_ques_tag), 'r') as doc_tmpl:
+      doc_tmpl = doc_tmpl.read()
+      ques_table = part_gen_table([(main_ques_tag, ques_map[main_ques_tag], ), ])
+      gen_doc = doc_tmpl.replace('{_list_questions_}', ques_table)
+
+    target_dir = r'docs/docs/{0}'.format(main_ques_tag)
+    if not os.path.exists(target_dir):
+      os.makedirs(target_dir)
+    with open(target_dir+'/index.md', 'w+') as doc_output:
+      doc_output.write(gen_doc)
+
+
+if __name__ == '__main__':
+  ques_map = scan_all_files()
+  gen_gh_table(ques_map)
+  gen_doc_index(ques_map)

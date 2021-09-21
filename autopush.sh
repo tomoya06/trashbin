@@ -19,6 +19,9 @@ __step_analysis() {
 python utils/readme_gen.py
 __step_analysis "update readme"
 
+python utils/docs_gen.py
+__step_analysis "update docs"
+
 git add * 
 git commit -m "update $1"
 git push
