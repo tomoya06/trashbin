@@ -1,3 +1,4 @@
 {
-  "editor.quickSuggestions": false
+  "editor.quickSuggestions": true,
+  "python.autoComplete.extraPaths": ["../utils"],
 }
