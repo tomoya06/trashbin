@@ -12,3 +12,33 @@
 ## 友情链接
 
 - [大学同班大腿的刷题记录](https://github.com/OneForward/LeetCode)，用脚本组织刷题记录的方案来源于此
+
+
+## 题目列表
+
+{_list_questions_}
+
+## 分类列表
+
+<details>
+<summary>查看所有分类题目</summary>
+
+{_sorted_questions_}
+
+
+</details>
+
+## 后记
+
+### vscode插件设置
+
+````
+{
+  "leetcode.filePath": {
+      "default": {
+          "folder": "${id}.${kebab-case-name}",
+          "filename": "1.${ext}"
+      }
+  }
+}
+````

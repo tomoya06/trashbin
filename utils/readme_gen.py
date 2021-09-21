@@ -44,8 +44,9 @@ def scan_all_files():
     all_solutions = []
 
     for ques_solution in glob.glob(os.path.join(ques_dir, '*')):
-      [_, _,solution_name] = ques_solution.split(os.sep)
-      all_solutions.append([solution_name, ques_solution, ])
+      [_, _, solution_name] = ques_solution.split(os.sep)
+      ques_fileloc = '/'.join(ques_solution.split(os.sep))
+      all_solutions.append([solution_name, ques_fileloc, ])
 
     tags = []
     print('\n ==> parsing main file: ', ques )
@@ -95,41 +96,18 @@ def part_gen_table(ques_map_items):
   return gened_md
 
 def gen_table(ques_map):
-  gened_md = '## 题目列表\n\n'
   ques_items = list(ques_map.items())
-  gened_md += part_gen_table(ques_items[:main_ques_tag_idx])
-  gened_md += '\n\n'
-  gened_md += '## 分类列表\n\n'
-  gened_md += '''
-  <details>
-  <summary>查看所有分类题目</summary>
-
-
-  '''
-  gened_md += part_gen_table(ques_items[main_ques_tag_idx:])
-  gened_md += '''
-
-
-  </details>
-  '''
-  return gened_md
+  return part_gen_table(ques_items[:main_ques_tag_idx]), part_gen_table(ques_items[main_ques_tag_idx:])
 
 if __name__ == '__main__':
   ques_map = scan_all_files()
-  gened_table = gen_table(ques_map)
+  question_list, sorted_questions = gen_table(ques_map)
 
-  md_output = ''
 
-  with open(r'template/readme.header.md', 'r') as md_header:
-    md_output += md_header.read()
-    md_output += '\n'
-  
-  md_output += gened_table
-  md_output += '\n'
-
-  with open(r'template/readme.footer.md', 'r') as md_header:
-    md_output += md_header.read()
-    md_output += '\n'
+  with open(r'template/readme.template.md', 'r') as md_header:
+    tmpl = md_header.read()
+    tmpl = tmpl.replace("{_list_questions_}", question_list)
+    tmpl = tmpl.replace("{_sorted_questions_}", sorted_questions)
 
   with open(r'readme.md', 'w') as readme_output:
-    readme_output.write(md_output)
+    readme_output.write(tmpl)
