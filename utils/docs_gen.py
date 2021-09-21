@@ -11,9 +11,12 @@ single_ques_tmpl = """
 """
 
 solution_tmpl = """
-# <ques_name>
+---
+tags:
+  <tags>
+---
 
-> <tags>
+# <ques_name>
 
 <content>
 """
@@ -45,7 +48,7 @@ def gen_solution_doc(tag_name, ques):
 
     solution_content += '\n\n'
 
-  cur_tags = ' '.join([' #'+tag for tag in tags])
+  cur_tags = '\n  '.join(['- '+tag for tag in tags])
 
   
   output_content = solution_tmpl\
@@ -70,7 +73,7 @@ def gen_main_tag_doc(tag_name, tag_ques_list):
     cur_output = single_ques_tmpl\
       .replace('<ques_name>', ques_name)\
       .replace('<tags>', cur_tags)\
-      .replace('<content>', f'{ques_number} [题解]({solution_link})')
+      .replace('<content>', f'[{ques_number}]({solution_link})')
     
     list_ques_output.append(cur_output)
       

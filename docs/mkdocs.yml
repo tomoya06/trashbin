@@ -6,6 +6,12 @@ theme:
   name: material
   features:
     - navigation.tabs
+  palette:
+    scheme: slate
+    primary: blue grey
+  language: zh
 plugins:
   - search:
       lang: ja
+  - tags:
+      tags_file: tags.md

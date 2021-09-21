@@ -1,7 +1,11 @@
 
-# 求1+到+n
+---
+tags:
+  - 剑指offer
+  - 数学问题
+---
 
->  #剑指offer  #数学问题
+# 求1+到+n
 
 
 要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
