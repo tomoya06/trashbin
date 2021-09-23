@@ -10,8 +10,7 @@ single_ques_tmpl = """
 <content>
 """
 
-solution_tmpl = """
----
+solution_tmpl = """---
 tags:
   <tags>
 ---
@@ -20,6 +19,8 @@ tags:
 
 <content>
 """
+
+output_dir_main = 'docs/docs/'
 
 def filename_sort(filename):
   if filename.endswith('.md'):
@@ -31,8 +32,11 @@ def filename_sort(filename):
 
 def gen_solution_doc(tag_name, ques):
   [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags, tags, ] = ques
-  output_dir = os.path.join('docs/docs/', tag_name)
+  output_dir = os.path.join(output_dir_main, tag_name)
   file_name = f'{ques_no}_{ques_name}.md'
+
+  if not os.path.isdir(output_dir):
+    os.makedirs(output_dir)
   
   all_solutions.sort(key=lambda x:filename_sort(x[0]))
   solution_content = ''
@@ -81,7 +85,12 @@ def gen_main_tag_doc(tag_name, tag_ques_list):
     tmpl = tmpl.read()
     tmpl_doc_output = tmpl.replace('{_list_questions_}', '\n\n'.join(list_ques_output))
   
-  with open('docs/docs/{0}/index.md'.format(tag_name), 'w') as output_file:
+  cur_sub_dir = f'{output_dir_main}/{tag_name}'
+  
+  if not os.path.isdir(cur_sub_dir):
+    os.makedirs(cur_sub_dir)
+  
+  with open(f'{cur_sub_dir}/index.md', 'w+') as output_file:
     output_file.write(tmpl_doc_output)
 
 

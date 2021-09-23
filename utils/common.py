@@ -32,7 +32,12 @@ ques_map = {
 }
 
 def ques_no_display(ques_no):
-  return ques_no.replace('_', ' / ')
+  ques_no = re.findall(r"([\d_]+)", ques_no)[0]
+  ques_nos = ques_no.split('_')
+  ques_display = f"题库第{ques_nos[0]}题"
+  if len(ques_nos) == 2:
+    ques_display += f"，原题库第{ques_nos[1]}题"
+  return ques_display
 
 # 扫描所有文件，生成索引
 def scan_all_files():

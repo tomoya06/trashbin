@@ -1162,7 +1162,7 @@
 
 "@docusaurus/core@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/core/download/@docusaurus/core-2.0.0-beta.6.tgz#9847ae211a04f1d2b057f8e5ba650e76b9c2df83"
+  resolved "https://registry.npmmirror.com/@docusaurus/core/download/@docusaurus/core-2.0.0-beta.6.tgz#9847ae211a04f1d2b057f8e5ba650e76b9c2df83"
   integrity sha1-mEeuIRoE8dKwV/jlumUOdrnC34M=
   dependencies:
     "@babel/core" "^7.12.16"
@@ -1247,7 +1247,7 @@
 
 "@docusaurus/cssnano-preset@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/cssnano-preset/download/@docusaurus/cssnano-preset-2.0.0-beta.6.tgz#0c277854f0262dca7bcb3daf99866e8a49e29118"
+  resolved "https://registry.npmmirror.com/@docusaurus/cssnano-preset/download/@docusaurus/cssnano-preset-2.0.0-beta.6.tgz#0c277854f0262dca7bcb3daf99866e8a49e29118"
   integrity sha1-DCd4VPAmLcp7yz2vmYZuiknikRg=
   dependencies:
     cssnano-preset-advanced "^5.1.1"
@@ -1256,7 +1256,7 @@
 
 "@docusaurus/mdx-loader@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/mdx-loader/download/@docusaurus/mdx-loader-2.0.0-beta.6.tgz#a5aeee5be0d04bb273752c893366cc6cffeb2b32"
+  resolved "https://registry.npmmirror.com/@docusaurus/mdx-loader/download/@docusaurus/mdx-loader-2.0.0-beta.6.tgz#a5aeee5be0d04bb273752c893366cc6cffeb2b32"
   integrity sha1-pa7uW+DQS7JzdSyJM2bMbP/rKzI=
   dependencies:
     "@babel/parser" "^7.12.16"
@@ -1278,9 +1278,14 @@
     url-loader "^4.1.1"
     webpack "^5.40.0"
 
+"@docusaurus/module-type-aliases@2.0.0-beta.6":
+  version "2.0.0-beta.6"
+  resolved "https://registry.npmmirror.com/@docusaurus/module-type-aliases/download/@docusaurus/module-type-aliases-2.0.0-beta.6.tgz#6d7388d65e1cf31e097f4e5924ec46cd6e7eff1c"
+  integrity sha1-bXOI1l4c8x4Jf05ZJOxGzW5+/xw=
+
 "@docusaurus/plugin-content-blog@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-content-blog/download/@docusaurus/plugin-content-blog-2.0.0-beta.6.tgz#54ae1c96a8e95dbc58484157c259e8aaf47a3fcb"
+  resolved "https://registry.npmmirror.com/@docusaurus/plugin-content-blog/download/@docusaurus/plugin-content-blog-2.0.0-beta.6.tgz#54ae1c96a8e95dbc58484157c259e8aaf47a3fcb"
   integrity sha1-VK4clqjpXbxYSEFXwlnoqvR6P8s=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1303,7 +1308,7 @@
 
 "@docusaurus/plugin-content-docs@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-content-docs/download/@docusaurus/plugin-content-docs-2.0.0-beta.6.tgz#38fd58e42fe39e2a0cc738df077917a6fcd4e7ee"
+  resolved "https://registry.npmmirror.com/@docusaurus/plugin-content-docs/download/@docusaurus/plugin-content-docs-2.0.0-beta.6.tgz#38fd58e42fe39e2a0cc738df077917a6fcd4e7ee"
   integrity sha1-OP1Y5C/jnioMxzjfB3kXpvzU5+4=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1329,7 +1334,7 @@
 
 "@docusaurus/plugin-content-pages@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-content-pages/download/@docusaurus/plugin-content-pages-2.0.0-beta.6.tgz#254e6ee60a8a2b4d85c4fa8408388d585eea0507"
+  resolved "https://registry.npmmirror.com/@docusaurus/plugin-content-pages/download/@docusaurus/plugin-content-pages-2.0.0-beta.6.tgz#254e6ee60a8a2b4d85c4fa8408388d585eea0507"
   integrity sha1-JU5u5gqKK02FxPqECDiNWF7qBQc=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1345,7 +1350,7 @@
 
 "@docusaurus/plugin-debug@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-debug/download/@docusaurus/plugin-debug-2.0.0-beta.6.tgz#dc5ebc3c5c1c144b924ab3282fedbfc44cc78be0"
+  resolved "https://registry.npmmirror.com/@docusaurus/plugin-debug/download/@docusaurus/plugin-debug-2.0.0-beta.6.tgz#dc5ebc3c5c1c144b924ab3282fedbfc44cc78be0"
   integrity sha1-3F68PFwcFEuSSrMoL+2/xEzHi+A=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1357,21 +1362,21 @@
 
 "@docusaurus/plugin-google-analytics@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-google-analytics/download/@docusaurus/plugin-google-analytics-2.0.0-beta.6.tgz#fcb8608c09920131e4dd56b5b343f23cd07a7eee"
+  resolved "https://registry.npmmirror.com/@docusaurus/plugin-google-analytics/download/@docusaurus/plugin-google-analytics-2.0.0-beta.6.tgz#fcb8608c09920131e4dd56b5b343f23cd07a7eee"
   integrity sha1-/LhgjAmSATHk3Va1s0PyPNB6fu4=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
 
 "@docusaurus/plugin-google-gtag@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-google-gtag/download/@docusaurus/plugin-google-gtag-2.0.0-beta.6.tgz#ccde43934d5a193711d118058092d4251965079d"
+  resolved "https://registry.npmmirror.com/@docusaurus/plugin-google-gtag/download/@docusaurus/plugin-google-gtag-2.0.0-beta.6.tgz#ccde43934d5a193711d118058092d4251965079d"
   integrity sha1-zN5Dk01aGTcR0RgFgJLUJRllB50=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
 
 "@docusaurus/plugin-sitemap@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/plugin-sitemap/download/@docusaurus/plugin-sitemap-2.0.0-beta.6.tgz#5dd74bc8a5845c0e7eac7bfce05a18f57e0b3ed2"
+  resolved "https://registry.npmmirror.com/@docusaurus/plugin-sitemap/download/@docusaurus/plugin-sitemap-2.0.0-beta.6.tgz#5dd74bc8a5845c0e7eac7bfce05a18f57e0b3ed2"
   integrity sha1-XddLyKWEXA5+rHv84FoY9X4LPtI=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1385,7 +1390,7 @@
 
 "@docusaurus/preset-classic@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/preset-classic/download/@docusaurus/preset-classic-2.0.0-beta.6.tgz#528c98939589ae5edfc2a7e01e9f87561e5d5c01"
+  resolved "https://registry.npmmirror.com/@docusaurus/preset-classic/download/@docusaurus/preset-classic-2.0.0-beta.6.tgz#528c98939589ae5edfc2a7e01e9f87561e5d5c01"
   integrity sha1-UoyYk5WJrl7fwqfgHp+HVh5dXAE=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1408,7 +1413,7 @@
 
 "@docusaurus/theme-classic@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/theme-classic/download/@docusaurus/theme-classic-2.0.0-beta.6.tgz#4ae476e90cf875bb13eba5daedbd71d0cfdd8194"
+  resolved "https://registry.npmmirror.com/@docusaurus/theme-classic/download/@docusaurus/theme-classic-2.0.0-beta.6.tgz#4ae476e90cf875bb13eba5daedbd71d0cfdd8194"
   integrity sha1-SuR26Qz4dbsT66Xa7b1x0M/dgZQ=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1439,7 +1444,7 @@
 
 "@docusaurus/theme-common@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/theme-common/download/@docusaurus/theme-common-2.0.0-beta.6.tgz#17cbf38400d752e264cdbebbc57a92f2bdfc7052"
+  resolved "https://registry.npmmirror.com/@docusaurus/theme-common/download/@docusaurus/theme-common-2.0.0-beta.6.tgz#17cbf38400d752e264cdbebbc57a92f2bdfc7052"
   integrity sha1-F8vzhADXUuJkzb67xXqS8r38cFI=
   dependencies:
     "@docusaurus/core" "2.0.0-beta.6"
@@ -1453,7 +1458,7 @@
 
 "@docusaurus/theme-search-algolia@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/theme-search-algolia/download/@docusaurus/theme-search-algolia-2.0.0-beta.6.tgz#c92214a075a23fe9fb87cfbc6f037ca07e83f628"
+  resolved "https://registry.npmmirror.com/@docusaurus/theme-search-algolia/download/@docusaurus/theme-search-algolia-2.0.0-beta.6.tgz#c92214a075a23fe9fb87cfbc6f037ca07e83f628"
   integrity sha1-ySIUoHWiP+n7h8+8bwN8oH6D9ig=
   dependencies:
     "@docsearch/react" "^3.0.0-alpha.39"
@@ -1469,7 +1474,7 @@
 
 "@docusaurus/types@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/types/download/@docusaurus/types-2.0.0-beta.6.tgz#f92a61cc42e5921d325114ebc7b30c5e8c368683"
+  resolved "https://registry.npmmirror.com/@docusaurus/types/download/@docusaurus/types-2.0.0-beta.6.tgz#f92a61cc42e5921d325114ebc7b30c5e8c368683"
   integrity sha1-+SphzELlkh0yURTrx7MMXow2hoM=
   dependencies:
     commander "^5.1.0"
@@ -1480,7 +1485,7 @@
 
 "@docusaurus/utils-common@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/utils-common/download/@docusaurus/utils-common-2.0.0-beta.6.tgz#afd26a9f67b16479058ead66a310738c21293ae5"
+  resolved "https://registry.npmmirror.com/@docusaurus/utils-common/download/@docusaurus/utils-common-2.0.0-beta.6.tgz#afd26a9f67b16479058ead66a310738c21293ae5"
   integrity sha1-r9Jqn2exZHkFjq1moxBzjCEpOuU=
   dependencies:
     "@docusaurus/types" "2.0.0-beta.6"
@@ -1488,7 +1493,7 @@
 
 "@docusaurus/utils-validation@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/utils-validation/download/@docusaurus/utils-validation-2.0.0-beta.6.tgz#7b98216de844138e9606a128c09182185ed84621"
+  resolved "https://registry.npmmirror.com/@docusaurus/utils-validation/download/@docusaurus/utils-validation-2.0.0-beta.6.tgz#7b98216de844138e9606a128c09182185ed84621"
   integrity sha1-e5ghbehEE46WBqEowJGCGF7YRiE=
   dependencies:
     "@docusaurus/utils" "2.0.0-beta.6"
@@ -1498,7 +1503,7 @@
 
 "@docusaurus/utils@2.0.0-beta.6":
   version "2.0.0-beta.6"
-  resolved "https://registry.nlark.com/@docusaurus/utils/download/@docusaurus/utils-2.0.0-beta.6.tgz#1438df9f28b632fe7a4f50663340b463cff07cab"
+  resolved "https://registry.npmmirror.com/@docusaurus/utils/download/@docusaurus/utils-2.0.0-beta.6.tgz#1438df9f28b632fe7a4f50663340b463cff07cab"
   integrity sha1-FDjfnyi2Mv56T1BmM0C0Y8/wfKs=
   dependencies:
     "@docusaurus/types" "2.0.0-beta.6"
@@ -1734,6 +1739,11 @@
   resolved "https://registry.nlark.com/@trysound/sax/download/@trysound/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha1-zMqrdYr1Z2Hre/N69vA/Mm3XmK0=
 
+"@tsconfig/docusaurus@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.nlark.com/@tsconfig/docusaurus/download/@tsconfig/docusaurus-1.0.4.tgz#fc40f87a672568678d83533dd4031a09d75877ca"
+  integrity sha1-/ED4emclaGeNg1M91AMaCddYd8o=
+
 "@types/eslint-scope@^3.7.0":
   version "3.7.1"
   resolved "https://registry.nlark.com/@types/eslint-scope/download/@types/eslint-scope-3.7.1.tgz#8dc390a7b4f9dd9f1284629efce982e41612116e"
@@ -1775,6 +1785,11 @@
   dependencies:
     "@types/unist" "*"
 
+"@types/history@*":
+  version "4.7.9"
+  resolved "https://registry.nlark.com/@types/history/download/@types/history-4.7.9.tgz?cache=0&sync_timestamp=1629708135016&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fhistory%2Fdownload%2F%40types%2Fhistory-4.7.9.tgz#1cfb6d60ef3822c589f18e70f8b12f9a28ce8724"
+  integrity sha1-HPttYO84IsWJ8Y5w+LEvmijOhyQ=
+
 "@types/html-minifier-terser@^5.0.0":
   version "5.1.2"
   resolved "https://registry.nlark.com/@types/html-minifier-terser/download/@types/html-minifier-terser-5.1.2.tgz#693b316ad323ea97eed6b38ed1a3cc02b1672b57"
@@ -1798,13 +1813,13 @@
   integrity sha1-EAHMXmo3BLg8I2An538vWOoBD0A=
 
 "@types/node@*":
-  version "16.9.4"
-  resolved "https://registry.nlark.com/@types/node/download/@types/node-16.9.4.tgz#a12f0ee7847cf17a97f6fdf1093cb7a9af23cca4"
-  integrity sha1-oS8O54R88XqX9v3xCTy3qa8jzKQ=
+  version "16.9.6"
+  resolved "https://registry.nlark.com/@types/node/download/@types/node-16.9.6.tgz?cache=0&sync_timestamp=1632251141577&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-16.9.6.tgz#040a64d7faf9e5d9e940357125f0963012e66f04"
+  integrity sha1-BApk1/r55dnpQDVxJfCWMBLmbwQ=
 
 "@types/node@^15.0.1":
   version "15.14.9"
-  resolved "https://registry.nlark.com/@types/node/download/@types/node-15.14.9.tgz#bc43c990c3c9be7281868bbc7b8fdd6e2b57adfa"
+  resolved "https://registry.nlark.com/@types/node/download/@types/node-15.14.9.tgz?cache=0&sync_timestamp=1632251141577&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-15.14.9.tgz#bc43c990c3c9be7281868bbc7b8fdd6e2b57adfa"
   integrity sha1-vEPJkMPJvnKBhou8e4/dbitXrfo=
 
 "@types/parse-json@^4.0.0":
@@ -1817,10 +1832,48 @@
   resolved "https://registry.nlark.com/@types/parse5/download/@types/parse5-5.0.3.tgz#e7b5aebbac150f8b5fdd4a46e7f0bd8e65e19109"
   integrity sha1-57Wuu6wVD4tf3UpG5/C9jmXhkQk=
 
+"@types/prop-types@*":
+  version "15.7.4"
+  resolved "https://registry.nlark.com/@types/prop-types/download/@types/prop-types-15.7.4.tgz?cache=0&sync_timestamp=1629708789374&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fprop-types%2Fdownload%2F%40types%2Fprop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
+  integrity sha1-/PcgXCXf95Xuea8eMNosl5CAjxE=
+
 "@types/q@^1.5.1":
   version "1.5.5"
   resolved "https://registry.nlark.com/@types/q/download/@types/q-1.5.5.tgz#75a2a8e7d8ab4b230414505d92335d1dcb53a6df"
   integrity sha1-daKo59irSyMEFFBdkjNdHctTpt8=
+
+"@types/react-helmet@^6.1.2":
+  version "6.1.2"
+  resolved "https://registry.nlark.com/@types/react-helmet/download/@types/react-helmet-6.1.2.tgz#e9d7d16b29e4ec5716711c52c35c3cec45819eac"
+  integrity sha1-6dfRaynk7FcWcRxSw1w87EWBnqw=
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-router-dom@^5.1.8":
+  version "5.3.0"
+  resolved "https://registry.nlark.com/@types/react-router-dom/download/@types/react-router-dom-5.3.0.tgz#8c4e0aa0ccaf638ba965829ad29a10ac3cbe2212"
+  integrity sha1-jE4KoMyvY4upZYKa0poQrDy+IhI=
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router@*":
+  version "5.1.16"
+  resolved "https://registry.nlark.com/@types/react-router/download/@types/react-router-5.1.16.tgz?cache=0&sync_timestamp=1629708953715&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Freact-router%2Fdownload%2F%40types%2Freact-router-5.1.16.tgz#f3ba045fb96634e38b21531c482f9aeb37608a99"
+  integrity sha1-87oEX7lmNOOLIVMcSC+a6zdgipk=
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^17.0.14":
+  version "17.0.24"
+  resolved "https://registry.nlark.com/@types/react/download/@types/react-17.0.24.tgz#7e1b3f78d0fc53782543f9bce6d949959a5880bd"
+  integrity sha1-fhs/eND8U3glQ/m85tlJlZpYgL0=
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
 
 "@types/sax@^1.2.1":
   version "1.2.3"
@@ -1828,6 +1881,11 @@
   integrity sha1-tjCsFAPr14EuC/mhDem/UHevs0g=
   dependencies:
     "@types/node" "*"
+
+"@types/scheduler@*":
+  version "0.16.2"
+  resolved "https://registry.nlark.com/@types/scheduler/download/@types/scheduler-0.16.2.tgz?cache=0&sync_timestamp=1629709152024&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fscheduler%2Fdownload%2F%40types%2Fscheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
+  integrity sha1-GmL4lSVyPd4kuhsBsJK/XfitTTk=
 
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2", "@types/unist@^2.0.3":
   version "2.0.6"
@@ -2224,14 +2282,14 @@ atob@^2.1.2:
   integrity sha1-bZUX654DDSQ2ZmZR6GvZ9vE1M8k=
 
 autoprefixer@^10.2.0, autoprefixer@^10.2.5:
-  version "10.3.4"
-  resolved "https://registry.nlark.com/autoprefixer/download/autoprefixer-10.3.4.tgz#29efe5d19f51c281953178ddb5b84c5f1ca24c86"
-  integrity sha1-Ke/l0Z9RwoGVMXjdtbhMXxyiTIY=
+  version "10.3.5"
+  resolved "https://registry.nlark.com/autoprefixer/download/autoprefixer-10.3.5.tgz?cache=0&sync_timestamp=1632290934335&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fautoprefixer%2Fdownload%2Fautoprefixer-10.3.5.tgz#762e6c13e30c5a0e650bf81d9ffd5713f1c8f344"
+  integrity sha1-di5sE+MMWg5lC/gdn/1XE/HI80Q=
   dependencies:
-    browserslist "^4.16.8"
-    caniuse-lite "^1.0.30001252"
-    colorette "^1.3.0"
+    browserslist "^4.17.1"
+    caniuse-lite "^1.0.30001259"
     fraction.js "^4.1.1"
+    nanocolors "^0.1.5"
     normalize-range "^0.1.2"
     postcss-value-parser "^4.1.0"
 
@@ -2291,12 +2349,12 @@ babel-plugin-polyfill-corejs2@^0.2.2:
     semver "^6.1.1"
 
 babel-plugin-polyfill-corejs3@^0.2.2:
-  version "0.2.4"
-  resolved "https://registry.nlark.com/babel-plugin-polyfill-corejs3/download/babel-plugin-polyfill-corejs3-0.2.4.tgz?cache=0&sync_timestamp=1627502231082&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fbabel-plugin-polyfill-corejs3%2Fdownload%2Fbabel-plugin-polyfill-corejs3-0.2.4.tgz#68cb81316b0e8d9d721a92e0009ec6ecd4cd2ca9"
-  integrity sha1-aMuBMWsOjZ1yGpLgAJ7G7NTNLKk=
+  version "0.2.5"
+  resolved "https://registry.npmmirror.com/babel-plugin-polyfill-corejs3/download/babel-plugin-polyfill-corejs3-0.2.5.tgz?cache=0&sync_timestamp=1632330610560&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fbabel-plugin-polyfill-corejs3%2Fdownload%2Fbabel-plugin-polyfill-corejs3-0.2.5.tgz#2779846a16a1652244ae268b1e906ada107faf92"
+  integrity sha1-J3mEahahZSJEriaLHpBq2hB/r5I=
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.2"
-    core-js-compat "^3.14.0"
+    core-js-compat "^3.16.2"
 
 babel-plugin-polyfill-regenerator@^0.2.2:
   version "0.2.2"
@@ -2445,7 +2503,7 @@ braces@^3.0.1, braces@~3.0.2:
 
 browserslist@4.14.2:
   version "4.14.2"
-  resolved "https://registry.nlark.com/browserslist/download/browserslist-4.14.2.tgz?cache=0&sync_timestamp=1630836541147&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fbrowserslist%2Fdownload%2Fbrowserslist-4.14.2.tgz#1b3cec458a1ba87588cc5e9be62f19b6d48813ce"
+  resolved "https://registry.nlark.com/browserslist/download/browserslist-4.14.2.tgz?cache=0&sync_timestamp=1632288308061&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fbrowserslist%2Fdownload%2Fbrowserslist-4.14.2.tgz#1b3cec458a1ba87588cc5e9be62f19b6d48813ce"
   integrity sha1-GzzsRYobqHWIzF6b5i8ZttSIE84=
   dependencies:
     caniuse-lite "^1.0.30001125"
@@ -2453,16 +2511,16 @@ browserslist@4.14.2:
     escalade "^3.0.2"
     node-releases "^1.1.61"
 
-browserslist@^4.0.0, browserslist@^4.14.5, browserslist@^4.16.0, browserslist@^4.16.6, browserslist@^4.16.8, browserslist@^4.17.0:
-  version "4.17.0"
-  resolved "https://registry.nlark.com/browserslist/download/browserslist-4.17.0.tgz?cache=0&sync_timestamp=1630836541147&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fbrowserslist%2Fdownload%2Fbrowserslist-4.17.0.tgz#1fcd81ec75b41d6d4994fb0831b92ac18c01649c"
-  integrity sha1-H82B7HW0HW1JlPsIMbkqwYwBZJw=
+browserslist@^4.0.0, browserslist@^4.14.5, browserslist@^4.16.0, browserslist@^4.16.6, browserslist@^4.17.0, browserslist@^4.17.1:
+  version "4.17.1"
+  resolved "https://registry.nlark.com/browserslist/download/browserslist-4.17.1.tgz?cache=0&sync_timestamp=1632288308061&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fbrowserslist%2Fdownload%2Fbrowserslist-4.17.1.tgz#a98d104f54af441290b7d592626dd541fa642eb9"
+  integrity sha1-qY0QT1SvRBKQt9WSYm3VQfpkLrk=
   dependencies:
-    caniuse-lite "^1.0.30001254"
-    colorette "^1.3.0"
-    electron-to-chromium "^1.3.830"
+    caniuse-lite "^1.0.30001259"
+    electron-to-chromium "^1.3.846"
     escalade "^3.1.1"
-    node-releases "^1.1.75"
+    nanocolors "^0.1.5"
+    node-releases "^1.1.76"
 
 buffer-from@^1.0.0:
   version "1.1.2"
@@ -2558,10 +2616,12 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001252, caniuse-lite@^1.0.30001254:
-  version "1.0.30001259"
-  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001259.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcaniuse-lite%2Fdownload%2Fcaniuse-lite-1.0.30001259.tgz#ae21691d3da9c4be6144403ac40f71d9f6efd790"
-  integrity sha1-riFpHT2pxL5hREA6xA9x2fbv15A=
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001259:
+  version "1.0.30001260"
+  resolved "https://registry.npmmirror.com/caniuse-lite/download/caniuse-lite-1.0.30001260.tgz#e3be3f34ddad735ca4a2736fa9e768ef34316270"
+  integrity sha1-474/NN2tc1ykonNvqedo7zQxYnA=
+  dependencies:
+    nanocolors "^0.1.0"
 
 ccount@^1.0.0, ccount@^1.0.3:
   version "1.1.0"
@@ -2786,9 +2846,9 @@ colord@^2.0.1, colord@^2.6:
   resolved "https://registry.nlark.com/colord/download/colord-2.7.0.tgz#706ea36fe0cd651b585eb142fe64b6480185270e"
   integrity sha1-cG6jb+DNZRtYXrFC/mS2SAGFJw4=
 
-colorette@^1.2.2, colorette@^1.3.0, colorette@^1.4.0:
+colorette@^1.4.0:
   version "1.4.0"
-  resolved "https://registry.nlark.com/colorette/download/colorette-1.4.0.tgz#5190fbb87276259a86ad700bff2c6d6faa3fca40"
+  resolved "https://registry.npmmirror.com/colorette/download/colorette-1.4.0.tgz?cache=0&sync_timestamp=1632318112585&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcolorette%2Fdownload%2Fcolorette-1.4.0.tgz#5190fbb87276259a86ad700bff2c6d6faa3fca40"
   integrity sha1-UZD7uHJ2JZqGrXAL/yxtb6o/ykA=
 
 combine-promises@^1.1.0:
@@ -2940,7 +3000,7 @@ copy-webpack-plugin@^9.0.0:
     schema-utils "^3.0.0"
     serialize-javascript "^6.0.0"
 
-core-js-compat@^3.14.0, core-js-compat@^3.16.0:
+core-js-compat@^3.16.0, core-js-compat@^3.16.2:
   version "3.18.0"
   resolved "https://registry.nlark.com/core-js-compat/download/core-js-compat-3.18.0.tgz?cache=0&sync_timestamp=1632078908927&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcore-js-compat%2Fdownload%2Fcore-js-compat-3.18.0.tgz#fb360652201e8ac8da812718c008cd0482ed9b42"
   integrity sha1-+zYGUiAeisjagScYwAjNBILtm0I=
@@ -3187,6 +3247,11 @@ csso@^4.0.2, csso@^4.2.0:
   integrity sha1-6jpWE0bo3J9UbW/r7dUBh884lSk=
   dependencies:
     css-tree "^1.1.2"
+
+csstype@^3.0.2:
+  version "3.0.9"
+  resolved "https://registry.nlark.com/csstype/download/csstype-3.0.9.tgz#6410af31b26bd0520933d02cbc64fce9ce3fbf0b"
+  integrity sha1-ZBCvMbJr0FIJM9AsvGT86c4/vws=
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0:
   version "2.6.9"
@@ -3493,10 +3558,10 @@ ee-first@1.1.1:
   resolved "https://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.830:
-  version "1.3.845"
-  resolved "https://registry.nlark.com/electron-to-chromium/download/electron-to-chromium-1.3.845.tgz#326d3be3ee5d2c065f689119d441c997f9fd41d8"
-  integrity sha1-Mm074+5dLAZfaJEZ1EHJl/n9Qdg=
+electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.846:
+  version "1.3.848"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.3.848.tgz?cache=0&sync_timestamp=1632362611291&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.848.tgz#94cc196e496f33c0d71cd98561448f10018584cc"
+  integrity sha1-lMwZbklvM8DXHNmFYUSPEAGFhMw=
 
 emoji-regex@^7.0.1:
   version "7.0.3"
@@ -4160,9 +4225,9 @@ glob-to-regexp@^0.4.1:
   integrity sha1-x1KXCHyFG5pXi9IX3VmpL1n+VG4=
 
 glob@^7.0.0, glob@^7.0.3, glob@^7.1.3:
-  version "7.1.7"
-  resolved "https://registry.nlark.com/glob/download/glob-7.1.7.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fglob%2Fdownload%2Fglob-7.1.7.tgz#3b193e9233f01d42d0b3f78294bbeeb418f94a90"
-  integrity sha1-Oxk+kjPwHULQs/eClLvutBj5SpA=
+  version "7.2.0"
+  resolved "https://registry.npmmirror.com/glob/download/glob-7.2.0.tgz#d15535af7732e02e948f4c41628bd910293f6023"
+  integrity sha1-0VU1r3cy4C6Uj0xBYovZECk/YCM=
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -5508,7 +5573,7 @@ mdast-util-definitions@^4.0.0:
 
 mdast-util-to-hast@10.0.1:
   version "10.0.1"
-  resolved "https://registry.nlark.com/mdast-util-to-hast/download/mdast-util-to-hast-10.0.1.tgz#0cfc82089494c52d46eb0e3edb7a4eb2aea021eb"
+  resolved "https://registry.npmmirror.com/mdast-util-to-hast/download/mdast-util-to-hast-10.0.1.tgz#0cfc82089494c52d46eb0e3edb7a4eb2aea021eb"
   integrity sha1-DPyCCJSUxS1G6w4+23pOsq6gIes=
   dependencies:
     "@types/mdast" "^3.0.0"
@@ -5751,7 +5816,12 @@ nan@^2.12.1:
   resolved "https://registry.nlark.com/nan/download/nan-2.15.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fnan%2Fdownload%2Fnan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha1-PzSkc/8Y4VwbVia2KQO1rW5mX+4=
 
-nanoid@^3.1.23:
+nanocolors@^0.1.0, nanocolors@^0.1.5:
+  version "0.1.12"
+  resolved "https://registry.npmmirror.com/nanocolors/download/nanocolors-0.1.12.tgz#8577482c58cbd7b5bb1681db4cf48f11a87fd5f6"
+  integrity sha1-hXdILFjL17W7FoHbTPSPEah/1fY=
+
+nanoid@^3.1.25:
   version "3.1.25"
   resolved "https://registry.nlark.com/nanoid/download/nanoid-3.1.25.tgz?cache=0&sync_timestamp=1628771925127&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fnanoid%2Fdownload%2Fnanoid-3.1.25.tgz#09ca32747c0e543f0e1814b7d3793477f9c8e152"
   integrity sha1-CcoydHwOVD8OGBS303k0d/nI4VI=
@@ -5805,7 +5875,7 @@ node-emoji@^1.10.0:
 
 node-fetch@2.6.1:
   version "2.6.1"
-  resolved "https://registry.nlark.com/node-fetch/download/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  resolved "https://registry.npmmirror.com/node-fetch/download/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha1-BFvTI2Mfdu0uK1VXM5RBa2OaAFI=
 
 node-forge@^0.10.0:
@@ -5813,7 +5883,7 @@ node-forge@^0.10.0:
   resolved "https://registry.nlark.com/node-forge/download/node-forge-0.10.0.tgz#32dea2afb3e9926f02ee5ce8794902691a676bf3"
   integrity sha1-Mt6ir7Ppkm8C7lzoeUkCaRpna/M=
 
-node-releases@^1.1.61, node-releases@^1.1.75:
+node-releases@^1.1.61, node-releases@^1.1.76:
   version "1.1.76"
   resolved "https://registry.nlark.com/node-releases/download/node-releases-1.1.76.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fnode-releases%2Fdownload%2Fnode-releases-1.1.76.tgz#df245b062b0cafbd5282ab6792f7dccc2d97f36e"
   integrity sha1-3yRbBisMr71SgqtnkvfczC2X824=
@@ -6576,12 +6646,12 @@ postcss-zindex@^5.0.1:
   integrity sha1-xYVyS+tp01avjH5ohHso1imOzgM=
 
 postcss@^8.2.15, postcss@^8.2.4, postcss@^8.3.5:
-  version "8.3.6"
-  resolved "https://registry.nlark.com/postcss/download/postcss-8.3.6.tgz?cache=0&sync_timestamp=1626882960231&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss%2Fdownload%2Fpostcss-8.3.6.tgz#2730dd76a97969f37f53b9a6096197be311cc4ea"
-  integrity sha1-JzDddql5afN/U7mmCWGXvjEcxOo=
+  version "8.3.7"
+  resolved "https://registry.nlark.com/postcss/download/postcss-8.3.7.tgz?cache=0&sync_timestamp=1632290164129&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss%2Fdownload%2Fpostcss-8.3.7.tgz#ec88563588c8da8e58e7226f7633b51ae221eeda"
+  integrity sha1-7IhWNYjI2o5Y5yJvdjO1GuIh7to=
   dependencies:
-    colorette "^1.2.2"
-    nanoid "^3.1.23"
+    nanocolors "^0.1.5"
+    nanoid "^3.1.25"
     source-map-js "^0.6.2"
 
 prepend-http@^2.0.0:
@@ -6808,7 +6878,7 @@ react-dev-utils@^11.0.1:
 
 react-dom@^17.0.1:
   version "17.0.2"
-  resolved "https://registry.nlark.com/react-dom/download/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
+  resolved "https://registry.npmmirror.com/react-dom/download/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha1-7P+2hF462Nv83EmPDQqTlzZQLCM=
   dependencies:
     loose-envify "^1.1.0"
@@ -6837,7 +6907,7 @@ react-helmet@^6.1.0:
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
-  resolved "https://registry.nlark.com/react-is/download/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
+  resolved "https://registry.npmmirror.com/react-is/download/react-is-16.13.1.tgz?cache=0&sync_timestamp=1632327748047&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Freact-is%2Fdownload%2Freact-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
 
 react-json-view@^1.21.3:
@@ -6921,7 +6991,7 @@ react-textarea-autosize@^8.3.2:
 
 react@^17.0.1:
   version "17.0.2"
-  resolved "https://registry.nlark.com/react/download/react-17.0.2.tgz?cache=0&sync_timestamp=1632154815441&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact%2Fdownload%2Freact-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
+  resolved "https://registry.npmmirror.com/react/download/react-17.0.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Freact%2Fdownload%2Freact-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha1-0LXMUW0p6z7uOD91tihkz7aAADc=
   dependencies:
     loose-envify "^1.1.0"
@@ -7318,7 +7388,7 @@ sax@^1.2.4, sax@~1.2.4:
 
 scheduler@^0.20.2:
   version "0.20.2"
-  resolved "https://registry.nlark.com/scheduler/download/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
+  resolved "https://registry.npmmirror.com/scheduler/download/scheduler-0.20.2.tgz?cache=0&sync_timestamp=1632329135378&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fscheduler%2Fdownload%2Fscheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
   integrity sha1-S67jlDbjSqk7SHS93L8P6Li1DpE=
   dependencies:
     loose-envify "^1.1.0"
@@ -8111,6 +8181,11 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
+typescript@^4.3.5:
+  version "4.4.3"
+  resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.3.tgz?cache=0&sync_timestamp=1632381610130&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2Fdownload%2Ftypescript-4.4.3.tgz#bdc5407caa2b109efd4f82fe130656f977a29324"
+  integrity sha1-vcVAfKorEJ79T4L+EwZW+XeikyQ=
+
 ua-parser-js@^0.7.18:
   version "0.7.28"
   resolved "https://registry.npm.taobao.org/ua-parser-js/download/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
@@ -8253,7 +8328,7 @@ unist-util-visit-parents@^3.0.0:
 
 unist-util-visit@2.0.3, unist-util-visit@^2.0.0, unist-util-visit@^2.0.1, unist-util-visit@^2.0.2, unist-util-visit@^2.0.3:
   version "2.0.3"
-  resolved "https://registry.nlark.com/unist-util-visit/download/unist-util-visit-2.0.3.tgz#c3703893146df47203bb8a9795af47d7b971208c"
+  resolved "https://registry.npmmirror.com/unist-util-visit/download/unist-util-visit-2.0.3.tgz?cache=0&sync_timestamp=1632405961713&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Funist-util-visit%2Fdownload%2Funist-util-visit-2.0.3.tgz#c3703893146df47203bb8a9795af47d7b971208c"
   integrity sha1-w3A4kxRt9HIDu4qXla9H17lxIIw=
   dependencies:
     "@types/unist" "^2.0.0"
@@ -8768,7 +8843,7 @@ yargs-parser@^13.1.2:
 
 yargs@^13.3.2:
   version "13.3.2"
-  resolved "https://registry.nlark.com/yargs/download/yargs-13.3.2.tgz?cache=0&sync_timestamp=1628889096518&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fyargs%2Fdownload%2Fyargs-13.3.2.tgz#ad7ffefec1aa59565ac915f82dccb38a9c31a2dd"
+  resolved "https://registry.npmmirror.com/yargs/download/yargs-13.3.2.tgz#ad7ffefec1aa59565ac915f82dccb38a9c31a2dd"
   integrity sha1-rX/+/sGqWVZayRX4Lcyzipwxot0=
   dependencies:
     cliui "^5.0.0"
