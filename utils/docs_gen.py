@@ -33,7 +33,7 @@ def filename_sort(filename):
 def gen_solution_doc(tag_name, ques):
   [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags, tags, ] = ques
   output_dir = os.path.join(output_dir_main, tag_name)
-  file_name = f'{ques_no}_{ques_name}.md'
+  file_name = f'{ques_no}_{ques_name}'
 
   if not os.path.isdir(output_dir):
     os.makedirs(output_dir)
@@ -60,10 +60,10 @@ def gen_solution_doc(tag_name, ques):
     .replace('<tags>', cur_tags)\
     .replace('<content>', solution_content)
 
-  with open(os.path.join(output_dir, file_name), 'w+') as output_file:
+  with open(os.path.join(output_dir, f'{file_name}.md'), 'w+') as output_file:
     output_file.write(output_content)
 
-  return f'{file_name}'
+  return file_name
 
 def gen_main_tag_doc(tag_name, tag_ques_list):
   list_ques_output = []
