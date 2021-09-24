@@ -30,6 +30,12 @@
 
 ## 后记
 
+### 新建题库步骤
+
+1. 在`utils/common.py`里的`main_ques_tags`添加题库名
+2. 在`utils/common.py`里的`ques_map`添加题库数量
+3. 在`template`里添加题库doc模板
+
 ### vscode插件设置
 
 ````

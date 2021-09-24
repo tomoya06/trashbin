@@ -10,17 +10,23 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
+      - name: ls 📚
+        run: |
+          pwd
+          ls -l
+
+      - name: Generate Docs Files 🔧
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+        run: python utils/docs_gen.py
+
       - name: Install and Build 🔧
         run: |
           cd docs
           yarn
           yarn build
       
-      - name: ls 📚
-        run: |
-          pwd
-          ls -l
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:

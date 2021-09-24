@@ -4,6 +4,8 @@
       "codezone_intro"
     ],
     "\u5251\u6307offer": [
+      "\u5251\u6307offer/\u5251\u6307offer_intro",
+      "\u5251\u6307offer/\u5251\u6307offer_intro",
       "\u5251\u6307offer/\u6570\u7ec4\u4e2d\u91cd\u590d\u7684\u6570",
       "\u5251\u6307offer/\u641c\u7d22\u4e8c\u7ef4\u77e9\u9635-ii",
       "\u5251\u6307offer/\u66ff\u6362\u7a7a\u683c",
@@ -80,7 +82,10 @@
       "\u5251\u6307offer/I_\u4e8c\u53c9\u641c\u7d22\u6811\u7684\u6700\u8fd1\u516c\u5171\u7956\u5148",
       "\u5251\u6307offer/II_\u4e8c\u53c9\u6811\u7684\u6700\u8fd1\u516c\u5171\u7956\u5148"
     ],
-    "\u5251\u6307offer\u4e13\u9879\u7248": []
+    "\u5251\u6307offer\u4e13\u9879\u7248": [
+      "\u5251\u6307offer\u4e13\u9879\u7248/\u5251\u6307offer\u4e13\u9879\u7248_intro",
+      "\u5251\u6307offer\u4e13\u9879\u7248/\u5251\u6307offer\u4e13\u9879\u7248_intro"
+    ]
   },
   "note": [
     "note_intro",
