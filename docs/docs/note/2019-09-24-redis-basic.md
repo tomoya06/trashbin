@@ -1,5 +1,6 @@
 ---
 date: 2019-09-24 10:09:01
+id: redis-basic
 tags:
 - Java
 - 后端

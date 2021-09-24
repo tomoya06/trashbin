@@ -1,5 +1,6 @@
 ---
 date: 2019-02-27 12:17:15
+id: crypto-basic
 tags:
 - 毕业设计
 - 密码学

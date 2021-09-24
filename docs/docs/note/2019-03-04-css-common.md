@@ -1,5 +1,6 @@
 ---
 date: 2019-03-04 19:50:39
+id: css-common
 tags:
 - CSS
 title: 常用CSS属性 - 文字换行/超长

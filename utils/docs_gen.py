@@ -4,6 +4,7 @@ import glob
 import frontmatter
 import time
 import datetime
+import json
 
 single_ques_tmpl = """
 ### <ques_name>
@@ -27,7 +28,9 @@ output_dir_main = 'docs/docs/'
 notes_dir = 'notepad/'
 
 sidebar = {
-  "codezone": {},
+  "codezone": {
+    "Intro": ["codezone_intro"],
+  },
   "note": {},
 }
 
@@ -121,10 +124,11 @@ def gen_notes():
         pass
 
   for fname in glob.glob(f"{notes_dir}/*.md"):
-    with open(fname, 'r') as f:
-      curmd = frontmatter.load(f)
-      og_mdcontent = frontmatter.dumps(curmd)
     real_filename = fname.split(os.sep)[-1]
+
+    curmd = frontmatter.load(fname)
+    curmd.__setitem__('id', real_filename[:-len('.md')])
+    og_mdcontent = frontmatter.dumps(curmd)
 
     curmd_time = curmd.get('date', '')
     if not curmd_time:
@@ -139,7 +143,23 @@ def gen_notes():
     print(f'\n\n--> parse note file {fname} to {output_filename}')
 
 
+def gen_sidebar():
+  for main_tag in main_ques_tags:
+    doc_files = f"docs/docs/{main_tag}/*.md"
+    doc_idlist = []
+    for fname in glob.glob(doc_files):
+      curmd = frontmatter.load(fname)
+      curid = curmd.get('id')
+      if curid:
+        doc_idlist.append(f"{main_tag}/{curid}")
+    sidebar['codezone'][main_tag] = doc_idlist
+  
+  with open(f'docs/sidebars.json', 'w+') as fp:
+    json.dump(sidebar, fp, indent=2, ensure_ascii=True)
+
+
 if __name__ == '__main__':
   ques_map = scan_all_files()
   gen_docs(ques_map)
   gen_notes()
+  gen_sidebar()

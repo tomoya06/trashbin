@@ -1,5 +1,6 @@
 ---
 date: 2019-09-27 09:52:14
+id: algorithm-basic
 tags:
 - 算法
 title: 数据结构基本+基本拓展

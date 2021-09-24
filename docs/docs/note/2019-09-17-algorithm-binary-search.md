@@ -1,5 +1,6 @@
 ---
 date: 2019-09-17 13:58:14
+id: algorithm-binary-search
 tags:
 - 算法
 - 二分法

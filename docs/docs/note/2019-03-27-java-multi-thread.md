@@ -1,5 +1,6 @@
 ---
 date: 2019-03-27 10:38:24
+id: java-multi-thread
 tags:
 - Java
 title: Java多线程

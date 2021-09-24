@@ -1,5 +1,6 @@
 ---
 date: 2019-09-30 14:11:30
+id: js-vue-basic
 tags:
 - JavaScript
 - 前端

@@ -1,5 +1,6 @@
 ---
 date: 2019-09-03 14:30:32
+id: git-common
 tags:
 - git
 - 开发

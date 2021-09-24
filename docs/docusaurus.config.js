@@ -20,7 +20,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebars.json'),
           // Please change this to your repo.
           // editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
         },
@@ -49,7 +49,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'codezone_intro',
             position: 'left',
             label: 'CodeZone',
           },

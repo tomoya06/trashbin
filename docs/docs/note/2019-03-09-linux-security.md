@@ -1,5 +1,6 @@
 ---
 date: 2019-03-09 00:57:05
+id: linux-security
 tags:
 - 技巧
 - Linux

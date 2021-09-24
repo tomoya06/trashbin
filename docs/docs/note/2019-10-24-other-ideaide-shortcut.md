@@ -1,5 +1,6 @@
 ---
 date: 2019-10-24 09:50:14
+id: other-ideaide-shortcut
 tags:
 - 开发
 - IDE

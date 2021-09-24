@@ -1,5 +1,6 @@
 ---
 date: 2019-11-21 11:49:39
+id: hbase-basic
 tags:
 - Java
 - HBase

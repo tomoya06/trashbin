@@ -1,5 +1,6 @@
 ---
 date: 2019-09-23 17:18:11
+id: es-advanced
 tags:
 - Java
 - ElasticSearch

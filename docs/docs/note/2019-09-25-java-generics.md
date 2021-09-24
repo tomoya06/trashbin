@@ -1,5 +1,6 @@
 ---
 date: 2019-09-25 16:02:33
+id: java-generics
 tags:
 - Java
 - 后端

@@ -1,5 +1,6 @@
 ---
 date: 2019-01-24 11:05:55
+id: python-basic2
 tags:
 - Python
 - 前端

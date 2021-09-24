@@ -1,5 +1,6 @@
 ---
 date: 2018-12-27 14:46:33
+id: compilers-COOL
 tags:
 - 编译原理
 - 上课

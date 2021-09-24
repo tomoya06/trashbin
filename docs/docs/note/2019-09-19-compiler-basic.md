@@ -1,5 +1,6 @@
 ---
 date: 2019-09-19 10:53:32
+id: compiler-basic
 tags:
 - 计算机科学
 - 编译原理

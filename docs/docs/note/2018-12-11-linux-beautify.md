@@ -1,5 +1,6 @@
 ---
 date: 2018-12-11 17:23:59
+id: linux-beautify
 tags:
 - 技巧
 - Linux

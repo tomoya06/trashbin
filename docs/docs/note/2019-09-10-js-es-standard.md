@@ -1,5 +1,6 @@
 ---
 date: 2019-09-10 14:12:56
+id: js-es-standard
 tags:
 - JavaScript
 - 前端
