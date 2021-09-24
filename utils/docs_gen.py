@@ -1,6 +1,9 @@
 from common import *
 import os
-
+import glob
+import frontmatter
+import time
+import datetime
 
 single_ques_tmpl = """
 ### <ques_name>
@@ -13,14 +16,20 @@ single_ques_tmpl = """
 solution_tmpl = """---
 tags:
   <tags>
+id: <ques_name>
+title: <ques_name>
 ---
-
-# <ques_name>
 
 <content>
 """
 
 output_dir_main = 'docs/docs/'
+notes_dir = 'notepad/'
+
+sidebar = {
+  "codezone": {},
+  "note": {},
+}
 
 def filename_sort(filename):
   if filename.endswith('.md'):
@@ -100,6 +109,37 @@ def gen_docs(ques_map):
     gen_main_tag_doc(tag_name=main_tag, tag_ques_list=tag_all_ques[0])
 
 
+def gen_notes():
+  output_dir = f"{output_dir_main}/note"
+  if not os.path.isdir(output_dir):
+    os.makedirs(output_dir)
+  else:
+    for existed_md in glob.glob(f"{output_dir}/*.md"):
+      try:
+        os.remove(existed_md)
+      except:
+        pass
+
+  for fname in glob.glob(f"{notes_dir}/*.md"):
+    with open(fname, 'r') as f:
+      curmd = frontmatter.load(f)
+      og_mdcontent = frontmatter.dumps(curmd)
+    real_filename = fname.split(os.sep)[-1]
+
+    curmd_time = curmd.get('date', '')
+    if not curmd_time:
+      curmd_time = datetime.datetime.now()
+    curmd_time = curmd_time.strftime("%Y-%m-%d %H:%M:%S")
+    file_date = curmd_time.split()[0]
+    output_filename = f"{output_dir}/{file_date}-{real_filename}"
+
+    with open(output_filename, 'w+') as of:
+      of.write(og_mdcontent)
+    
+    print(f'\n\n--> parse note file {fname} to {output_filename}')
+
+
 if __name__ == '__main__':
   ques_map = scan_all_files()
   gen_docs(ques_map)
+  gen_notes()

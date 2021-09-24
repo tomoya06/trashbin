@@ -2,9 +2,9 @@
 tags:
   - 剑指offer
   - 数学问题
+id: 剪绳子II
+title: 剪绳子II
 ---
-
-# 剪绳子II
 
 ## 题解 1.py
 

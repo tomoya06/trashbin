@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
   url: 'https://tomoya06.github.io/',
-  baseUrl: '/leetcode/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -22,13 +22,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          // editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/edit/main/website/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -51,11 +51,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'CodeZone',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/note', label: '笔记', position: 'left'},
+          {to: '/blog', label: '博客', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/tomoya06',
             label: 'GitHub',
             position: 'right',
           },
@@ -65,14 +66,19 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '快捷方式',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'CodeZone',
+                to: '/docs/codezone',
               },
+              {
+                label: 'Blog',
+                to: '/blog',
+              }
             ],
           },
+          {},
           {
             title: 'Community',
             items: [
@@ -90,21 +96,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               },
             ],
           },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} tomoya06's HomePage, Heavelop Inc. <br>Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

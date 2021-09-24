@@ -1,9 +1,9 @@
 ---
 tags:
   - 剑指offer
+id: 包含min函数的栈
+title: 包含min函数的栈
 ---
-
-# 包含min函数的栈
 
 ## 题解 1.py
 
