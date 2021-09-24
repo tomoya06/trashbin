@@ -20,8 +20,8 @@ jobs:
         with:
           python-version: '3.x'
       - run: |
-        pip install -r requirements.txt
-        python utils/docs_gen.py
+          pip install -r requirements.txt
+          python utils/docs_gen.py
 
       - name: Install and Build 🔧
         run: |
