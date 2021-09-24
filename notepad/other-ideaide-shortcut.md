@@ -1,7 +1,7 @@
 ---
 title: Idea ide 快捷键记录
 date: 2019-10-24 09:50:14
-categories:
+tags:
 - 开发
 - IDE
 ---

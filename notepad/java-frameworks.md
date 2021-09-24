@@ -1,7 +1,7 @@
 ---
 title: 一个完整的Java SpringBoot项目中会用到的框架
 date: 2019-09-18 14:53:29
-categories:
+tags:
 ---
 
 > 列举一个Springboot项目中各个框架的作用。以[macrozheng/mall](https://github.com/macrozheng/mall)项目为参考。

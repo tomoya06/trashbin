@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch 基础
 date: 2019-09-23 16:34:35
-categories:
+tags:
 - Java
 - ElasticSearch
 - 后端

@@ -49,8 +49,8 @@ initMixin() {
 
 * 核心：defineReactive() { new Dep() }
 * class Dep
-  * 文件：src/core/observer/dep.js
-  * 关键：target: Watcher / subs: Array<Watcher> 实际上是对Watcher的管理
+  * 文件：`src/core/observer/dep.js`
+  * 关键：target: `Watcher` / subs: `Array<Watcher>` 实际上是对Watcher的管理
 * 概述：getter除了返回属性值以外，还会把属性加入观察者队列，在之后有数据更新的时候会通知所有观察者
 
 > watcher / dep 是观察者模式的实现，参见[菜鸟教程](http://www.runoob.com/design-pattern/observer-pattern.html)

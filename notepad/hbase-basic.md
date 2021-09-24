@@ -1,7 +1,7 @@
 ---
 title: HBase 入门
 date: 2019-11-21 11:49:39
-categories:
+tags:
 - Java
 - HBase
 - 后台

@@ -7,7 +7,7 @@ tags:
 - 计算机网络
 ---
 
-<style>
+<!-- <style>
 .imgdiv {
     text-align: center;
 }
@@ -21,7 +21,7 @@ tags:
     font-size: 12px;
     opacity: 80%;
 }
-</style>
+</style> -->
 
 # 计算机网络作业2
 

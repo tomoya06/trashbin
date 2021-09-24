@@ -1,8 +1,8 @@
 ---
-categories:
+date: 2019-09-10 14:12:56
+tags:
 - JavaScript
 - 前端
-date: 2019-09-10 14:12:56
 title: 各代ES标准及特点
 ---
 

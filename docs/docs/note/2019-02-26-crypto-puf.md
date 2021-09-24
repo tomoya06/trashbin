@@ -37,7 +37,7 @@ title: 基于PUF的IoT设备身份管理模型
 
 ## 系统架构
 
-![](/images/PUF/PUF01.jpg)
+![](/img/note/PUF/PUF01.jpg)
 
 ## 流程
 
@@ -49,7 +49,7 @@ title: 基于PUF的IoT设备身份管理模型
    3. SCG生成辅助值$HLP_a=BCH_{Encoder}(R_a)$，组成元组<$C_a$, $R_a$, $HLP_a$>存到CRPDB，
 2. Security Association Generation Process
    1. SCG随机生成一个n比特的challenge $C_s$，计算 $P_s=H2_{Ks}(C_s)$, $P_a=H1(R_a)$
-   2. SCG随机从$Z^*_q$选择一个元素$a$并计算：<br>$B=P_a-a \cdot P_s$, <br>$d_1=H3(H1(C_a||C_s||HLP_a||a||H3(P_s))+B)$，<br>组成元组<$C_a$, $C_s$, $HLP_a$, $a$, $B$, $d_1$>存到SAP的MAPDB，这样对节点A的注册就完成了
+   2. SCG随机从$Z^*_q$选择一个元素$a$并计算：<br />$B=P_a-a \cdot P_s$, <br />$d_1=H3(H1(C_a||C_s||HLP_a||a||H3(P_s))+B)$，<br />组成元组<$C_a$, $C_s$, $HLP_a$, $a$, $B$, $d_1$>存到SAP的MAPDB，这样对节点A的注册就完成了
 3. 经过上述步骤，验证机只存有密钥$K_s$，其他数据都存到数据库，数据库是离线的
 
 ### Authentication & key exchange phase 认证和交换密钥阶段
@@ -60,11 +60,11 @@ title: 基于PUF的IoT设备身份管理模型
 2. SAP从MAPDB查询得到<$C_a$, $C_s$, $HLP_a$, $a$, $B$, $d_1$>发给验证机
 3. 验证机进行计算：$P_s = H2_{Ka}(C_s)$
 4. 如果$d1==H3(H1(C_a||C_s||HLP_a||a||H3(P_s))+B)$，计算：$P_a=a \cdot P_s + B$
-5. 验证机随机选择一个值$x \in _RZ^*_q$，并计算<br>$Q_a=P_a+x \cdot P_s +H1(ID_a||ID_b)$，<br>$V_a=e(P_a, x \cdot P_s)$，<br>组成元组<$C_a$, $HLP_a$, $Q_a$>发给节点A。
+5. 验证机随机选择一个值$x \in _RZ^*_q$，并计算<br />$Q_a=P_a+x \cdot P_s +H1(ID_a||ID_b)$，<br />$V_a=e(P_a, x \cdot P_s)$，<br />组成元组<$C_a$, $HLP_a$, $Q_a$>发给节点A。
 6. 节点A收到之后，
    1. PUF计算：$R_{actural}=PUF_a(C_a)$
    2. BCH解码器计算：$BCH_{Decoder}(HLP_a)=R_{corrected}$，应满足$R_{corrected}=R_{actural}$
-   3. 进行计算：<br>$P^\prime_a=H1(R_{corrected})$ <br>$P^\prime_s=Q_a-P^\prime_a-H1(ID_a||ID_b)$ <br>$V^\prime_a=e(P^\prime_a, P^\prime_s)$
+   3. 进行计算：<br />$P^\prime_a=H1(R_{corrected})$ <br />$P^\prime_s=Q_a-P^\prime_a-H1(ID_a||ID_b)$ <br />$V^\prime_a=e(P^\prime_a, P^\prime_s)$
    4. 节点A随机选择: $t \in _RZ^*_q$, $Y_a \in _RG^*_1$, 计算密钥对：$KA_{PUB}=t \cdot Q_a, KA_{PRV}=t \cdot Y_a$, 组成元组<$V^\prime_a$, $KA_{PUB}$, $Y_a$, $H3(P^\prime_s+KA_{PUB})||H3(Y_a)$>发给验证机
 7. 验证机收到之后，如果$V_a=V^\prime_a$，$H3(P_s+KA_{PUB})||H3(Y_a)=H3(P^\prime_s+KA_{PUB})||H3(Y_a)$，验证机就认为节点A是已授权设备，并接受他的公钥$KA_{PUB}$
 8.  类似地，验证机验证节点B，最后给节点A发送元组<$KB_{PUB}, Q_b, Y_b, H3(H1(P_a)||H1(KB_{PUB})||H1(Q_b)||H1(Y_b))$>

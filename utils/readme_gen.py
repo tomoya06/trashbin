@@ -27,10 +27,10 @@ def part_gen_table(ques_map_items):
     for ques in cat_ques_list:
       gened_md += '\n|{0}|{1}|{2}|{3}|'.format(ques[0], ques[1], ques[2], ques[3])
       for ques_file in ques[4]:
-        gened_md += '[{0}]({1}) <br>'.format(ques_file[0], ques_file[1])
+        gened_md += '[{0}]({1}) <br />'.format(ques_file[0], ques_file[1])
       gened_md += '|'
       for tag in ques[5]:
-        gened_md += '#{} <br>'.format(tag)
+        gened_md += '#{} <br />'.format(tag)
       gened_md += '|'
     gened_md += '\n\n'
   return gened_md

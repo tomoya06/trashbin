@@ -1,8 +1,8 @@
 ---
-categories:
+date: 2019-09-17 13:58:14
+tags:
 - 算法
 - 二分法
-date: 2019-09-17 13:58:14
 title: 二分查找cheat sheet
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Electron基础
 date: 2019-09-05 15:54:28
-categories:
+tags:
 - 前端
 - Node.js
 - Electron

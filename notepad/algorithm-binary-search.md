@@ -1,7 +1,7 @@
 ---
 title: 二分查找cheat sheet
 date: 2019-09-17 13:58:14
-categories:
+tags:
 - 算法
 - 二分法
 ---

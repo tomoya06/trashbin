@@ -1,9 +1,9 @@
 ---
-categories:
+date: 2019-09-24 10:09:01
+tags:
 - Java
 - 后端
 - Redis
-date: 2019-09-24 10:09:01
 title: Redis 基础
 ---
 

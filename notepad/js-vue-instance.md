@@ -1,7 +1,7 @@
 ---
 title: Vue组件生命周期
 date: 2019-09-23 10:11:23
-categories:
+tags:
 - JavaScript
 - 前端
 - Vue

@@ -1,7 +1,7 @@
 ---
 title: Vue基础+拓展
 date: 2019-09-30 14:11:30
-categories:
+tags:
 - JavaScript
 - 前端
 - Vue

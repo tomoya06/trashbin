@@ -1,7 +1,7 @@
 ---
 title: Git常用指令记录
 date: 2019-09-03 14:30:32
-categories:
+tags:
 - git
 - 开发
 - 前端

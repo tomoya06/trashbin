@@ -1,7 +1,7 @@
 ---
 title: SpringBoot Security 配置方案
 date: 2019-09-30 16:03:22
-categories:
+tags:
 - Java
 - SpringBoot
 - 后端

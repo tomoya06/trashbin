@@ -1,7 +1,7 @@
 ---
 title: CODING - 这是什么？
 date: 2019-09-18 12:02:12
-categories:
+tags:
 ---
 
 > 开一个专页，记录Coding过程（或者日常过程中）遇到的生词
