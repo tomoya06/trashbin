@@ -8,6 +8,18 @@ level_tag_mapper = {
   'h': 'https://shields.io/badge/-困难-red?style=flat-square',
 }
 
+level_code_mapper = {
+  'm': '<Highlight color="#ffc01e">中等</Highlight>',
+  'e': '<Highlight color="#00b8a3">简单</Highlight>',
+  'h': '<Highlight color="#ff375f">困难</Highlight>',
+}
+
+level_icon_mapper = {
+  'm': '🟡',
+  'e': '🟢',
+  'h': '🔴',
+}
+
 ques_type_tag_mapper = {
   '贪心算法': '',
   '二分查找': '',
@@ -30,6 +42,8 @@ ques_map = {
   '剑指offer': [[], { 'total': 75, }],
   '剑指offer专项版': [[], { 'total': 119, }],
 }
+
+ques_level_tag_marker_reg = r'##(.+)##level(\w)'
 
 def ques_no_display(ques_no):
   ques_no = re.findall(r"([\d_]+)", ques_no)[0]
@@ -59,15 +73,16 @@ def scan_all_files():
     print('\n ==> parsing main file: ', ques )
     with open(ques, 'r') as ques_file:
       ques_line1 = ques_file.readline()
-      search_tag = re.search('##(.+)##level(\w)', ques_line1)
+      search_tag = re.search(ques_level_tag_marker_reg, ques_line1)
       tags = search_tag.group(1).split('#')[:]
-      level_name = level_tag_mapper[search_tag.group(2)]
+      level_code = search_tag.group(2)
+      level_name = level_tag_mapper[level_code]
       level_name = '![level]({})'.format(level_name)
 
     print(ques_no, tags)
     # 过滤了题库标签的标签列表
     no_main_tags = [tag for tag in tags if tag not in main_ques_tags]
-    cur_res = [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags, tags, ]
+    cur_res = [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags, tags, level_code, ]
     
     for tag in tags:
       if tag in ques_map:
@@ -76,3 +91,12 @@ def scan_all_files():
         ques_map[tag] = [[cur_res,], {}]
   
   return ques_map
+
+
+def code_content_purify(single_solution_content):
+  single_solution_content = single_solution_content.split('\n')
+  if re.search(ques_level_tag_marker_reg, single_solution_content[0]):
+    single_solution_content = single_solution_content[1:]
+  
+  single_solution_content = '\n'.join(single_solution_content)
+  return single_solution_content.strip()

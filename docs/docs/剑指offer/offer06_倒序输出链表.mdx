@@ -1,0 +1,44 @@
+---
+tags:
+  - 剑指offer
+id: 倒序输出链表
+title: 🟢 倒序输出链表
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+:::
+
+## 题解 1.py
+
+```py
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def reversePrint(self, head: ListNode) -> List[int]:
+        res = []
+        while head:
+            res.insert(0, head.val)
+            head = head.next
+        return res
+```
+
+

@@ -1,0 +1,51 @@
+---
+tags:
+  - 剑指offer
+  - 深度优先搜索
+  - 广度优先搜索
+id: 对称的二叉树
+title: 🟢 对称的二叉树
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+:::
+
+## 题解 1.py
+
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+
+        def isSym(left, right):
+            if left is None and right is None:
+                return True
+            if left is None or right is None:
+                return False
+            return left.val == right.val and isSym(left.left, right.right) and isSym(left.right, right.left)
+        
+        return isSym(root, root)
+```
+
+

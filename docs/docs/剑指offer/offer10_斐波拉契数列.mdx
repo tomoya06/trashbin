@@ -1,0 +1,48 @@
+---
+tags:
+  - 剑指offer
+  - 动态规划
+  - 记忆化搜索
+id: 斐波拉契数列
+title: 🟢 斐波拉契数列
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+:::
+
+## 题解 1.py
+
+```py
+# 注意反向递归会超时
+class Solution:
+    def fib(self, n: int) -> int:
+        # if n<=1:
+        #     return n
+        # res = [0 for _ in range(n+1)]
+        # res[0], res[1] = 0, 1
+        # for i in range(2, n+1):
+        #     res[i] = res[i-1] + res[i-2]
+        # return res[n] % 1000000007
+
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, a+b
+        return a % 1000000007
+```
+
+

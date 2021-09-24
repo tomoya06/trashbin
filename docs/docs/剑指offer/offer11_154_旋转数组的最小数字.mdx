@@ -1,0 +1,44 @@
+---
+tags:
+  - 剑指offer
+  - 分治法
+id: 旋转数组的最小数字
+title: 🔴 旋转数组的最小数字
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ff375f">困难</Highlight>
+
+:::
+
+## 题解 1.抄的.py
+
+```py
+class Solution:
+    def minArray(self, numbers: List[int]) -> int:
+        left, right = 0, len(numbers)-1
+        while left <= right:
+            mid = (left+right)//2
+            if numbers[mid] < numbers[right]:
+                right = mid
+            elif numbers[mid] > numbers[right]:
+                left = mid+1
+            else:
+                right -= 1
+        return numbers[left]
+```
+
+

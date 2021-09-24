@@ -1,0 +1,48 @@
+---
+tags:
+  - 剑指offer
+  - 数学问题
+id: 数字序列中某一位的数字
+title: 🟡 数字序列中某一位的数字
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+:::
+
+## 题解 1.py
+
+```py
+class Solution:
+    def findNthDigit(self, n: int) -> int:
+        if n <= 9:
+            return n
+        n -= 10
+        length = 2
+        lengthTotal = 90
+        lengthStart = 10
+        while True:
+            if n <= lengthTotal*length:
+                theNum = n//length + lengthStart
+                return int(str(theNum)[n%length])
+            n -= lengthTotal*length
+            length += 1
+            lengthTotal *= 10
+            lengthStart *= 10
+```
+
+

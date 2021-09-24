@@ -1,0 +1,38 @@
+---
+tags:
+  - 剑指offer
+id: 青蛙跳台阶问题
+title: 🟢 青蛙跳台阶问题
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+:::
+
+## 题解 1.py
+
+```py
+# 就是斐波拉契数列
+class Solution:
+    def numWays(self, n: int) -> int:
+        a, b = 1, 1
+        for _ in range(n):
+            a, b = b, a+b
+        return a % 1000000007
+```
+
+

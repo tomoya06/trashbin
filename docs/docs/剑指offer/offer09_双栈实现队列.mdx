@@ -1,0 +1,88 @@
+---
+tags:
+  - 剑指offer
+id: 双栈实现队列
+title: 🟢 双栈实现队列
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+:::
+
+## 题解 1.py
+
+```py
+class CQueue:
+  
+    def __init__(self):
+        self.stackOrd, self.stackRev = [], []
+
+
+    def appendTail(self, value: int) -> None:
+        self.stackOrd.append(value)
+
+
+    def deleteHead(self) -> int:
+        if len(self.stackOrd) == 0:
+            return -1
+        while self.stackOrd:
+            self.stackRev.append(self.stackOrd.pop())
+        res = self.stackRev.pop()
+        while self.stackRev:
+            self.stackOrd.append(self.stackRev.pop())
+        return res
+
+
+
+
+# Your CQueue object will be instantiated and called as such:
+# obj = CQueue()
+# obj.appendTail(value)
+# param_2 = obj.deleteHead()
+```
+
+## 题解 2_更省事.py
+
+```py
+# 并不用实时保留完整队列，把stack1和stack2理解为队列的前半部和后半部就好
+class CQueue:
+  
+    def __init__(self):
+        self.stack1, self.stack2 = [], []
+
+
+    def appendTail(self, value: int) -> None:
+        self.stack1.append(value)
+
+
+    def deleteHead(self) -> int:
+        if len(self.stack2) == 0:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        if len(self.stack2) == 0:
+            return -1
+        return self.stack2.pop()
+
+
+
+# Your CQueue object will be instantiated and called as such:
+# obj = CQueue()
+# obj.appendTail(value)
+# param_2 = obj.deleteHead()
+```
+
+

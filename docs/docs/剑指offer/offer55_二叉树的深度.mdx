@@ -1,0 +1,55 @@
+---
+tags:
+  - 剑指offer
+  - 二叉树
+id: 二叉树的深度
+title: 🟢 二叉树的深度
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+:::
+
+## 题解 1.py
+
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+        if not root:
+            return 0
+        lel = [root]
+        lelCnt = 0
+        while lel:
+            lelCnt += 1
+            curLen = len(lel)
+            for idx in range(curLen):
+                if lel[idx].left:
+                    lel.append(lel[idx].left)
+                if lel[idx].right:
+                    lel.append(lel[idx].right)
+            lel = lel[curLen:]
+        return lelCnt
+```
+
+

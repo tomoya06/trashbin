@@ -53,8 +53,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             position: 'left',
             label: 'CodeZone',
           },
-          {to: '/note', label: '笔记', position: 'left'},
-          {to: '/blog', label: '博客', position: 'left'},
+          { type: 'doc', docId: 'note_intro', label: '随手记', position: 'left' },
+          { to: '/blog', label: '博客', position: 'left' },
           {
             href: 'https://github.com/tomoya06',
             label: 'GitHub',
@@ -70,31 +70,47 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             items: [
               {
                 label: 'CodeZone',
-                to: '/docs/codezone',
+                to: '/docs/codezone_intro',
               },
               {
-                label: 'Blog',
-                to: '/blog',
+                label: '随手记',
+                to: '/docs/note_intro',
               }
             ],
           },
-          {},
           {
-            title: 'Community',
+            title: '联系我',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'GitHub',
+                href: 'https://github.com/tomoya06',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Instagram',
+                href: 'https://www.instagram.com/pjh_tomoya06/',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/tomoya06/',
               },
             ],
+          },
+          {
+            title: '我在看...',
+            items: [
+              {
+                label: 'TypeSctipt',
+                href: 'https://www.typescriptlang.org/',
+              },
+              {
+                label: '俄罗斯烂漫',
+                href: 'https://www.instagram.com/russian_romantics/',
+              },
+              {
+                label: '闲暇时光 ☕',
+                href: 'https://www.youtube.com/'
+              }
+            ]
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} tomoya06's HomePage, Heavelop Inc. <br>Built with Docusaurus.`,

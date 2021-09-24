@@ -1,0 +1,81 @@
+---
+tags:
+  - 剑指offer
+  - 深度优先搜索
+  - 广度优先搜索
+id: 机器人的运动范围
+title: 🟡 机器人的运动范围
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+:::
+
+## 题解 1.py
+
+```py
+class Solution:
+    def movingCount(self, m: int, n: int, k: int) -> int:
+        boards = [['' for _ in range(m)] for _ in range(n)]
+        self.cnt = 0
+        def dfs(x, y):
+            if x < 0 or x >= m or y < 0 or y >= n:
+                return
+            if boards[y][x] == '.':
+                return
+            x1, x2 = x//10, x%10
+            y1, y2 = y//10, y%10
+            if x1+x2+y1+y2 > k:
+                return
+            boards[y][x] = '.'
+            self.cnt += 1
+            dfs(x+1, y)
+            dfs(x-1, y)
+            dfs(x, y+1)
+            dfs(x, y-1)
+            
+        dfs(0, 0)
+        return self.cnt
+```
+
+## 题解 2_只要向右向下.py
+
+```py
+# 更快一点
+class Solution:
+    def movingCount(self, m: int, n: int, k: int) -> int:
+        boards = [['' for _ in range(m)] for _ in range(n)]
+        self.cnt = 0
+        def dfs(x, y):
+            if x < 0 or x >= m or y < 0 or y >= n:
+                return
+            if boards[y][x] == '.':
+                return
+            x1, x2 = x//10, x%10
+            y1, y2 = y//10, y%10
+            if x1+x2+y1+y2 > k:
+                return
+            boards[y][x] = '.'
+            self.cnt += 1
+            dfs(x+1, y)
+            dfs(x, y+1)
+
+        dfs(0, 0)
+        return self.cnt
+```
+
+

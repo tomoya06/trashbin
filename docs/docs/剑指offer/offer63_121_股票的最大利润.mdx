@@ -1,0 +1,42 @@
+---
+tags:
+  - 剑指offer
+  - 动态规划
+id: 股票的最大利润
+title: 🟢 股票的最大利润
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+:::
+
+## 题解 1_不用动态规划.py
+
+```py
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if not prices:
+            return 0
+        maxx = 0
+        low = prices[0]
+        for idx in range(1, len(prices)):
+            maxx = max(maxx, prices[idx]-low)
+            low = min(low, prices[idx])
+        return maxx
+```
+
+
