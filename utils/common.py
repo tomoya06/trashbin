@@ -63,6 +63,7 @@ def scan_all_files():
     cur_res['ques_no'] = cur_fdm.get('id', '0')
     cur_res['ques_name'] = cur_fdm.get('online_name') or cur_fdm.get('name') or 'unknown'
     cur_res['level'] = cur_fdm.get('level')
+    cur_res['online_link'] = cur_fdm.get('online_link')
 
     tags = cur_fdm.get('tags')
     cur_res['tags'] = tags
@@ -72,10 +73,11 @@ def scan_all_files():
     for ques_solution in glob.glob(os.path.join(ques_dir, '*')):
       [_, _, solution_name] = ques_solution.split(os.sep)
       ques_fileloc = '/'.join(ques_solution.split(os.sep))
-      if solution_name.endswith('.md'):
-        continue
       all_solutions.append([solution_name, ques_fileloc, ])
+    
+    all_codes = [code for code in all_solutions if not code[1].endswith('.md')]
     cur_res['all_solutions'] = all_solutions
+    cur_res['all_codes'] = all_codes
     cur_res['no_main_tags'] = [tag for tag in tags if tag not in main_ques_tags]
 
     for tag in tags:

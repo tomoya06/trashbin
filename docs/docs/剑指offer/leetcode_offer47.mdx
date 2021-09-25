@@ -1,0 +1,53 @@
+---
+tags:
+  - 剑指offer
+  - 动态规划
+id: leetcode_offer47
+title: 🟡 剑指 Offer 47. 礼物的最大价值
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/li-wu-de-zui-da-jie-zhi-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def maxValue(self, grid: List[List[int]]) -> int:
+        mp = [[0 for _ in grid[0]] for _ in grid]
+        for y in range(len(grid)):
+            for x in range(len(grid[0])):
+                if x == 0 and y == 0:
+                    mp[y][x] = grid[y][x]
+                    continue
+                if x == 0:
+                    mp[y][x] = grid[y][x] + mp[y-1][x]
+                    continue
+                if y == 0:
+                    mp[y][x] = grid[y][x] + mp[y][x-1]
+                    continue
+                mp[y][x] = max(mp[y-1][x], mp[y][x-1]) + grid[y][x]
+        
+        return mp[-1][-1]
+```
+
+

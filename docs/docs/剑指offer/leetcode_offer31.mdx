@@ -1,0 +1,49 @@
+---
+tags:
+  - 剑指offer
+id: leetcode_offer31
+title: 🟡 剑指 Offer 31. 栈的压入、弹出序列
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
+        res = []
+        for p in pushed:
+            res.append(p)
+
+            while res and popped:
+                if res[-1] == popped[0]:
+                    res.pop(-1)
+                    popped.pop(0)
+                else:
+                    break
+            
+        return len(res) == 0
+```
+
+

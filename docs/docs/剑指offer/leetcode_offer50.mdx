@@ -1,0 +1,51 @@
+---
+tags:
+  - 剑指offer
+  - 哈希表
+id: leetcode_offer50
+title: 🟢 剑指 Offer 50. 第一个只出现一次的字符
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def firstUniqChar(self, s: str) -> str:
+        d = {}
+        for idx, ch in enumerate(list(s)):
+            if ch in d:
+                d[ch] = -1
+            else:
+                d[ch] = idx
+        minChar = ' '
+        minIdx = len(s)
+        for k, val in d.items():
+            if val >= 0 and val < minIdx:
+                minIdx = val
+                minChar = k
+        return minChar
+```
+
+

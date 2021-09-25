@@ -1,0 +1,44 @@
+---
+tags:
+  - 剑指offer
+  - 数学问题
+id: leetcode_offer14v2
+title: 🟡 剑指 Offer 14- II. 剪绳子 II
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def cuttingRope(self, n: int) -> int:
+        maxx = 1
+        for nn in range(2, n):
+            ps = n//nn
+            left = n%nn
+            maxx = max(maxx, pow((ps+1), left) * pow(ps, (nn-left)))
+        return maxx % 1000000007
+```
+
+

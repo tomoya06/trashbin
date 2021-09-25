@@ -1,0 +1,57 @@
+---
+tags:
+  - 剑指offer
+  - 数学问题
+id: leetcode_offer43
+title: 🔴 剑指 Offer 43. 1～n 整数中 1 出现的次数
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ff375f">困难</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/)
+
+:::
+
+
+
+## 题解 1.抄的.py
+
+```py
+# 太妙了
+# https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/solution/1n-zheng-shu-zhong-1-chu-xian-de-ci-shu-umaj8/
+class Solution:
+    def countDigitOne(self, n: int) -> int:
+        dight, res = 1, 0
+        high, cur, low = n // 10, n % 10, 0
+
+        while high != 0 or cur != 0:
+            if cur == 0:
+                res += high * dight
+            elif cur == 1:
+                res += high * dight + low + 1
+            else:
+                res += (high + 1) * dight
+            
+            low += cur*dight
+            cur = high % 10
+            high = high // 10
+            dight *= 10
+        
+        return res
+```
+
+

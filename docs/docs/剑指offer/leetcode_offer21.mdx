@@ -1,0 +1,46 @@
+---
+tags:
+  - 剑指offer
+id: leetcode_offer21
+title: 🟢 剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def exchange(self, nums: List[int]) -> List[int]:
+        di = 0
+        for idx in range(len(nums)):
+            n = nums[idx]
+            if n%2:
+                nums[di], nums[idx] = nums[idx], nums[di]
+                di += 1
+            else:
+                pass
+        return nums
+```
+
+

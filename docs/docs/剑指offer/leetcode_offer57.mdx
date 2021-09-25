@@ -1,0 +1,47 @@
+---
+tags:
+  - 剑指offer
+id: leetcode_offer57
+title: 🟢 剑指 Offer 57 - II. 和为s的连续正数序列
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        l, r = 0, len(nums)-1
+        while l < r:
+            curSum = nums[l] + nums[r]
+            if curSum == target:
+                return [nums[l], nums[r]]
+            if curSum > target:
+                r -= 1
+            else:
+                l += 1
+        return []
+```
+
+

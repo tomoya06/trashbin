@@ -6,6 +6,7 @@ import time
 import datetime
 import json
 import re
+import shutil
 
 # 主目录里每道题模板
 single_ques_tmpl = """
@@ -20,7 +21,7 @@ single_ques_tmpl = """
 solution_tmpl = """---
 tags:
   <tags>
-id: <ques_name>
+id: <plat>_<ques_id>
 title: <level_icon> <ques_name>
 ---
 
@@ -40,7 +41,7 @@ export const Highlight = ({children, color}) => (
 
 题目难度 <level>
 
-原题链接 [<plat>](<link>)
+原题链接 [🔗 <plat>](<link>)
 
 :::
 
@@ -73,19 +74,25 @@ def filename_sort(filename):
 
 
 def gen_solution_doc(tag_name, ques):
-  [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags, tags, level_code, ] = ques
+  # [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags, tags, level_code, ] = ques
   output_dir = os.path.join(output_dir_main, tag_name)
-  file_name = f'{ques_no}_{ques_name}'
+  file_name = f"{ques['platform']}_{ques['ques_no']}"
 
   if not os.path.isdir(output_dir):
     os.makedirs(output_dir)
   
+  all_solutions = ques['all_solutions']  
   all_solutions.sort(key=lambda x:filename_sort(x[0]))
   solution_content = ''
   for single_solution in all_solutions:
     solution_name, ques_fileloc = single_solution
     with open(ques_fileloc, 'r') as single_solution_content:
       single_solution_content = single_solution_content.read()
+    
+    # index.md的frontmatter不需要进去
+    if solution_name.endswith('index.md'):
+      single_solution_content = single_solution_content.split('---', 2)[2]
+    
     if solution_name.endswith('.md'):
       solution_content += single_solution_content
     else:
@@ -96,22 +103,35 @@ def gen_solution_doc(tag_name, ques):
 
     solution_content += '\n\n'
 
+  tags = ques['tags']
   cur_tags = '\n  '.join(['- '+tag for tag in tags])
 
   
   output_content = solution_tmpl\
-    .replace('<ques_name>', ques_name)\
+    .replace('<ques_name>', ques['ques_name'])\
+    .replace('<ques_id>', ques['ques_no'])\
     .replace('<tags>', cur_tags)\
     .replace('<content>', solution_content)\
-    .replace('<level>', level_code_mapper[level_code])\
-    .replace('<level_icon>', level_icon_mapper[level_code])
+    .replace('<level>', level_code_mapper[ques['level']])\
+    .replace('<level_icon>', level_icon_mapper[ques['level']])\
+    .replace('<plat>', ques['platform'])\
+    .replace('<link>', ques['online_link'])
 
   with open(os.path.join(output_dir, f'{file_name}.mdx'), 'w+') as output_file:
     output_file.write(output_content)
+  
+  print(f"===> parse solution file {file_name}")
 
   return f'{file_name}.mdx'
 
 def gen_main_tag_doc(tag_name, tag_ques_list):
+  cur_sub_dir = f'{output_dir_main}/{tag_name}'
+  try:
+    shutil.rmtree(cur_sub_dir, ignore_errors=True)
+  except:
+    pass
+  os.makedirs(cur_sub_dir)
+
   list_ques_output = []
   for ques in tag_ques_list:
     cur_tags = ' '.join([' #'+tag for tag in ques['no_main_tags']])
@@ -129,11 +149,6 @@ def gen_main_tag_doc(tag_name, tag_ques_list):
   with open('template/doc.{0}.md'.format(tag_name), 'r') as tmpl:
     tmpl = tmpl.read()
     tmpl_doc_output = tmpl.replace('{_list_questions_}', '\n\n'.join(list_ques_output))
-  
-  cur_sub_dir = f'{output_dir_main}/{tag_name}'
-  
-  if not os.path.isdir(cur_sub_dir):
-    os.makedirs(cur_sub_dir)
   
   with open(f'{cur_sub_dir}/index.mdx', 'w+') as output_file:
     output_file.write(tmpl_doc_output)

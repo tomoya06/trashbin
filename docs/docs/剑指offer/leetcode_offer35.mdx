@@ -1,0 +1,107 @@
+---
+tags:
+  - 剑指offer
+id: leetcode_offer35
+title: 🟡 剑指 Offer 35. 复杂链表的复制
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/)
+
+:::
+
+
+
+## 题解 1_借助哈希表.py
+
+```py
+# 
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+class Solution:
+    def copyRandomList(self, head: 'Node') -> 'Node':
+        visited = {}
+
+        def copy(nn):
+            if not nn:
+                return None
+            if nn in visited:
+                return visited[nn]
+            else:
+                cpnn = Node(nn.val)
+                visited[nn] = cpnn
+                cpnn.next = copy(nn.next)
+                cpnn.random = copy(nn.random)
+                return cpnn
+
+        return copy(head)
+```
+
+## 题解 2_原地复制.py
+
+```py
+# 流程图参考这篇题解：
+# https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/solution/jian-zhi-offer-35-fu-za-lian-biao-de-fu-zhi-ha-xi-/
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+class Solution:
+    def copyRandomList(self, head: 'Node') -> 'Node':
+            if not head:
+                return None
+            
+            # 复制链表
+            cur = head
+            while cur:
+                cpy = Node(cur.val)
+                cpy.next = cur.next
+                cur.next = cpy
+                cur = cpy.next
+            
+            # 串联random
+            cur = head
+            while cur:
+                if cur.random:
+                    cpy = cur.next
+                    cpy.random = cur.random.next
+                cur = cur.next.next
+            
+            # 拆分链表
+            newHead = head.next
+            cur, cpy = head, head.next
+            while cpy:
+                cur.next = cpy.next
+                cur = cpy.next
+                cpy.next = cur.next if cur else None
+                cpy = cpy.next
+            
+            return newHead
+```
+
+

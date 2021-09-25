@@ -1,0 +1,47 @@
+---
+tags:
+  - 剑指offer
+  - 动态规划
+  - 数学问题
+id: leetcode_offer60
+title: 🟡 剑指 Offer 60. n个骰子的点数
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof/)
+
+:::
+
+
+
+## 题解 1_偷瞄了.py
+
+```py
+class Solution:
+    def dicesProbability(self, n: int) -> List[float]:
+        dp = [1/6] * 6
+        for k in range(2, n+1):
+            tmp = [0] * (5*k+1)
+            for i in range(len(dp)):
+                for j in range(6):
+                    tmp[i+j] += dp[i] * 1/6
+            dp = tmp
+        return dp
+```
+
+

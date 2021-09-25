@@ -1,0 +1,61 @@
+---
+tags:
+  - 剑指offer
+  - 数学问题
+  - 动态规划
+id: leetcode_offer14v1
+title: 🟡 剑指 Offer 14- I. 剪绳子
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/jian-sheng-zi-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def cuttingRope(self, n: int) -> int:
+        dp = [0 for _ in range(n+1)]
+        dp[0], dp[1], dp[2] = 1, 1, 1
+        for nn in range(2, n+1):
+            for lastPiece in range(1, nn//2+1):
+                dp[nn] = max(dp[nn], lastPiece * dp[nn-lastPiece], lastPiece * (nn-lastPiece))
+        return dp[n]
+```
+
+## 题解 2_粗暴数学问题.py
+
+```py
+# 尽量保证均分
+# 也有数学证明尽量分成3等分是最合理的，但我觉得面试的时候还是算了
+# https://leetcode-cn.com/problems/integer-break/solution/zheng-shu-chai-fen-by-leetcode-solution/
+class Solution:
+    def cuttingRope(self, n: int) -> int:
+        maxx = 1
+        for nn in range(2, n):
+            ps = n//nn
+            left = n%nn
+            maxx = max(maxx, pow((ps+1), left) * pow(ps, (nn-left)))
+        return maxx
+```
+
+

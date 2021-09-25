@@ -1,0 +1,65 @@
+---
+tags:
+  - 剑指offer
+id: leetcode_offer07
+title: 🟡 剑指 Offer 07. 重建二叉树
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+# @lc app=leetcode.cn id=105 lang=python3
+#
+# [105]
+#
+
+# TODO: 搞一个迭代版的
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        if len(preorder) == 0:
+            return None
+        mid = preorder[0]
+        inidx = inorder.index(mid)
+        leftPreorder = preorder[1:inidx+1]
+        leftInorder = inorder[0:inidx]
+        rightPreorder = preorder[inidx+1:]
+        rightInorder = inorder[inidx+1:]
+        midNode = TreeNode(mid)
+        midNode.left = self.buildTree(leftPreorder, leftInorder)
+        midNode.right = self.buildTree(rightPreorder, rightInorder)
+        return midNode
+
+# @lc code=end
+```
+
+

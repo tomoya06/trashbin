@@ -1,0 +1,44 @@
+---
+tags:
+  - 剑指offer
+id: leetcode_offer05
+title: 🟢 剑指 Offer 05. 替换空格
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def replaceSpace(self, s: str) -> str:
+        ss = ''
+        for c in s:
+            if c == ' ':
+                ss += '%20'
+            else:
+                ss += c
+        return ss
+```
+
+

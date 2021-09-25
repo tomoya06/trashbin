@@ -1,0 +1,49 @@
+---
+tags:
+  - 剑指offer
+  - 二叉树
+id: leetcode_offer27
+title: 🟢 剑指 Offer 27. 二叉树的镜像
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def mirrorTree(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return root
+        root.left, root.right = self.mirrorTree(root.right), self.mirrorTree(root.left)
+        return root
+```
+
+

@@ -1,0 +1,63 @@
+---
+tags:
+  - 剑指offer
+  - 二叉树
+id: leetcode_offer41
+title: 🔴 剑指 Offer 41. 数据流中的中位数
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ff375f">困难</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/)
+
+:::
+
+
+
+## 题解 1_抄的.py
+
+```py
+from heapq import *
+
+class MedianFinder:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.left = []
+        self.right = []
+
+
+    def addNum(self, num: int) -> None:
+        if len(self.left) == len(self.right):
+            heappush(self.left, -heappushpop(self.right, num))
+        else:
+            heappush(self.right, -heappushpop(self.left, -num))
+
+    def findMedian(self) -> float:
+        return -self.left[0] if len(self.left) != len(self.right) else (self.right[0]-self.left[0])/2
+
+
+
+# Your MedianFinder object will be instantiated and called as such:
+# obj = MedianFinder()
+# obj.addNum(num)
+# param_2 = obj.findMedian()
+```
+
+

@@ -1,0 +1,47 @@
+---
+tags:
+  - 剑指offer
+  - 数学问题
+id: leetcode_offer64
+title: 🟢 剑指 Offer 64. 求1+2+…+n
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/qiu-12n-lcof/)
+
+:::
+
+
+
+
+要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）
+
+但你可以用加法（草
+
+你也可以用and or not（草
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def sumNums(self, n: int) -> int:
+        return n and (self.sumNums(n-1) + n)
+```
+
+

@@ -1,0 +1,59 @@
+---
+tags:
+  - 剑指offer
+  - 位运算
+id: leetcode_offer15
+title: 🟢 剑指 Offer 15. 二进制中1的个数
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        cnt = 0
+        bit = 1
+        while bit <= n:
+            if n & bit:
+                cnt += 1
+            bit <<= 1
+        return cnt
+```
+
+## 题解 2_与运算.py
+
+```py
+# n & (n-1) 二进制效果是把n的最后一个1给去掉
+# 更快
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        cnt = 0
+        while n:
+            n = n & (n-1)
+            cnt+=1
+        return cnt
+```
+
+
