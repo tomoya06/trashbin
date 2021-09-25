@@ -1,4 +1,3 @@
-# ##剑指offer#滑动窗口##levelm
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         if not s:

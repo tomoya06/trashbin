@@ -1,4 +1,3 @@
-# ##剑指offer#数学问题##levelm
 # 工程解法 考虑大数问题
 class Solution:
     def printNumbers(self, n: int) -> List[int]:

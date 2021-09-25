@@ -1,4 +1,3 @@
-# ##剑指offer#回溯##levelm
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         def dfs(x, y, idx):

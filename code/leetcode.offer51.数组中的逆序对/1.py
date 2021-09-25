@@ -1,4 +1,3 @@
-# ##剑指offer#分治法#归并排序##levelh
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
         def merge_sort(l, r):

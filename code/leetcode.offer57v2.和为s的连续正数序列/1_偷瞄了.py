@@ -1,4 +1,3 @@
-# ##剑指offer#双指针##levele
 class Solution:
     def findContinuousSequence(self, target: int) -> List[List[int]]:
         l, r, s = 1, 2, 3

@@ -1,4 +1,3 @@
-# ##剑指offer##levele
 # 并不用实时保留完整队列，把stack1和stack2理解为队列的前半部和后半部就好
 class CQueue:
   

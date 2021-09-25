@@ -1,4 +1,3 @@
-# ##剑指offer##levele
 class Solution:
     def exchange(self, nums: List[int]) -> List[int]:
         di = 0

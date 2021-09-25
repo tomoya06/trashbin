@@ -1,4 +1,3 @@
-# ##剑指offer#单调队列##levelm
 import queue
 
 class MaxQueue:

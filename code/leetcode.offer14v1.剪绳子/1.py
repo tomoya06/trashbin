@@ -1,4 +1,3 @@
-# ##剑指offer#数学问题#动态规划##levelm
 class Solution:
     def cuttingRope(self, n: int) -> int:
         dp = [0 for _ in range(n+1)]

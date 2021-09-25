@@ -1,4 +1,3 @@
-# ##剑指offer#位运算##levelm
 class Solution:
     def add(self, a: int, b: int) -> int:
         x = 0xffffffff

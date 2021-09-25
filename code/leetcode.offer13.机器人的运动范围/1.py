@@ -1,4 +1,3 @@
-# ##剑指offer#深度优先搜索#广度优先搜索##levelm
 class Solution:
     def movingCount(self, m: int, n: int, k: int) -> int:
         boards = [['' for _ in range(m)] for _ in range(n)]

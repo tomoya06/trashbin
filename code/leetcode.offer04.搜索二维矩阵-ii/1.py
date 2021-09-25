@@ -1,4 +1,3 @@
-# ##剑指offer#分治法##levelm
 # @lc app=leetcode.cn id=240 lang=python3
 #
 # [240] 搜索二维矩阵 II

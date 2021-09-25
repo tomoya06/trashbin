@@ -1,4 +1,3 @@
-# ##剑指offer##levele
 class Solution:
     def replaceSpace(self, s: str) -> str:
         ss = ''

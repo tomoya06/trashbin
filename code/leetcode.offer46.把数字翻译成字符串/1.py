@@ -1,4 +1,3 @@
-# ##剑指offer#动态规划##levelm
 class Solution:
     def translateNum(self, num: int) -> int:
         nums = list(str(num))

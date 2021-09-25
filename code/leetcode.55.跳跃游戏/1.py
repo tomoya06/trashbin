@@ -1,4 +1,3 @@
-# ##贪心算法##levelm
 # @lc app=leetcode.cn id=55 lang=python3
 #
 # [55] 跳跃游戏

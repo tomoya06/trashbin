@@ -1,4 +1,3 @@
-# ##剑指offer#位运算##levele
 class Solution:
     def hammingWeight(self, n: int) -> int:
         cnt = 0

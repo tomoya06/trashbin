@@ -1,4 +1,3 @@
-# ##剑指offer#二叉树##levelm
 """
 # Definition for a Node.
 class Node:

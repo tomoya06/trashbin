@@ -1,4 +1,3 @@
-# ##剑指offer##levele
 # 就是斐波拉契数列
 class Solution:
     def numWays(self, n: int) -> int:

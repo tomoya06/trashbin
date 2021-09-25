@@ -1,4 +1,3 @@
-# ##剑指offer##levele
 class Solution:
     def strToInt(self, str: str) -> int:
         idx = 0

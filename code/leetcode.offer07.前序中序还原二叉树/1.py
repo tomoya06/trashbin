@@ -1,4 +1,3 @@
-# ##剑指offer##levelm
 # @lc app=leetcode.cn id=105 lang=python3
 #
 # [105]

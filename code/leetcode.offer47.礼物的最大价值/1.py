@@ -1,4 +1,3 @@
-# ##剑指offer#动态规划##levelm
 class Solution:
     def maxValue(self, grid: List[List[int]]) -> int:
         mp = [[0 for _ in grid[0]] for _ in grid]

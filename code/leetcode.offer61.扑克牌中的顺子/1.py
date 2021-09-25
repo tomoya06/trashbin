@@ -1,4 +1,3 @@
-# ##剑指offer##levele
 class Solution:
     def isStraight(self, nums: List[int]) -> bool:
         nums.sort()

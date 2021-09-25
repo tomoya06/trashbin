@@ -1,4 +1,3 @@
-# ##剑指offer#数学问题##levelm
 class Solution:
     def cuttingRope(self, n: int) -> int:
         maxx = 1

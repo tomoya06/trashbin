@@ -1,4 +1,3 @@
-# ##剑指offer#数学问题#动态规划#分治法##levele
 # 差点出不来= =
 
 class Solution:

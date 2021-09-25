@@ -1,4 +1,3 @@
-# ##剑指offer#数学问题##levelm
 class Solution:
     def constructArr(self, a: List[int]) -> List[int]:
         if not a:

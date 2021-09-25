@@ -1,4 +1,3 @@
-# ##剑指offer#动态规划##levele
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if not prices:

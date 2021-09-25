@@ -1,4 +1,3 @@
-# ##剑指offer#二叉树##levelh
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):

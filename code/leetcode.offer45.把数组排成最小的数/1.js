@@ -1,4 +1,3 @@
-// ##剑指offer##levele
 /**
  * @param {number[]} nums
  * @return {string}

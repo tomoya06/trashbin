@@ -1,4 +1,3 @@
-# ##剑指offer##levelm
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         curStep = 0 # 0右 1下 2左 3上

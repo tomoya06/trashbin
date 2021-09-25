@@ -1,4 +1,3 @@
-# ##剑指offer#二叉树##levelm
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
         def order(l, r):

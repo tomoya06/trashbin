@@ -1,4 +1,3 @@
-# ##剑指offer##levele
 class CQueue:
   
     def __init__(self):

@@ -1,4 +1,3 @@
-# ##剑指offer##levelm
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
         res = []

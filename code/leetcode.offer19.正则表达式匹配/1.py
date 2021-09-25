@@ -1,4 +1,3 @@
-# ##剑指offer#动态规划##levelh
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         pp = ['']

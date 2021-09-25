@@ -1,4 +1,3 @@
-# ##剑指offer#数学问题##levelh
 # 太妙了
 # https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/solution/1n-zheng-shu-zhong-1-chu-xian-de-ci-shu-umaj8/
 class Solution:

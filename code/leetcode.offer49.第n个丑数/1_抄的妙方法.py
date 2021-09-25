@@ -1,4 +1,3 @@
-# ##剑指offer#二叉树#动态规划##levelm
 # https://leetcode-cn.com/problems/chou-shu-lcof/solution/mian-shi-ti-49-chou-shu-dong-tai-gui-hua-qing-xi-t/
 class Solution:
     def nthUglyNumber(self, n: int) -> int:

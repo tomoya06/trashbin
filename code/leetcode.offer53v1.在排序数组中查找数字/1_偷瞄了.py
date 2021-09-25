@@ -1,4 +1,3 @@
-# ##剑指offer#二分法##levele
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         def binSearch(lower):

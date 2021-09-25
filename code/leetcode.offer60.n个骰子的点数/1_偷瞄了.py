@@ -1,4 +1,3 @@
-# ##剑指offer#动态规划#数学问题##levelm
 class Solution:
     def dicesProbability(self, n: int) -> List[float]:
         dp = [1/6] * 6

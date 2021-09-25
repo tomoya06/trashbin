@@ -1,4 +1,3 @@
-# ##剑指offer#二分法##levele
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         l, r = 0, len(nums)-1

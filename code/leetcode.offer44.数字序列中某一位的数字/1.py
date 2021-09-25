@@ -1,4 +1,3 @@
-# ##剑指offer#数学问题##levelm
 class Solution:
     def findNthDigit(self, n: int) -> int:
         if n <= 9:
