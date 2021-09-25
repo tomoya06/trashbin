@@ -4,6 +4,7 @@ level: m
 name: 打印从1到最大的n位数
 online_link: https://leetcode-cn.com/problems/da-yin-cong-1dao-zui-da-de-nwei-shu-lcof/
 online_name: 剑指 Offer 17. 打印从1到最大的n位数
+platform: leetcode
 tags:
 - 剑指offer
 - 数学问题

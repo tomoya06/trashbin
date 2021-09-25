@@ -4,6 +4,7 @@ level: m
 name: 矩阵中的路径
 online_link: https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/
 online_name: 剑指 Offer 12. 矩阵中的路径
+platform: leetcode
 tags:
 - 剑指offer
 - 回溯
