@@ -25,4 +25,5 @@ __step_analysis "update docs"
 git add * 
 git commit -m "update $1"
 git push
+git push homepage
 __step_analysis "update git"
