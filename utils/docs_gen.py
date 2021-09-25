@@ -102,7 +102,7 @@ def gen_solution_doc(tag_name, ques):
   with open(os.path.join(output_dir, f'{file_name}.mdx'), 'w+') as output_file:
     output_file.write(output_content)
 
-  return f'/docs/{tag_name}/{file_name}.mdx'
+  return f'{file_name}.mdx'
 
 def gen_main_tag_doc(tag_name, tag_ques_list):
   list_ques_output = []
@@ -173,7 +173,7 @@ def gen_notes():
 def gen_sidebar():
   for main_tag in main_ques_tags:
     doc_files = f"docs/docs/{main_tag}/*.mdx"
-    doc_idlist = [f'{main_tag}/{main_tag}_intro']
+    doc_idlist = []
     for fname in glob.glob(doc_files):
       curmd = frontmatter.load(fname)
       curid = curmd.get('id')
