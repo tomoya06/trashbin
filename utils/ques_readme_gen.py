@@ -27,16 +27,52 @@ def sort_ques():
   for idx in range(len(ques_links)):
     ques_links[idx]['folder'] = sorted_ques_list[idx]
   
+  for link in ques_links:
+    fd = link["folder"]
+    fmd = frontmatter.load(f'{fd}/index.md')
+    fmd.__setitem__('online_name', link['name'])
+    fmd.__setitem__('online_link', link['link'])
+
+    print(fmd.get('name'), '\t\t\t\t', fmd.get('online_name'))
+
+    with open(f'{fd}/index.md', 'w') as outf:
+      outf.write(frontmatter.dumps(fmd))
+  
   return ques_links
 
-def rename_III():
+def rename_II():
   for fname in glob.glob('code/*I*'):
     ver = fname.count('I')
     newfname = re.sub(r'I+', f'v{ver}', fname)
-    os.rename(fname, newfname)  
+    os.rename(fname, newfname)
+
+def rename_III():
+  for fname in glob.glob('code/*'):
+    plat, num, name = '', '', ''
+    try:
+      [plat, num, name] = fname.split('.')
+    except:
+      os.rmdir(fname)
+
+    nums = num.split('_')
+    num = nums[0]
+    alternum = nums[1] if len(nums) == 2 else None
+
+    if name.startswith('v'):
+      num += name[:2]
+      name = name.split('_')[1]
+    newfname = f'{plat}.{num}.{name}'
+
+    with open(f'{fname}/index.md', 'w+') as findex:
+      findex.write(f'''---
+name: {name}
+id: {num}
+---
+      ''')
+    
+    os.rename(fname, newfname)
+
 
 if __name__ == '__main__':
   rename_III()
-    
-
-
+  # sort_ques()
