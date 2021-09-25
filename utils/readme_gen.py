@@ -25,12 +25,13 @@ def part_gen_table(ques_map_items):
     gened_md += '\n| 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |'
     gened_md += '\n|--|--|--|--|--|--|'
     for ques in cat_ques_list:
-      gened_md += '\n|{0}|{1}|{2}|{3}|'.format(ques[0], ques[1], ques[2], ques[3])
-      for ques_file in ques[4]:
-        gened_md += '[{0}]({1}) <br />'.format(ques_file[0], ques_file[1])
+      level_display = f"![level]({level_tag_mapper[ques['level']]})"
+      gened_md += '\n|{0}|{1}|{2}|{3}|'.format(ques['platform'], ques['ques_no'], ques['ques_name'], level_display)
+      for ques_file in ques['all_solutions']:
+        gened_md += f'[{ques_file[0]}]({ques_file[1]}) <br />'
       gened_md += '|'
-      for tag in ques[5]:
-        gened_md += '#{} <br />'.format(tag)
+      for tag in ques['no_main_tags']:
+        gened_md += f'#{tag} <br />'
       gened_md += '|'
     gened_md += '\n\n'
   return gened_md

@@ -40,6 +40,8 @@ export const Highlight = ({children, color}) => (
 
 题目难度 <level>
 
+原题链接 [<plat>](<link>)
+
 :::
 
 <content>
@@ -58,10 +60,15 @@ sidebar = {
 }
 
 def filename_sort(filename):
+  # 保证index.md在第一位
+  if filename.endswith('index.md'):
+    return '0.00'
+  # 保证.md在代码前面
   if filename.endswith('.md'):
     ext = '.00'
   else:
     _, ext = os.path.splitext(filename)
+  # 文件名只取第一位数字序号
   return filename[0] + ext
 
 
@@ -107,14 +114,13 @@ def gen_solution_doc(tag_name, ques):
 def gen_main_tag_doc(tag_name, tag_ques_list):
   list_ques_output = []
   for ques in tag_ques_list:
-    [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags, tags, level_code, ] = ques
-    cur_tags = ' '.join([' #'+tag for tag in no_main_tags])
+    cur_tags = ' '.join([' #'+tag for tag in ques['no_main_tags']])
     solution_link = gen_solution_doc(tag_name=tag_name, ques=ques)
 
-    ques_number = ques_no_display(ques_no)
+    ques_number = ques_no_display(ques['ques_no'])
 
     cur_output = single_ques_tmpl\
-      .replace('<ques_name>', ques_name)\
+      .replace('<ques_name>', ques['ques_name'])\
       .replace('<tags>', cur_tags)\
       .replace('<content>', f'[{ques_number}]({solution_link})')
     

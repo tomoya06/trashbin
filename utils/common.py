@@ -1,6 +1,7 @@
 import glob
 import re
 import os
+import frontmatter
 
 level_tag_mapper = {
   'm': 'https://shields.io/badge/-中等-yellow?style=flat-square',
@@ -55,35 +56,28 @@ def ques_no_display(ques_no):
 
 # 扫描所有文件，生成索引
 def scan_all_files():
-  # 默认从1.py或者1.js读标签
-  start_ques = [ques for ques in glob.glob(r'code/*/1*') if ques.endswith('.js') or ques.endswith('.py')]
-  for ques in start_ques:
-    [_, ques_name, file_name] = ques.split(os.sep)
-    [platform, ques_no, ques_name] = ques_name.split('.')
+  for ques in glob.glob(r'code/*/index.md'):
+    cur_res = dict()
+    cur_fdm = frontmatter.load(ques)
+    cur_res['platform'] = cur_fdm.get('platform', '-')
+    cur_res['ques_no'] = cur_fdm.get('id', '0')
+    cur_res['ques_name'] = cur_fdm.get('online_name') or cur_fdm.get('name') or 'unknown'
+    cur_res['level'] = cur_fdm.get('level')
 
+    tags = cur_fdm.get('tags')
+    cur_res['tags'] = tags
+    
     ques_dir = os.path.dirname(ques)
     all_solutions = []
-
     for ques_solution in glob.glob(os.path.join(ques_dir, '*')):
       [_, _, solution_name] = ques_solution.split(os.sep)
       ques_fileloc = '/'.join(ques_solution.split(os.sep))
+      if solution_name.endswith('.md'):
+        continue
       all_solutions.append([solution_name, ques_fileloc, ])
+    cur_res['all_solutions'] = all_solutions
+    cur_res['no_main_tags'] = [tag for tag in tags if tag not in main_ques_tags]
 
-    tags = []
-    print('\n ==> parsing main file: ', ques )
-    with open(ques, 'r') as ques_file:
-      ques_line1 = ques_file.readline()
-      search_tag = re.search(ques_level_tag_marker_reg, ques_line1)
-      tags = search_tag.group(1).split('#')[:]
-      level_code = search_tag.group(2)
-      level_name = level_tag_mapper[level_code]
-      level_name = '![level]({})'.format(level_name)
-
-    print(ques_no, tags)
-    # 过滤了题库标签的标签列表
-    no_main_tags = [tag for tag in tags if tag not in main_ques_tags]
-    cur_res = [platform, ques_no, ques_name, level_name, all_solutions, no_main_tags, tags, level_code, ]
-    
     for tag in tags:
       if tag in ques_map:
         ques_map[tag][0].append(cur_res)
