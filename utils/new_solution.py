@@ -68,6 +68,15 @@ def process_leetcode_online():
   target_dir = f"{ques_meta['platform']}.{ques_meta['id']}.{ques_meta['name']}"
   target_dir = f"code/{target_dir}"
 
+  if os.path.isdir(target_dir):
+    goon = input('目录已存在，是否要继续？(y/N)') or 'N'
+    if goon == 'y':
+      print('好的继续')
+      pass
+    else:
+      print('不搞了')
+      return
+
   if not os.path.isdir(target_dir):
     os.makedirs(target_dir)
 

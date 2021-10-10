@@ -218,6 +218,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer56v2|剑指 Offer 56 - II. 数组中数字出现的次数 II|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_普通人的解法.py](code/leetcode.offer56v2.数组中数字出现的次数/1_普通人的解法.py) <br />[2.md](code/leetcode.offer56v2.数组中数字出现的次数/2.md) <br />[2_数电玩家的解法.py](code/leetcode.offer56v2.数组中数字出现的次数/2_数电玩家的解法.py) <br />[index.md](code/leetcode.offer56v2.数组中数字出现的次数/index.md) <br />|#位运算 <br />|
 |leetcode|offer65|剑指 Offer 65. 不用加减乘除做加法|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.md](code/leetcode.offer65.不用加减乘除做加法/1.md) <br />[1.py](code/leetcode.offer65.不用加减乘除做加法/1.py) <br />[2.js](code/leetcode.offer65.不用加减乘除做加法/2.js) <br />[index.md](code/leetcode.offer65.不用加减乘除做加法/index.md) <br />|#位运算 <br />|
 |leetcode|OfferII001|剑指 Offer II 001. 整数除法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.OfferII001.整数除法/1.py) <br />[index.md](code/leetcode.OfferII001.整数除法/index.md) <br />|#位运算 <br />#数学 <br />|
+|leetcode|OfferII002|剑指 Offer II 002. 二进制加法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.md](code/leetcode.OfferII002.二进制加法/1.md) <br />[1.py](code/leetcode.OfferII002.二进制加法/1.py) <br />[2.md](code/leetcode.OfferII002.二进制加法/2.md) <br />[2.位运算.py](code/leetcode.OfferII002.二进制加法/2.位运算.py) <br />[index.md](code/leetcode.OfferII002.二进制加法/index.md) <br />|#位运算 <br />#数学 <br />#字符串 <br />#模拟 <br />|
 
 
 ### 递归
@@ -295,6 +296,7 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 |--|--|--|--|--|--|
 |leetcode|offer58v1|剑指 Offer 58 - I. 翻转单词顺序|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer58v1.翻转单词顺序/1.py) <br />[index.md](code/leetcode.offer58v1.翻转单词顺序/index.md) <br />|#字符串 <br />|
 |leetcode|offer58v2|剑指 Offer 58 - II. 左旋转字符串|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer58v2.左旋转字符串/1.py) <br />[index.md](code/leetcode.offer58v2.左旋转字符串/index.md) <br />|#字符串 <br />|
+|leetcode|OfferII002|剑指 Offer II 002. 二进制加法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.md](code/leetcode.OfferII002.二进制加法/1.md) <br />[1.py](code/leetcode.OfferII002.二进制加法/1.py) <br />[2.md](code/leetcode.OfferII002.二进制加法/2.md) <br />[2.位运算.py](code/leetcode.OfferII002.二进制加法/2.位运算.py) <br />[index.md](code/leetcode.OfferII002.二进制加法/index.md) <br />|#位运算 <br />#数学 <br />#字符串 <br />#模拟 <br />|
 
 
 ### 单调队列
@@ -310,6 +312,14 @@ https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|OfferII001|剑指 Offer II 001. 整数除法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.OfferII001.整数除法/1.py) <br />[index.md](code/leetcode.OfferII001.整数除法/index.md) <br />|#位运算 <br />#数学 <br />|
+|leetcode|OfferII002|剑指 Offer II 002. 二进制加法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.md](code/leetcode.OfferII002.二进制加法/1.md) <br />[1.py](code/leetcode.OfferII002.二进制加法/1.py) <br />[2.md](code/leetcode.OfferII002.二进制加法/2.md) <br />[2.位运算.py](code/leetcode.OfferII002.二进制加法/2.位运算.py) <br />[index.md](code/leetcode.OfferII002.二进制加法/index.md) <br />|#位运算 <br />#数学 <br />#字符串 <br />#模拟 <br />|
+
+
+### 模拟
+
+| 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
+|--|--|--|--|--|--|
+|leetcode|OfferII002|剑指 Offer II 002. 二进制加法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.md](code/leetcode.OfferII002.二进制加法/1.md) <br />[1.py](code/leetcode.OfferII002.二进制加法/1.py) <br />[2.md](code/leetcode.OfferII002.二进制加法/2.md) <br />[2.位运算.py](code/leetcode.OfferII002.二进制加法/2.位运算.py) <br />[index.md](code/leetcode.OfferII002.二进制加法/index.md) <br />|#位运算 <br />#数学 <br />#字符串 <br />#模拟 <br />|
 
 
 
