@@ -1,0 +1,60 @@
+---
+tags:
+  - 位运算
+  - 数学
+  - 剑指offer专项版
+id: leetcode_OfferII001
+title: 🟢 剑指 Offer II 001. 整数除法
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/xoh6Oh/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def divide(self, a: int, b: int) -> int:
+        res = 0
+        sign = 0 if (a > 0) ^ (b > 0) else 1
+        a, b = abs(a), abs(b)
+        
+        def bidivide(aa: int, bb: int):
+            ss, bbi = 1, bb
+            while aa >= bbi:
+                bbi <<= 1
+                ss <<= 1
+            return ss >> 1, aa - (bbi >> 1)
+
+        while a > 0:
+            subres, a = bidivide(a, b)
+            res += subres
+        
+        res = res if sign else -res
+        if res > 2147483647:
+            res = 2147483647
+        if res < -2147483648:
+            res = -2147483648
+        return res
+```
+
+

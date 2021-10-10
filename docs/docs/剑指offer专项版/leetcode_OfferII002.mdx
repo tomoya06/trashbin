@@ -1,0 +1,98 @@
+---
+tags:
+  - 位运算
+  - 数学
+  - 字符串
+  - 模拟
+  - 剑指offer专项版
+id: leetcode_OfferII002
+title: 🟢 剑指 Offer II 002. 二进制加法
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/JFETK5/)
+
+:::
+
+
+
+庸俗的解法
+
+
+## 题解 1.py
+
+```py
+from collections import deque
+
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        res = deque('')
+
+        idxa, idxb = len(a)-1, len(b)-1
+        c = 0
+        while idxa >= 0 and idxb >= 0:
+            pos = int(a[idxa]) + int(b[idxb]) + c
+            c = pos // 2
+            res.appendleft(str(pos % 2))
+            idxa, idxb = idxa-1, idxb-1
+        
+        while idxa >= 0:
+            pos = int(a[idxa]) + c
+            c = pos // 2
+            res.appendleft(str(pos % 2))
+            idxa -= 1
+        
+        while idxb >= 0:
+            pos = int(b[idxb]) + c
+            c = pos // 2
+            res.appendleft(str(pos % 2))
+            idxb -= 1
+        
+        if c:
+            res.appendleft(str(c))
+        
+        return ''.join(list(res))
+```
+
+python有自带转二进制字符串的方法，再加上位运算算加法即可
+
+```py
+# 自带方法介绍
+bin(2) # '0b10'
+
+int('10', 2) # 按二进制转化 得到2
+```
+
+
+
+## 题解 2.位运算.py
+
+```py
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        x, y = int(a, 2), int(b, 2)
+
+        while y:
+            res = x ^ y
+            carry = (x & y) << 1
+            x, y = res, carry
+        
+        return bin(x)[2:]
+```
+
+

@@ -105,11 +105,13 @@ https://progress-bar.dev/75/?scale=75&title=completed&width=300&suffix=/75)
 ### 剑指offer专项版
 
 ![progress](
-https://progress-bar.dev/0/?scale=119&title=completed&width=300&suffix=/119)
+https://progress-bar.dev/2/?scale=119&title=completed&width=300&suffix=/119)
 
 
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
+|leetcode|OfferII001|剑指 Offer II 001. 整数除法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.OfferII001.整数除法/1.py) <br />[index.md](code/leetcode.OfferII001.整数除法/index.md) <br />|#位运算 <br />#数学 <br />|
+|leetcode|OfferII002|剑指 Offer II 002. 二进制加法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.md](code/leetcode.OfferII002.二进制加法/1.md) <br />[1.py](code/leetcode.OfferII002.二进制加法/1.py) <br />[2.md](code/leetcode.OfferII002.二进制加法/2.md) <br />[2.位运算.py](code/leetcode.OfferII002.二进制加法/2.位运算.py) <br />[index.md](code/leetcode.OfferII002.二进制加法/index.md) <br />|#位运算 <br />#数学 <br />#字符串 <br />#模拟 <br />|
 
 
 
