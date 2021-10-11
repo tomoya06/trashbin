@@ -1,0 +1,81 @@
+---
+tags:
+  - 位运算
+  - 动态规划
+  - 剑指offer专项版
+id: leetcode_OfferII003
+title: 🟢 剑指 Offer II 003. 前 n 个数字二进制中 1 的个数
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/w3tCBm/)
+
+:::
+
+
+
+偷师[官方教程](https://leetcode-cn.com/problems/w3tCBm/solution/qian-n-ge-shu-zi-er-jin-zhi-zhong-1-de-g-fkjq/)，可以利用这么算法：Brian Kernighan 算法
+
+
+> 对于任意整数 x，令 `x = x & (x−1)`，该运算将 x 的二进制表示的最后一个 1 变成 0。
+
+所以只要反复执行直到`x=0`，执行次数即为 1 的个数。
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def countBits(self, n: int) -> List[int]:
+        def countOnes(nn: int) -> int:
+            cnt = 0
+            while nn:
+                cnt += 1
+                nn = nn & (nn-1)
+            return cnt
+        
+        res = [0]
+        for i in range(1, n+1):
+            res.append(countOnes(i))
+        
+        return res
+```
+
+根据公式可得：
+
+```py
+y = x & (x-1)
+bits[y] = bits[x] - 1
+bits[x & (x-1)] = bits[x] - 1
+```
+
+
+## 题解 2.动态规划.py
+
+```py
+class Solution:
+    def countBits(self, n: int) -> List[int]:
+        bits = [0]
+
+        for i in range(1, n+1):
+            bits.append(bits[i &(i-1)] + 1)
+        
+        return bits
+```
+
+

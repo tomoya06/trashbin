@@ -1,0 +1,59 @@
+---
+tags:
+  - 位运算
+  - 数组
+  - 字符串
+  - 剑指offer专项版
+id: leetcode_OfferII005
+title: 🟡 剑指 Offer II 005. 单词长度的最大乘积
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/aseY1I/)
+
+:::
+
+
+
+如何记录单词出现过的字母，这里转换成26位的二进制数字即可。
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def maxProduct(self, words: List[str]) -> int:
+        def parseBin(word):
+            code = ['0'] * 26
+            for w in word:
+                code[ord(w)-ord('a')] = '1'
+            return int(''.join(code), 2)
+        
+        wordCode = [parseBin(w) for w in words]
+        wordLeng = [len(w) for w in words]
+
+        maxx = 0
+        for i in range(len(words)-1):
+            for j in range(i, len(words)):
+                if wordCode[i] & wordCode[j] == 0:
+                    maxx = max(maxx, wordLeng[i] * wordLeng[j])
+        
+        return maxx
+```
+
+

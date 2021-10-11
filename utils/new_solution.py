@@ -76,6 +76,9 @@ def process_leetcode_online():
     else:
       print('不搞了')
       return
+  
+  default_tags = input('自定义标签：（剑指offer专项版）') or '剑指offer专项版'
+  default_tags = default_tags.split('#')
 
   if not os.path.isdir(target_dir):
     os.makedirs(target_dir)
@@ -83,8 +86,12 @@ def process_leetcode_online():
   target_idx_fname = f"{target_dir}/index.md"
   fdm = frontmatter.loads('')
   for key, val in ques_meta.items():
+    if key == 'tags':
+      val += default_tags
+
     print(f'设置参数：{key} --- {val}')
     fdm.__setitem__(key, val)
+
   with open(target_idx_fname, 'w+') as fd:
     fd.write(frontmatter.dumps(fdm))
   
