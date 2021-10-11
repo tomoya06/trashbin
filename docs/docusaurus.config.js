@@ -73,7 +73,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                 to: '/docs/剑指offer/剑指offer_intro',
               },
               {
-                label: '键值offer专项版题库',
+                label: '剑指offer专项版题库',
                 to: '/docs/剑指offer专项版/剑指offer专项版_intro',
               }
             ],
