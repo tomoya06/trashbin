@@ -27,14 +27,15 @@ export const Highlight = ({children, color}) => (
 
 :::
 
+## 解析 index.md
 
-
-偷师[官方教程](https://leetcode-cn.com/problems/w3tCBm/solution/qian-n-ge-shu-zi-er-jin-zhi-zhong-1-de-g-fkjq/)，可以利用这么算法：Brian Kernighan 算法
+ 偷师[官方教程](https://leetcode-cn.com/problems/w3tCBm/solution/qian-n-ge-shu-zi-er-jin-zhi-zhong-1-de-g-fkjq/)，可以利用这么算法：Brian Kernighan 算法
 
 
 > 对于任意整数 x，令 `x = x & (x−1)`，该运算将 x 的二进制表示的最后一个 1 变成 0。
 
 所以只要反复执行直到`x=0`，执行次数即为 1 的个数。
+
 
 
 ## 题解 1.py
@@ -56,13 +57,16 @@ class Solution:
         return res
 ```
 
-根据公式可得：
+## 解析 2.md
+
+ 根据公式可得：
 
 ```py
 y = x & (x-1)
 bits[y] = bits[x] - 1
 bits[x & (x-1)] = bits[x] - 1
 ```
+
 
 
 ## 题解 2.动态规划.py

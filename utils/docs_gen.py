@@ -94,7 +94,9 @@ def gen_solution_doc(tag_name, ques):
       single_solution_content = single_solution_content.split('---', 2)[2]
     
     if solution_name.endswith('.md'):
-      solution_content += single_solution_content
+      single_solution_content = single_solution_content.strip()
+      if single_solution_content:
+        solution_content += f"## 解析 {solution_name}\n\n {single_solution_content}\n\n"
     else:
       _, ext = os.path.splitext(ques_fileloc)
       single_solution_content = code_content_purify(single_solution_content)

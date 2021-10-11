@@ -1,0 +1,58 @@
+---
+tags:
+  - 数组
+  - 二分查找
+  - 前缀和
+  - 滑动窗口
+  - 剑指offer专项版
+id: leetcode_OfferII008
+title: 🟡 剑指 Offer II 008. 和大于等于 target 的最短子数组
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/2VG8Kg/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        l, r, m = 0, 0, len(nums)+1
+        cur = nums[0]
+        right = len(nums)-1
+
+        while l <= right and r <= right:
+            if cur < target or l > r:
+                r += 1
+                if r <= right:
+                    cur += nums[r]
+                else:
+                    break
+            else:
+                m = min(m, r-l+1)
+                cur -= nums[l]
+                l += 1
+        
+        return m if m <= len(nums) else 0
+```
+
+

@@ -105,7 +105,7 @@ https://progress-bar.dev/75/?scale=75&title=completed&width=300&suffix=/75)
 ### 剑指offer专项版
 
 ![progress](
-https://progress-bar.dev/4/?scale=119&title=completed&width=300&suffix=/119)
+https://progress-bar.dev/5/?scale=119&title=completed&width=300&suffix=/119)
 
 
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
@@ -114,6 +114,7 @@ https://progress-bar.dev/4/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|OfferII002|剑指 Offer II 002. 二进制加法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.md](code/leetcode.OfferII002.二进制加法/1.md) <br />[1.py](code/leetcode.OfferII002.二进制加法/1.py) <br />[2.md](code/leetcode.OfferII002.二进制加法/2.md) <br />[2.位运算.py](code/leetcode.OfferII002.二进制加法/2.位运算.py) <br />[index.md](code/leetcode.OfferII002.二进制加法/index.md) <br />|#位运算 <br />#数学 <br />#字符串 <br />#模拟 <br />|
 |leetcode|OfferII003|剑指 Offer II 003. 前 n 个数字二进制中 1 的个数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/1.py) <br />[2.md](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/2.md) <br />[2.动态规划.py](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/2.动态规划.py) <br />[index.md](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/index.md) <br />|#位运算 <br />#动态规划 <br />|
 |leetcode|OfferII005|剑指 Offer II 005. 单词长度的最大乘积|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII005.单词长度的最大乘积/1.py) <br />[index.md](code/leetcode.OfferII005.单词长度的最大乘积/index.md) <br />|#位运算 <br />#数组 <br />#字符串 <br />|
+|leetcode|OfferII008|剑指 Offer II 008. 和大于等于 target 的最短子数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII008.和大于等于 target 的最短子数组/1.py) <br />[index.md](code/leetcode.OfferII008.和大于等于 target 的最短子数组/index.md) <br />|#数组 <br />#二分查找 <br />#前缀和 <br />#滑动窗口 <br />|
 
 
 
@@ -265,6 +266,7 @@ https://progress-bar.dev/4/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer48|剑指 Offer 48. 最长不含重复字符的子字符串|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.offer48.最长不含重复字符的子字符串/1.py) <br />[index.md](code/leetcode.offer48.最长不含重复字符的子字符串/index.md) <br />|#滑动窗口 <br />|
+|leetcode|OfferII008|剑指 Offer II 008. 和大于等于 target 的最短子数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII008.和大于等于 target 的最短子数组/1.py) <br />[index.md](code/leetcode.OfferII008.和大于等于 target 的最短子数组/index.md) <br />|#数组 <br />#二分查找 <br />#前缀和 <br />#滑动窗口 <br />|
 
 
 ### 哈希表
@@ -335,6 +337,21 @@ https://progress-bar.dev/4/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|OfferII005|剑指 Offer II 005. 单词长度的最大乘积|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII005.单词长度的最大乘积/1.py) <br />[index.md](code/leetcode.OfferII005.单词长度的最大乘积/index.md) <br />|#位运算 <br />#数组 <br />#字符串 <br />|
+|leetcode|OfferII008|剑指 Offer II 008. 和大于等于 target 的最短子数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII008.和大于等于 target 的最短子数组/1.py) <br />[index.md](code/leetcode.OfferII008.和大于等于 target 的最短子数组/index.md) <br />|#数组 <br />#二分查找 <br />#前缀和 <br />#滑动窗口 <br />|
+
+
+### 二分查找
+
+| 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
+|--|--|--|--|--|--|
+|leetcode|OfferII008|剑指 Offer II 008. 和大于等于 target 的最短子数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII008.和大于等于 target 的最短子数组/1.py) <br />[index.md](code/leetcode.OfferII008.和大于等于 target 的最短子数组/index.md) <br />|#数组 <br />#二分查找 <br />#前缀和 <br />#滑动窗口 <br />|
+
+
+### 前缀和
+
+| 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
+|--|--|--|--|--|--|
+|leetcode|OfferII008|剑指 Offer II 008. 和大于等于 target 的最短子数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII008.和大于等于 target 的最短子数组/1.py) <br />[index.md](code/leetcode.OfferII008.和大于等于 target 的最短子数组/index.md) <br />|#数组 <br />#二分查找 <br />#前缀和 <br />#滑动窗口 <br />|
 
 
 
