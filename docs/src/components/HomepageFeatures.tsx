@@ -16,32 +16,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: '刷刷题',
     image: './img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        刷刷算法题有益身心健康，保持头脑清醒，让你的大脑永葆青春。研究表明每天花一小时刷算法题，你的人生就会消耗六十分钟。
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '记笔记',
     image: './img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        在网上看到些好东西，随手记一记，好记性不如烂笔头（指键盘）。无意义的内容也可以记（大部分都是）
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: '写博客',
     image: './img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        博客并不只属于远古人类，还属于每一个不希望被平台规则限制的新新人类。只可惜现在这里的博客都还是无意义模板。
       </>
     ),
   },

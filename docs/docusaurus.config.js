@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (module.exports = {
   title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  tagline: '互联网就是用来存垃圾的',
   url: 'https://tomoya06.github.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -69,12 +69,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             title: '快捷方式',
             items: [
               {
-                label: 'CodeZone',
-                to: '/docs/codezone_intro',
+                label: '剑指offer题库',
+                to: '/docs/剑指offer/剑指offer_intro',
               },
               {
-                label: '随手记',
-                to: '/docs/note_intro',
+                label: '键值offer专项版题库',
+                to: '/docs/剑指offer专项版/剑指offer专项版_intro',
               }
             ],
           },
