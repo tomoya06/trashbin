@@ -1,0 +1,56 @@
+---
+tags:
+  - 广度优先搜索
+  - 数组
+  - 动态规划
+  - 剑指offer专项版
+id: leetcode_OfferII103
+title: 🟡 剑指 Offer II 103. 最少的硬币数目
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/gaM7Ch/)
+
+:::
+
+
+
+## 题解 1.正向DP.py
+
+```py
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        if amount == 0:
+            return 0
+
+        if len(coins) == 1:
+            return -1 if amount % coins[0] else amount // coins[0]
+
+        dfs = [0] + [-1] * (amount)
+
+        for step in range(1, amount+1):
+            curMin = amount + 1
+            for coin in coins:
+                if step-coin >= 0 and dfs[step-coin] >= 0:
+                    curMin = min(curMin, dfs[step-coin] + 1)
+            dfs[step] = curMin if curMin < amount+1 else -1
+
+        return dfs[-1]
+```
+
+
