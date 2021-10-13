@@ -105,7 +105,7 @@ https://progress-bar.dev/75/?scale=75&title=completed&width=300&suffix=/75)
 ### 剑指offer专项版
 
 ![progress](
-https://progress-bar.dev/5/?scale=119&title=completed&width=300&suffix=/119)
+https://progress-bar.dev/6/?scale=119&title=completed&width=300&suffix=/119)
 
 
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
@@ -115,6 +115,7 @@ https://progress-bar.dev/5/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|OfferII003|剑指 Offer II 003. 前 n 个数字二进制中 1 的个数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/1.py) <br />[2.md](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/2.md) <br />[2.动态规划.py](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/2.动态规划.py) <br />[index.md](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/index.md) <br />|#位运算 <br />#动态规划 <br />|
 |leetcode|OfferII005|剑指 Offer II 005. 单词长度的最大乘积|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII005.单词长度的最大乘积/1.py) <br />[index.md](code/leetcode.OfferII005.单词长度的最大乘积/index.md) <br />|#位运算 <br />#数组 <br />#字符串 <br />|
 |leetcode|OfferII008|剑指 Offer II 008. 和大于等于 target 的最短子数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII008.和大于等于 target 的最短子数组/1.py) <br />[index.md](code/leetcode.OfferII008.和大于等于 target 的最短子数组/index.md) <br />|#数组 <br />#二分查找 <br />#前缀和 <br />#滑动窗口 <br />|
+|leetcode|OfferII091|剑指 Offer II 091. 粉刷房子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII091.粉刷房子/1.py) <br />[index.md](code/leetcode.OfferII091.粉刷房子/index.md) <br />|#数组 <br />#动态规划 <br />|
 
 
 
@@ -156,6 +157,7 @@ https://progress-bar.dev/5/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer60|剑指 Offer 60. n个骰子的点数|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1_偷瞄了.py](code/leetcode.offer60.n个骰子的点数/1_偷瞄了.py) <br />[index.md](code/leetcode.offer60.n个骰子的点数/index.md) <br />|#动态规划 <br />#数学问题 <br />|
 |leetcode|offer63|剑指 Offer 63. 股票的最大利润|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1_不用动态规划.py](code/leetcode.offer63.股票的最大利润/1_不用动态规划.py) <br />[index.md](code/leetcode.offer63.股票的最大利润/index.md) <br />|#动态规划 <br />|
 |leetcode|OfferII003|剑指 Offer II 003. 前 n 个数字二进制中 1 的个数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/1.py) <br />[2.md](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/2.md) <br />[2.动态规划.py](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/2.动态规划.py) <br />[index.md](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/index.md) <br />|#位运算 <br />#动态规划 <br />|
+|leetcode|OfferII091|剑指 Offer II 091. 粉刷房子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII091.粉刷房子/1.py) <br />[index.md](code/leetcode.OfferII091.粉刷房子/index.md) <br />|#数组 <br />#动态规划 <br />|
 
 
 ### 记忆化搜索
@@ -338,6 +340,7 @@ https://progress-bar.dev/5/?scale=119&title=completed&width=300&suffix=/119)
 |--|--|--|--|--|--|
 |leetcode|OfferII005|剑指 Offer II 005. 单词长度的最大乘积|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII005.单词长度的最大乘积/1.py) <br />[index.md](code/leetcode.OfferII005.单词长度的最大乘积/index.md) <br />|#位运算 <br />#数组 <br />#字符串 <br />|
 |leetcode|OfferII008|剑指 Offer II 008. 和大于等于 target 的最短子数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII008.和大于等于 target 的最短子数组/1.py) <br />[index.md](code/leetcode.OfferII008.和大于等于 target 的最短子数组/index.md) <br />|#数组 <br />#二分查找 <br />#前缀和 <br />#滑动窗口 <br />|
+|leetcode|OfferII091|剑指 Offer II 091. 粉刷房子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII091.粉刷房子/1.py) <br />[index.md](code/leetcode.OfferII091.粉刷房子/index.md) <br />|#数组 <br />#动态规划 <br />|
 
 
 ### 二分查找
