@@ -1,0 +1,80 @@
+---
+tags:
+  - 数组
+  - 哈希表
+  - 字符串
+  - 剑指offer专项版
+id: leetcode_OfferII034
+title: 🟢 剑指 Offer II 034. 外星语言是否排序
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/lwyVBB/)
+
+:::
+
+## 解析 index.md
+
+ 偷懒用了js，实话实说js的排序方法还是比python的好用。
+
+再偷懒直接用了自带的sort方法。虽然时间复杂度是logN不过实际上还是会有冗余的步骤。
+
+
+
+## 题解 1.js
+
+```js
+/**
+ * @param {string[]} words
+ * @param {string} order
+ * @return {boolean}
+ */
+ var isAlienSorted = function(words, order) {
+  const orderMap = {};
+  order.split('').forEach((m, idx) => {
+      orderMap[m] = idx;
+  })
+
+  const swords = [...words].sort((a, b) => {
+      let i = 0;
+      while (a[i] && b[i]) {
+          if (a[i] !== b[i]) {
+              return orderMap[a[i]] - orderMap[b[i]];
+          }
+          i += 1;
+      }
+      if (!a[i] && !b[i]) {
+          return 0;
+      }
+      if (!a[i]) {
+          return -1;
+      }
+      return 1;
+  })
+
+  for (let i=0; i<swords.length; i+=1) {
+      if (swords[i] !== words[i]) {
+          return false;
+      }
+  }
+
+  return true;
+};
+```
+
+

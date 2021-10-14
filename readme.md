@@ -105,7 +105,7 @@ https://progress-bar.dev/75/?scale=75&title=completed&width=300&suffix=/75)
 ### 剑指offer专项版
 
 ![progress](
-https://progress-bar.dev/8/?scale=119&title=completed&width=300&suffix=/119)
+https://progress-bar.dev/9/?scale=119&title=completed&width=300&suffix=/119)
 
 
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
@@ -115,6 +115,7 @@ https://progress-bar.dev/8/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|OfferII003|剑指 Offer II 003. 前 n 个数字二进制中 1 的个数|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/1.py) <br />[2.md](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/2.md) <br />[2.动态规划.py](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/2.动态规划.py) <br />[index.md](code/leetcode.OfferII003.前 n 个数字二进制中 1 的个数/index.md) <br />|#位运算 <br />#动态规划 <br />|
 |leetcode|OfferII005|剑指 Offer II 005. 单词长度的最大乘积|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII005.单词长度的最大乘积/1.py) <br />[index.md](code/leetcode.OfferII005.单词长度的最大乘积/index.md) <br />|#位运算 <br />#数组 <br />#字符串 <br />|
 |leetcode|OfferII008|剑指 Offer II 008. 和大于等于 target 的最短子数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII008.和大于等于 target 的最短子数组/1.py) <br />[index.md](code/leetcode.OfferII008.和大于等于 target 的最短子数组/index.md) <br />|#数组 <br />#二分查找 <br />#前缀和 <br />#滑动窗口 <br />|
+|leetcode|OfferII034|剑指 Offer II 034. 外星语言是否排序|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.js](code/leetcode.OfferII034.外星语言是否排序/1.js) <br />[index.md](code/leetcode.OfferII034.外星语言是否排序/index.md) <br />|#数组 <br />#哈希表 <br />#字符串 <br />|
 |leetcode|OfferII043|剑指 Offer II 043. 往完全二叉树添加节点|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.有点绕了.py](code/leetcode.OfferII043.往完全二叉树添加节点/1.有点绕了.py) <br />[2.deque.时间99.py](code/leetcode.OfferII043.往完全二叉树添加节点/2.deque.时间99.py) <br />[index.md](code/leetcode.OfferII043.往完全二叉树添加节点/index.md) <br />|#树 <br />#广度优先搜索 <br />#设计 <br />#二叉树 <br />|
 |leetcode|OfferII091|剑指 Offer II 091. 粉刷房子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII091.粉刷房子/1.py) <br />[index.md](code/leetcode.OfferII091.粉刷房子/index.md) <br />|#数组 <br />#动态规划 <br />|
 |leetcode|OfferII103|剑指 Offer II 103. 最少的硬币数目|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.正向DP.py](code/leetcode.OfferII103.最少的硬币数目/1.正向DP.py) <br />[index.md](code/leetcode.OfferII103.最少的硬币数目/index.md) <br />|#广度优先搜索 <br />#数组 <br />#动态规划 <br />|
@@ -282,6 +283,7 @@ https://progress-bar.dev/8/?scale=119&title=completed&width=300&suffix=/119)
 | 平台 | 题号 | 名称 | 难度 | 题解 | 标签 |
 |--|--|--|--|--|--|
 |leetcode|offer50|剑指 Offer 50. 第一个只出现一次的字符|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer50.第一个只出现一次的字符/1.py) <br />[index.md](code/leetcode.offer50.第一个只出现一次的字符/index.md) <br />|#哈希表 <br />|
+|leetcode|OfferII034|剑指 Offer II 034. 外星语言是否排序|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.js](code/leetcode.OfferII034.外星语言是否排序/1.js) <br />[index.md](code/leetcode.OfferII034.外星语言是否排序/index.md) <br />|#数组 <br />#哈希表 <br />#字符串 <br />|
 
 
 ### 归并排序
@@ -315,6 +317,7 @@ https://progress-bar.dev/8/?scale=119&title=completed&width=300&suffix=/119)
 |leetcode|offer58v2|剑指 Offer 58 - II. 左旋转字符串|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.py](code/leetcode.offer58v2.左旋转字符串/1.py) <br />[index.md](code/leetcode.offer58v2.左旋转字符串/index.md) <br />|#字符串 <br />|
 |leetcode|OfferII002|剑指 Offer II 002. 二进制加法|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.md](code/leetcode.OfferII002.二进制加法/1.md) <br />[1.py](code/leetcode.OfferII002.二进制加法/1.py) <br />[2.md](code/leetcode.OfferII002.二进制加法/2.md) <br />[2.位运算.py](code/leetcode.OfferII002.二进制加法/2.位运算.py) <br />[index.md](code/leetcode.OfferII002.二进制加法/index.md) <br />|#位运算 <br />#数学 <br />#字符串 <br />#模拟 <br />|
 |leetcode|OfferII005|剑指 Offer II 005. 单词长度的最大乘积|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII005.单词长度的最大乘积/1.py) <br />[index.md](code/leetcode.OfferII005.单词长度的最大乘积/index.md) <br />|#位运算 <br />#数组 <br />#字符串 <br />|
+|leetcode|OfferII034|剑指 Offer II 034. 外星语言是否排序|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.js](code/leetcode.OfferII034.外星语言是否排序/1.js) <br />[index.md](code/leetcode.OfferII034.外星语言是否排序/index.md) <br />|#数组 <br />#哈希表 <br />#字符串 <br />|
 
 
 ### 单调队列
@@ -346,6 +349,7 @@ https://progress-bar.dev/8/?scale=119&title=completed&width=300&suffix=/119)
 |--|--|--|--|--|--|
 |leetcode|OfferII005|剑指 Offer II 005. 单词长度的最大乘积|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII005.单词长度的最大乘积/1.py) <br />[index.md](code/leetcode.OfferII005.单词长度的最大乘积/index.md) <br />|#位运算 <br />#数组 <br />#字符串 <br />|
 |leetcode|OfferII008|剑指 Offer II 008. 和大于等于 target 的最短子数组|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII008.和大于等于 target 的最短子数组/1.py) <br />[index.md](code/leetcode.OfferII008.和大于等于 target 的最短子数组/index.md) <br />|#数组 <br />#二分查找 <br />#前缀和 <br />#滑动窗口 <br />|
+|leetcode|OfferII034|剑指 Offer II 034. 外星语言是否排序|![level](https://shields.io/badge/-简单-green?style=flat-square)|[1.js](code/leetcode.OfferII034.外星语言是否排序/1.js) <br />[index.md](code/leetcode.OfferII034.外星语言是否排序/index.md) <br />|#数组 <br />#哈希表 <br />#字符串 <br />|
 |leetcode|OfferII091|剑指 Offer II 091. 粉刷房子|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.py](code/leetcode.OfferII091.粉刷房子/1.py) <br />[index.md](code/leetcode.OfferII091.粉刷房子/index.md) <br />|#数组 <br />#动态规划 <br />|
 |leetcode|OfferII103|剑指 Offer II 103. 最少的硬币数目|![level](https://shields.io/badge/-中等-yellow?style=flat-square)|[1.正向DP.py](code/leetcode.OfferII103.最少的硬币数目/1.正向DP.py) <br />[index.md](code/leetcode.OfferII103.最少的硬币数目/index.md) <br />|#广度优先搜索 <br />#数组 <br />#动态规划 <br />|
 
