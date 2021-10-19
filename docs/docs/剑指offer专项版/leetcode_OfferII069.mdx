@@ -1,0 +1,50 @@
+---
+tags:
+  - 数组
+  - 二分查找
+  - 剑指offer专项版
+id: leetcode_OfferII069
+title: 🟢 剑指 Offer II 069. 山峰数组的顶部
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/B1IidL/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def peakIndexInMountainArray(self, arr: List[int]) -> int:
+        left, right = 0, len(arr)-1
+        while left < right:
+            mid = (left + right) // 2
+            if arr[mid-1] < arr[mid] and arr[mid] > arr[mid+1]:
+                return mid
+            if arr[mid-1] > arr[mid]:
+                right = mid-1
+            else:
+                left = mid+1
+        
+        return left
+```
+
+

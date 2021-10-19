@@ -1,0 +1,60 @@
+---
+tags:
+  - 深度优先搜索
+  - 广度优先搜索
+  - 图
+  - 回溯
+  - 剑指offer专项版
+id: leetcode_OfferII110
+title: 🟡 剑指 Offer II 110. 所有路径
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/bP4bmD/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        n = len(graph)-1
+        res = []
+
+        def dfs(cur: int):
+            path.append(cur)
+            if cur == n:
+                res.append(list(path))
+            else:            
+                curNexts = graph[cur]
+                for nxt in curNexts:
+                    dfs(nxt)
+
+            path.pop()
+        
+        path = []
+
+        dfs(0)
+
+        return res
+```
+
+
