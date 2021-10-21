@@ -1,0 +1,61 @@
+---
+tags:
+  - 树
+  - 深度优先搜索
+  - 二叉搜索树
+  - 二叉树
+  - 剑指offer专项版
+id: leetcode_OfferII054
+title: 🟡 剑指 Offer II 054. 所有大于等于节点的值之和
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/w6cpku/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def convertBST(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return root
+        self.curSum = 0
+
+        def rmlVisit(node: TreeNode):
+            if node.right:
+                rmlVisit(node.right)
+            self.curSum += node.val
+            node.val = self.curSum
+            if node.left:
+                rmlVisit(node.left)
+        
+        rmlVisit(root)
+        return root
+```
+
+
