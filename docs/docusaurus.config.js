@@ -53,8 +53,20 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             position: 'left',
             label: 'CodeZone',
           },
-          { type: 'doc', docId: 'note_intro', label: '随手记', position: 'left' },
-          { to: '/blog', label: '博客', position: 'left' },
+          {
+            type: 'doc',
+            docId: '剑指offer/剑指offer_intro',
+            position: 'left',
+            label: '剑指offer'
+          },
+          {
+            type: 'doc',
+            docId: '剑指offer专项版/剑指offer专项版_intro',
+            position: 'left',
+            label: '剑指offer专项版'
+          },
+          { type: 'doc', docId: 'note_intro', label: '随手记', position: 'right' },
+          { to: '/blog', label: '博客', position: 'right' },
           {
             href: 'https://github.com/tomoya06',
             label: 'GitHub',
@@ -116,8 +128,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         copyright: `Copyright © ${new Date().getFullYear()} tomoya06's HomePage, Heavelop Inc. <br>Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        theme: lightCodeTheme,
       },
+      forceDarkMode: true,
     }),
 });
