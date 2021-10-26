@@ -1,0 +1,63 @@
+---
+tags:
+  - 字符串
+  - 动态规划
+  - 回溯
+  - 剑指offer专项版
+id: leetcode_OfferII086
+title: 🟡 剑指 Offer II 086. 分割回文子字符串
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/M99OJA/)
+
+:::
+
+
+
+## 题解 1.py
+
+```py
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        n = len(s)
+        dp = [[True] * n for _ in range(n)]
+
+        for i in range(n-1, -1, -1):
+            for j in range(i+1, n):
+                dp[i][j] = s[i] == s[j] and dp[i+1][j-1]
+        
+        ret = []
+        ans = []
+
+        def dfs(idx):
+            if idx == n:
+                ret.append(list(ans))
+            
+            for eidx in range(idx, n):
+                if dp[idx][eidx]:
+                    ans.append(s[idx:eidx+1])
+                    dfs(eidx+1)
+                    ans.pop()
+            
+        dfs(0)
+
+        return ret
+```
+
+
