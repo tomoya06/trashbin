@@ -1,4 +1,9 @@
 {
   "editor.quickSuggestions": true,
-  "python.autoComplete.extraPaths": ["../utils"],
+  "python.autoComplete.extraPaths": [
+    "../utils"
+  ],
+  "python.analysis.extraPaths": [
+    "../utils"
+  ],
 }
