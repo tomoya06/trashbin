@@ -23,6 +23,11 @@ tags:
   <tags>
 id: <plat>_<ques_id>
 title: <level_icon> <ques_name>
+ques_id: <ques_id>
+platform: <plat>
+online_link: <link>
+online_name: <ques_name>
+level: <level_code>
 ---
 
 export const Highlight = ({children, color}) => (
@@ -114,6 +119,7 @@ def gen_solution_doc(tag_name, ques):
     .replace('<ques_id>', ques['ques_no'])\
     .replace('<tags>', cur_tags)\
     .replace('<content>', solution_content)\
+    .replace('<level_code>', ques['level'])\
     .replace('<level>', level_code_mapper[ques['level']])\
     .replace('<level_icon>', level_icon_mapper[ques['level']])\
     .replace('<plat>', ques['platform'])\
