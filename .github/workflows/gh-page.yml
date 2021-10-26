@@ -15,13 +15,6 @@ jobs:
           pwd
           ls -l
 
-      - name: Generate Docs Files 🔧
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-      - run: |
-          pip install -r requirements.txt
-
       - name: Install and Build 🔧
         run: |
           cd docs
