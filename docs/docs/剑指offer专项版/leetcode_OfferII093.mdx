@@ -33,5 +33,30 @@ export const Highlight = ({children, color}) => (
 
 :::
 
+## 题解1
+
+这里用到一个新的python自带工具：`collections.defaultdict()`，可以生成带默认值的dict，如果指定一个新key时，可以返回默认值。
+
+可以看下这篇繁中文档，[有点意思](https://ithelp.ithome.com.tw/articles/10193094)
+
+
 ```py
+import collections
+
+class Solution:
+    def lenLongestFibSubseq(self, arr: List[int]) -> int:
+        n = len(arr)
+        idx = {x: i for i, x in enumerate(arr)}
+        longest = collections.defaultdict(lambda:2)
+
+        res = 0
+
+        for ki, k in enumerate(arr):
+            for ji in range(ki):
+                ii = idx.get(k-arr[ji], None)
+                if ii is not None and ii < ji:
+                    cond = longest[ji, ki] = longest[ii, ji] + 1
+                    res = max(res, cond)
+        
+        return res
 ```
