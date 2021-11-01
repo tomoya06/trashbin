@@ -10,6 +10,7 @@ proxies = {
   'https': 'http://127.0.0.1:7890',
 }
 
+default_ext = 'java'
 
 # 题解mdx模板
 solution_tmpl = """---
@@ -100,7 +101,7 @@ def process_leetcode_online():
   # link = 'https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/'
   # link = 'https://leetcode-cn.com/problems/Ygoe9J/'
   link = input('输入LeetCode题目链接：')
-  file_ext = input('代码语言（py）：') or 'py'
+  file_ext = input(f'代码语言（{default_ext}）：') or default_ext
   
   ques_id = parse_ques_id(link)
   ques = fetch_ques_meta(ques_id)

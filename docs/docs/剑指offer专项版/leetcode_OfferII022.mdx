@@ -1,0 +1,77 @@
+---
+tags:
+  - 哈希表
+  - 链表
+  - 双指针
+  - 剑指offer专项版
+id: leetcode_OfferII022
+title: 🟡 剑指 Offer II 022. 链表中环的入口节点
+ques_id: OfferII022
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/c32eOV/
+online_name: 链表中环的入口节点
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/c32eOV/)
+
+:::
+
+## 题解1
+
+```java
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode l = head;
+        ListNode r = head;
+
+        while (r != null) {
+            r = r.next;
+            l = l.next;
+            if (r != null) {
+                r = r.next;
+            }
+
+            if (l == r) {
+                break;
+            }
+        }
+        if (r == null) {
+            return null;
+        }
+        l = head;
+        while (l != r) {
+            l = l.next;
+            r = r.next;
+        }
+        return l;
+    }
+}
+```
