@@ -1,0 +1,60 @@
+---
+tags:
+  - 数组
+  - 滑动窗口
+  - 剑指offer专项版
+id: leetcode_OfferII009
+title: 🟡 剑指 Offer II 009. 乘积小于 K 的子数组
+ques_id: OfferII009
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/ZVAVXX/
+online_name: 乘积小于 K 的子数组
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/ZVAVXX/)
+
+:::
+
+## 题解1
+
+滑动窗口。偷瞄了[官方题解](https://leetcode-cn.com/problems/subarray-product-less-than-k/solution/cheng-ji-xiao-yu-kde-zi-shu-zu-by-leetcode/)
+
+
+```java
+class Solution {
+    public int numSubarrayProductLessThanK(int[] nums, int k) {
+        int left = 0, right = 0;
+        int res = 1;
+        int ans = 0;
+        while (right<nums.length) {
+            res *= nums[right];
+            while (res >= k && left <= right) {
+                res /= nums[left];
+                left += 1;
+            }
+            if (left <= right) {
+                ans += right-left+1;
+            }
+            right += 1;
+        }
+        return ans;
+    }
+}
+```
