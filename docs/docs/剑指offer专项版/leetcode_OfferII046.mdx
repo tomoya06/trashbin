@@ -1,0 +1,129 @@
+---
+tags:
+  - 树
+  - 深度优先搜索
+  - 广度优先搜索
+  - 二叉树
+  - 剑指offer专项版
+id: leetcode_OfferII046
+title: 🟡 剑指 Offer II 046. 二叉树的右侧视图
+ques_id: OfferII046
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/WNC0Lk/
+online_name: 二叉树的右侧视图
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/WNC0Lk/)
+
+:::
+
+## 题解1
+
+层序遍历，每层最后一个写入结果
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        List<TreeNode> levels = new ArrayList<>();
+
+        if (root == null) {
+            return res;
+        }
+
+        levels.add(root);
+
+        while (levels.size() > 0) {
+            int curLen = levels.size();
+            for (int i=0; i<curLen; i+=1) {
+                TreeNode curNode = levels.remove(0);
+                if (curNode.left != null) {
+                    levels.add(curNode.left);
+                }
+                if (curNode.right != null) {
+                    levels.add(curNode.right);
+                }
+
+                if (i == curLen-1) {
+                    res.add(curNode.val);
+                }
+            }
+        }
+
+        return res;
+    }
+}
+```
+
+
+## 题解2
+
+dfs，先右后左，每层第一个访问到的节点加入结果
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private List<Integer> result = new ArrayList<>();
+    private void dfs(Integer level, TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        if (level == this.result.size()) {
+            this.result.add(root.val);
+        }
+        dfs(level+1, root.right);
+        dfs(level+1, root.left);
+    }
+
+    public List<Integer> rightSideView(TreeNode root) {
+        dfs(0, root);
+        return this.result;
+    }
+}
+```
