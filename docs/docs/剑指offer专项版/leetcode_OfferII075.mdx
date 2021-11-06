@@ -1,0 +1,54 @@
+---
+tags:
+  - 数组
+  - 哈希表
+  - 计数排序
+  - 排序
+  - 剑指offer专项版
+id: leetcode_OfferII075
+title: 🟢 剑指 Offer II 075. 数组相对排序
+ques_id: OfferII075
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/0H97ZC/
+online_name: 数组相对排序
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/0H97ZC/)
+
+:::
+
+## 题解1
+
+```js
+/**
+ * @param {number[]} arr1
+ * @param {number[]} arr2
+ * @return {number[]}
+ */
+var relativeSortArray = function(arr1, arr2) {
+    const posMap = {};
+    const max2 = arr2.length + 1;
+    for (let i=0; i <arr2.length; i += 1) {
+        posMap[arr2[i]] = i+1;
+    }
+    arr1.sort((a, b) => (posMap[a] || (a +max2)) - (posMap[b] || (b+max2)));
+    return arr1;
+};
+```

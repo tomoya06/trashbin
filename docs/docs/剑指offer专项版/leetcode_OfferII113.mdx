@@ -1,0 +1,236 @@
+---
+tags:
+  - 深度优先搜索
+  - 广度优先搜索
+  - 图
+  - 拓扑排序
+  - 剑指offer专项版
+id: leetcode_OfferII113
+title: 🟡 剑指 Offer II 113. 课程顺序
+ques_id: OfferII113
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/QA2IGt/
+online_name: 课程顺序
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/QA2IGt/)
+
+:::
+
+## 题解1
+
+自己思考的结果。有点绕。
+
+```java
+class Solution {
+    private Map<Integer, List<Integer>> route = new HashMap<>();
+    private Map<Integer, List<Integer>> parents = new HashMap<>();
+    private Set<Integer> canBeHead = new HashSet<>();
+
+    private Set<Integer> visited;
+
+    private void travel(int startNode) {
+        visited = new LinkedHashSet<>();
+        for (int head: canBeHead) {
+            dfs(head);
+        }
+    }
+
+    private void dfs(int node) {
+        if (visited.contains(node)) {
+            return;
+        }
+        visited.add(node);
+        if (route.get(node) == null) {
+            return;
+        }
+        for (int nxt : route.get(node)) {
+            boolean flag = true;
+            for (int parent : parents.getOrDefault(nxt, Collections.emptyList())) {
+                if (!visited.contains(parent)) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                dfs(nxt);
+            }
+        }
+    }
+
+
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        for (int i=0; i<numCourses; i+= 1){
+            canBeHead.add(i);
+        }
+        for (var pre: prerequisites) {
+            canBeHead.remove(pre[0]);
+
+            if (route.get(pre[1]) == null) {
+                route.put(pre[1], new ArrayList<Integer>());
+            }
+            route.get(pre[1]).add(pre[0]);
+
+            if (parents.get(pre[0]) == null) {
+                parents.put(pre[0], new ArrayList<Integer>());
+            }
+            parents.get(pre[0]).add(pre[1]);
+        }
+        if (canBeHead.size() == 0) {
+            return new int[0];
+        }
+
+        for (Integer head : canBeHead) {
+            travel(head);
+            if (visited.size() == numCourses) {
+                int[] ans = new int[numCourses];
+                int cnt = 0;
+                for (Integer node : visited) {
+                    ans[cnt] = node;
+                    cnt += 1;
+                }
+                return ans;
+            }
+        }
+
+        return new int[0];
+    }
+}
+```
+
+## 抄官方答案的题解2
+
+> 来自[官方题解](https://leetcode-cn.com/problems/course-schedule-ii/solution/ke-cheng-biao-ii-by-leetcode-solution/)
+
+拓扑排序，可以用深度优先搜索和广度优先搜索来实现。
+
+深度优先，结合栈实现。抄下答案：稍微有点绕的地方在于入栈的方式，这里是从后往前放，index递减。
+
+```java
+class Solution {
+    List<List<Integer>> edges;
+    int[] visited;
+    int[] result;
+    int index;
+    boolean valid = true;
+
+    private void dfs(int node) {
+        visited[node] = 1;
+
+        for (int v : edges.get(node)) {
+            if (visited[v] == 0) {
+                dfs(v);
+                if (!valid) {
+                    return;
+                }
+            } else if (visited[v] == 1) {
+                valid = false;
+                return;
+            }
+        }
+
+        visited[node] = 2;
+        result[index--] = node;
+    }
+
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        edges = new ArrayList<>();
+        visited = new int[numCourses];
+        result = new int[numCourses];
+        index = numCourses-1;
+
+        for (int i=0; i<numCourses; i+=1) {
+            edges.add(new ArrayList<>());
+        }
+        for (var pre : prerequisites) {
+            edges.get(pre[1]).add(pre[0]);
+        }
+
+        for (int i=0; i<numCourses && valid; i+=1) {
+            if (visited[i] == 0) {
+                dfs(i);
+            }
+        }
+
+        if (!valid) {
+            return new int[0];
+        }
+
+        return result;
+    }
+}
+```
+
+## 以及题解3
+
+广度优先搜索实现，结合一个入度表。如果某个节点的入度为0，则可以修炼；修炼之后，把这个节点相连的节点入度-1。
+
+这个思路跟我自己思考的思路相近，不过用入度的概念来实现所有前置课程修炼的判断。
+
+下面也是抄的答案：
+
+```java
+class Solution {
+    List<List<Integer>> edges;
+    int[] indeg;
+    int[] result;
+    int index;
+
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        edges = new ArrayList<>();
+        for (int i=0; i<numCourses; i+=1) {
+            edges.add(new ArrayList<>());
+        }
+        indeg = new int[numCourses];
+        result = new int[numCourses];
+        index = 0;
+
+        for (var pre : prerequisites) {
+            edges.get(pre[1]).add(pre[0]);
+            indeg[pre[0]] += 1;
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+
+        for (int i=0; i<numCourses; i+=1) {
+            if (indeg[i] == 0) {
+                queue.offer(i);
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            int u = queue.poll();
+            result[index++] = u;
+            for (int v : edges.get(u)) {
+                indeg[v] -= 1;
+                if (indeg[v] == 0) {
+                    queue.offer(v);
+                }
+            }
+        }
+
+        if (index != numCourses) {
+            return new int[0];
+        }
+
+        return result;
+    }
+}
+```

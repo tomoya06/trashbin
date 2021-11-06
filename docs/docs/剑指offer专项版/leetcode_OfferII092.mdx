@@ -1,0 +1,68 @@
+---
+tags:
+  - 字符串
+  - 动态规划
+  - 剑指offer专项版
+id: leetcode_OfferII092
+title: 🟡 剑指 Offer II 092. 翻转字符
+ques_id: OfferII092
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/cyJERH/
+online_name: 翻转字符
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/cyJERH/)
+
+:::
+
+## 题解1
+
+```js
+function minFlipsMonoIncr(s: string): number {
+    const right0s = s.split('').map(() => 0);
+    const left1s = s.split('').map(() => 0);
+    const nn = s.length;
+
+    let cnt = 0;
+    for (let i=nn-1; i>=0; i-=1) {
+        if (s[i] === '0') {
+            cnt += 1;
+        }
+        right0s[i] = cnt;
+    }
+    cnt = 0;
+    for (let i=0; i<nn; i+=1) {
+        if (s[i] === '1') {
+            cnt += 1;
+        }
+        left1s[i] = cnt;
+    }
+
+    // 全都是1 
+    let minn = right0s[0];
+    // i表示最后一个0的位置
+    for (let i=0; i<nn-1; i+=1) {
+        minn = Math.min(minn, left1s[i]+right0s[i+1]);
+    }
+    // 全都是0
+    minn = Math.min(minn, left1s[nn-1])
+    return minn;
+};
+```
