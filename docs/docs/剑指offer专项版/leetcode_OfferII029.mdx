@@ -1,0 +1,90 @@
+---
+tags:
+  - 链表
+  - 剑指offer专项版
+id: leetcode_OfferII029
+title: 🟡 剑指 Offer II 029. 排序的循环链表
+ques_id: OfferII029
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/4ueAj6/
+online_name: 排序的循环链表
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/4ueAj6/)
+
+:::
+
+## 题解1
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node next;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _next) {
+        val = _val;
+        next = _next;
+    }
+};
+*/
+
+class Solution {
+    public Node insert(Node head, int insertVal) {
+        Node newNode = new Node(insertVal);
+        if (head == null) {
+          newNode.next = newNode;
+          return newNode;
+        }
+
+        Node cur = head.next;
+        Node pre = head;
+
+        if (cur == pre) {
+          cur.next = newNode;
+          newNode.next = cur;
+          return head;
+        }
+
+        for (;;) {
+          if (
+            (cur.val >= insertVal && insertVal >= pre.val)
+            ||
+            ((insertVal >= pre.val || insertVal <= cur.val) && cur.val < pre.val)
+            ||
+            (cur == head)
+          ) {
+            pre.next = newNode;
+            newNode.next = cur;
+            return head;
+          }
+          cur = cur.next;
+          pre = pre.next;
+        }
+    }
+}
+```

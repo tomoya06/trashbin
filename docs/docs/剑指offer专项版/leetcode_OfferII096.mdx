@@ -1,0 +1,100 @@
+---
+tags:
+  - 字符串
+  - 动态规划
+  - 剑指offer专项版
+id: leetcode_OfferII096
+title: 🟡 剑指 Offer II 096. 字符串交织
+ques_id: OfferII096
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/IY6buf/
+online_name: 字符串交织
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/IY6buf/)
+
+:::
+
+## 题解1
+
+双指针不可行，有可能选错了该用的字符串，继续往下滑没有结果。
+
+抄了[答案](https://leetcode-cn.com/problems/interleaving-string/solution/jiao-cuo-zi-fu-chuan-by-leetcode-solution/)
+
+```java
+class Solution {
+    public boolean isInterleave(String s1, String s2, String s3) {
+        int n = s1.length(), m = s2.length(), t = s3.length();
+        if (n+m != t) {
+            return false;
+        }
+
+        boolean[][] f = new boolean[n+1][m+1];
+        f[0][0] = true;
+
+        for (int i=0; i<=n; i++) {
+            for (int j=0; j<=m; j++) {
+                int p = i+j-1;
+                if (i>0) {
+                    f[i][j] = f[i][j] || (f[i-1][j] && s1.charAt(i-1) == s3.charAt(p));
+                }
+                if (j>0) {
+                    f[i][j] = f[i][j] || (f[i][j-1] && s2.charAt(j-1) == s3.charAt(p));
+                }
+            }
+        }
+
+        return f[n][m];
+    }
+}
+```
+
+## 题解1 优化版
+
+滚动数组，只考虑相邻的两行即可，这里可以压缩成一维数组：
+
+```java
+class Solution {
+    public boolean isInterleave(String s1, String s2, String s3) {
+        int n = s1.length(), m = s2.length(), t = s3.length();
+        if (n+m != t) {
+            return false;
+        }
+        
+        boolean[] f = new boolean[m+1];
+
+        f[0] = true;
+
+        for (int i=0; i<=n; i++) {
+            for (int j=0; j<=m; j++) {
+                int p = i+j-1;
+                if (i>0) {
+                    f[j] = f[j] && (s1.charAt(i-1) == s3.charAt(p));
+                }
+                if (j>0) {
+                    f[j] = f[j] || (f[j-1] && s2.charAt(j-1) == s3.charAt(p));
+                }
+            }
+        }
+
+        return f[m];
+    }
+}
+```

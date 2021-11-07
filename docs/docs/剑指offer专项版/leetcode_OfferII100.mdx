@@ -1,0 +1,53 @@
+---
+tags:
+  - 数组
+  - 动态规划
+  - 剑指offer专项版
+id: leetcode_OfferII100
+title: 🟡 剑指 Offer II 100. 三角形中最小路径之和
+ques_id: OfferII100
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/IlPe0q/
+online_name: 三角形中最小路径之和
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/IlPe0q/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        List<Integer> steps = new ArrayList<>(triangle.get(triangle.size()-1));
+        for (int lvl = triangle.size()-2; lvl >= 0; lvl -= 1) {
+          for (int node = 0; node < triangle.get(lvl).size(); node += 1) {
+            var newMin = triangle.get(lvl).get(node) + Math.min(
+              steps.get(node),
+              steps.get(node+1)
+            );
+            steps.set(node, newMin);
+          }
+        }
+        return steps.get(0);
+    }
+}
+```
