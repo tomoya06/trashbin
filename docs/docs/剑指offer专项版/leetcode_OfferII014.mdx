@@ -1,0 +1,108 @@
+---
+tags:
+  - 哈希表
+  - 双指针
+  - 字符串
+  - 滑动窗口
+  - 剑指offer专项版
+id: leetcode_OfferII014
+title: 🟡 剑指 Offer II 014. 字符串中的变位词
+ques_id: OfferII014
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/MPnaiL/
+online_name: 字符串中的变位词
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/MPnaiL/)
+
+:::
+
+## 题解1
+
+两个词若互相为变位词，那么26个字母在两个单词中出现的次数肯定都相同。
+
+可以用滑动窗口的思路，用两个26位数组`cnt1`和`cnt2`分别记录每个字母在两个单词中的数量，移动窗口，改变`cnt2`的值，然后比较两个数组是否相同。
+
+但每次移动窗口都比较两个数组，有点累赘，可以用一个常量diff表示相差的字母数量即可。
+
+同时可以简化只要一个26位数组记录即可，数组每一位均为0时diff=0。
+
+由此可得，在初始化的时候，S2每个字母贡献为1，S1的为-1。
+
+```java
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        int l1 = s1.length(), l2 = s2.length();
+        if (l1 > l2) {
+            return false;
+        }
+
+        int[] cnt = new int[26];
+        int diff = 0;
+
+        for (int i=0; i<l1; i++) {
+            cnt[s1.charAt(i)-'a'] -= 1;
+            cnt[s2.charAt(i)-'a'] += 1;
+        }
+        for (int i=0; i<26; i++) {
+            if (cnt[i] != 0) {
+                diff += 1;
+            }
+        }
+
+        if (diff == 0) {
+            return true;
+        }
+
+        // 窗口进入一个y，出一个x
+        char x, y;
+        for (int i=l1; i<l2; i+=1) {
+            x = s2.charAt(i-l1);
+            y = s2.charAt(i);
+
+            if (x == y) {
+                continue;
+            }
+
+            cnt[y-'a'] += 1;
+            cnt[x-'a'] -= 1;
+
+            if (cnt[y-'a'] == 0) {
+                diff -= 1;a
+            }
+            if (cnt[y-'a'] == 1) {
+                diff += 1;
+            }
+            if (cnt[x-'a'] == 0) {
+                diff -= 1;
+            }
+            if (cnt[x-'a'] == -1) {
+                diff += 1;
+            }
+
+            if (diff == 0) {
+                return true;
+            }
+        }
+
+        return diff == 0;
+    }
+}
+```

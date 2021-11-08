@@ -1,0 +1,111 @@
+---
+tags:
+  - 递归
+  - 链表
+  - 剑指offer专项版
+id: leetcode_OfferII024
+title: 🟢 剑指 Offer II 024. 反转链表
+ques_id: OfferII024
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/UHnkqh/
+online_name: 反转链表
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/UHnkqh/)
+
+:::
+
+基础题，不过一直还是会有点卡思路。
+
+## 题解1：递归实现
+
+思路如下：reverseList返回的是从当前节点开始反转后的链表头。
+
+假设原链为：`1→2→3→4→5`；现在执行到3，也就是：`1→2→3←4←5`：
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+}
+```
+
+## 题解2：迭代实现
+
+自己的实现如下：
+
+```java
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode pre = head, cur = head.next, p;
+        head.next = null;
+
+        while (cur != null) {
+            p = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = p;
+        }
+
+        return pre;
+    }
+}
+```
+
+不过实际上只要令`pre=null`，就可以解决第一个节点没有断开旧next的问题（也就是`head.next = null`这一行）：
+
+参考题解实现如下：
+
+```java
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null, cur = head, p;
+
+        while (cur != null) {
+            p = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = p;
+        }
+
+        return pre;
+    }
+}
+```
