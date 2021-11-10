@@ -1,0 +1,102 @@
+---
+tags:
+  - 数组
+  - 回溯
+  - 剑指offer专项版
+id: leetcode_OfferII083
+title: 🟡 剑指 Offer II 083. 没有重复元素集合的全排列
+ques_id: OfferII083
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/VvJkup/
+online_name: 没有重复元素集合的全排列
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/VvJkup/)
+
+:::
+
+## 题解1 懒人做法
+
+每次从数组提一个数出来，剩下的数做全排列，把这个数拼到前面，就得到目前数组的全排列了。
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function(nums) {
+    if (nums.length === 1) {
+        return [nums];
+    }
+
+    const ans = [];
+
+    for (let i=0; i<nums.length; i+=1) {
+        const subNums = [...nums.slice(0, i), ...nums.slice(i+1)];
+        const subAns = permute(subNums);
+        subAns.forEach(sub => {
+            ans.push([nums[i], ...sub]);
+        })
+    }
+
+    return ans;
+};
+```
+
+也不是不行，就是很慢。
+
+## 题解2: 回溯法
+
+只对一个副本处理，题解1的“提取出来”改成对这个数组两个数的位置替换。
+
+```java
+class Solution {
+    List<List<Integer>> res;
+    Integer n;
+
+    private void bfs(int curPos, List<Integer> ans) {
+        if (curPos == n-1) {
+            res.add(new ArrayList<Integer>(ans));
+            return;
+        }
+
+        for (int i=curPos; i<n; i+=1) {
+            Collections.swap(ans, i, curPos);
+            bfs(curPos+1, ans);
+            Collections.swap(ans, i, curPos);
+        }
+    }
+
+    public List<List<Integer>> permute(int[] nums) {
+        res = new ArrayList<>();
+        n = nums.length;
+
+        var ans = new ArrayList<Integer>();
+
+        for (var n :nums) {
+            ans.add(n);
+        }
+
+        bfs(0, ans);
+
+        return res;
+    }
+}
+```
