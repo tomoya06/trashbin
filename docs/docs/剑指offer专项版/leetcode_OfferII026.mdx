@@ -1,0 +1,94 @@
+---
+tags:
+  - 栈
+  - 递归
+  - 链表
+  - 双指针
+  - 剑指offer专项版
+id: leetcode_OfferII026
+title: 🟡 剑指 Offer II 026. 重排链表
+ques_id: OfferII026
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/LGjMqU/
+online_name: 重排链表
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/LGjMqU/)
+
+:::
+
+## 题解1
+
+用两步法找到链表中点，把后半段反转，然后逐个插入到前半段即可。
+
+注意边界情况。（这次竟然能一次写对也是很离谱）
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public void reorderList(ListNode head) {
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        ListNode p = head, q = head;
+        while (q != null) {
+            q = q.next;
+            if (q != null) {
+                q = q.next;
+                p = p.next;
+            }
+        }
+        // 从p开始反转
+
+
+        ListNode mid = p.next, nxt;
+        q = null;
+        p.next = null;
+        p = mid;
+
+        while (p != null) {
+            nxt = p.next;
+            p.next = q;
+            q = p;
+            p = nxt;
+        }
+
+        // q 是后半段头
+        p = head;
+        while (q != null) {
+            nxt = p.next;
+            p.next = q;
+            q = q.next;
+            p.next.next = nxt;
+            p = nxt;
+        }
+    }
+}
+```
