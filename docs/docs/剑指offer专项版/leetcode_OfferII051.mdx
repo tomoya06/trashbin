@@ -36,5 +36,88 @@ export const Highlight = ({children, color}) => (
 
 ## 题解1
 
+有点坑爹。思路跟官方题解是差不多的，但我的写法就是超时了。
+
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int maxVal;
+
+    // 只返回[a]，a表示从这个点往子节点的最大值；b表示穿过这个点的最大值
+    private int dfs(TreeNode node) {
+        int leftRes = 0, rightRes = 0, myRes = node.val, throughRes = node.val;
+        
+        if (node.left != null) {
+            leftRes = dfs(node.left);
+        }
+        if (node.right != null) {
+            rightRes = dfs(node.right);
+        }
+
+        myRes += Math.max(Math.max(leftRes, rightRes), 0);
+        throughRes += Math.max(leftRes + rightRes, 0);
+
+        maxVal = Math.max(Math.max(myRes, throughRes), maxVal);
+
+        return myRes;
+    }
+
+    public int maxPathSum(TreeNode root) {
+        maxVal = Integer.MIN_VALUE;
+
+        dfs(root);
+
+        return maxVal;
+    }
+}
+
 ```
+
+官方题解是这样：
+
+```java
+class Solution {
+    int maxSum = Integer.MIN_VALUE;
+
+    public int maxPathSum(TreeNode root) {
+        maxGain(root);
+        return maxSum;
+    }
+
+    public int maxGain(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        
+        // 递归计算左右子节点的最大贡献值
+        // 只有在最大贡献值大于 0 时，才会选取对应子节点
+        int leftGain = Math.max(maxGain(node.left), 0);
+        int rightGain = Math.max(maxGain(node.right), 0);
+
+        // 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值
+        int priceNewpath = node.val + leftGain + rightGain;
+
+        // 更新答案
+        maxSum = Math.max(maxSum, priceNewpath);
+
+        // 返回节点的最大贡献值
+        return node.val + Math.max(leftGain, rightGain);
+    }
+}
+```
+
+这不是一毛一样吗！

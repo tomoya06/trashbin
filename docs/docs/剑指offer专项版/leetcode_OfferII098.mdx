@@ -1,0 +1,54 @@
+---
+tags:
+  - 数学
+  - 动态规划
+  - 组合数学
+  - 剑指offer专项版
+id: leetcode_OfferII098
+title: 🟡 剑指 Offer II 098. 路径的数目
+ques_id: OfferII098
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/2AoeFn/
+online_name: 路径的数目
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/2AoeFn/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public int uniquePaths(int m, int n) {
+        int[] res = new int[n];
+        for (int i=0; i<n; i++) {
+          res[i] = 1;
+        }
+        for (int i=1; i<m; i++) {
+          for (int j=1; j<n; j++) {
+            res[j] += res[j-1];
+          }
+        }
+
+        return res[n-1];
+    }
+}
+```
