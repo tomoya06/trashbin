@@ -1,0 +1,63 @@
+---
+tags:
+  - 数组
+  - 哈希表
+  - 前缀和
+  - 剑指offer专项版
+id: leetcode_OfferII011
+title: 🟡 剑指 Offer II 011. 0 和 1 个数相同的子数组
+ques_id: OfferII011
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/A1NYOS/
+online_name: 0 和 1 个数相同的子数组
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/A1NYOS/)
+
+:::
+
+## 题解1
+
+第一反应就是用前缀和数组，但官方题解再提供了一个更加精妙的思路，就是把0当做-1。
+
+这样有两个好处，一是题目就变成了“计算和为0的最大子数组长度”；二是只需要关注每种前缀和第一次出现的位置即可，只要一次遍历就够了。
+
+```java
+class Solution {
+    public int findMaxLength(int[] nums) {
+        var preSumPos = new HashMap<Integer, Integer>();
+        int n = nums.length;
+        int curSum = 0;
+        int res = 0;
+        preSumPos.put(0, -1);
+
+        for (int i=0; i<n; i++) {
+            curSum += nums[i] == 1 ? 1 : -1;
+            if (preSumPos.containsKey(curSum)) {
+                res = Math.max(res, i-preSumPos.get(curSum));
+            } else {
+                preSumPos.put(curSum, i);
+            }
+        }
+
+        return res;
+    }
+}
+```

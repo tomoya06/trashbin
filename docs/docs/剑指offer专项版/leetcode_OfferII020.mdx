@@ -1,0 +1,78 @@
+---
+tags:
+  - 字符串
+  - 动态规划
+  - 剑指offer专项版
+id: leetcode_OfferII020
+title: 🟡 剑指 Offer II 020. 回文子字符串的个数
+ques_id: OfferII020
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/a7VOhD/
+online_name: 回文子字符串的个数
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/a7VOhD/)
+
+:::
+
+## 题解1
+
+遍历回文中心，每个中心往外扩展，判断回文数量。
+
+为了区分奇数回文中心和偶数中心的问题，偷瞄题解有这么个表可以参考：
+
+以一个长度为3的字符串为例，遍历回文中心的两个字符idx如下：
+
+```txt
+编号    mid-left-index    mid-right-index
+0       0                 0
+1       0                 1
+2       1                 1
+3       1                 2
+4       2                 2
+```
+
+
+```java
+class Solution {
+    public int countSubstrings(String s) {
+        int ans = 0, n = s.length(), ml, mr;
+        for (int i=0; i<2*n-1; i+=1) {
+            ml = i/2;
+            mr = (i+1)/2;
+            while (ml >= 0 && mr < n && s.charAt(ml) == s.charAt(mr)) {
+                ml -= 1;
+                mr += 1;
+                ans += 1;
+            }
+        }
+
+        return ans;
+    }
+}
+```
+
+## 题解2
+
+有个Manacher算法，声称可以以O(n)的时间复杂度解决最长回文问题，也可以用来解决这个回文数量问题。
+
+但第一遍看了算法解析没看懂。下次有机会再来。
+
+<!-- TODO: 算法没看懂 -->
