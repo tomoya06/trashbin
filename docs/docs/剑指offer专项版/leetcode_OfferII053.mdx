@@ -1,0 +1,120 @@
+---
+tags:
+  - 树
+  - 深度优先搜索
+  - 二叉搜索树
+  - 二叉树
+  - 剑指offer专项版
+id: leetcode_OfferII053
+title: 🟡 剑指 Offer II 053. 二叉搜索树中的中序后继
+ques_id: OfferII053
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/P5rCT8/
+online_name: 二叉搜索树中的中序后继
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/P5rCT8/)
+
+:::
+
+## 题解1
+
+第一反应，就中序遍历，遇到p节点提前记录一下
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    boolean isFounded = false;
+    TreeNode ans = null;
+    TreeNode theP = null;
+
+    private void dfs(TreeNode cur) {
+        if (cur == null) {
+            return;
+        }
+        
+        dfs(cur.left);
+
+        if (isFounded && ans == null) {
+            ans = cur;
+            return;
+        }
+
+        if (cur == theP) {
+            isFounded = true;
+        }
+
+        dfs(cur.right);
+    }
+
+    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+        theP = p;
+        dfs(root);
+        return ans;
+    }
+}
+```
+
+# 题解2
+
+参考[这个题解](https://leetcode-cn.com/problems/P5rCT8/solution/shi-jian-fu-za-du-wei-ceng-gao-de-jie-fa-fheg/)。思路如下：
+
+1. 若当前节点小于目标节点，则直接往右遍历
+2. 若当前节点大于目标节点，则说明当前节点可能是目标节点的后继，但当前节点的左子树可能还有比目标大、但比当前节点小的节点，所以：
+  1. 先把当前节点记为结果
+  2. 往左遍历
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+        TreeNode cur = root;
+        TreeNode ans = null;
+
+        while (cur != null) {
+            if (cur.val > p.val) {
+                ans = cur;
+                cur = cur.left;
+            } else {
+                cur = cur.right;
+            }
+        }
+
+        return ans;
+    }
+}
+```
+

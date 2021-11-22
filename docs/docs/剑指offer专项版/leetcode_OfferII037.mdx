@@ -1,0 +1,79 @@
+---
+tags:
+  - 栈
+  - 数组
+  - 剑指offer专项版
+id: leetcode_OfferII037
+title: 🟡 剑指 Offer II 037. 小行星碰撞
+ques_id: OfferII037
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/XagZNi/
+online_name: 小行星碰撞
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/XagZNi/)
+
+:::
+
+## 题解1
+
+用栈来搞。只要重点关注栈顶为正且入栈数为负的情况即可。其他情况都不会碰。
+
+```java
+class Solution {
+    public int[] asteroidCollision(int[] asteroids) {
+        var ans = new LinkedList<Integer>();
+        for (int ast : asteroids) {
+            if (ans.isEmpty()) {
+                ans.add(ast);
+                continue;
+            }
+
+            var allowIn = true;
+            while (!ans.isEmpty() && ans.getLast() > 0 && ast < 0) {
+                var last = ans.getLast();
+                if (last + ast > 0) {
+                    allowIn = false;
+                    break;
+                }
+                if (last + ast == 0) {
+                    ans.removeLast();
+                    allowIn = false;
+                    break;
+                }
+                if (last + ast < 0) {
+                    ans.removeLast();
+                }
+            }
+            if (allowIn) {
+                ans.add(ast);
+            }
+        }
+
+        int n = ans.size();
+
+        var res = new int[n];
+        for (int i=0; i<n; i++) {
+            res[i] = ans.get(i);
+        }
+        return res;
+    }
+}
+```
