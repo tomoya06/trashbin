@@ -1,0 +1,70 @@
+---
+tags:
+  - 链表
+  - 双指针
+  - 剑指offer专项版
+id: leetcode_OfferII021
+title: 🟡 剑指 Offer II 021. 删除链表的倒数第 n 个结点
+ques_id: OfferII021
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/SLwz0R/
+online_name: 删除链表的倒数第 n 个结点
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/SLwz0R/)
+
+:::
+
+## 题解1
+
+注意边界情况
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode pre = head;
+        ListNode mock = new ListNode();
+        mock.next = head;
+        for (int i=0; pre != null && i<n; i+=1) {
+            pre = pre.next;
+        }
+        ListNode cur = mock;
+        while (pre != null) {
+            pre = pre.next;
+            cur = cur.next;
+        }
+        ListNode ans = cur.next;
+        cur.next = ans.next;
+        ans.next = null;
+        
+        return mock.next;
+    }
+}
+```
