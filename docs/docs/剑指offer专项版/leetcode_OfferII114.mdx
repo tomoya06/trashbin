@@ -1,0 +1,108 @@
+---
+tags:
+  - 深度优先搜索
+  - 广度优先搜索
+  - 图
+  - 拓扑排序
+  - 数组
+  - 字符串
+  - 剑指offer专项版
+id: leetcode_OfferII114
+title: 🔴 剑指 Offer II 114. 外星文字典
+ques_id: OfferII114
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/Jf1JuT/
+online_name: 外星文字典
+level: h
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ff375f">困难</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/Jf1JuT/)
+
+:::
+
+## 题解1
+
+参考[题解](https://leetcode-cn.com/problems/Jf1JuT/solution/tu-bfstuo-bu-pai-xu-suan-fa-by-sloanchen-08qb/)。
+
+整体分为两个步骤，1是建立拓扑图，2是拓扑排序。拓扑排序使用BFS+入度表实现，可以参考剑指offer专项版113题。
+
+建立拓扑图需要注意：
+1. 只需要关注相邻两个单词第一个不相同的字母即可，处理完第一个不同字母之后即可继续下一组单词
+2. 给的字典可能就是错的，例如`abc ab`是不应该出现的
+
+这道题难点主要在于需要自己建立拓扑图。
+
+```java
+class Solution {
+    public String alienOrder(String[] words) {
+        Map<Character, List<Character>> routes = new HashMap<>();
+        int[] inDegrees = new int[26];
+
+        for (String word : words) {
+            for (int i=0; i<word.length(); i+=1) {
+                routes.putIfAbsent(word.charAt(i), new ArrayList<>());
+            }
+        }
+
+        for (int i=1; i<words.length; i+=1) {
+            String s1 = words[i-1], s2 = words[i];
+            int n1 = s1.length(), n2 = s2.length();
+            if (n1 > n2 && s1.startsWith(s2)) {
+                return "";
+            }
+
+            for (int j=0; j<Math.min(n1, n2); j+=1) {
+                char c1 = s1.charAt(j), c2 = s2.charAt(j);
+                if (c1 != c2) {
+                    routes.get(c1).add(c2);
+                    inDegrees[c2-'a'] += 1;
+                    break;
+                }
+            }
+        }
+
+        Queue<Character> queue = new LinkedList<>();
+        int totalSize = routes.size();
+        StringBuilder sb = new StringBuilder();
+
+        for (char key : routes.keySet()) {
+            if (inDegrees[key-'a'] == 0) {
+                queue.offer(key);
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            char left = queue.poll();
+            sb.append(left);
+            
+            for (char right : routes.get(left)) {
+                if (--inDegrees[right-'a'] == 0) {
+                    queue.offer(right);
+                }
+            }
+        }
+
+        if (sb.length() == totalSize) {
+            return sb.toString();
+        }
+
+        return "";
+    }
+}
+```
