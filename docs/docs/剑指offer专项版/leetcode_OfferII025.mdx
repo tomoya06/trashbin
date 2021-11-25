@@ -1,0 +1,91 @@
+---
+tags:
+  - 栈
+  - 链表
+  - 数学
+  - 剑指offer专项版
+id: leetcode_OfferII025
+title: 🟡 剑指 Offer II 025. 链表中的两数相加
+ques_id: OfferII025
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/lMSNwu/
+online_name: 链表中的两数相加
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/lMSNwu/)
+
+:::
+
+## 题解1
+
+主要是工程问题。用栈来存所有数字，只需遍历两次即可得到结果。
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        Deque<Integer> s1 = new LinkedList<>();
+        Deque<Integer> s2 = new LinkedList<>();
+
+        while (l1 != null) {
+            s1.add(l1.val);
+            l1 = l1.next;
+        }
+
+        while (l2 != null) {
+            s2.add(l2.val);
+            l2 = l2.next;
+        }
+
+        int up = 0;
+        ListNode res = null;
+        
+        while (!s1.isEmpty() || !s2.isEmpty()) {
+            int cnt = up;
+            if (!s1.isEmpty()) {
+                cnt += s1.removeLast();
+            }
+            if (!s2.isEmpty()) {
+                cnt += s2.removeLast();
+            }
+
+            ListNode cur = new ListNode(cnt % 10, res);
+            res = cur;
+            up = cnt / 10;
+        }
+
+        if (up > 0) {
+            ListNode cur = new ListNode(up, res);
+            res = cur;
+        }
+
+        return res;
+    }
+}
+```
