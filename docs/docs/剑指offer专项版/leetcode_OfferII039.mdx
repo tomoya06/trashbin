@@ -1,0 +1,84 @@
+---
+tags:
+  - 栈
+  - 数组
+  - 单调栈
+  - 剑指offer专项版
+id: leetcode_OfferII039
+title: 🔴 剑指 Offer II 039. 直方图最大矩形面积
+ques_id: OfferII039
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/0ynMMM/
+online_name: 直方图最大矩形面积
+level: h
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ff375f">困难</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/0ynMMM/)
+
+:::
+
+## 题解1
+
+参考[官方题解](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/zhu-zhuang-tu-zhong-zui-da-de-ju-xing-by-leetcode-/)
+
+这道题是用单调栈没错，但在遍历构造单调栈的过程中，还一边在维护每个柱子的左右边界，而单调栈本身并不是边界的存储容器。
+
+先用暴力解法，一种思路是直接遍历左右边界，一种思路是遍历每个柱子、找到柱子的左右边界。单调栈便是对第二种思路的优化。
+
+首先找每个柱子的左边界，栈单调递增，底下只保留比当前柱子矮的前序柱子，说明当前柱子最多只能影响到这个前序柱子（不含）。
+
+右边界同理。
+
+```java
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+
+        LinkedList<Integer> stack = new LinkedList<>();
+
+        for (int i=0; i<n; i++) {
+            while (!stack.isEmpty() && heights[stack.getLast()] >= heights[i]) {
+                stack.removeLast();
+            }
+            left[i] = stack.isEmpty() ? -1 : stack.getLast();
+            stack.add(i);
+        }
+
+        stack.clear();
+
+        for (int i=n-1; i>=0; i--) {
+            while (!stack.isEmpty() && heights[stack.getLast()] >= heights[i]) {
+                stack.removeLast();
+            }
+            right[i] = stack.isEmpty() ? n : stack.getLast();
+            stack.add(i);
+        }
+
+        int res = -1;
+        for (int i=0; i<n; i++) {
+            res = Math.max(res, (right[i] - left[i] - 1) * heights[i]);
+        }
+
+        return res;
+    }
+}
+
+```
