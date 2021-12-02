@@ -1,0 +1,87 @@
+---
+tags:
+  - 树
+  - 深度优先搜索
+  - 二叉树
+  - 剑指offer专项版
+id: leetcode_OfferII049
+title: 🟡 剑指 Offer II 049. 从根节点到叶节点的路径数字之和
+ques_id: OfferII049
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/3Etpl5/
+online_name: 从根节点到叶节点的路径数字之和
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/3Etpl5/)
+
+:::
+
+## 题解1
+
+就遍历
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int res = 0;
+
+    private void dfs(int parent, TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        int nxtPrt = parent * 10 + node.val;
+
+        if (node.left == null && node.right == null) {
+            res += nxtPrt;
+            return;
+        }
+
+        if (node.left != null) {
+            dfs(nxtPrt, node.left);
+        }
+
+        if (node.right != null) {
+            dfs(nxtPrt, node.right);
+        }
+    }
+
+    public int sumNumbers(TreeNode root) {
+        dfs(0, root);
+
+        return res;
+    }
+}
+
+```

@@ -94,7 +94,8 @@ def parse_meta(ques_meta):
 
 
 def parse_ques_id(link: str):
-  return link.rsplit('/', 2)[1]
+  link = link[len('https://leetcode-cn.com/problems/'):]
+  return link.split('/')[0]
 
 
 def process_leetcode_online():

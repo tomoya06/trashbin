@@ -1,0 +1,145 @@
+---
+tags:
+  - 哈希表
+  - 链表
+  - 双指针
+  - 剑指offer专项版
+id: leetcode_OfferII023
+title: 🟢 剑指 Offer II 023. 两个链表的第一个重合节点
+ques_id: OfferII023
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/3u1WK4/
+online_name: 两个链表的第一个重合节点
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/3u1WK4/)
+
+:::
+
+记得还做过这道题- -。但还是先写出了惊天地泣鬼神复杂的代码
+
+## 题解1
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        ListNode curA = headA, curB = headB, tmp;
+        boolean isAShorter = false;
+
+        while (curA.next != null && curB.next != null) {
+            if (curA == curB) {
+                return curA;
+            }
+            curA = curA.next;
+            curB = curB.next;
+        }
+
+        if (curB.next == null) {
+            isAShorter = false;
+            tmp = curA;
+            curA = curB;
+            curB = tmp;
+        } else {
+            isAShorter = true;
+        }
+
+        int cnt = 0;
+        while (curB != curA && curB.next != null) {
+            cnt += 1;
+            curB = curB.next;
+        }
+
+        if (curB != curA) {
+            return null;
+        }
+
+        curA = headA;
+        curB = headB;
+
+        while (cnt > 0) {
+            if (!isAShorter) {
+                curA = curA.next;
+            } else {
+                curB = curB.next;
+            }
+
+            cnt -= 1;
+        }
+
+        while (curA != curB) {
+            curA = curA.next;
+            curB = curB.next;
+        }
+
+        return curA;
+    }
+}
+```
+
+## 题解2
+
+其实只要在一个头走完之后走另外一个头就好。走两个头肯定都能走相同的长度，如果有交点就在交点汇合了，没有的话就都在最后的null汇合了。
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        ListNode curA = headA, curB = headB;
+
+        while (curA != curB) {
+            curA = curA == null ? headB : curA.next;
+            curB = curB == null ? headA : curB.next;
+        }
+
+        return curA;
+    }
+}
+
+```
+
