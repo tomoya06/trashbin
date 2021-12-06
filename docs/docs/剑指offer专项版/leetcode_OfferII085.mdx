@@ -1,0 +1,69 @@
+---
+tags:
+  - 字符串
+  - 动态规划
+  - 回溯
+  - 剑指offer专项版
+id: leetcode_OfferII085
+title: 🟡 剑指 Offer II 085. 生成匹配的括号
+ques_id: OfferII085
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/IDBivT/
+online_name: 生成匹配的括号
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/IDBivT/)
+
+:::
+
+## 题解1
+
+还是偷瞄了一下。官方题解很吉尔复杂。参考了评论区里[一条解法](https://leetcode-cn.com/problems/generate-parentheses/solution/gua-hao-sheng-cheng-by-leetcode-solution/540232)，时间复杂度O(n)。
+
+匹配的括号其实只要求从左到右不会出现右括号数量多于左括号即可。那就一个一个拼就好了。
+
+```java
+class Solution {
+    List<String> res;
+
+    private void dfs(String ans, int left, int right) {
+        if (left == 0 && right == 0) {
+            res.add(ans);
+            return;
+        }
+
+        if (left == right) {
+            dfs(ans + '(', left-1, right);
+        } else {
+            if (left > 0) {
+                dfs(ans + '(', left-1, right);
+            }
+            dfs(ans + ')', left, right-1);
+        }
+    }
+
+    public List<String> generateParenthesis(int n) {
+        res = new ArrayList<>();
+        dfs("", n, n);
+        return res;
+    }
+}
+
+```
