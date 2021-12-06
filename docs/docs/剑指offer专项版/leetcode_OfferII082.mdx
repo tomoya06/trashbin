@@ -1,0 +1,93 @@
+---
+tags:
+  - 数组
+  - 回溯
+  - 剑指offer专项版
+id: leetcode_OfferII082
+title: 🟡 剑指 Offer II 082. 含有重复元素集合的组合
+ques_id: OfferII082
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/4sjJUc/
+online_name: 含有重复元素集合的组合
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/4sjJUc/)
+
+:::
+
+## 题解1
+
+组合好做，先把出现的数字整理成map，方便读取。
+
+关键在于去重。这里定一个原则即可，每次往结果加入的数必须不小于他前面的数。
+
+```java
+class Solution {
+    private List<List<Integer>> res;
+    private Deque<Integer> ans;
+    private Map<Integer, Integer> candMap;
+
+    private void dfs(int nextTarget) {
+        if (nextTarget == 0) {
+            res.add(new ArrayList<>(ans));
+            return;
+        }
+        if (nextTarget < 0) {
+            return;
+        }
+        for (int key : candMap.keySet()) {
+            if (key > nextTarget) {
+                continue;
+            }
+
+            if (candMap.get(key) <= 0) {
+                continue;
+            }
+
+            if (ans.size() > 0 && key < ans.getLast()) {
+                continue;
+            }
+
+            candMap.put(key, candMap.get(key)-1);
+            ans.addLast(key);
+            dfs(nextTarget-key);
+            ans.removeLast();
+            candMap.put(key, candMap.get(key)+1);
+        }
+    }
+
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        res = new ArrayList<>();
+        ans = new LinkedList<>();
+        candMap = new HashMap<>();
+        for (int cand : candidates) {
+            if (candMap.containsKey(cand)) {
+                candMap.put(cand, candMap.get(cand) + 1);
+            } else {
+                candMap.put(cand, 1);
+            }
+        }
+
+        dfs(target);
+
+        return res;
+    }
+}
+```
