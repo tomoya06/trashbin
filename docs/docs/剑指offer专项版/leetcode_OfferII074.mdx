@@ -1,0 +1,66 @@
+---
+tags:
+  - 数组
+  - 排序
+  - 剑指offer专项版
+id: leetcode_OfferII074
+title: 🟡 剑指 Offer II 074. 合并区间
+ques_id: OfferII074
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/SsGoHC/
+online_name: 合并区间
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/SsGoHC/)
+
+:::
+
+## 题解1
+
+做过的题目，差点忘了怎么做。
+
+```java
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, (int[] a, int[] b) -> {
+            if (a[0] != b[0]) {
+                return a[0] - b[0];
+            }
+            return a[1] - b[1];
+        });
+
+        Deque<int[]> res = new LinkedList<>();
+
+        for (var inter : intervals) {
+            if (res.isEmpty()) {
+                res.add(inter);
+                continue;
+            }
+            if (inter[0] <= res.getLast()[1]) {
+                res.getLast()[1] = Math.max(res.getLast()[1], inter[1]);
+            } else {
+                res.add(inter);
+            }
+        }
+
+        return res.toArray(new int[res.size()][2]);
+    }
+}
+```
