@@ -1,0 +1,64 @@
+---
+tags:
+  - 数组
+  - 二分查找
+  - 剑指offer专项版
+id: leetcode_OfferII073
+title: 🟡 剑指 Offer II 073. 狒狒吃香蕉
+ques_id: OfferII073
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/nZZqjQ/
+online_name: 狒狒吃香蕉
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/nZZqjQ/)
+
+:::
+
+## 题解1
+
+想复杂了。直接二分法找最小速度即可。
+
+```java
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
+        int left = 1, right = 1_000_000_000, mid;
+
+        while (left < right) {
+            mid = (left + right) / 2;
+            if (isPossible(piles, mid, h)) {
+                right = mid;
+            } else {
+                left = mid+1;
+            }
+        }
+
+        return left;
+    }
+
+    private boolean isPossible(int[] piles, int speed, int h) {
+        int times = 0;
+        for (int pile : piles) {
+            times += (int)Math.ceil((double)pile/speed);
+        }
+        return times <= h;
+    }
+}
+```
