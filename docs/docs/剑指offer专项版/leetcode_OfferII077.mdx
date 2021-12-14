@@ -1,0 +1,132 @@
+---
+tags:
+  - 链表
+  - 双指针
+  - 分治
+  - 排序
+  - 归并排序
+  - 剑指offer专项版
+id: leetcode_OfferII077
+title: 🟡 剑指 Offer II 077. 链表排序
+ques_id: OfferII077
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/7WHec2/
+online_name: 链表排序
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等(我觉得是困难)</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/7WHec2/)
+
+:::
+
+## 题解1
+
+困难之处还是在于节点怎么断、怎么连。
+
+合并链表思路是二分法。二分法也有两种分治思路，一种是用递归，每次找到中点，把前后两段分别再排序&merge。
+
+一种是从前往后边走边merge，这样可以达到常数存储空间的要求，但是裁剪就绕了一点。
+
+下面是迫不得已抄的答案。关键在于，prev如何连接下一段的头？实际上是这次遍历不用管，把prev移到这次遍历的队尾即可，让下一次遍历接上。
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode sortList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode dummy = new ListNode(0, head);
+        ListNode prev, next, cur = head, h1, h2;
+
+        int k = 0;
+        while (cur != null) {
+            k += 1;
+            cur = cur.next;
+        }
+
+        for (int subLength = 1; subLength <= k; subLength *= 2) {
+            prev = dummy; cur = dummy.next;
+            while (cur != null) {
+                h1 = cur;
+
+                for (int i=1; i<subLength && cur.next != null; i+=1) {
+                    cur = cur.next;
+                }
+                h2 = cur.next;
+                cur.next = null;
+                cur = h2;
+
+                for (int i=1; i<subLength && cur != null && cur.next != null; i+=1) {
+                    cur = cur.next;
+                }
+                next = null;
+                if (cur != null) {
+                    next = cur.next;
+                    cur.next = null;
+                }
+                ListNode mergeHead = mergeList(h1, h2);
+                prev.next = mergeHead;
+                while (prev.next != null) {
+                    prev = prev.next;
+                }
+                cur = next;
+            }
+        }
+
+        return dummy.next;
+    }
+
+    public ListNode mergeList(ListNode h1, ListNode h2) {
+        ListNode dummy = new ListNode();
+        dummy.next = h1;
+        ListNode cur = dummy, p;
+        while (h1 != null && h2 != null) {
+            if (h1.val > h2.val) {
+                p = h2.next;
+                h2.next = null;
+                cur.next = h2;
+                h2 = p;
+            } else {
+                p = h1.next;
+                h1.next = null;
+                cur.next = h1;
+                h1 = p;
+            }
+            cur = cur.next;
+        }
+        if (h1 != null) {
+            cur.next = h1;
+        }
+        if (h2 != null) {
+            cur.next = h2;
+        }
+        return dummy.next;
+    }
+}
+```
