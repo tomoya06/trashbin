@@ -1,0 +1,93 @@
+---
+tags:
+  - 链表
+  - 分治
+  - 堆（优先队列）
+  - 归并排序
+  - 剑指offer专项版
+id: leetcode_OfferII078
+title: 🔴 剑指 Offer II 078. 合并排序链表
+ques_id: OfferII078
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/vvXgSW/
+online_name: 合并排序链表
+level: h
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ff375f">困难</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/vvXgSW/)
+
+:::
+
+## 题解1
+
+也不是很难的困难题，就把每个链表的头加入优先队列，然后每次取出出列一个、入列其next即可。
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+class ListNodeComparator implements Comparator<ListNode> {
+    @Override
+    public int compare(ListNode n1, ListNode n2) {
+        return n1.val - n2.val;
+    }
+}
+
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        int k = lists.length;
+
+        if (k == 0) {
+            return null;
+        }
+
+        Comparator<ListNode> cmp = new ListNodeComparator();
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(k, cmp);
+        ListNode header = new ListNode();
+        ListNode cur = header;
+
+        for (int i=0; i<k; i+=1) {
+            if (lists[i] != null) {
+                queue.add(lists[i]);
+            }
+        }
+        
+        while (queue.size() != 0) {
+            ListNode least = queue.remove();
+            ListNode leastNext = least.next;
+            if (leastNext != null) {
+                queue.add(leastNext);
+            }
+            least.next = null;
+            cur.next = least;
+            cur = cur.next;
+        }
+
+        return header.next;
+    }
+}
+```
