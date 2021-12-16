@@ -1,0 +1,98 @@
+---
+tags:
+  - 字典树
+  - 数组
+  - 哈希表
+  - 字符串
+  - 剑指offer专项版
+id: leetcode_OfferII065
+title: 🟡 剑指 Offer II 065. 最短的单词编码
+ques_id: OfferII065
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/iSwD2y/
+online_name: 最短的单词编码
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/iSwD2y/)
+
+:::
+
+
+这道题可以直接用消灭后缀的方法来做，另外注意到每个单词最长7位，所以直接枚举消除每个单词的7个后缀也是可以的。
+
+不过这里看到有一个更为先进的方法，字典树desu。
+
+## 题解1
+
+官方题解[在这里](https://leetcode-cn.com/problems/iSwD2y/solution/zui-duan-de-dan-ci-bian-ma-by-leetcode-s-qjxw/)。
+
+抄袭过程中有两个注意点：
+
+1. `endNodes` 是 `HashMap`，而不是`TrieNode[]`：如果有重复的相同单词，`HashMap`可以顺便解决去重的问题，但`array`不行，从而导致多个相同单词重复计算长度。
+2. `res` 到底是怎么计算的？还是从`endNodes`入手：
+    1. 怎么判断`endNodes`里哪些`node`是可用的？`node.cnt == 0`说明这个节点是叶子，可以用
+    2. 然后要怎么用？`endNodes`的`value`值表示插入这个`node`的单词`index`，找到对应的单词直接累加其长度即可
+
+```java
+class TrieNode {
+    int cnt;
+    TrieNode[] children;
+
+    public TrieNode() {
+        this.cnt = 0;
+        this.children = new TrieNode[26];
+    }
+
+    public TrieNode get(char c) {
+        if (this.children[c-'a'] == null) {
+            this.children[c-'a'] = new TrieNode();
+            this.cnt += 1;
+        }
+        return this.children[c-'a'];
+    }
+}
+
+class Solution {
+    public int minimumLengthEncoding(String[] words) {
+        int n = words.length;
+        HashMap<TrieNode, Integer> endNodes = new HashMap<>();
+        TrieNode root = new TrieNode();
+
+        for (int wi=0; wi<n; wi+=1) {
+            TrieNode cur = root;
+            String word = words[wi];
+            for (int i=word.length()-1; i>=0; i-=1) {
+                cur = cur.get(word.charAt(i));
+            }
+            endNodes.put(cur, wi);
+        }
+        
+        int res = 0;
+        for (TrieNode node: endNodes.keySet()) {
+            if (node.cnt == 0) {
+                res += words[endNodes.get(node)].length() + 1;
+            }
+        }
+
+        return res;
+    }
+}
+
+```
