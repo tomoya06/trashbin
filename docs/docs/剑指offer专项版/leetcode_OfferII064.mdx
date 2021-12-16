@@ -1,0 +1,150 @@
+---
+tags:
+  - 设计
+  - 字典树
+  - 哈希表
+  - 字符串
+  - 剑指offer专项版
+id: leetcode_OfferII064
+title: 🟡 剑指 Offer II 064. 神奇的字典
+ques_id: OfferII064
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/US1pGT/
+online_name: 神奇的字典
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/US1pGT/)
+
+:::
+
+## 题解1
+
+听信官方题解的做法，把每个单词拆分成所有的邻居，search时找下每个邻居在不在，在的话说明有戏。
+
+```java
+class MagicDictionary {
+
+    private HashSet<String> words;
+    private HashMap<String, Integer> neighs;
+
+    /** Initialize your data structure here. */
+    public MagicDictionary() {
+        this.words = new HashSet<>();
+        this.neighs = new HashMap<String, Integer>();
+    }
+
+    private String[] genNeighs(String word) {
+        int n = word.length();
+        String[] res = new String[n];
+        char[] chars = word.toCharArray();
+        for (int i=0; i<n; i+=1) {
+            char tmp = chars[i];
+            chars[i] = '*';
+            String nei = new String(chars);
+            chars[i] = tmp;
+            res[i] = nei;
+        }
+        return res;
+    }
+    
+    public void buildDict(String[] dictionary) {
+        for (String word: dictionary) {
+            this.words.add(word);
+
+            for (String nei: genNeighs(word)) {
+                this.neighs.put(nei, this.neighs.getOrDefault(nei, 0)+1);
+            }
+        }
+    }
+    
+    public boolean search(String searchWord) {
+        int n = searchWord.length();
+        for (String myNei: genNeighs(searchWord)) {
+            int res = this.neighs.getOrDefault(myNei, 0);
+            if (res > 1 || res == 1 && !this.words.contains(searchWord)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+/**
+ * Your MagicDictionary object will be instantiated and called as such:
+ * MagicDictionary obj = new MagicDictionary();
+ * obj.buildDict(dictionary);
+ * boolean param_2 = obj.search(searchWord);
+ */
+```
+
+# 题解2
+
+暴力法是你永远的港湾
+
+```java
+class MagicDictionary {
+    private HashSet<String> words;
+
+    /** Initialize your data structure here. */
+    public MagicDictionary() {
+        this.words = new HashSet<>();
+    }
+    
+    public void buildDict(String[] dictionary) {
+        for (String word: dictionary) {
+            this.words.add(word);
+        }
+    }
+
+    private int diffs(String w1, String w2) {
+        int n1 = w1.length(), n2 = w2.length();
+        if (n1 != n2) {
+            return 2;
+        }
+        int cnt = 0;
+        for (int i=0; i<n1; i+=1) {
+            if (w1.charAt(i) != w2.charAt(i)) {
+                cnt += 1;
+                if (cnt > 1) {
+                    return 2;
+                }
+            }
+        }
+        return cnt;
+    }
+    
+    public boolean search(String searchWord) {
+        for (String word: this.words) {
+            if (diffs(searchWord, word) == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+/**
+ * Your MagicDictionary object will be instantiated and called as such:
+ * MagicDictionary obj = new MagicDictionary();
+ * obj.buildDict(dictionary);
+ * boolean param_2 = obj.search(searchWord);
+ */
+```

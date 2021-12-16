@@ -1,0 +1,65 @@
+---
+tags:
+  - 数组
+  - 回溯
+  - 剑指offer专项版
+id: leetcode_OfferII080
+title: 🟡 剑指 Offer II 080. 含有 k 个元素的组合
+ques_id: OfferII080
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/uUsW3B/
+online_name: 含有 k 个元素的组合
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/uUsW3B/)
+
+:::
+
+## 题解1
+
+dfs，从左到右，每个位置考虑要或者不要当前的数字，加到tmp里，tmp满员则加入res
+
+```java
+class Solution {
+    private List<Integer> tmp = new ArrayList<>();
+    private List<List<Integer>> res = new ArrayList<>();
+
+    public List<List<Integer>> combine(int n, int k) {
+        dfs(1, n, k);
+        return res;
+    }
+
+    private void dfs(int cur, int n, int k) {
+        if (tmp.size() + (n-cur+1) < k) {
+            return;
+        }
+
+        if (tmp.size() == k) {
+            res.add(new ArrayList<>(tmp));
+            return;
+        }
+
+        tmp.add(cur);
+        dfs(cur+1, n, k);
+        tmp.remove(tmp.size()-1);
+        dfs(cur+1, n, k);
+    }
+}
+```
