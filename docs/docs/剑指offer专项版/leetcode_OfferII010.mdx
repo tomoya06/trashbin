@@ -1,0 +1,101 @@
+---
+tags:
+  - 数组
+  - 哈希表
+  - 前缀和
+  - 剑指offer专项版
+id: leetcode_OfferII010
+title: 🟡 剑指 Offer II 010. 和为 k 的子数组
+ques_id: OfferII010
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/QTMn0o/
+online_name: 和为 k 的子数组
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/QTMn0o/)
+
+:::
+
+## 题解1
+
+思路是前缀和+哈希表
+
+愚昧的实现：
+
+```java
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int n = nums.length;
+        Map<Integer, List<Integer>> sumMap = new HashMap<>();
+        int[] sums = new int[n+1];
+        int sum = 0;
+        for (int i=0; i<n; i+=1) {
+            sum += nums[i];
+
+            sums[i+1] = sum;
+            if (!sumMap.containsKey(sum)) {
+                sumMap.put(sum, new ArrayList<>());
+            }
+            sumMap.get(sum).add(i);
+        }
+
+        int cnt = 0;
+
+        for (int i=0; i<n; i+=1) {
+            int delta = k + sums[i];
+
+            if (!sumMap.containsKey(delta)) {
+                continue;
+            }
+            for (int idx : sumMap.get(delta)) {
+                if (idx >= i) {
+                    cnt += 1;
+                }
+            }
+        }
+
+        return cnt;
+    }
+}
+```
+
+机智的实现：
+
+```java
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        Map<Integer, Integer> pre = new HashMap<>();
+        int sum = 0, delta, res = 0;
+        pre.put(0, 1);
+
+        for (int n: nums) {
+            sum += n;
+
+            delta = sum - k;
+            
+            res += pre.getOrDefault(delta, 0);
+
+            pre.put(sum, pre.getOrDefault(sum, 0)+1);
+        }
+
+        return res;
+    }
+}
+```
