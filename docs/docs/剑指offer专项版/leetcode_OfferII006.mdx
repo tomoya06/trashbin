@@ -1,0 +1,98 @@
+---
+tags:
+  - 数组
+  - 双指针
+  - 二分查找
+  - 剑指offer专项版
+id: leetcode_OfferII006
+title: 🟢 剑指 Offer II 006. 排序数组中两个数字之和
+ques_id: OfferII006
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/kLl5u1/
+online_name: 排序数组中两个数字之和
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/kLl5u1/)
+
+:::
+
+## 题解1
+
+二分法。时间复杂度 ``O(nlogn)``
+
+```java
+class Solution {
+    private int findPair(int[] numbers, int target, int start) {
+        int left = start, right = numbers.length, mid;
+        
+        while (left < right) {
+            mid = (left + right) / 2;
+            if (numbers[mid] == target) {
+                return mid;
+            }
+            if (numbers[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        return -1;
+    }
+
+    public int[] twoSum(int[] numbers, int target) {
+        for (int i=0; i<numbers.length; i+=1) {
+            int pair = findPair(numbers, target-numbers[i], i+1);
+            if (pair > i) {
+                return new int[]{i, pair};
+            }
+        }
+
+        return new int[2];
+    }
+}
+```
+
+## 题解2
+
+双指针法。时间复杂度 ``O(n)``
+
+```java
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int left = 0, right = numbers.length-1, sum;
+        while (left < right) {
+            sum = numbers[left] + numbers[right] - target;
+
+            if (sum == 0) {
+                return new int[]{left, right};
+            }
+
+            if (sum > 0) {
+                right -= 1;
+            } else {
+                left += 1;
+            }
+        }
+
+        return new int[2];
+    }
+}
+```
