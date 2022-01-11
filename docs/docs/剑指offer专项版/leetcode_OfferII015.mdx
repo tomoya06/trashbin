@@ -1,0 +1,77 @@
+---
+tags:
+  - 哈希表
+  - 字符串
+  - 滑动窗口
+  - 剑指offer专项版
+id: leetcode_OfferII015
+title: 🟡 剑指 Offer II 015. 字符串中的所有变位词
+ques_id: OfferII015
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/VabMRr/
+online_name: 字符串中的所有变位词
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/VabMRr/)
+
+:::
+
+## 题解1
+
+思路是比较diff，用滑动窗口来记录窗口内单词的diff，移动窗口，维护diff，diff=0时说明找到了。
+
+从评论区找到一个变长窗口的实现方式，比官方题解简练，但稍微不那么好理解。
+
+窗口滑动的关键在于，
+1. 如果窗口内出现了p里不存在的字母，此时lo会前进
+2. 这样的话hi也会跟着上来，且窗口宽度不够时不会影响结果
+3. 机制1同时保证了每次消耗hi肯定是p里存在的字母，所以只要可以消耗、且窗口宽度足够了，那肯定就找到了一个结果
+
+太妙了，让我肯定想不出来，还是用官方题解的传统定长窗口就好了。
+
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        int[] cnt = new int[128];
+
+        for (char c : p.toCharArray()) {
+            cnt[c] += 1;
+        }
+
+        List<Integer> res = new ArrayList<>();
+
+        int lo=0, hi=0;
+
+        while (hi < s.length()) {
+            if (cnt[s.charAt(hi)] > 0) {
+                cnt[s.charAt(hi++)] -= 1;
+
+                if (hi-lo == p.length()) {
+                    res.add(lo);
+                }
+            } else {
+                cnt[s.charAt(lo++)] += 1;
+            }
+        }
+
+        return res;
+    }
+}
+```
