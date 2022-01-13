@@ -1,0 +1,83 @@
+---
+tags:
+  - 哈希表
+  - 字符串
+  - 滑动窗口
+  - 剑指offer专项版
+id: leetcode_OfferII017
+title: 🔴 剑指 Offer II 017. 含有所有字符的最短字符串
+ques_id: OfferII017
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/M1oyTv/
+online_name: 含有所有字符的最短字符串
+level: h
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ff375f">困难</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/M1oyTv/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public String minWindow(String s, String t) {
+        Map<Character, Integer> tMap = new HashMap<>(), sMap = new HashMap<>();
+        for (char c: t.toCharArray()) {
+            tMap.put(c, tMap.getOrDefault(c, 0)+1);
+        }
+
+        int lo=0, hi=0, diff=t.length();
+        String res = "";
+        char cur, loCur;
+        while (hi < s.length()) {
+            cur = s.charAt(hi);
+            if (!tMap.containsKey(cur)) {
+                hi += 1;
+                continue;
+            }
+
+            sMap.put(cur, sMap.getOrDefault(cur, 0)+1);
+            if (sMap.get(cur) <= tMap.get(cur)) {
+                diff -= 1;
+            }
+
+            if (diff == 0) {
+                loCur = s.charAt(lo);
+                while (!tMap.containsKey(loCur) || sMap.get(loCur) > tMap.get(loCur)) {
+                    if (tMap.containsKey(loCur)) {
+                        sMap.put(loCur, sMap.get(loCur)-1);
+                    }
+
+                    lo += 1;
+                    loCur = s.charAt(lo);
+                }
+                
+                if (res.length() == 0 || hi-lo+1 < res.length()) {
+                    res = s.substring(lo, hi+1);
+                }
+            }
+            
+            hi += 1;
+        }
+
+        return res;
+    }
+}
+```

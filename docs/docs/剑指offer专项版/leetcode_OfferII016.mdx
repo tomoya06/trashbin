@@ -1,0 +1,64 @@
+---
+tags:
+  - 哈希表
+  - 字符串
+  - 滑动窗口
+  - 剑指offer专项版
+id: leetcode_OfferII016
+title: 🟡 剑指 Offer II 016. 不含重复字符的最长子字符串
+ques_id: OfferII016
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/wtcaE1/
+online_name: 不含重复字符的最长子字符串
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/wtcaE1/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        Set<Character> visited = new HashSet<>();
+
+        int lo=0, hi=0, res=0;
+        char cur;
+
+        while (hi < s.length()) {
+            cur = s.charAt(hi);
+            if (visited.contains(cur)) {
+                while (s.charAt(lo) != cur && lo < hi) {
+                    visited.remove(s.charAt(lo));
+                    lo += 1;
+                }
+                lo += 1;
+            } else {
+                res = Math.max(res, hi-lo+1);
+            }
+            visited.add(cur);
+            hi += 1;
+        }
+
+        return res;
+    }
+}
+```
