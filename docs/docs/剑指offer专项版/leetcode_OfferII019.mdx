@@ -1,0 +1,62 @@
+---
+tags:
+  - 贪心
+  - 双指针
+  - 字符串
+  - 剑指offer专项版
+id: leetcode_OfferII019
+title: 🟢 剑指 Offer II 019. 最多删除一个字符得到回文
+ques_id: OfferII019
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/RQku0D/
+online_name: 最多删除一个字符得到回文
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/RQku0D/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    private boolean isPalindrome(String s, int lo, int hi) {
+        while (lo < hi && s.charAt(lo) == s.charAt(hi)) {
+            lo += 1;
+            hi -= 1;
+        }
+        return lo >= hi;
+    }
+
+    public boolean validPalindrome(String s) {
+        int lo=0, hi=s.length()-1;
+        while (lo < hi && s.charAt(lo) == s.charAt(hi)) {
+            lo += 1;
+            hi -= 1;
+        }
+
+        if (lo >= hi) {
+            return true;
+        }
+
+        return isPalindrome(s, lo, hi-1) || isPalindrome(s, lo+1, hi);
+    }
+}
+```

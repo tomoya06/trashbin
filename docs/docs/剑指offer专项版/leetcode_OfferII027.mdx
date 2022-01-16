@@ -1,0 +1,131 @@
+---
+tags:
+  - 栈
+  - 递归
+  - 链表
+  - 双指针
+  - 剑指offer专项版
+id: leetcode_OfferII027
+title: 🟢 剑指 Offer II 027. 回文链表
+ques_id: OfferII027
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/aMhZSa/
+online_name: 回文链表
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/aMhZSa/)
+
+:::
+
+## 题解1
+
+暴力的解法，把链表转成数组，用熟悉的方法做
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public boolean isPalindrome2(ListNode head) {
+        List<Integer> li = new ArrayList<>();
+        while (head != null) {
+            li.add(head.val);
+            head = head.next;
+        }
+        int lo=0, hi=li.size()-1;
+        while (lo < hi && li.get(lo) == li.get(hi)) {
+            lo += 1;
+            hi -= 1;
+        }
+        return lo >= hi;
+    }
+}
+```
+
+# 题解2
+
+把后半段列表反转，然后对比前后两半
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    private ListNode reverseList(ListNode node) {
+        ListNode cur=node, pre=null, nxt;
+        while (cur != null) {
+            nxt = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = nxt;
+        }
+        return pre;
+    }
+
+    public boolean isPalindrome(ListNode node) {
+        if (node == null) {
+            return true;
+        }
+        ListNode p=node, q=node, leftend, midhead;
+        while (q.next != null) {
+            q = q.next;
+            if (q.next != null) {
+                p = p.next;
+                q = q.next;
+            }
+        }
+        midhead = p.next;
+        leftend = p;
+        leftend.next = null;
+        midhead = reverseList(midhead);
+        
+        p=node;
+        q=midhead;
+
+        while (q != null && p.val == q.val) {
+            p = p.next;
+            q = q.next;
+        }
+
+        if (q != null) {
+            return false;
+        }
+
+        midhead = reverseList(midhead);
+        leftend.next = midhead;
+
+        return true;
+    }
+}
+```
