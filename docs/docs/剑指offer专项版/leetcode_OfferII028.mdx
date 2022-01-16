@@ -1,0 +1,80 @@
+---
+tags:
+  - 深度优先搜索
+  - 链表
+  - 双向链表
+  - 剑指offer专项版
+id: leetcode_OfferII028
+title: 🟡 剑指 Offer II 028. 展平多级双向链表
+ques_id: OfferII028
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/Qv1Da2/
+online_name: 展平多级双向链表
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/Qv1Da2/)
+
+:::
+
+## 题解1
+
+题目不配图的话说得不明不白，其实就是把node.child塞到node.next里面，原本的node.next接到后面，递归实现。
+
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node prev;
+    public Node next;
+    public Node child;
+};
+*/
+
+class Solution {
+    public Node[] merge(Node head) {
+        Node cur = head, curNxt, curPre=null;
+        while (cur != null) {
+            curNxt = cur.next;
+            if (cur.child != null) {
+                Node[] childRes = merge(cur.child);
+                cur.next = childRes[0];
+                childRes[0].prev = cur;
+                childRes[1].next = curNxt;
+                if (curNxt != null) {
+                    curNxt.prev = childRes[1];
+                }
+                cur.child = null;
+                cur = childRes[1]; // 注意这里，这样才能保证child只有1位时还能连得上
+            }
+            curPre = cur;
+            cur = cur.next; // 以及这里，配合上面使用
+        }
+
+        return new Node[]{head, curPre};
+    }
+
+    public Node flatten(Node head) {
+        Node[] res = merge(head);
+        return res[0];
+    }
+}
+```
