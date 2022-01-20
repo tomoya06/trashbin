@@ -1,0 +1,69 @@
+---
+tags:
+  - 栈
+  - 数组
+  - 数学
+  - 剑指offer专项版
+id: leetcode_OfferII036
+title: 🟡 剑指 Offer II 036. 后缀表达式
+ques_id: OfferII036
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/8Zf90G/
+online_name: 后缀表达式
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/8Zf90G/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public int evalRPN(String[] tokens) {
+        Deque<Integer> stack = new LinkedList<>();
+        int a, b;
+
+        for (String cur : tokens) {
+            if (cur.equals("+")) {
+                b = stack.pop();
+                a = stack.pop();
+                stack.push(a+b);
+            } else if (cur.equals("-")) {
+                b = stack.pop();
+                a = stack.pop();
+                stack.push(a-b);
+            } else if (cur.equals("*")) {
+                b = stack.pop();
+                a = stack.pop();
+                stack.push(a*b);
+            } else if (cur.equals("/")) {
+                b = stack.pop();
+                a = stack.pop();
+                stack.push((int)a/b);
+            } else {
+                stack.push(Integer.valueOf(cur));
+            }
+        }
+
+        return stack.pop();
+    }
+}
+```

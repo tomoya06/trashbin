@@ -1,0 +1,97 @@
+---
+tags:
+  - 设计
+  - 数组
+  - 哈希表
+  - 数学
+  - 随机化
+  - 剑指offer专项版
+id: leetcode_OfferII030
+title: 🟡 剑指 Offer II 030. 插入、删除和随机访问都是 O(1) 的容器
+ques_id: OfferII030
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/FortPu/
+online_name: 插入、删除和随机访问都是 O(1) 的容器
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/FortPu/)
+
+:::
+
+## 题解1
+
+java api 入 门 教 学
+
+
+```java
+class RandomizedSet {
+    private Map<Integer, Integer> indexes;
+    private List<Integer> queue;
+    private Random rand;
+
+    /** Initialize your data structure here. */
+    public RandomizedSet() {
+        this.indexes = new HashMap<>();
+        this.queue = new ArrayList<>();
+        this.rand = new Random();
+    }
+    
+    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
+    public boolean insert(int val) {
+        if (this.indexes.containsKey(val)) {
+            return false;
+        }
+        this.queue.add(val);
+        this.indexes.put(val, this.queue.size()-1);
+        return true;
+    }
+    
+    /** Removes a value from the set. Returns true if the set contained the specified element. */
+    public boolean remove(int val) {
+        int valIdx = this.indexes.getOrDefault(val, -1);
+        if (valIdx == -1) {
+            return false;
+        }
+        int queueEndIdx = this.queue.size()-1;
+
+        int lastElem = this.queue.get(queueEndIdx);
+        this.queue.set(valIdx, lastElem);
+        this.indexes.put(lastElem, valIdx);
+
+        this.indexes.remove(val);
+        this.queue.remove(queueEndIdx);
+        return true;
+    }
+    
+    /** Get a random element from the set. */
+    public int getRandom() {
+        int idx = this.rand.nextInt(this.queue.size());
+        return this.queue.get(idx);
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * RandomizedSet obj = new RandomizedSet();
+ * boolean param_1 = obj.insert(val);
+ * boolean param_2 = obj.remove(val);
+ * int param_3 = obj.getRandom();
+ */
+```

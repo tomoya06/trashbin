@@ -1,0 +1,68 @@
+---
+tags:
+  - 数组
+  - 数学
+  - 字符串
+  - 排序
+  - 剑指offer专项版
+id: leetcode_OfferII035
+title: 🟡 剑指 Offer II 035. 最小时间差
+ques_id: OfferII035
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/569nqc/
+online_name: 最小时间差
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/569nqc/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    private int timeDiff(String time2, String time1) {
+        String[] hm1 = time1.split(":");
+        String[] hm2 = time2.split(":");
+        int mn = Integer.parseInt(hm2[1]) - Integer.parseInt(hm1[1]);
+        int hr = Integer.parseInt(hm2[0]) - Integer.parseInt(hm1[0]);
+
+        if (mn < 0) {
+            mn += 60;
+            hr -= 1;
+        }
+
+        return hr * 60 + mn;
+    }
+
+    public int findMinDifference(List<String> timePoints) {
+        Collections.sort(timePoints);
+        int n = timePoints.size();
+        int cur;
+        int min = timeDiff("24:00", timePoints.get(n-1)) + timeDiff(timePoints.get(0), "00:00");
+        for (int i=0; i<n-1; i+=1) {
+            cur = timeDiff(timePoints.get(i+1), timePoints.get(i));
+            min = Math.min(min, cur);
+        }
+
+        return min;
+    }
+}
+```

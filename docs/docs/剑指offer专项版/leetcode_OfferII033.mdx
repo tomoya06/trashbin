@@ -1,0 +1,66 @@
+---
+tags:
+  - 哈希表
+  - 字符串
+  - 排序
+  - 剑指offer专项版
+id: leetcode_OfferII033
+title: 🟡 剑指 Offer II 033. 变位词组
+ques_id: OfferII033
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/sfvd7V/
+online_name: 变位词组
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/sfvd7V/)
+
+:::
+
+## 题解1
+
+实际上是工程题目，把每个单词的字符+出现数转成key值，就可以用哈希表来去重了
+
+```java
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> groups = new HashMap<>();
+
+        for (String cur : strs) {
+            int[] counter = new int[26];
+            for (char c : cur.toCharArray()) {
+                counter[c-'a'] += 1;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i=0; i<26; i+=1) {
+                if (counter[i] > 0) {
+                    sb.append((char)'a'+i);
+                    sb.append(counter[i]);
+                }
+            }
+            String key = sb.toString();
+            List<String> val = groups.getOrDefault(key, new ArrayList<>());
+            val.add(cur);
+            groups.put(key, val);
+        }
+
+        return new ArrayList<>(groups.values());
+    }
+}
+```

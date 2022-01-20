@@ -1,0 +1,168 @@
+---
+tags:
+  - 设计
+  - 哈希表
+  - 链表
+  - 双向链表
+  - 剑指offer专项版
+id: leetcode_OfferII031
+title: 🟡 剑指 Offer II 031. 最近最少使用缓存
+ques_id: OfferII031
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/OrIXps/
+online_name: 最近最少使用缓存
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/OrIXps/)
+
+:::
+
+## 题解1
+
+愚昧的做法
+
+```java
+class LRUCache {
+    private Map<Integer, Integer> values;
+    private List<Integer> indexes;
+    private int cap;
+
+    public LRUCache(int capacity) {
+        this.cap = capacity;
+        this.values = new HashMap<>();
+        this.indexes = new ArrayList<>();
+    }
+    
+    public int get(int key) {
+        if (!this.values.containsKey(key)) {
+            return -1;
+        }
+        int idx = this.indexes.indexOf(key);
+        this.indexes.remove(idx);
+        this.indexes.add(key);
+        return this.values.get(key);
+    }
+    
+    public void put(int key, int value) {
+        if (this.values.containsKey(key)) {
+            this.get(key);
+            this.values.put(key, value);
+            return;
+        }
+        if (this.indexes.size() < this.cap) {
+            this.values.put(key, value);
+            this.indexes.add(key);
+            return;
+        }
+        int oldKey = this.indexes.remove(0);
+        this.values.remove(oldKey);
+        this.indexes.add(key);
+        this.values.put(key, value);
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
+```
+
+# 题解2
+
+不那么愚昧的做法
+
+```java
+class LRUCache {
+    private Map<Integer, Integer> ageToKey;
+    private Map<Integer, Integer> keyToAge;
+    private Map<Integer, Integer> keyToVal;
+    private int oldestAge, topAge, cap, size;
+
+    public LRUCache(int capacity) {
+        this.cap = capacity;
+        this.oldestAge = 0;
+        this.topAge = 0;
+        this.size = 0;
+        this.ageToKey = new HashMap<>();
+        this.keyToAge = new HashMap<>();
+        this.keyToVal = new HashMap<>();
+    }
+    
+    public int get(int key) {
+        if (!this.keyToVal.containsKey(key)) {
+            return -1;
+        }
+        int val = this.keyToVal.get(key);
+        int myAge = this.keyToAge.get(key);
+
+        if (myAge == this.topAge) {
+            return val;
+        }
+        if (myAge == this.oldestAge) {
+            this.oldestAge += 1;
+        }
+        this.ageToKey.remove(myAge);
+        myAge = ++this.topAge;
+        this.keyToAge.put(key, myAge);
+        this.ageToKey.put(myAge, key);
+
+        return val;
+    }
+    
+    public void put(int key, int value) {
+        if (this.keyToVal.containsKey(key)) {
+            this.keyToVal.put(key, value);
+            this.get(key);
+            return;
+        }
+        this.keyToVal.put(key, value);
+        if (this.size < this.cap) {
+            this.size += 1;
+        } else {
+            while (!this.ageToKey.containsKey(this.oldestAge)) {
+                this.oldestAge+=1;
+            }
+            int oldKey = this.ageToKey.get(this.oldestAge);
+            this.keyToAge.remove(oldKey);
+            this.ageToKey.remove(this.oldestAge);
+            this.keyToVal.remove(oldKey);
+        }
+        
+        int myAge = ++this.topAge;
+        this.keyToAge.put(key, myAge);
+        this.ageToKey.put(myAge, key);
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
+```
+
+# 题解3
+
+还可以用双向链表+哈希表来做，这样在把节点提前的时候复杂度为O(1)
+
+官方题解有。[不抄了](https://leetcode-cn.com/problems/lru-cache/solution/lruhuan-cun-ji-zhi-by-leetcode-solution/)
