@@ -1,0 +1,95 @@
+---
+tags:
+  - 栈
+  - 数组
+  - 动态规划
+  - 矩阵
+  - 单调栈
+  - 剑指offer专项版
+id: leetcode_OfferII040
+title: 🔴 剑指 Offer II 040. 矩阵中最大的矩形
+ques_id: OfferII040
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/PLYXKQ/
+online_name: 矩阵中最大的矩形
+level: h
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ff375f">困难</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/PLYXKQ/)
+
+:::
+
+## 题解1
+
+这道题实际上是两道 Medium 题的结合
+
+参考柱状图中的最大矩形而解
+
+```java
+class Solution {
+    public int maximalRectangle(String[] matrix) {
+        int m = matrix.length;
+        if (m == 0) {
+            return 0;
+        }
+        int n = matrix[0].length();
+        if (n == 0) {
+            return 0;
+        }
+
+        int[][] left = new int[m][n];
+        int curLeft = 0;
+
+        for (int i=0; i<m; i+=1) {
+            for (int j=0; j<n; j+=1) {
+                curLeft = j == 0 ? 0 : left[i][j-1];
+                if (matrix[i].charAt(j) == '0') {
+                    left[i][j] = 0;
+                } else {
+                    left[i][j] = curLeft + 1;
+                }
+            }
+        }
+
+        int maxx = 0;
+
+        for (int j=0; j<n; j+=1) {
+            Deque<Integer> stack = new ArrayDeque<>();
+            int[] up = new int[m];
+            int[] down = new int[m];
+
+            Arrays.fill(down, m);
+
+            for (int i=0; i<m; i+=1) {
+                while (!stack.isEmpty() && left[stack.peek()][j] > left[i][j]) {
+                    down[stack.peek()] = i;
+                    stack.poll();
+                }
+                up[i] = stack.isEmpty() ? -1 : stack.peek();
+                stack.push(i);
+            }
+            for (int i=0; i<m; i+=1) {
+                maxx = Math.max(maxx, (down[i]-up[i]-1) * left[i][j]);
+            }
+        }
+
+        return maxx;
+    }
+}
+```

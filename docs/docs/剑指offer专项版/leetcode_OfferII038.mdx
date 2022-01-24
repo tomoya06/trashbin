@@ -1,0 +1,71 @@
+---
+tags:
+  - 栈
+  - 数组
+  - 单调栈
+  - 剑指offer专项版
+id: leetcode_OfferII038
+title: 🟡 剑指 Offer II 038. 每日温度
+ques_id: OfferII038
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/iIQa4I/
+online_name: 每日温度
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/iIQa4I/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        // [idx, temp]
+        Deque<int[]> stack = new LinkedList<>();
+        int n = temperatures.length, cur;
+        int[] res = new int[n];
+
+        for (int i=n-1; i>=0; i-=1) {
+            cur = temperatures[i];
+
+            if (stack.isEmpty()) {
+                res[i] = 0;
+                stack.add(new int[]{i, cur});
+                continue;
+            }
+
+            while (!stack.isEmpty() && stack.getLast()[1] <= cur) {
+                stack.removeLast();
+            }
+
+            if (stack.isEmpty()) {
+                res[i] = 0;
+            } else {
+                res[i] = stack.getLast()[0] - i;
+            }
+
+            stack.add(new int[]{i, cur});
+        }
+
+        return res;
+    }
+}
+```
