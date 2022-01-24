@@ -1,0 +1,80 @@
+---
+tags:
+  - 树
+  - 深度优先搜索
+  - 广度优先搜索
+  - 二叉树
+  - 剑指offer专项版
+id: leetcode_OfferII045
+title: 🟡 剑指 Offer II 045. 二叉树最底层最左边的值
+ques_id: OfferII045
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/LwUNpT/
+online_name: 二叉树最底层最左边的值
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/LwUNpT/)
+
+:::
+
+## 题解1
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int findBottomLeftValue(TreeNode root) {
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        TreeNode leftMost = root, cur;
+        int rowSize;
+
+        while (!queue.isEmpty()) {
+            rowSize = queue.size();
+            leftMost = queue.peek();
+
+            for (int i=0; i<rowSize; i+=1) {
+                cur = queue.poll();
+                if (cur.left != null) {
+                    queue.add(cur.left);
+                }
+                if (cur.right != null) {
+                    queue.add(cur.right);
+                }
+            }
+        }
+
+        return leftMost.val;
+    }
+}
+```

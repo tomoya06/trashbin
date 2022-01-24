@@ -1,0 +1,63 @@
+---
+tags:
+  - 设计
+  - 队列
+  - 数据流
+  - 剑指offer专项版
+id: leetcode_OfferII042
+title: 🟢 剑指 Offer II 042. 最近请求次数
+ques_id: OfferII042
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/H8086Q/
+online_name: 最近请求次数
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/H8086Q/)
+
+:::
+
+## 题解1
+
+```java
+class RecentCounter {
+
+    Deque<Integer> queue;
+
+    public RecentCounter() {
+        this.queue = new LinkedList<>();
+    }
+    
+    public int ping(int t) {
+        this.queue.add(t);
+
+        while (this.queue.peek() < t-3000) {
+            this.queue.poll();
+        }
+
+        return this.queue.size();
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter obj = new RecentCounter();
+ * int param_1 = obj.ping(t);
+ */
+```

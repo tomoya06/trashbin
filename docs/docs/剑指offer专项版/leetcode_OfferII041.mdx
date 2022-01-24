@@ -1,0 +1,69 @@
+---
+tags:
+  - 设计
+  - 队列
+  - 数组
+  - 数据流
+  - 剑指offer专项版
+id: leetcode_OfferII041
+title: 🟢 剑指 Offer II 041. 滑动窗口的平均值
+ques_id: OfferII041
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/qIsx9U/
+online_name: 滑动窗口的平均值
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/qIsx9U/)
+
+:::
+
+## 题解1
+
+```java
+class MovingAverage {
+    int sum;
+    int size;
+    Deque<Integer> queue;
+
+    /** Initialize your data structure here. */
+    public MovingAverage(int size) {
+        this.sum = 0;
+        this.size = size;
+        this.queue = new LinkedList<>();
+    }
+    
+    public double next(int val) {
+        this.queue.add(val);
+        this.sum += val;
+        if (this.queue.size() > this.size) {
+            int top = this.queue.poll();
+            this.sum -= top;
+        }
+
+        return (double) this.sum / this.queue.size();
+    }
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage obj = new MovingAverage(size);
+ * double param_1 = obj.next(val);
+ */
+```
