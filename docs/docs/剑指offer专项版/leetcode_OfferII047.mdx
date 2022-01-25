@@ -1,0 +1,145 @@
+---
+tags:
+  - 树
+  - 深度优先搜索
+  - 二叉树
+  - 剑指offer专项版
+id: leetcode_OfferII047
+title: 🟡 剑指 Offer II 047. 二叉树剪枝
+ques_id: OfferII047
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/pOCWxh/
+online_name: 二叉树剪枝
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/pOCWxh/)
+
+:::
+
+## 题解1
+
+没看答案之前觉得还不太愚蠢的做法
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    Map<TreeNode, Boolean> visited = new HashMap<>();
+
+    private void visit(TreeNode node) {
+        int canDelete = 0;
+
+        if (node.left != null) {
+            visit(node.left);
+
+            if (visited.getOrDefault(node.left, false)) {
+                canDelete += 1;
+                node.left = null;
+            }
+        } else {
+            canDelete += 1;
+        }
+
+        if (node.right != null) {
+            visit(node.right);
+
+            if (visited.getOrDefault(node.right, false)) {
+                canDelete += 1;
+                node.right = null;
+            }
+        } else {
+            canDelete += 1;
+        }
+
+        if (canDelete == 2 && node.val == 0) {
+            visited.put(node, true);
+        }
+    }
+
+    public TreeNode pruneTree(TreeNode root) {
+        visit(root);
+        if (visited.getOrDefault(root, false)) {
+            root = null;
+        }
+
+        return root;
+    }
+}
+```
+
+## 题解2
+
+看完答案发现自己有点愚蠢的解法
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private boolean containsOne(TreeNode node) {
+        if (node == null) return false;
+        boolean a1 = containsOne(node.left);
+        boolean a2 = containsOne(node.right);
+        if (!a1) {
+            node.left = null;
+        }
+        if (!a2) {
+            node.right = null;
+        }
+        if (!a1 && !a2 && node.val != 1) {
+            return false;
+        }
+        return true;
+    }
+
+    public TreeNode pruneTree(TreeNode root) {
+        boolean r = containsOne(root);
+        if (!r) {
+            root = null;
+        }
+        return root;
+    }
+}
+```
