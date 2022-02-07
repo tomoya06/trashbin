@@ -1,0 +1,92 @@
+---
+tags:
+  - 栈
+  - 树
+  - 深度优先搜索
+  - 二叉搜索树
+  - 二叉树
+  - 剑指offer专项版
+id: leetcode_OfferII052
+title: 🟢 剑指 Offer II 052. 展平二叉搜索树
+ques_id: OfferII052
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/NYBBNL/
+online_name: 展平二叉搜索树
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/NYBBNL/)
+
+:::
+
+## 题解1
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private TreeNode theRoot;
+    private TreeNode cur;
+
+    private void join(TreeNode node) {
+        if (this.cur == null) {
+            this.theRoot = node;
+            this.cur = this.theRoot;
+        } else {
+            this.cur.right = node;
+            this.cur = this.cur.right;
+        }
+    }
+
+    private void visit(TreeNode node) {
+        if (node.left != null) {
+            TreeNode left  = node.left;
+            node.left = null;
+            visit(left);
+        }
+        join(node);
+        if (node.right != null) {
+            TreeNode right = node.right;
+            node.right = null;
+            visit(right);
+        }
+    }
+
+    public TreeNode increasingBST(TreeNode root) {
+        this.theRoot = null;
+        this.cur = null;
+
+        visit(root);
+        return this.theRoot;
+    }
+}
+```

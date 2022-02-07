@@ -1,0 +1,90 @@
+---
+tags:
+  - 栈
+  - 树
+  - 设计
+  - 二叉搜索树
+  - 二叉树
+  - 迭代器
+  - 剑指offer专项版
+id: leetcode_OfferII055
+title: 🟡 剑指 Offer II 055. 二叉搜索树迭代器
+ques_id: OfferII055
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/kTOapQ/
+online_name: 二叉搜索树迭代器
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/kTOapQ/)
+
+:::
+
+## 题解1
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class BSTIterator {
+    private Deque<Integer> stack;
+
+    private void visit(TreeNode node) {
+        if (node.left != null) {
+            visit(node.left);
+        }
+        stack.add(node.val);
+        if (node.right != null) {
+            visit(node.right);
+        }
+    }
+
+    public BSTIterator(TreeNode root) {
+        this.stack = new ArrayDeque<>();
+        visit(root);
+    }
+    
+    public int next() {
+        return this.stack.poll();
+    }
+    
+    public boolean hasNext() {
+        return !this.stack.isEmpty();
+    }
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * BSTIterator obj = new BSTIterator(root);
+ * int param_1 = obj.next();
+ * boolean param_2 = obj.hasNext();
+ */
+```

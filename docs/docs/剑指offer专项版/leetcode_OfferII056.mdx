@@ -1,0 +1,138 @@
+---
+tags:
+  - 树
+  - 深度优先搜索
+  - 广度优先搜索
+  - 二叉搜索树
+  - 哈希表
+  - 双指针
+  - 二叉树
+  - 剑指offer专项版
+id: leetcode_OfferII056
+title: 🟢 剑指 Offer II 056. 二叉搜索树中两个节点之和
+ques_id: OfferII056
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/opLdQZ/
+online_name: 二叉搜索树中两个节点之和
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/opLdQZ/)
+
+:::
+
+## 题解1
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private Set<Integer> visited;
+    private int target;
+
+    private boolean visit(TreeNode node) {
+        if (node.left != null) {
+            boolean leftRes = visit(node.left);
+            if (leftRes) {
+                return true;
+            }
+        }
+        if (visited.contains(target - node.val)) {
+            return true;
+        }
+
+        visited.add(node.val);
+
+        if (node.right != null) {
+            boolean rightRes = visit(node.right);
+            if (rightRes) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean findTarget(TreeNode root, int k) {
+        this.visited = new HashSet<>();
+        this.target = k;
+        return visit(root);
+    }
+}
+```
+
+## 题解2
+
+这道题用迭代写法更好提前退出
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        Set<Integer> visited = new HashSet<>();
+        TreeNode node;
+
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+
+            node = stack.pop();
+            if (visited.contains(k - node.val)) {
+                return true;
+            }
+
+            visited.add(node.val);
+            root = node.right;
+        }
+
+        return false;
+    }
+}
+```
+
