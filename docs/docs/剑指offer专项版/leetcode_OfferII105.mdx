@@ -1,0 +1,81 @@
+---
+tags:
+  - 深度优先搜索
+  - 广度优先搜索
+  - 并查集
+  - 数组
+  - 矩阵
+  - 剑指offer专项版
+id: leetcode_OfferII105
+title: 🟡 剑指 Offer II 105. 岛屿的最大面积
+ques_id: OfferII105
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/ZL6zAn/
+online_name: 岛屿的最大面积
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/ZL6zAn/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    private int[][] matrix;
+    private int xx;
+    private int yy;
+
+    private int travel(int x, int y) {
+        int cnt = 0;
+        if (x < 0 || x >= xx || y < 0 || y >= yy) {
+            return 0;
+        }
+
+        if (matrix[x][y] != 1) {
+            return 0;
+        }
+        
+        cnt += 1;
+        matrix[x][y] = 2;
+
+        cnt += travel(x-1, y) + travel(x+1, y) +  travel(x, y-1) + travel(x, y+1);
+        return cnt;
+    }
+
+    public int maxAreaOfIsland(int[][] grid) {
+        this.matrix = grid;
+        this.xx = matrix.length;
+        this.yy = matrix[0].length;
+        int maxx = 0, cur;
+
+        for (int x = 0; x < this.xx; x += 1) {
+            for (int y = 0; y < this.yy; y += 1) {
+                if (this.matrix[x][y] == 1) {
+                    cur = travel(x, y);
+                    maxx = Math.max(maxx, cur);
+                }
+            }
+        }
+
+        return maxx;
+    }
+}
+```
