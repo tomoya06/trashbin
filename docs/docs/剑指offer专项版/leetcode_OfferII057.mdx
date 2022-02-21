@@ -1,0 +1,65 @@
+---
+tags:
+  - 数组
+  - 桶排序
+  - 有序集合
+  - 排序
+  - 滑动窗口
+  - 剑指offer专项版
+id: leetcode_OfferII057
+title: 🟡 剑指 Offer II 057. 值和下标之差都在给定的范围内
+ques_id: OfferII057
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/7WqeDu/
+online_name: 值和下标之差都在给定的范围内
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/7WqeDu/)
+
+:::
+
+## 题解1
+
+抄作业1。
+
+思路是 滑动窗口 + 有序集合。Java 的 TreeSet 可以同时支持这两个能力。
+
+强烈推荐 TreeSet.ceiling() 和 TreeSet.floor() 方法
+
+```java
+class Solution {
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        TreeSet<Long> set = new TreeSet<>();
+        for (int i=0; i<nums.length; i++) {
+            Long ceil = set.ceiling((long)nums[i]-(long)t);
+            if (ceil != null && ceil <= (long)nums[i]+(long)t) {
+                return true;
+            }
+            set.add((long)nums[i]);
+
+            if (i >= k) {
+                set.remove((long)nums[i-k]);
+            }
+        }
+
+        return false;
+    }
+}
+```
