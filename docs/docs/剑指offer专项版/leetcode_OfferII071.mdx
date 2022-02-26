@@ -1,0 +1,78 @@
+---
+tags:
+  - 数学
+  - 二分查找
+  - 前缀和
+  - 随机化
+  - 剑指offer专项版
+id: leetcode_OfferII071
+title: 🟡 剑指 Offer II 071. 按权重生成随机数
+ques_id: OfferII071
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/cuyjEf/
+online_name: 按权重生成随机数
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/cuyjEf/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    private int[] prefix;
+    private int sum;
+
+    public Solution(int[] w) {
+        int n = w.length;
+        sum = 0;
+        prefix = new int[n];
+        for (int i=0; i<n; i++) {
+            sum += w[i];
+            prefix[i] = sum;
+        }
+    }
+    
+    public int pickIndex() {
+        int target = (int)(Math.random() * this.sum) + 1;
+        int lo=0, hi = prefix.length-1, mid, midw;
+        while (lo < hi) {
+            mid = (lo+hi) / 2;
+            midw = prefix[mid];
+            if (midw == target) {
+                return mid;
+            }
+            if (midw < target) {
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        }
+        return lo;
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(w);
+ * int param_1 = obj.pickIndex();
+ */
+```

@@ -1,0 +1,57 @@
+---
+tags:
+  - 数学
+  - 二分查找
+  - 剑指offer专项版
+id: leetcode_OfferII072
+title: 🟢 剑指 Offer II 072. 求平方根
+ques_id: OfferII072
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/jJ0w9p/
+online_name: 求平方根
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/jJ0w9p/)
+
+:::
+
+## 题解1
+
+经 典 送 命 题 
+
+```java
+class Solution {
+    public int mySqrt(int x) {
+        int lo=0, hi=x, mid, ans=0;
+        
+        while (lo<=hi) {
+            mid = lo+(hi-lo)/2;
+            if ((long)mid*mid <= x) {
+                ans = mid;
+                lo=mid+1;
+            } else {
+                hi=mid-1;
+            }
+        }
+
+        return ans;
+    }
+}
+```
