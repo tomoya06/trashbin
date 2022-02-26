@@ -1,0 +1,71 @@
+---
+tags:
+  - 树
+  - 设计
+  - 二叉搜索树
+  - 二叉树
+  - 数据流
+  - 堆（优先队列）
+  - 剑指offer专项版
+id: leetcode_OfferII059
+title: 🟢 剑指 Offer II 059. 数据流的第 K 大数值
+ques_id: OfferII059
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/jBjn9C/
+online_name: 数据流的第 K 大数值
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/jBjn9C/)
+
+:::
+
+## 题解1
+
+优先队列，会自动从小到大排，poll 和 peek 都是对队列首位进行操作
+
+```java
+class KthLargest {
+    int size;
+    PriorityQueue<Integer> heap;
+
+    public KthLargest(int k, int[] nums) {
+        this.heap = new PriorityQueue<>();
+        this.size = k;
+
+        for (int num : nums) {
+            this.add(num);
+        }
+    }
+    
+    public int add(int val) {
+        this.heap.offer(val);
+        if (this.heap.size() > size) {
+            this.heap.poll();
+        }
+        return this.heap.peek();
+    }
+}
+
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * KthLargest obj = new KthLargest(k, nums);
+ * int param_1 = obj.add(val);
+ */
+```

@@ -1,0 +1,68 @@
+---
+tags:
+  - 数组
+  - 哈希表
+  - 分治
+  - 桶排序
+  - 计数
+  - 快速选择
+  - 排序
+  - 堆（优先队列）
+  - 剑指offer专项版
+id: leetcode_OfferII060
+title: 🟡 剑指 Offer II 060. 出现频率最高的 k 个数字
+ques_id: OfferII060
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/g5c51o/
+online_name: 出现频率最高的 k 个数字
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/g5c51o/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>((x, y) -> {
+            return y[0] - x[0];
+        });
+
+        Map<Integer, Integer> freq = new HashMap<>();
+        for (int num : nums) {
+            freq.put(num, freq.getOrDefault(num, 0)+1);
+        }
+
+        for (var pair : freq.entrySet()) {
+            pq.offer(new int[]{pair.getValue(), pair.getKey()});
+        }
+
+        int[] res = new int[k];
+
+        for (int i=0; i<k; i++) {
+            res[i] = pq.poll()[1];
+        }
+
+        return res;
+    }
+}
+```
