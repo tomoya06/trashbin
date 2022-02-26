@@ -1,0 +1,90 @@
+---
+tags:
+  - 树
+  - 深度优先搜索
+  - 二叉树
+  - 剑指offer专项版
+id: leetcode_OfferII050
+title: 🟡 剑指 Offer II 050. 向下的路径节点之和
+ques_id: OfferII050
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/6eUYwP/
+online_name: 向下的路径节点之和
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/6eUYwP/)
+
+:::
+
+## 题解1
+
+前缀和
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int cnt = 0;
+    private int target = 0;
+    private Map<Integer, Integer> sumset;
+
+    private void dfs(TreeNode node, int curSum) {
+        curSum += node.val;
+        cnt += sumset.getOrDefault((curSum - target), 0);
+        sumset.put(curSum, sumset.getOrDefault(curSum, 0)+1);
+
+        if (node.left != null) {
+            dfs(node.left, curSum);
+        }
+        
+        if (node.right != null) {
+            dfs(node.right, curSum);
+        }
+
+        sumset.put(curSum, sumset.get(curSum)-1);
+    }
+
+    public int pathSum(TreeNode root, int targetSum) {
+        sumset = new HashMap<>();
+        target = targetSum;
+        sumset.put(0, 1);
+
+        if (root == null) {
+            return 0;
+        }
+        dfs(root, 0);
+
+        return cnt;
+    }
+}
+```

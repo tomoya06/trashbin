@@ -1,0 +1,69 @@
+---
+tags:
+  - 设计
+  - 线段树
+  - 有序集合
+  - 剑指offer专项版
+id: leetcode_OfferII058
+title: 🟡 剑指 Offer II 058. 日程表
+ques_id: OfferII058
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/fi9suh/
+online_name: 日程表
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/fi9suh/)
+
+:::
+
+## 题解1
+
+Java treemap & treeset 真是好用啊
+
+treemap.floorKey treemap.ceilingKey
+treeset.floor treeset.ceiling
+
+```java
+class MyCalendar {
+
+    private TreeMap<Integer, Integer> cal;
+
+    public MyCalendar() {
+        this.cal = new TreeMap<>();
+    }
+    
+    public boolean book(int start, int end) {
+        Integer prev = cal.floorKey(start);
+        Integer next = cal.ceilingKey(start);
+
+        if ((prev == null || cal.get(prev) <= start) && (next == null || next >= end)) {
+            cal.put(start, end);
+            return true;
+        }
+        return false;
+    }
+}
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * MyCalendar obj = new MyCalendar();
+ * boolean param_1 = obj.book(start,end);
+ */
+```
