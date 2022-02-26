@@ -1,0 +1,65 @@
+---
+tags:
+  - 数组
+  - 堆（优先队列）
+  - 剑指offer专项版
+id: leetcode_OfferII061
+title: 🟡 剑指 Offer II 061. 和最小的 k 个数对
+ques_id: OfferII061
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/qn8gGX/
+online_name: 和最小的 k 个数对
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/qn8gGX/)
+
+:::
+
+## 题解1
+
+优先队列是真的好用
+
+```java
+class Solution {
+    public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+        var pq = new PriorityQueue<int[]>((x, y) -> {
+            return x[0] - y[0];
+        });
+
+        for (int n1 : nums1) {
+            for (int n2 : nums2) {
+                pq.offer(new int[]{n1+n2, n1, n2});
+            }
+        }
+
+        var res = new ArrayList<List<Integer>>();
+
+        for (int i=0; i<k; i+=1) {
+            int[] cur = pq.poll();
+            if (cur == null) {
+                break;
+            }
+            res.add(Arrays.asList(cur[1], cur[2]));
+        }
+
+        return res;
+    }
+}
+```

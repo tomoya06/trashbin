@@ -1,0 +1,111 @@
+---
+tags:
+  - 设计
+  - 字典树
+  - 哈希表
+  - 字符串
+  - 剑指offer专项版
+id: leetcode_OfferII062
+title: 🟡 剑指 Offer II 062. 实现前缀树
+ques_id: OfferII062
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/QC3q1f/
+online_name: 实现前缀树
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/QC3q1f/)
+
+:::
+
+## 题解1
+
+也可以直接复用Trie这个class
+
+```java
+class Node {
+    public Map<Character, Node> child;
+
+    public Node() {
+        this.child = new HashMap<>();
+    }
+
+    public Node getChild(char c) {
+        return child.getOrDefault(c, null);
+    }
+
+    public void appendChild(char c) {
+        if (child.containsKey(c)) {
+            return;
+        }
+        child.put(c, new Node());
+    }
+}
+
+class Trie {
+    private Node root;
+    private static final char EOW = '*';
+
+    /** Initialize your data structure here. */
+    public Trie() {
+        this.root = new Node();
+    }
+    
+    private Node searchPrefix(String prefix) {
+        Node cur = root;
+        for (char c : prefix.toCharArray()) {
+            cur = cur.getChild(c);
+            if (cur == null) {
+                return null;
+            }
+        }
+        return cur;
+    }
+    
+    /** Inserts a word into the trie. */
+    public void insert(String word) {
+        Node cur = root;
+        for (char c : word.toCharArray()) {
+            cur.appendChild(c);
+            cur = cur.getChild(c);
+        }
+        cur.appendChild(EOW);
+    }
+    
+    /** Returns if the word is in the trie. */
+    public boolean search(String word) {
+        Node prefix = this.searchPrefix(word);
+        return prefix != null && prefix.getChild(EOW) != null;
+    }
+    
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    public boolean startsWith(String prefix) {
+        return this.searchPrefix(prefix) != null;
+    }
+
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie obj = new Trie();
+ * obj.insert(word);
+ * boolean param_2 = obj.search(word);
+ * boolean param_3 = obj.startsWith(prefix);
+ */
+```

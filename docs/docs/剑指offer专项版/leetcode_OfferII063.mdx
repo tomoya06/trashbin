@@ -1,0 +1,109 @@
+---
+tags:
+  - 字典树
+  - 数组
+  - 哈希表
+  - 字符串
+  - 剑指offer专项版
+id: leetcode_OfferII063
+title: 🟡 剑指 Offer II 063. 替换单词
+ques_id: OfferII063
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/UhWRSj/
+online_name: 替换单词
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/UhWRSj/)
+
+:::
+
+## 题解1
+
+```java
+class Trie {
+    public Trie[] child;
+    public boolean isEnd;
+
+    public Trie() {
+        this.child = new Trie[26];
+        this.isEnd = false;
+    }
+
+    public Trie appendChild(char c) {
+        if (this.child[c-'a'] == null) {
+            this.child[c-'a'] = new Trie();
+        }
+        return this.child[c-'a'];
+    }
+
+    public Trie getChild(char c) {
+        return this.child[c-'a'];
+    }
+
+    public void end() {
+        this.isEnd = true;
+    }
+
+    public void appendPrefix(String word) {
+        Trie cur = this;
+        for (char c : word.toCharArray()) {
+            cur = cur.appendChild(c);
+        }
+        cur.end();
+    }
+
+    public String prefix(String word) {
+        Trie cur = this;
+        StringBuilder sb = new StringBuilder();
+        for (char c : word.toCharArray()) {
+            cur = cur.getChild(c);
+            if (cur == null) {
+                return word;
+            }
+            sb.append(c);
+
+            if (cur.isEnd) {
+                return sb.toString();
+            }
+        }
+        return word;
+    }
+}
+
+class Solution {
+    public String replaceWords(List<String> dictionary, String sentence) {
+        Trie root = new Trie();
+        for (String dic : dictionary) {
+            root.appendPrefix(dic);
+        }
+
+        String[] swords = sentence.split(" ");
+
+        for (int i=0; i<swords.length; i++) {
+            String pre = root.prefix(swords[i]);
+            swords[i] = pre;
+        }
+
+        return String.join(" ", swords);
+    }
+}
+
+
+```
