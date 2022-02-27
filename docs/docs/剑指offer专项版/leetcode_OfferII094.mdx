@@ -1,0 +1,78 @@
+---
+tags:
+  - 字符串
+  - 动态规划
+  - 剑指offer专项版
+id: leetcode_OfferII094
+title: 🔴 剑指 Offer II 094. 最少回文分割
+ques_id: OfferII094
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/omKAoA/
+online_name: 最少回文分割
+level: h
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ff375f">困难</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/omKAoA/)
+
+:::
+
+## 题解1
+
+两部分：
+
+一是如何判断substring回文串？用二维数组做记忆化搜索
+
+二是怎么判断最小分割？用一维数组做动态规划
+
+抄作业
+
+```java
+class Solution {
+    public int minCut(String s) {
+        int n = s.length();
+        boolean[][] pa = new boolean[n][n];
+        for (int i=0; i<n; i++) {
+            Arrays.fill(pa[i], true);
+        }
+
+        for (int i=n-1; i>=0; i--) {
+            for (int j=i+1; j<n; j++) {
+                pa[i][j] = s.charAt(i) == s.charAt(j) && pa[i+1][j-1];
+            }
+        }
+
+        int[] dp = new int[n];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+        for (int i=1; i<n; i++) {
+            if (pa[0][i]) {
+                dp[i] = 0;
+            } else {
+                for (int j=1; j<=i; j++) {
+                    if (pa[j][i]) {
+                        dp[i] = Math.min(dp[i], dp[j-1]+1);
+                    }
+                }
+            }
+        }
+
+        return dp[n-1];
+    }
+}
+```
