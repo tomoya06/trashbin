@@ -1,0 +1,88 @@
+---
+tags:
+  - 字符串
+  - 回溯
+  - 剑指offer专项版
+id: leetcode_OfferII087
+title: 🟡 剑指 Offer II 087. 复原 IP 
+ques_id: OfferII087
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/0on3uN/
+online_name: 复原 IP 
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/0on3uN/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    private boolean isValid(String s, int lo, int hi) {
+        if (hi-lo > 3) {
+            return false;
+        }
+        if (hi-lo >= 2 && s.charAt(lo) == '0') {
+            return false;
+        }
+        if (hi-lo == 3 && Integer.parseInt(s.substring(lo, hi)) > 255) {
+            return false;
+        }
+        return true;
+    }
+
+    private int[] dots = new int[4];
+    private List<String> res = new ArrayList<>();
+
+    public List<String> restoreIpAddresses(String s) {
+        dots[3] = s.length();
+        travel(0, s);
+
+        return res;
+    }
+
+    private boolean validate(String s) {
+        if (!isValid(s, 0, dots[0]) || !isValid(s, dots[0], dots[1]) || !isValid(s, dots[1], dots[2]) || !isValid(s, dots[2], dots[3])) {
+            return false;
+        }
+        return true;
+    }
+
+    private void travel(int idx, String s) {
+        if (idx == 3) {
+            if (!validate(s)) {
+                return;
+            }
+
+            res.add(s.substring(0, dots[0]) + '.' + s.substring(dots[0], dots[1]) + '.' + s.substring(dots[1], dots[2]) + '.' + s.substring(dots[2], dots[3]));
+            return;
+        }
+
+        int lo = idx == 0 ? 1 : dots[idx-1]+1;
+        int hi = Math.min(s.length()-1, lo+3);
+
+        for (int i=lo; i<=hi; i+=1) {
+            dots[idx] = i;
+            travel(idx+1, s);
+        }
+    }
+}
+```

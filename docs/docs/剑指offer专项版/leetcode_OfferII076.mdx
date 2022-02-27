@@ -1,0 +1,55 @@
+---
+tags:
+  - 数组
+  - 分治
+  - 快速选择
+  - 排序
+  - 堆（优先队列）
+  - 剑指offer专项版
+id: leetcode_OfferII076
+title: 🟡 剑指 Offer II 076. 数组中的第 k 大的数字
+ques_id: OfferII076
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/xx4gT2/
+online_name: 数组中的第 k 大的数字
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/xx4gT2/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int num : nums) {
+            pq.offer(num);
+
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+
+        return pq.peek();
+    }
+}
+```

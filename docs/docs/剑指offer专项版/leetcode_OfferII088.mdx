@@ -1,0 +1,47 @@
+---
+tags:
+  - 数组
+  - 动态规划
+  - 剑指offer专项版
+id: leetcode_OfferII088
+title: 🟢 剑指 Offer II 088. 爬楼梯的最少成本
+ques_id: OfferII088
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/GzCJIP/
+online_name: 爬楼梯的最少成本
+level: e
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#00b8a3">简单</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/GzCJIP/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n=cost.length;
+        for (int i=n-3; i>=0; i-=1) {
+            cost[i] = Math.min(cost[i+1], cost[i+2]) + cost[i];
+        }
+        return Math.min(cost[0], cost[1]);
+    }
+} 
+```
