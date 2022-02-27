@@ -1,0 +1,61 @@
+---
+tags:
+  - 数组
+  - 动态规划
+  - 矩阵
+  - 剑指offer专项版
+id: leetcode_OfferII099
+title: 🟡 剑指 Offer II 099. 最小路径之和
+ques_id: OfferII099
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/0i0mDW/
+online_name: 最小路径之和
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/0i0mDW/)
+
+:::
+
+## 题解1
+
+```java
+class Solution {
+    public int minPathSum(int[][] grid) {
+        int yy=grid.length, xx=grid[0].length;
+        int[][] sums = new int[2][xx+1];
+        int si = 0;
+
+        for (int i=0; i<xx; i++) {
+            sums[si][i+1] = grid[0][i] + sums[si][i];
+        }
+        sums[0][0] = Integer.MAX_VALUE;
+        sums[1][0] = Integer.MAX_VALUE;
+
+        for (int j=1; j<yy; j++) {
+            si = 1-si;
+            for (int i=0; i<xx; i++) {
+                sums[si][i+1] = grid[j][i] + Math.min(sums[si][i], sums[1-si][i+1]);
+            }
+        }
+
+        return sums[si][xx];
+    }
+}
+```

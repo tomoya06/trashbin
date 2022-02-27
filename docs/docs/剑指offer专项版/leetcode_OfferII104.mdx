@@ -1,0 +1,57 @@
+---
+tags:
+  - 数组
+  - 动态规划
+  - 剑指offer专项版
+id: leetcode_OfferII104
+title: 🟡 剑指 Offer II 104. 排列的数目
+ques_id: OfferII104
+platform: leetcode
+online_link: https://leetcode-cn.com/problems/D0F0SV/
+online_name: 排列的数目
+level: m
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+:::tip LeetCode 提示
+
+题目难度 <Highlight color="#ffc01e">中等</Highlight>
+
+原题链接 [🔗 leetcode](https://leetcode-cn.com/problems/D0F0SV/)
+
+:::
+
+## 题解1
+
+这道题的题解真的是~ bravo! 
+
+这里能用dp的关键因素：1是不需要返回全排列；2是顺序不一样算不同的排列
+
+```java
+class Solution {
+    public int combinationSum4(int[] nums, int target) {
+        int[] dp = new int[target+1];
+        dp[0] = 1;
+        for (int i=1; i<=target; i++) {
+            for (int num: nums) {
+                if (num <= i) {
+                    dp[i] += dp[i-num];
+                }
+            }
+        }
+
+        return dp[target];
+    }
+}
+```
