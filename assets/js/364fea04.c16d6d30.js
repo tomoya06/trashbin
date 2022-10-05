@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[6589],{4371:function(s){s.exports=JSON.parse('{"name":"Redis","permalink":"/docs/tags/redis","docs":[{"id":"note/redis-basic","title":"Redis \u57fa\u7840","description":"Redis\u5165\u95e8","permalink":"/docs/note/redis-basic"}],"allTagsPath":"/docs/tags"}')}}]);
