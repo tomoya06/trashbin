@@ -7,12 +7,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   title: 'My Site',
   tagline: '互联网就是用来存垃圾的',
   url: 'https://tomoya06.github.io/',
-  baseUrl: '/',
+  baseUrl: '/trashbin/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'tomoya06',
+  projectName: 'trashbin',
 
   presets: [
     [
